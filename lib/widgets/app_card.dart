@@ -1,0 +1,54 @@
+import 'package:flutter/cupertino.dart';
+
+import '../app/app_state.dart';
+import 'glass_surface.dart';
+
+class AppCard extends StatelessWidget {
+  const AppCard({
+    required this.child,
+    this.padding = const EdgeInsets.all(14),
+    this.color,
+    super.key,
+  });
+
+  final Widget child;
+  final EdgeInsets padding;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return GlassSurface(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: padding,
+      radius: 22,
+      tint: color ?? p.card,
+      borderColor: p.text.withValues(alpha: 0.10),
+      child: child,
+    );
+  }
+}
+
+class SectionLabel extends StatelessWidget {
+  const SectionLabel(this.label, {super.key});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 8, 4, 6),
+      child: Text(
+        label.toUpperCase(),
+        style: TextStyle(
+          color: p.muted.withValues(alpha: 0.68),
+          fontSize: 11.5,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 1.6,
+        ),
+      ),
+    );
+  }
+}
