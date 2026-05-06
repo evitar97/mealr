@@ -5,6 +5,7 @@ import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
 import '../../utils/calculators.dart';
 import '../../widgets/glass_surface.dart';
+import '../../widgets/spring_pressable.dart';
 
 class CalorieScreen extends StatefulWidget {
   const CalorieScreen({super.key});
@@ -74,7 +75,7 @@ class _CalorieScreenState extends State<CalorieScreen> {
                 whole(result.tdee),
                 style: TextStyle(
                   color: p.accent,
-                  fontSize: 40,
+                  fontSize: 34,
                   fontWeight: FontWeight.w600,
                   letterSpacing: -1.4,
                 ),
@@ -137,7 +138,7 @@ class _CalorieScreenState extends State<CalorieScreen> {
                 tx(context, 'Nem'),
                 style: TextStyle(
                   color: p.muted,
-                  fontSize: 18,
+                  fontSize: 16.5,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -170,7 +171,7 @@ class _CalorieScreenState extends State<CalorieScreen> {
                 tx(context, 'Napi aktivitás'),
                 style: TextStyle(
                   color: p.muted,
-                  fontSize: 18,
+                  fontSize: 16.5,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -391,7 +392,7 @@ class _SliderCardState extends State<_SliderCard> {
                   widget.label,
                   style: TextStyle(
                     color: p.text,
-                    fontSize: 18,
+                    fontSize: 16.5,
                     fontWeight: FontWeight.w600,
                     letterSpacing: -0.2,
                   ),
@@ -440,7 +441,7 @@ class _SliderCardState extends State<_SliderCard> {
                     decoration: const BoxDecoration(),
                     style: TextStyle(
                       color: p.accent,
-                      fontSize: 26,
+                      fontSize: 23,
                       height: 1,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.8,
@@ -518,13 +519,16 @@ class _StepperButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    return CupertinoButton(
-      minimumSize: const Size(32, 32),
-      padding: EdgeInsets.zero,
-      color: p.card.withValues(alpha: 0.72),
-      borderRadius: BorderRadius.circular(10),
-      onPressed: onPressed,
-      child: Icon(icon, color: p.accent, size: 17),
+    return SpringPressable(
+      pressedScale: 0.90,
+      child: CupertinoButton(
+        minimumSize: const Size(32, 32),
+        padding: EdgeInsets.zero,
+        color: p.card,
+        borderRadius: BorderRadius.circular(10),
+        onPressed: onPressed,
+        child: Icon(icon, color: p.accent, size: 17),
+      ),
     );
   }
 }
@@ -548,8 +552,8 @@ class _CaloriePanel extends StatelessWidget {
       padding: padding,
       radius: 24,
       tint: color ?? p.card,
-      opacity: color == null ? 0.62 : 0.48,
-      borderColor: p.text.withValues(alpha: 0.10),
+      opacity: color == null ? 0.88 : 0.72,
+      borderColor: p.border.withValues(alpha: 0.60),
       child: child,
     );
   }
@@ -582,17 +586,19 @@ class _SaveStrip extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          CupertinoButton(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-            color: saved ? p.noteColor : p.accent,
-            borderRadius: BorderRadius.circular(14),
-            onPressed: onSave,
-            child: Text(
-              saved ? tx(context, 'Mentve') : tx(context, 'Mentés'),
-              style: TextStyle(
-                color: p.buttonText,
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
+          SpringPressable(
+            child: CupertinoButton(
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+              color: saved ? p.noteColor : p.accent,
+              borderRadius: BorderRadius.circular(14),
+              onPressed: onSave,
+              child: Text(
+                saved ? tx(context, 'Mentve') : tx(context, 'Mentés'),
+                style: TextStyle(
+                  color: p.buttonText,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
@@ -618,18 +624,21 @@ class _Choice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    final child = CupertinoButton(
-      color: active ? p.accent : p.bg,
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-      borderRadius: BorderRadius.circular(9),
-      onPressed: onTap,
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          label,
-          style: TextStyle(
-            color: active ? p.buttonText : p.muted,
-            fontWeight: FontWeight.w600,
+    final child = SpringPressable(
+      pressedScale: 0.96,
+      child: CupertinoButton(
+        color: active ? p.accent : p.resultBg,
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+        borderRadius: BorderRadius.circular(9),
+        onPressed: onTap,
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            label,
+            style: TextStyle(
+              color: active ? p.buttonText : p.muted,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),

@@ -10,7 +10,7 @@ import '../features/calorie/calorie_screen.dart';
 import '../features/food/food_list_screen.dart';
 import '../features/profile/profile_screen.dart';
 import '../widgets/glass_surface.dart';
-import '../widgets/theme_picker_sheet.dart';
+import '../widgets/spring_pressable.dart';
 
 class MealWeightApp extends StatefulWidget {
   const MealWeightApp({super.key});
@@ -73,20 +73,22 @@ class MealWeightShell extends StatelessWidget {
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       child: SafeArea(
-        top: false,
         bottom: false,
         child: Stack(
           children: [
             Positioned.fill(
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+                  gradient: RadialGradient(
+                    center: const Alignment(0, -0.82),
+                    radius: 1.18,
                     colors: [
-                      p.bg,
                       Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.055 : 0.08),
+                        p.accent.withValues(alpha: state.isDark ? 0.17 : 0.16),
+                        p.bg,
+                      ),
+                      Color.alphaBlend(
+                        p.card.withValues(alpha: state.isDark ? 0.08 : 0.26),
                         p.bg,
                       ),
                       p.bg,
@@ -148,9 +150,10 @@ class _TopBar extends StatelessWidget {
       ),
       radius: 0,
       tint: p.bg,
-      opacity: state.isDark ? 0.50 : 0.62,
+      opacity: 1,
       blur: 18,
       shadow: false,
+      borderColor: p.bg,
       child: Row(
         children: [
           const AppLogo(),
@@ -158,14 +161,6 @@ class _TopBar extends StatelessWidget {
           _NavButton(
             icon: CupertinoIcons.info,
             onPressed: () => _showInfo(context),
-          ),
-          _NavButton(
-            icon: state.isDark ? CupertinoIcons.sun_max : CupertinoIcons.moon,
-            onPressed: state.toggleBrightness,
-          ),
-          _NavButton(
-            icon: CupertinoIcons.square_grid_2x2,
-            onPressed: () => _showThemePicker(context),
           ),
         ],
       ),
@@ -175,12 +170,9 @@ class _TopBar extends StatelessWidget {
   void _showInfo(BuildContext context) {
     showCupertinoModalPopup<void>(
       context: context,
+      barrierColor: const Color(0x99000000),
       builder: (context) => const _InfoSheet(),
     );
-  }
-
-  void _showThemePicker(BuildContext context) {
-    showThemePickerSheet(context);
   }
 }
 
@@ -195,13 +187,15 @@ class _NavButton extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return Padding(
       padding: const EdgeInsets.only(left: 5),
-      child: CupertinoButton(
-        minimumSize: const Size(40, 40),
-        padding: EdgeInsets.zero,
-        color: p.card.withValues(alpha: 0.72),
-        borderRadius: BorderRadius.circular(22),
-        onPressed: onPressed,
-        child: Icon(icon, size: 18, color: p.muted.withValues(alpha: 0.88)),
+      child: SpringPressable(
+        child: CupertinoButton(
+          minimumSize: const Size(40, 40),
+          padding: EdgeInsets.zero,
+          color: p.resultBg,
+          borderRadius: BorderRadius.circular(14),
+          onPressed: onPressed,
+          child: Icon(icon, size: 18, color: p.accent.withValues(alpha: 0.92)),
+        ),
       ),
     );
   }
@@ -216,27 +210,27 @@ class _BottomTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = state.palette;
     final dockColor = Color.alphaBlend(
-      p.card.withValues(alpha: state.isDark ? 0.78 : 0.92),
+      p.card.withValues(alpha: 1),
       Color.alphaBlend(
-        p.accent.withValues(alpha: state.isDark ? 0.08 : 0.05),
+        p.accent.withValues(alpha: state.isDark ? 0.06 : 0.02),
         p.bg,
       ),
     );
     final dockBorder = Color.alphaBlend(
-      p.accent.withValues(alpha: state.isDark ? 0.34 : 0.24),
-      p.text.withValues(alpha: state.isDark ? 0.12 : 0.18),
+      p.accent.withValues(alpha: state.isDark ? 0.38 : 0.18),
+      p.border.withValues(alpha: state.isDark ? 0.32 : 0.28),
     );
     return GlassSurface(
-      radius: 999,
+      radius: 22,
       padding: EdgeInsets.zero,
       tint: dockColor,
-      opacity: 0.82,
+      opacity: 1,
       borderColor: dockBorder,
-      blur: 26,
+      blur: 0,
       child: SizedBox(
         height: AppLayout.bottomTabsHeight,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(999),
+          borderRadius: BorderRadius.circular(22),
           child: Stack(
             children: [
               Positioned.fill(child: ColoredBox(color: dockColor)),
@@ -249,6 +243,7 @@ class _BottomTabs extends StatelessWidget {
                       tab: AppTab.foods,
                       icon: CupertinoIcons.list_bullet,
                       label: tx(context, 'Lista'),
+                      color: const Color(0xFFB9572C),
                       edge: _TabEdge.first,
                     ),
                     _TabItem(
@@ -256,6 +251,7 @@ class _BottomTabs extends StatelessWidget {
                       tab: AppTab.calories,
                       icon: CupertinoIcons.flame,
                       label: tx(context, 'Kalória'),
+                      color: const Color(0xFFD98228),
                       edge: _TabEdge.middle,
                     ),
                     _TabItem(
@@ -263,6 +259,7 @@ class _BottomTabs extends StatelessWidget {
                       tab: AppTab.bmi,
                       icon: CupertinoIcons.chart_bar_square,
                       label: 'BMI',
+                      color: const Color(0xFFA98A2B),
                       edge: _TabEdge.middle,
                     ),
                     _TabItem(
@@ -270,6 +267,7 @@ class _BottomTabs extends StatelessWidget {
                       tab: AppTab.profile,
                       icon: CupertinoIcons.person,
                       label: tx(context, 'Profil'),
+                      color: const Color(0xFF9D704A),
                       edge: _TabEdge.last,
                     ),
                   ],
@@ -291,6 +289,7 @@ class _TabItem extends StatelessWidget {
     required this.tab,
     required this.icon,
     required this.label,
+    required this.color,
     required this.edge,
   });
 
@@ -298,69 +297,111 @@ class _TabItem extends StatelessWidget {
   final AppTab tab;
   final IconData icon;
   final String label;
+  final Color color;
   final _TabEdge edge;
 
   @override
   Widget build(BuildContext context) {
     final p = state.palette;
     final active = state.tab == tab;
-    final color = active
-        ? p.accent
+    final tabColor = active
+        ? color
         : Color.alphaBlend(
-            p.text.withValues(alpha: state.isDark ? 0.28 : 0.32),
-            p.border,
+            color.withValues(alpha: state.isDark ? 0.90 : 0.82),
+            p.card,
           );
+    final contourColor = state.isDark
+        ? CupertinoColors.black.withValues(alpha: 0.54)
+        : p.text.withValues(alpha: 0.22);
     final radius = switch (edge) {
       _TabEdge.first => const BorderRadius.horizontal(
-        left: Radius.circular(999),
-        right: Radius.circular(14),
+        left: Radius.circular(18),
+        right: Radius.circular(8),
       ),
       _TabEdge.last => const BorderRadius.horizontal(
-        left: Radius.circular(14),
-        right: Radius.circular(999),
+        left: Radius.circular(8),
+        right: Radius.circular(18),
       ),
-      _TabEdge.middle => BorderRadius.circular(14),
+      _TabEdge.middle => BorderRadius.circular(8),
     };
     return Expanded(
-      child: CupertinoButton(
-        padding: EdgeInsets.zero,
-        onPressed: () {
-          FocusManager.instance.primaryFocus?.unfocus();
-          state.selectTab(tab);
-        },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 180),
-          curve: Curves.easeOutCubic,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: active
-                ? p.accent.withValues(alpha: state.isDark ? 0.18 : 0.15)
-                : CupertinoColors.transparent,
-            borderRadius: radius,
-          ),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(icon, size: active ? 23 : 21, color: color),
-                  const SizedBox(height: 2),
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      label,
-                      maxLines: 1,
-                      style: TextStyle(
-                        color: color,
-                        fontSize: 11.5,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0,
+      child: SpringPressable(
+        pressedScale: 0.92,
+        child: CupertinoButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+            state.selectTab(tab);
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 180),
+            curve: Curves.easeOutCubic,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: active
+                  ? Color.alphaBlend(
+                      color.withValues(alpha: state.isDark ? 0.18 : 0.16),
+                      p.resultBg,
+                    )
+                  : CupertinoColors.transparent,
+              borderRadius: radius,
+              border: Border.all(
+                color: active
+                    ? color.withValues(alpha: state.isDark ? 0.54 : 0.30)
+                    : CupertinoColors.transparent,
+                width: 1,
+              ),
+            ),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      icon,
+                      size: active ? 24 : 22,
+                      color: tabColor,
+                      shadows: [
+                        Shadow(
+                          color: contourColor,
+                          blurRadius: 0,
+                          offset: const Offset(0, 0.7),
+                        ),
+                        Shadow(
+                          color: tabColor.withValues(
+                            alpha: active ? 0.20 : 0.12,
+                          ),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        label,
+                        maxLines: 1,
+                        style: TextStyle(
+                          color: tabColor,
+                          fontSize: 11.5,
+                          fontWeight: active
+                              ? FontWeight.w700
+                              : FontWeight.w600,
+                          letterSpacing: 0,
+                          shadows: [
+                            Shadow(
+                              color: contourColor.withValues(alpha: 0.55),
+                              blurRadius: 0,
+                              offset: const Offset(0, 0.45),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -379,7 +420,7 @@ class _InfoSheet extends StatelessWidget {
     final p = state.palette;
     final bodyColor = state.isDark ? p.muted : p.text.withValues(alpha: 0.74);
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
         child: Center(
           child: GlassSurface(
@@ -388,7 +429,7 @@ class _InfoSheet extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(22, 22, 22, 22),
             radius: 26,
             tint: state.isDark ? p.card : p.bg,
-            opacity: state.isDark ? 0.76 : 0.94,
+            opacity: 1,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,

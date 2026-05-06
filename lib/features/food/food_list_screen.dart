@@ -11,6 +11,7 @@ import '../../utils/calculators.dart';
 import '../../widgets/app_card.dart';
 import '../../widgets/glass_surface.dart';
 import '../../widgets/mealweight_mark.dart';
+import '../../widgets/spring_pressable.dart';
 
 class FoodListScreen extends StatelessWidget {
   const FoodListScreen({super.key});
@@ -55,6 +56,7 @@ class FoodListScreen extends StatelessWidget {
                 enabled: canAddFood,
                 onPressed: () => showCupertinoModalPopup<void>(
                   context: context,
+                  barrierColor: const Color(0x99000000),
                   builder: (_) => const AddFoodSheet(),
                 ),
               ),
@@ -101,11 +103,11 @@ class FoodListScreen extends StatelessWidget {
 void showProPaywallSheet(BuildContext context) {
   showCupertinoModalPopup<void>(
     context: context,
+    barrierColor: const Color(0x99000000),
     builder: (context) {
       return Container(
-        color: const Color(0x99000000),
+        color: CupertinoColors.transparent,
         child: SafeArea(
-          top: false,
           child: Align(
             alignment: Alignment.bottomCenter,
             child: SingleChildScrollView(
@@ -117,6 +119,19 @@ void showProPaywallSheet(BuildContext context) {
       );
     },
   );
+}
+
+Color _disabledActionFill(AppState state) {
+  final p = state.palette;
+  if (state.isDark) return p.resultBg;
+  return Color.alphaBlend(p.accent.withValues(alpha: 0.12), p.card);
+}
+
+Color _disabledActionText(AppState state) {
+  final p = state.palette;
+  return state.isDark
+      ? p.muted.withValues(alpha: 0.86)
+      : p.accentDim.withValues(alpha: 0.94);
 }
 
 class _ActionPillButton extends StatelessWidget {
@@ -134,44 +149,57 @@ class _ActionPillButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return CupertinoButton(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-      borderRadius: BorderRadius.circular(999),
-      color: enabled ? p.accent : p.border.withValues(alpha: 0.65),
-      onPressed: onPressed,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 24,
-            height: 24,
-            decoration: BoxDecoration(
-              color: p.buttonText.withValues(alpha: enabled ? 0.18 : 0.10),
-              shape: BoxShape.circle,
+    final state = AppScope.of(context);
+    final p = state.palette;
+    final disabledFill = _disabledActionFill(state);
+    final disabledContent = _disabledActionText(state);
+    return SpringPressable(
+      enabled: enabled,
+      child: CupertinoButton(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        borderRadius: BorderRadius.circular(999),
+        color: enabled ? p.accent : disabledFill,
+        onPressed: enabled ? onPressed : null,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                color: enabled
+                    ? p.buttonText.withValues(alpha: 0.18)
+                    : disabledContent.withValues(alpha: 0.12),
+                shape: BoxShape.circle,
+                border: enabled
+                    ? null
+                    : Border.all(
+                        color: disabledContent.withValues(alpha: 0.42),
+                      ),
+              ),
+              child: Icon(
+                icon,
+                color: enabled ? p.buttonText : disabledContent,
+                size: 17,
+              ),
             ),
-            child: Icon(
-              icon,
-              color: p.buttonText.withValues(alpha: enabled ? 1 : 0.48),
-              size: 17,
-            ),
-          ),
-          const SizedBox(width: 8),
-          Flexible(
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                label,
-                maxLines: 1,
-                style: TextStyle(
-                  color: p.buttonText.withValues(alpha: enabled ? 1 : 0.48),
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
+            const SizedBox(width: 8),
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: enabled ? p.buttonText : disabledContent,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -221,7 +249,7 @@ class _LimitMeter extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
       decoration: BoxDecoration(
-        color: p.bg.withValues(alpha: 0.58),
+        color: p.bg,
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: (filled ? p.accent : p.border).withValues(alpha: 0.72),
@@ -623,7 +651,7 @@ class ShoppingListScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg.withValues(alpha: 0.82),
+        backgroundColor: p.bg,
         border: Border(bottom: BorderSide(color: p.border)),
         middle: Text(tx(context, 'Bevásárlás+')),
       ),
@@ -645,6 +673,7 @@ class ShoppingListScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 onPressed: () => showCupertinoModalPopup<void>(
                   context: context,
+                  barrierColor: const Color(0x99000000),
                   builder: (_) => const AddShoppingListSheet(),
                 ),
                 child: Text(
@@ -692,6 +721,7 @@ class _ShoppingListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         onPressed: () => showCupertinoModalPopup<void>(
           context: context,
+          barrierColor: const Color(0x99000000),
           builder: (_) => ShoppingListDetailSheet(listId: list.id),
         ),
         child: Row(
@@ -790,9 +820,8 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
     final state = AppScope.of(context);
     final p = state.palette;
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
-        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
@@ -801,7 +830,7 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
             radius: 26,
             tint: p.card,
-            opacity: 0.78,
+            opacity: 1,
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 640),
               child: SingleChildScrollView(
@@ -889,7 +918,7 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
                           child: CupertinoButton(
                             color: canSave
                                 ? p.accent
-                                : p.border.withValues(alpha: 0.65),
+                                : _disabledActionFill(state),
                             borderRadius: BorderRadius.circular(14),
                             onPressed: canSave
                                 ? () {
@@ -909,7 +938,9 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
                             child: Text(
                               tx(context, 'Mentés'),
                               style: TextStyle(
-                                color: p.buttonText,
+                                color: canSave
+                                    ? p.buttonText
+                                    : _disabledActionText(state),
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -1012,9 +1043,8 @@ class ShoppingListDetailSheet extends StatelessWidget {
     }
     if (list == null) return const SizedBox.shrink();
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
-        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
@@ -1023,7 +1053,7 @@ class ShoppingListDetailSheet extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
             radius: 26,
             tint: p.card,
-            opacity: 0.78,
+            opacity: 1,
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 560),
               child: SingleChildScrollView(
@@ -1214,7 +1244,7 @@ class MealPrepScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg.withValues(alpha: 0.82),
+        backgroundColor: p.bg,
         border: Border(bottom: BorderSide(color: p.border)),
         middle: Text(tx(context, 'Meal Prep+')),
       ),
@@ -1249,9 +1279,7 @@ class MealPrepScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: CupertinoButton(
-                color: canCreatePlan
-                    ? p.accent
-                    : p.border.withValues(alpha: 0.7),
+                color: canCreatePlan ? p.accent : _disabledActionFill(state),
                 borderRadius: BorderRadius.circular(16),
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 onPressed: state.foods.isEmpty
@@ -1259,13 +1287,16 @@ class MealPrepScreen extends StatelessWidget {
                     : state.canAddMealPrepPlan
                     ? () => showCupertinoModalPopup<void>(
                         context: context,
+                        barrierColor: const Color(0x99000000),
                         builder: (_) => const AddMealPrepSheet(),
                       )
                     : () => showProPaywallSheet(context),
                 child: Text(
                   tx(context, 'Új meal prep terv'),
                   style: TextStyle(
-                    color: p.buttonText,
+                    color: canCreatePlan
+                        ? p.buttonText
+                        : _disabledActionText(state),
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
@@ -1321,6 +1352,7 @@ class _MealPrepPlanTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         onPressed: () => showCupertinoModalPopup<void>(
           context: context,
+          barrierColor: const Color(0x99000000),
           builder: (_) => MealPrepDetailSheet(planId: plan.id),
         ),
         child: Row(
@@ -1505,9 +1537,8 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
         : sideTotalCooked / sideFood.cookedWeight;
 
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
-        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
@@ -1516,7 +1547,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
             radius: 26,
             tint: p.card,
-            opacity: 0.78,
+            opacity: 1,
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 660),
               child: SingleChildScrollView(
@@ -1713,7 +1744,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                           child: CupertinoButton(
                             color: canSave
                                 ? p.accent
-                                : p.border.withValues(alpha: 0.65),
+                                : _disabledActionFill(state),
                             borderRadius: BorderRadius.circular(14),
                             onPressed: canSave
                                 ? () {
@@ -1749,7 +1780,9 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                             child: Text(
                               tx(context, 'Mentés'),
                               style: TextStyle(
-                                color: p.buttonText,
+                                color: canSave
+                                    ? p.buttonText
+                                    : _disabledActionText(state),
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -1950,9 +1983,8 @@ class MealPrepDetailSheet extends StatelessWidget {
     }
     if (plan == null) return const SizedBox.shrink();
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
-        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
@@ -1961,7 +1993,7 @@ class MealPrepDetailSheet extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
             radius: 26,
             tint: p.card,
-            opacity: 0.78,
+            opacity: 1,
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 600),
               child: SingleChildScrollView(
@@ -1984,6 +2016,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                             borderRadius: BorderRadius.circular(14),
                             onPressed: () => showCupertinoModalPopup<void>(
                               context: context,
+                              barrierColor: const Color(0x99000000),
                               builder: (_) => AddMealPrepSheet(plan: plan),
                             ),
                             child: Text(
@@ -2232,9 +2265,8 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
       radius: 26,
       tint: p.card,
-      opacity: 0.78,
+      opacity: 1,
       child: SafeArea(
-        top: false,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -2345,7 +2377,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                   child: CupertinoButton(
                     color: canAddSelected
                         ? p.accent
-                        : p.border.withValues(alpha: 0.65),
+                        : _disabledActionFill(state),
                     onPressed: canAddSelected
                         ? () {
                             state.addFood(
@@ -2361,7 +2393,9 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                     child: Text(
                       tx(context, 'Mentés'),
                       style: TextStyle(
-                        color: p.buttonText,
+                        color: canAddSelected
+                            ? p.buttonText
+                            : _disabledActionText(state),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -2400,9 +2434,7 @@ class _CategoryButton extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            color: active
-                ? p.buttonText
-                : p.muted.withValues(alpha: enabled ? 1 : 0.42),
+            color: active ? p.buttonText : p.muted,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -2470,7 +2502,7 @@ class ProCompactUpsellCard extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
         radius: 20,
         tint: p.resultBg,
-        opacity: 0.54,
+        opacity: 1,
         borderColor: p.resultBorder.withValues(alpha: 0.72),
         child: Row(
           children: [

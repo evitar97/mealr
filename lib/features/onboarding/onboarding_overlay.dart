@@ -120,7 +120,7 @@ class _OnboardingOverlayState extends State<OnboardingOverlay> {
                           const SizedBox(width: 10),
                           Expanded(
                             child: CupertinoButton(
-                              color: p.card.withValues(alpha: 0.82),
+                              color: p.card,
                               borderRadius: BorderRadius.circular(22),
                               padding: const EdgeInsets.symmetric(vertical: 18),
                               onPressed: state.finishOnboarding,

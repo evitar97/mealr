@@ -93,6 +93,7 @@ class ProfileScreen extends StatelessWidget {
   void _showSettingsSheet(BuildContext context) {
     showCupertinoModalPopup<void>(
       context: context,
+      barrierColor: const Color(0x99000000),
       builder: (context) => const _SettingsSheet(),
     );
   }
@@ -124,7 +125,9 @@ class _SubscriptionStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
+    final softBorder = p.border.withValues(alpha: state.isDark ? 0.58 : 0.34);
     return Row(
       children: [
         Container(
@@ -135,7 +138,7 @@ class _SubscriptionStatus extends StatelessWidget {
             color: isPro ? p.accent : p.bg,
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
-              color: isPro ? p.accent : p.border.withValues(alpha: 0.7),
+              color: isPro ? p.accent.withValues(alpha: 0.72) : softBorder,
             ),
           ),
           child: isPro
@@ -176,7 +179,9 @@ class _SubscriptionStatus extends StatelessWidget {
             color: isPro ? p.resultBg : p.bg,
             borderRadius: BorderRadius.circular(999),
             border: Border.all(
-              color: isPro ? p.resultBorder : p.border.withValues(alpha: 0.7),
+              color: isPro
+                  ? p.resultBorder.withValues(alpha: 0.58)
+                  : softBorder,
             ),
           ),
           child: Text(
@@ -224,7 +229,7 @@ class _WeightTrackerCardState extends State<_WeightTrackerCard> {
                   tx(context, 'Súly progresszió'),
                   style: TextStyle(
                     color: p.text,
-                    fontSize: 18,
+                    fontSize: 16.5,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -233,7 +238,7 @@ class _WeightTrackerCardState extends State<_WeightTrackerCard> {
                 '${state.profileWeight.toStringAsFixed(1)} kg',
                 style: TextStyle(
                   color: p.accent,
-                  fontSize: 18,
+                  fontSize: 16.5,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -379,7 +384,7 @@ class _WeightStatsGrid extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
       decoration: BoxDecoration(
-        color: p.bg.withValues(alpha: 0.62),
+        color: p.bg.withValues(alpha: 0.52),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: p.border),
       ),
@@ -662,7 +667,7 @@ class _WeightInputRowState extends State<_WeightInputRow> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             decoration: BoxDecoration(
-              color: p.bg.withValues(alpha: 0.72),
+              color: p.bg.withValues(alpha: 0.62),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: p.border),
             ),
@@ -696,7 +701,7 @@ class _WeightInputRowState extends State<_WeightInputRow> {
                     },
                     style: TextStyle(
                       color: p.accent,
-                      fontSize: 25,
+                      fontSize: 22,
                       height: 1,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.6,
@@ -793,7 +798,7 @@ class _WeightHistoryRow extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 7),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: p.bg.withValues(alpha: 0.52),
+        color: p.bg,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: p.border),
       ),
@@ -818,6 +823,7 @@ class _WeightHistoryRow extends StatelessWidget {
               color: p.accent,
               onPressed: () => showCupertinoModalPopup<void>(
                 context: context,
+                barrierColor: const Color(0x99000000),
                 builder: (_) => _EditWeightEntrySheet(entry: entry),
               ),
             ),
@@ -851,7 +857,7 @@ class _HistoryIconButton extends StatelessWidget {
     return CupertinoButton(
       minimumSize: const Size(30, 30),
       padding: EdgeInsets.zero,
-      color: p.card.withValues(alpha: 0.74),
+      color: p.card,
       borderRadius: BorderRadius.circular(9),
       onPressed: onPressed,
       child: Icon(icon, color: color, size: 15),
@@ -890,9 +896,8 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
     final state = AppScope.of(context);
     final p = state.palette;
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
-        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
@@ -901,7 +906,7 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
             padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
             radius: 26,
             tint: p.card,
-            opacity: 0.82,
+            opacity: 1,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -917,7 +922,7 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
                     vertical: 8,
                   ),
                   decoration: BoxDecoration(
-                    color: p.bg.withValues(alpha: 0.72),
+                    color: p.bg.withValues(alpha: 0.62),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: p.border),
                   ),
@@ -938,7 +943,7 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
                           decoration: const BoxDecoration(),
                           style: TextStyle(
                             color: p.accent,
-                            fontSize: 26,
+                            fontSize: 23,
                             height: 1,
                             fontWeight: FontWeight.w600,
                           ),
@@ -1052,7 +1057,7 @@ class _WeightChartPainter extends CustomPainter {
     final start = now.subtract(Duration(days: days));
 
     final gridPaint = Paint()
-      ..color = palette.border.withValues(alpha: 0.8)
+      ..color = palette.border
       ..strokeWidth = 1;
     for (var i = 0; i <= 3; i++) {
       final y = padding.top + chartHeight * i / 3;
@@ -1147,14 +1152,16 @@ class _ProfileRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
+    final rowBorder = p.border.withValues(alpha: state.isDark ? 0.48 : 0.26);
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: p.border)),
+          border: Border(bottom: BorderSide(color: rowBorder)),
         ),
         child: Row(
           children: [
@@ -1163,10 +1170,14 @@ class _ProfileRow extends StatelessWidget {
               height: 34,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: p.bg,
+                color: state.isDark ? p.bg : p.resultBg,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(icon, color: p.accent, size: 18),
+              child: Icon(
+                icon,
+                color: p.accent.withValues(alpha: state.isDark ? 0.95 : 0.78),
+                size: 18,
+              ),
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -1204,7 +1215,7 @@ class _ProfileRow extends StatelessWidget {
                 ),
               ),
             const SizedBox(width: 6),
-            Icon(CupertinoIcons.chevron_right, color: p.border, size: 17),
+            Icon(CupertinoIcons.chevron_right, color: p.muted, size: 17),
           ],
         ),
       ),
@@ -1220,82 +1231,93 @@ class _LanguageSheet extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
-        top: false,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: GlassSurface(
-            width: double.infinity,
-            margin: const EdgeInsets.all(12),
-            padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
-            radius: 26,
-            tint: p.card,
-            opacity: 0.82,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 42,
-                      height: 42,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: p.resultBg,
-                        borderRadius: BorderRadius.circular(13),
-                        border: Border.all(color: p.resultBorder),
-                      ),
-                      child: Icon(CupertinoIcons.globe, color: p.accent),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(12),
+                child: GlassSurface(
+                  width: double.infinity,
+                  constraints: BoxConstraints(
+                    maxHeight: constraints.maxHeight - 24,
+                  ),
+                  padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+                  radius: 26,
+                  tint: p.card,
+                  opacity: 1,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          Text(
-                            tx(context, 'Nyelv'),
-                            style: TextStyle(
-                              color: p.text,
-                              fontSize: 21,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: -0.4,
+                          Container(
+                            width: 42,
+                            height: 42,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: p.resultBg,
+                              borderRadius: BorderRadius.circular(13),
+                              border: Border.all(color: p.resultBorder),
+                            ),
+                            child: Icon(CupertinoIcons.globe, color: p.accent),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tx(context, 'Nyelv'),
+                                  style: TextStyle(
+                                    color: p.text,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: -0.4,
+                                  ),
+                                ),
+                                Text(
+                                  tx(context, 'Alapértelmezett: English'),
+                                  style: TextStyle(
+                                    color: p.muted,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Text(
-                            tx(context, 'Alapértelmezett: English'),
-                            style: TextStyle(color: p.muted, fontSize: 13),
+                          CupertinoButton(
+                            minimumSize: const Size(34, 34),
+                            padding: EdgeInsets.zero,
+                            color: p.bg,
+                            borderRadius: BorderRadius.circular(18),
+                            onPressed: () => Navigator.pop(context),
+                            child: Icon(
+                              CupertinoIcons.xmark,
+                              color: p.muted,
+                              size: 17,
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                    CupertinoButton(
-                      minimumSize: const Size(34, 34),
-                      padding: EdgeInsets.zero,
-                      color: p.bg,
-                      borderRadius: BorderRadius.circular(18),
-                      onPressed: () => Navigator.pop(context),
-                      child: Icon(
-                        CupertinoIcons.xmark,
-                        color: p.muted,
-                        size: 17,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 18),
-                for (final language in AppLanguage.values)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: _LanguageOption(
-                      language: language,
-                      active: state.language == language,
-                    ),
+                      const SizedBox(height: 18),
+                      for (final language in AppLanguage.values)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: _LanguageOption(
+                            language: language,
+                            active: state.language == language,
+                          ),
+                        ),
+                    ],
                   ),
-              ],
-            ),
-          ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
@@ -1353,59 +1375,67 @@ class _SettingsSheet extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     return Container(
-      color: const Color(0x99000000),
+      color: CupertinoColors.transparent,
       child: SafeArea(
-        top: false,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: GlassSurface(
-            width: double.infinity,
-            margin: const EdgeInsets.all(12),
-            padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
-            radius: 26,
-            tint: p.card,
-            opacity: 0.82,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _SheetHeader(
-                  icon: CupertinoIcons.gear_alt_fill,
-                  title: tx(context, 'Beállítások'),
-                ),
-                const SizedBox(height: 16),
-                AppCard(
-                  padding: EdgeInsets.zero,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(12),
+                child: GlassSurface(
+                  width: double.infinity,
+                  constraints: BoxConstraints(
+                    maxHeight: constraints.maxHeight - 24,
+                  ),
+                  padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+                  radius: 26,
+                  tint: p.card,
+                  opacity: 1,
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _ProfileRow(
-                        icon: CupertinoIcons.paintbrush,
-                        title: tx(context, 'Téma'),
-                        value: state.theme.name,
-                        onTap: () => showThemePickerSheet(context),
+                      _SheetHeader(
+                        icon: CupertinoIcons.gear_alt_fill,
+                        title: tx(context, 'Beállítások'),
                       ),
-                      _ProfileRow(
-                        icon: CupertinoIcons.globe,
-                        title: tx(context, 'Nyelv'),
-                        value: state.language.label,
-                        onTap: () => _showLanguageSheet(context),
-                      ),
-                      _ToggleRow(
-                        icon: CupertinoIcons.moon,
-                        title: tx(context, 'Sötét mód'),
-                        value: state.isDark,
-                        onChanged: (_) => state.toggleBrightness(),
-                      ),
-                      _ProfileRow(
-                        icon: CupertinoIcons.info,
-                        title: tx(context, 'Verzió 1.0.0'),
+                      const SizedBox(height: 16),
+                      AppCard(
+                        padding: EdgeInsets.zero,
+                        child: Column(
+                          children: [
+                            _ProfileRow(
+                              icon: CupertinoIcons.paintbrush,
+                              title: tx(context, 'Téma'),
+                              value: state.theme.name,
+                              onTap: () => showThemePickerSheet(context),
+                            ),
+                            _ProfileRow(
+                              icon: CupertinoIcons.globe,
+                              title: tx(context, 'Nyelv'),
+                              value: state.language.label,
+                              onTap: () => _showLanguageSheet(context),
+                            ),
+                            _ToggleRow(
+                              icon: CupertinoIcons.moon,
+                              title: tx(context, 'Sötét mód'),
+                              value: state.isDark,
+                              onChanged: (_) => state.toggleBrightness(),
+                            ),
+                            _ProfileRow(
+                              icon: CupertinoIcons.info,
+                              title: tx(context, 'Verzió 1.0.0'),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
-              ],
-            ),
-          ),
+              ),
+            );
+          },
         ),
       ),
     );
@@ -1414,6 +1444,7 @@ class _SettingsSheet extends StatelessWidget {
   void _showLanguageSheet(BuildContext context) {
     showCupertinoModalPopup<void>(
       context: context,
+      barrierColor: const Color(0x99000000),
       builder: (context) => const _LanguageSheet(),
     );
   }
@@ -1447,7 +1478,7 @@ class _SheetHeader extends StatelessWidget {
             title,
             style: TextStyle(
               color: p.text,
-              fontSize: 21,
+              fontSize: 19,
               fontWeight: FontWeight.w600,
               letterSpacing: -0.4,
             ),
@@ -1481,7 +1512,8 @@ class _ToggleRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: Row(
@@ -1491,10 +1523,14 @@ class _ToggleRow extends StatelessWidget {
             height: 34,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: p.bg,
+              color: state.isDark ? p.bg : p.resultBg,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, color: p.muted, size: 18),
+            child: Icon(
+              icon,
+              color: p.accent.withValues(alpha: state.isDark ? 0.74 : 0.58),
+              size: 18,
+            ),
           ),
           const SizedBox(width: 12),
           Expanded(

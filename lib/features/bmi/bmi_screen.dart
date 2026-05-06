@@ -5,6 +5,7 @@ import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
 import '../../utils/calculators.dart';
 import '../../widgets/glass_surface.dart';
+import '../../widgets/spring_pressable.dart';
 
 class BmiScreen extends StatelessWidget {
   const BmiScreen({super.key});
@@ -64,10 +65,7 @@ class BmiScreen extends StatelessWidget {
             'A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.',
           ),
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: p.muted.withValues(alpha: 0.55),
-            fontSize: 11,
-          ),
+          style: TextStyle(color: p.muted, fontSize: 11),
         ),
       ],
     );
@@ -102,7 +100,7 @@ class _BmiResultCard extends StatelessWidget {
             result.value.toStringAsFixed(1),
             style: TextStyle(
               color: categoryColor,
-              fontSize: 58,
+              fontSize: 50,
               height: 0.95,
               fontWeight: FontWeight.w600,
               letterSpacing: -2,
@@ -113,7 +111,7 @@ class _BmiResultCard extends StatelessWidget {
             '${_categoryPrefix(result.category)} ${txBmiCategory(context, result.category)}',
             style: TextStyle(
               color: categoryColor,
-              fontSize: 23,
+              fontSize: 20,
               fontWeight: FontWeight.w600,
               letterSpacing: -0.4,
             ),
@@ -152,9 +150,9 @@ class _BmiResultCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
             decoration: BoxDecoration(
-              color: p.bg,
+              color: p.bg.withValues(alpha: 0.72),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: p.border.withValues(alpha: 0.62)),
+              border: Border.all(color: p.border.withValues(alpha: 0.86)),
             ),
             child: Row(
               children: [
@@ -179,7 +177,7 @@ class _BmiResultCard extends StatelessWidget {
                         maxLines: 1,
                         style: TextStyle(
                           color: p.noteColor,
-                          fontSize: 18,
+                          fontSize: 16.5,
                           fontWeight: FontWeight.w600,
                           letterSpacing: -0.4,
                         ),
@@ -355,7 +353,7 @@ class _SliderCardState extends State<_SliderCard> {
                   widget.label,
                   style: TextStyle(
                     color: p.text,
-                    fontSize: 18,
+                    fontSize: 16.5,
                     fontWeight: FontWeight.w600,
                     letterSpacing: -0.2,
                   ),
@@ -404,7 +402,7 @@ class _SliderCardState extends State<_SliderCard> {
                     decoration: const BoxDecoration(),
                     style: TextStyle(
                       color: p.accent,
-                      fontSize: 26,
+                      fontSize: 23,
                       height: 1,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.8,
@@ -482,13 +480,16 @@ class _StepperButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    return CupertinoButton(
-      minimumSize: const Size(32, 32),
-      padding: EdgeInsets.zero,
-      color: p.bg.withValues(alpha: 0.72),
-      borderRadius: BorderRadius.circular(10),
-      onPressed: onPressed,
-      child: Icon(icon, color: p.accent, size: 17),
+    return SpringPressable(
+      pressedScale: 0.90,
+      child: CupertinoButton(
+        minimumSize: const Size(32, 32),
+        padding: EdgeInsets.zero,
+        color: p.card,
+        borderRadius: BorderRadius.circular(10),
+        onPressed: onPressed,
+        child: Icon(icon, color: p.accent, size: 17),
+      ),
     );
   }
 }
@@ -523,17 +524,19 @@ class _SaveStrip extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          CupertinoButton(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-            color: saved ? p.noteColor : p.accent,
-            borderRadius: BorderRadius.circular(14),
-            onPressed: onSave,
-            child: Text(
-              saved ? tx(context, 'Mentve') : tx(context, 'Mentés'),
-              style: TextStyle(
-                color: p.buttonText,
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
+          SpringPressable(
+            child: CupertinoButton(
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+              color: saved ? p.noteColor : p.accent,
+              borderRadius: BorderRadius.circular(14),
+              onPressed: onSave,
+              child: Text(
+                saved ? tx(context, 'Mentve') : tx(context, 'Mentés'),
+                style: TextStyle(
+                  color: p.buttonText,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
@@ -557,8 +560,8 @@ class _BmiPanel extends StatelessWidget {
       padding: padding,
       radius: 24,
       tint: p.card,
-      opacity: 0.62,
-      borderColor: p.text.withValues(alpha: 0.10),
+      opacity: 0.88,
+      borderColor: p.border.withValues(alpha: 0.60),
       child: child,
     );
   }

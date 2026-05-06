@@ -17,14 +17,15 @@ class AppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return GlassSurface(
       width: double.infinity,
       margin: const EdgeInsets.only(bottom: 12),
       padding: padding,
-      radius: 22,
+      radius: 18,
       tint: color ?? p.card,
-      borderColor: p.text.withValues(alpha: 0.10),
+      borderColor: p.border.withValues(alpha: state.isDark ? 0.56 : 0.36),
       child: child,
     );
   }
@@ -43,10 +44,10 @@ class SectionLabel extends StatelessWidget {
       child: Text(
         label.toUpperCase(),
         style: TextStyle(
-          color: p.muted.withValues(alpha: 0.68),
+          color: p.accent.withValues(alpha: 0.82),
           fontSize: 11.5,
           fontWeight: FontWeight.w600,
-          letterSpacing: 1.6,
+          letterSpacing: 1.2,
         ),
       ),
     );
