@@ -51,6 +51,12 @@ const _translations = {
     'Válassz főételt, köretet és adagold dobozokra':
         'Choose a main dish, side, and split into boxes',
     'Meal prep terv szerkesztése': 'Edit meal prep plan',
+    'Teljes mennyiség elosztása': 'Split total amount',
+    'Fix adagméret': 'Fixed portion size',
+    'Az app a mentett kész mennyiséget osztja el az adagok között.':
+        'The app splits the saved cooked amount between portions.',
+    'Te adod meg, hány gramm kerüljön egy adagba.':
+        'You set how many grams go into each portion.',
     'Terv neve': 'Plan name',
     'Mentett étel': 'Saved food',
     'Köret hozzáadása': 'Add side',
@@ -65,9 +71,11 @@ const _translations = {
     'Szükséges nyers alapanyag': 'Raw ingredients needed',
     'Szükséges kész főétel': 'Cooked main needed',
     'Szükséges nyers főétel': 'Raw main needed',
+    'Főétel adag / doboz': 'Main portion / box',
     'Főétel recept szorzó': 'Main recipe multiplier',
     'Szükséges kész köret': 'Cooked side needed',
     'Szükséges nyers köret': 'Raw side needed',
+    'Köret adag / doboz': 'Side portion / box',
     'Köret recept szorzó': 'Side recipe multiplier',
     'Köret nyers egyenértéke': 'Side raw equivalent',
     'Recept szorzó': 'Recipe multiplier',
@@ -310,6 +318,12 @@ const _translations = {
     'Válassz főételt, köretet és adagold dobozokra':
         'Wähle Hauptgericht, Beilage und teile alles in Boxen auf',
     'Meal prep terv szerkesztése': 'Meal-Prep-Plan bearbeiten',
+    'Teljes mennyiség elosztása': 'Gesamtmenge aufteilen',
+    'Fix adagméret': 'Feste Portionsgröße',
+    'Az app a mentett kész mennyiséget osztja el az adagok között.':
+        'Die App teilt die gespeicherte gekochte Menge auf die Portionen auf.',
+    'Te adod meg, hány gramm kerüljön egy adagba.':
+        'Du legst fest, wie viele Gramm in eine Portion kommen.',
     'Terv neve': 'Planname',
     'Mentett étel': 'Gespeichertes Essen',
     'Köret hozzáadása': 'Beilage hinzufügen',
@@ -324,9 +338,11 @@ const _translations = {
     'Szükséges nyers alapanyag': 'Benötigte rohe Zutaten',
     'Szükséges kész főétel': 'Benötigtes gekochtes Hauptgericht',
     'Szükséges nyers főétel': 'Benötigtes rohes Hauptgericht',
+    'Főétel adag / doboz': 'Hauptgericht-Portion / Box',
     'Főétel recept szorzó': 'Hauptgericht-Rezeptfaktor',
     'Szükséges kész köret': 'Benötigte gekochte Beilage',
     'Szükséges nyers köret': 'Benötigte rohe Beilage',
+    'Köret adag / doboz': 'Beilagenportion / Box',
     'Köret recept szorzó': 'Beilagen-Rezeptfaktor',
     'Köret nyers egyenértéke': 'Rohäquivalent der Beilage',
     'Recept szorzó': 'Rezeptfaktor',
@@ -570,6 +586,12 @@ const _translations = {
     'Válassz főételt, köretet és adagold dobozokra':
         'Elige plato principal, guarnición y divídelos en recipientes',
     'Meal prep terv szerkesztése': 'Editar plan de meal prep',
+    'Teljes mennyiség elosztása': 'Dividir cantidad total',
+    'Fix adagméret': 'Tamaño fijo de porción',
+    'Az app a mentett kész mennyiséget osztja el az adagok között.':
+        'La app divide la cantidad cocida guardada entre las porciones.',
+    'Te adod meg, hány gramm kerüljön egy adagba.':
+        'Tú defines cuántos gramos van en cada porción.',
     'Terv neve': 'Nombre del plan',
     'Mentett étel': 'Comida guardada',
     'Köret hozzáadása': 'Añadir guarnición',
@@ -584,9 +606,11 @@ const _translations = {
     'Szükséges nyers alapanyag': 'Ingredientes crudos necesarios',
     'Szükséges kész főétel': 'Principal cocido necesario',
     'Szükséges nyers főétel': 'Principal crudo necesario',
+    'Főétel adag / doboz': 'Principal / recipiente',
     'Főétel recept szorzó': 'Multiplicador del principal',
     'Szükséges kész köret': 'Guarnición cocida necesaria',
     'Szükséges nyers köret': 'Guarnición cruda necesaria',
+    'Köret adag / doboz': 'Guarnición / recipiente',
     'Köret recept szorzó': 'Multiplicador de guarnición',
     'Köret nyers egyenértéke': 'Equivalente crudo de guarnición',
     'Recept szorzó': 'Multiplicador de receta',

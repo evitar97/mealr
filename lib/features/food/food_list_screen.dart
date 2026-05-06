@@ -63,14 +63,14 @@ class FoodListScreen extends StatelessWidget {
             Expanded(
               child: _ActionPillButton(
                 icon: state.isPro
-                    ? CupertinoIcons.cart_badge_plus
+                    ? CupertinoIcons.archivebox
                     : CupertinoIcons.lock,
-                label: tx(context, 'Bevásárlás+'),
+                label: tx(context, 'Meal Prep+'),
                 enabled: state.isPro,
                 onPressed: state.isPro
                     ? () => Navigator.of(context).push(
                         CupertinoPageRoute<void>(
-                          builder: (_) => const ShoppingListScreen(),
+                          builder: (_) => const MealPrepScreen(),
                         ),
                       )
                     : () => showProPaywallSheet(context),
@@ -80,13 +80,15 @@ class FoodListScreen extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         _ActionPillButton(
-          icon: state.isPro ? CupertinoIcons.archivebox : CupertinoIcons.lock,
-          label: tx(context, 'Meal Prep+'),
+          icon: state.isPro
+              ? CupertinoIcons.cart_badge_plus
+              : CupertinoIcons.lock,
+          label: tx(context, 'Bevásárlás+'),
           enabled: state.isPro,
           onPressed: state.isPro
               ? () => Navigator.of(context).push(
                   CupertinoPageRoute<void>(
-                    builder: (_) => const MealPrepScreen(),
+                    builder: (_) => const ShoppingListScreen(),
                   ),
                 )
               : () => showProPaywallSheet(context),
@@ -1372,6 +1374,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
   late final TextEditingController portionWeightController;
   late final TextEditingController sidePortionWeightController;
   late final TextEditingController noteController;
+  late MealPrepMode mode;
   FoodItem? selectedFood;
   FoodItem? selectedSideFood;
 
@@ -1379,6 +1382,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
   void initState() {
     super.initState();
     final plan = widget.plan;
+    mode = plan?.mode ?? MealPrepMode.divideTotal;
     nameController = TextEditingController(text: plan?.name ?? '');
     portionsController = TextEditingController(
       text: (plan?.portionCount ?? 4).toString(),
@@ -1420,8 +1424,10 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
       selectedFood != null &&
       nameController.text.trim().isNotEmpty &&
       portionCount > 0 &&
-      portionWeight > 0 &&
-      (selectedSideFood == null || sidePortionWeight > 0);
+      (mode == MealPrepMode.divideTotal || portionWeight > 0) &&
+      (selectedSideFood == null ||
+          mode == MealPrepMode.divideTotal ||
+          sidePortionWeight > 0);
 
   @override
   Widget build(BuildContext context) {
@@ -1448,11 +1454,25 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
     }
     final food = selectedFood;
     final sideFood = selectedSideFood;
-    final totalCooked = portionCount * portionWeight;
+    final mainPortionWeight = mode == MealPrepMode.divideTotal
+        ? (food == null || portionCount <= 0
+              ? 0.0
+              : food.cookedWeight / portionCount)
+        : portionWeight;
+    final totalCooked = mode == MealPrepMode.divideTotal
+        ? (food?.cookedWeight ?? 0)
+        : portionCount * portionWeight;
     final totalRaw = food == null || food.cookedWeight <= 0
         ? 0.0
         : food.rawWeight / food.cookedWeight * totalCooked;
-    final sideTotalCooked = sideFood == null
+    final effectiveSidePortionWeight = mode == MealPrepMode.divideTotal
+        ? (sideFood == null || portionCount <= 0
+              ? 0.0
+              : sideFood.cookedWeight / portionCount)
+        : sidePortionWeight;
+    final sideTotalCooked = mode == MealPrepMode.divideTotal
+        ? (sideFood?.cookedWeight ?? 0)
+        : sideFood == null
         ? 0.0
         : portionCount * sidePortionWeight;
     final sideTotalRaw = sideFood == null || sideFood.cookedWeight <= 0
@@ -1505,6 +1525,42 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                       onChanged: () => setState(() {}),
                     ),
                     const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        _MealPrepModeButton(
+                          label: tx(context, 'Teljes mennyiség elosztása'),
+                          active: mode == MealPrepMode.divideTotal,
+                          onTap: () =>
+                              setState(() => mode = MealPrepMode.divideTotal),
+                        ),
+                        const SizedBox(width: 8),
+                        _MealPrepModeButton(
+                          label: tx(context, 'Fix adagméret'),
+                          active: mode == MealPrepMode.fixedPortion,
+                          onTap: () =>
+                              setState(() => mode = MealPrepMode.fixedPortion),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      mode == MealPrepMode.divideTotal
+                          ? tx(
+                              context,
+                              'Az app a mentett kész mennyiséget osztja el az adagok között.',
+                            )
+                          : tx(
+                              context,
+                              'Te adod meg, hány gramm kerüljön egy adagba.',
+                            ),
+                      style: TextStyle(
+                        color: p.muted,
+                        fontSize: 13,
+                        height: 1.3,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
                     Text(
                       tx(context, 'Főétel'),
                       style: TextStyle(
@@ -1535,34 +1591,43 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                           setState(() => selectedSideFood = food),
                       onClear: () => setState(() => selectedSideFood = null),
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _Input(
-                            controller: portionsController,
-                            placeholder: tx(context, 'Adagok'),
-                            numericTitle: tx(context, 'Adagok'),
-                            onChanged: () => setState(() {}),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: _Input(
-                            controller: portionWeightController,
-                            placeholder: tx(context, 'Főétel g / adag'),
-                            numericTitle: tx(context, 'Főétel g / adag'),
-                            onChanged: () => setState(() {}),
-                          ),
-                        ),
-                      ],
-                    ),
-                    if (selectedSideFood != null)
+                    if (mode == MealPrepMode.divideTotal)
                       _Input(
-                        controller: sidePortionWeightController,
-                        placeholder: tx(context, 'Köret g / adag'),
-                        numericTitle: tx(context, 'Köret g / adag'),
+                        controller: portionsController,
+                        placeholder: tx(context, 'Adagok'),
+                        numericTitle: tx(context, 'Adagok'),
                         onChanged: () => setState(() {}),
+                      )
+                    else ...[
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _Input(
+                              controller: portionsController,
+                              placeholder: tx(context, 'Adagok'),
+                              numericTitle: tx(context, 'Adagok'),
+                              onChanged: () => setState(() {}),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: _Input(
+                              controller: portionWeightController,
+                              placeholder: tx(context, 'Főétel g / adag'),
+                              numericTitle: tx(context, 'Főétel g / adag'),
+                              onChanged: () => setState(() {}),
+                            ),
+                          ),
+                        ],
                       ),
+                      if (selectedSideFood != null)
+                        _Input(
+                          controller: sidePortionWeightController,
+                          placeholder: tx(context, 'Köret g / adag'),
+                          numericTitle: tx(context, 'Köret g / adag'),
+                          onChanged: () => setState(() {}),
+                        ),
+                    ],
                     _Input(
                       controller: noteController,
                       placeholder: tx(context, 'Megjegyzés'),
@@ -1573,6 +1638,10 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                       color: p.resultBg,
                       child: Column(
                         children: [
+                          _MealPrepResultRow(
+                            label: tx(context, 'Főétel adag / doboz'),
+                            value: grams(mainPortionWeight),
+                          ),
                           _MealPrepResultRow(
                             label: tx(context, 'Szükséges kész főétel'),
                             value: grams(totalCooked),
@@ -1586,6 +1655,10 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                             value: '${multiplier.toStringAsFixed(2)}x',
                           ),
                           if (sideFood != null) ...[
+                            _MealPrepResultRow(
+                              label: tx(context, 'Köret adag / doboz'),
+                              value: grams(effectiveSidePortionWeight),
+                            ),
                             _MealPrepResultRow(
                               label: tx(context, 'Szükséges kész köret'),
                               value: grams(sideTotalCooked),
@@ -1630,9 +1703,11 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                                         name: nameController.text,
                                         food: selectedFood!,
                                         sideFood: selectedSideFood,
+                                        mode: mode,
                                         portionCount: portionCount,
-                                        portionWeight: portionWeight,
-                                        sidePortionWeight: sidePortionWeight,
+                                        portionWeight: mainPortionWeight,
+                                        sidePortionWeight:
+                                            effectiveSidePortionWeight,
                                         note: noteController.text,
                                       );
                                     } else {
@@ -1641,9 +1716,11 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                                         name: nameController.text,
                                         food: selectedFood!,
                                         sideFood: selectedSideFood,
+                                        mode: mode,
                                         portionCount: portionCount,
-                                        portionWeight: portionWeight,
-                                        sidePortionWeight: sidePortionWeight,
+                                        portionWeight: mainPortionWeight,
+                                        sidePortionWeight:
+                                            effectiveSidePortionWeight,
                                         note: noteController.text,
                                       );
                                     }
@@ -1725,6 +1802,43 @@ class _MealPrepFoodPicker extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+class _MealPrepModeButton extends StatelessWidget {
+  const _MealPrepModeButton({
+    required this.label,
+    required this.active,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool active;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Expanded(
+      child: CupertinoButton(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 11),
+        color: active ? p.accent : p.bg,
+        borderRadius: BorderRadius.circular(12),
+        onPressed: onTap,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            label,
+            maxLines: 1,
+            style: TextStyle(
+              color: active ? p.buttonText : p.muted,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

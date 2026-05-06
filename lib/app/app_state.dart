@@ -344,6 +344,7 @@ class AppState extends ChangeNotifier {
     required String name,
     required FoodItem food,
     FoodItem? sideFood,
+    required MealPrepMode mode,
     required int portionCount,
     required double portionWeight,
     double sidePortionWeight = 0,
@@ -353,22 +354,31 @@ class AppState extends ChangeNotifier {
     if (!isPro ||
         cleanName.isEmpty ||
         portionCount <= 0 ||
-        portionWeight <= 0) {
+        (mode == MealPrepMode.fixedPortion && portionWeight <= 0)) {
       return;
     }
+    final effectivePortionWeight = mode == MealPrepMode.divideTotal
+        ? food.cookedWeight / portionCount
+        : portionWeight;
+    final effectiveSidePortionWeight = sideFood == null
+        ? 0.0
+        : mode == MealPrepMode.divideTotal
+        ? sideFood.cookedWeight / portionCount
+        : sidePortionWeight;
     mealPrepPlans.add(
       MealPrepPlan(
         id: DateTime.now().microsecondsSinceEpoch.toString(),
         name: cleanName,
+        mode: mode,
         foodName: food.name,
         rawWeight: food.rawWeight,
         cookedWeight: food.cookedWeight,
         sideFoodName: sideFood?.name,
         sideRawWeight: sideFood?.rawWeight ?? 0,
         sideCookedWeight: sideFood?.cookedWeight ?? 0,
-        sidePortionWeight: sideFood == null ? 0 : sidePortionWeight,
+        sidePortionWeight: effectiveSidePortionWeight,
         portionCount: portionCount,
-        portionWeight: portionWeight,
+        portionWeight: effectivePortionWeight,
         createdAt: DateTime.now(),
         boxes: List<bool>.filled(portionCount, false),
         note: note.trim(),
@@ -382,6 +392,7 @@ class AppState extends ChangeNotifier {
     required String name,
     required FoodItem food,
     FoodItem? sideFood,
+    required MealPrepMode mode,
     required int portionCount,
     required double portionWeight,
     double sidePortionWeight = 0,
@@ -391,7 +402,19 @@ class AppState extends ChangeNotifier {
     final index = mealPrepPlans.indexWhere((plan) => plan.id == id);
     if (index == -1) return;
     final cleanName = name.trim();
-    if (cleanName.isEmpty || portionCount <= 0 || portionWeight <= 0) return;
+    if (cleanName.isEmpty ||
+        portionCount <= 0 ||
+        (mode == MealPrepMode.fixedPortion && portionWeight <= 0)) {
+      return;
+    }
+    final effectivePortionWeight = mode == MealPrepMode.divideTotal
+        ? food.cookedWeight / portionCount
+        : portionWeight;
+    final effectiveSidePortionWeight = sideFood == null
+        ? 0.0
+        : mode == MealPrepMode.divideTotal
+        ? sideFood.cookedWeight / portionCount
+        : sidePortionWeight;
     final oldPlan = mealPrepPlans[index];
     final boxes = List<bool>.generate(
       portionCount,
@@ -401,15 +424,16 @@ class AppState extends ChangeNotifier {
     mealPrepPlans[index] = MealPrepPlan(
       id: oldPlan.id,
       name: cleanName,
+      mode: mode,
       foodName: food.name,
       rawWeight: food.rawWeight,
       cookedWeight: food.cookedWeight,
       sideFoodName: sideFood?.name,
       sideRawWeight: sideFood?.rawWeight ?? 0,
       sideCookedWeight: sideFood?.cookedWeight ?? 0,
-      sidePortionWeight: sideFood == null ? 0 : sidePortionWeight,
+      sidePortionWeight: effectiveSidePortionWeight,
       portionCount: portionCount,
-      portionWeight: portionWeight,
+      portionWeight: effectivePortionWeight,
       createdAt: oldPlan.createdAt,
       boxes: boxes,
       note: note.trim(),

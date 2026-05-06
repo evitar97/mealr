@@ -1,7 +1,10 @@
+enum MealPrepMode { divideTotal, fixedPortion }
+
 class MealPrepPlan {
   const MealPrepPlan({
     required this.id,
     required this.name,
+    this.mode = MealPrepMode.fixedPortion,
     required this.foodName,
     required this.rawWeight,
     required this.cookedWeight,
@@ -18,6 +21,7 @@ class MealPrepPlan {
 
   final String id;
   final String name;
+  final MealPrepMode mode;
   final String foodName;
   final double rawWeight;
   final double cookedWeight;
@@ -66,6 +70,7 @@ class MealPrepPlan {
   MealPrepPlan copyWith({
     String? id,
     String? name,
+    MealPrepMode? mode,
     String? foodName,
     double? rawWeight,
     double? cookedWeight,
@@ -82,6 +87,7 @@ class MealPrepPlan {
     return MealPrepPlan(
       id: id ?? this.id,
       name: name ?? this.name,
+      mode: mode ?? this.mode,
       foodName: foodName ?? this.foodName,
       rawWeight: rawWeight ?? this.rawWeight,
       cookedWeight: cookedWeight ?? this.cookedWeight,
