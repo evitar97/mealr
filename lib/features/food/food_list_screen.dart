@@ -62,18 +62,14 @@ class FoodListScreen extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: _ActionPillButton(
-                icon: state.isPro
-                    ? CupertinoIcons.archivebox
-                    : CupertinoIcons.lock,
+                icon: CupertinoIcons.archivebox,
                 label: tx(context, 'Meal Prep+'),
-                enabled: state.isPro,
-                onPressed: state.isPro
-                    ? () => Navigator.of(context).push(
-                        CupertinoPageRoute<void>(
-                          builder: (_) => const MealPrepScreen(),
-                        ),
-                      )
-                    : () => showProPaywallSheet(context),
+                enabled: true,
+                onPressed: () => Navigator.of(context).push(
+                  CupertinoPageRoute<void>(
+                    builder: (_) => const MealPrepScreen(),
+                  ),
+                ),
               ),
             ),
           ],
@@ -1214,6 +1210,7 @@ class MealPrepScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
+    final canCreatePlan = state.foods.isNotEmpty && state.canAddMealPrepPlan;
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
@@ -1231,18 +1228,40 @@ class MealPrepScreen extends StatelessWidget {
             AppLayout.screenBottomPadding,
           ),
           children: [
+            if (!state.isPro) ...[
+              AppCard(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+                child: Text(
+                  tx(
+                    context,
+                    'Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.',
+                  ),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: p.muted,
+                    fontWeight: FontWeight.w600,
+                    height: 1.35,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
             SizedBox(
               width: double.infinity,
               child: CupertinoButton(
-                color: p.accent,
+                color: canCreatePlan
+                    ? p.accent
+                    : p.border.withValues(alpha: 0.7),
                 borderRadius: BorderRadius.circular(16),
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 onPressed: state.foods.isEmpty
                     ? null
-                    : () => showCupertinoModalPopup<void>(
+                    : state.canAddMealPrepPlan
+                    ? () => showCupertinoModalPopup<void>(
                         context: context,
                         builder: (_) => const AddMealPrepSheet(),
-                      ),
+                      )
+                    : () => showProPaywallSheet(context),
                 child: Text(
                   tx(context, 'Új meal prep terv'),
                   style: TextStyle(
@@ -2645,7 +2664,11 @@ class _FeatureComparisonTable extends StatelessWidget {
       _ComparisonRow('Recept & ${tx(context, 'Jegyzet')}', 'x', 'check'),
       _ComparisonRow(tx(context, 'Étel megosztás'), 'x', 'check'),
       _ComparisonRow(tx(context, 'Bevásárlás+ listák'), 'x', 'check'),
-      _ComparisonRow(tx(context, 'Meal Prep tervező'), 'x', 'check'),
+      _ComparisonRow(
+        tx(context, 'Meal Prep tervező'),
+        '1 ${tx(context, 'db')}',
+        '∞',
+      ),
       _ComparisonRow(
         tx(context, 'Súlykövetés diagram'),
         '7 ${tx(context, 'nap')}',

@@ -209,6 +209,7 @@ class _WeightTrackerCardState extends State<_WeightTrackerCard> {
     final state = AppScope.of(context);
     final p = state.palette;
     final entries = state.weightEntriesForRange(state.weightChartRange);
+    final stats = state.weightStats;
     final history = state.weightEntries.reversed.take(expandedHistory ? 8 : 3);
     final canExpand = state.weightEntries.length > 3;
     return AppCard(
@@ -270,8 +271,8 @@ class _WeightTrackerCardState extends State<_WeightTrackerCard> {
                   ),
           ),
           const SizedBox(height: 14),
-          if (state.isPro && state.totalWeightChange != null) ...[
-            _WeightStatsStrip(change: state.totalWeightChange!),
+          if (state.isPro && stats != null) ...[
+            _WeightStatsGrid(stats: stats),
             const SizedBox(height: 14),
           ],
           _WeightInputRow(
@@ -366,57 +367,170 @@ class _WeightTrackerCardState extends State<_WeightTrackerCard> {
   }
 }
 
-class _WeightStatsStrip extends StatelessWidget {
-  const _WeightStatsStrip({required this.change});
+class _WeightStatsGrid extends StatelessWidget {
+  const _WeightStatsGrid({required this.stats});
 
-  final double change;
+  final WeightStats stats;
 
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    final lost = change < 0;
-    final same = change == 0;
-    final value = change.abs().toStringAsFixed(1);
-    final label = same
-        ? tx(context, 'Nincs változás a kezdő súlyhoz képest')
-        : lost
-        ? tx(context, 'Eddigi fogyás')
-        : tx(context, 'Eddigi változás');
-    final displayed = same ? '0.0 kg' : '${lost ? '-' : '+'}$value kg';
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 12),
+      padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
       decoration: BoxDecoration(
-        color: lost ? p.noteBg : p.resultBg,
+        color: p.bg.withValues(alpha: 0.62),
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: lost ? p.noteBorder : p.resultBorder),
+        border: Border.all(color: p.border),
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
-            lost
-                ? CupertinoIcons.arrow_down_right_circle_fill
-                : CupertinoIcons.chart_bar_alt_fill,
-            color: lost ? p.noteColor : p.accent,
-            size: 21,
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              label,
-              style: TextStyle(
-                color: lost ? p.noteColor : p.accent,
-                fontWeight: FontWeight.w600,
+          Row(
+            children: [
+              Icon(
+                CupertinoIcons.chart_bar_alt_fill,
+                color: p.accent,
+                size: 18,
               ),
+              const SizedBox(width: 8),
+              Text(
+                tx(context, 'Pro statisztika'),
+                style: TextStyle(
+                  color: p.text,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: _WeightStatTile(
+                  label: tx(context, 'Összes'),
+                  value: _formatWeightChange(stats.totalChange),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: _WeightStatTile(
+                  label: tx(context, '7 nap'),
+                  value: _formatOptionalWeightChange(stats.sevenDayChange),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: _WeightStatTile(
+                  label: tx(context, '30 nap'),
+                  value: _formatOptionalWeightChange(stats.thirtyDayChange),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: _WeightStatTile(
+                  label: tx(context, 'Heti átlag'),
+                  value:
+                      '${_formatWeightChange(stats.weeklyAverage)}/${tx(context, 'hét')}',
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: _WeightStatTile(
+                  label: tx(context, 'Trend'),
+                  value: _trendLabel(context, stats.trend),
+                  emphasized: true,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: _WeightStatTile(
+                  label: tx(context, 'Legalacsonyabb'),
+                  value: '${stats.lowestWeight.toStringAsFixed(1)} kg',
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _formatOptionalWeightChange(double? value) {
+    if (value == null) return '-';
+    return _formatWeightChange(value);
+  }
+
+  String _formatWeightChange(double value) {
+    if (value == 0) return '0.0 kg';
+    return '${value > 0 ? '+' : ''}${value.toStringAsFixed(1)} kg';
+  }
+
+  String _trendLabel(BuildContext context, WeightTrend trend) =>
+      switch (trend) {
+        WeightTrend.down => tx(context, 'Csökkenő'),
+        WeightTrend.stable => tx(context, 'Stagnál'),
+        WeightTrend.up => tx(context, 'Emelkedő'),
+      };
+}
+
+class _WeightStatTile extends StatelessWidget {
+  const _WeightStatTile({
+    required this.label,
+    required this.value,
+    this.emphasized = false,
+  });
+
+  final String label;
+  final String value;
+  final bool emphasized;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
+      decoration: BoxDecoration(
+        color: emphasized ? p.resultBg : p.card.withValues(alpha: 0.58),
+        borderRadius: BorderRadius.circular(11),
+        border: Border.all(
+          color: emphasized ? p.resultBorder : p.border.withValues(alpha: 0.7),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: p.muted,
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
             ),
           ),
-          Text(
-            displayed,
-            style: TextStyle(
-              color: lost ? p.noteColor : p.accent,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              letterSpacing: -0.3,
+          const SizedBox(height: 3),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Text(
+              value,
+              maxLines: 1,
+              style: TextStyle(
+                color: emphasized ? p.accent : p.text,
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],

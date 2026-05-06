@@ -33,6 +33,26 @@ enum AppLanguage {
   final String label;
 }
 
+enum WeightTrend { down, stable, up }
+
+class WeightStats {
+  const WeightStats({
+    required this.totalChange,
+    required this.sevenDayChange,
+    required this.thirtyDayChange,
+    required this.weeklyAverage,
+    required this.trend,
+    required this.lowestWeight,
+  });
+
+  final double totalChange;
+  final double? sevenDayChange;
+  final double? thirtyDayChange;
+  final double weeklyAverage;
+  final WeightTrend trend;
+  final double lowestWeight;
+}
+
 class AppState extends ChangeNotifier {
   AppState({PreferencesStore preferences = const PreferencesStore()})
     : _preferences = preferences;
@@ -66,6 +86,8 @@ class AppState extends ChangeNotifier {
   final List<MealPrepPlan> mealPrepPlans = [];
   final List<ShoppingList> shoppingLists = [];
   final List<WeightEntry> weightEntries = [];
+
+  static const int freeMealPrepPlanLimit = 1;
 
   MealWeightPalette get palette => isDark ? theme.dark : theme.light;
 
@@ -257,6 +279,54 @@ class AppState extends ChangeNotifier {
     return _oneDecimal(sorted.last.weight - sorted.first.weight);
   }
 
+  WeightStats? get weightStats {
+    if (weightEntries.length < 2) return null;
+    final sorted = [...weightEntries]
+      ..sort((a, b) => a.recordedAt.compareTo(b.recordedAt));
+    final first = sorted.first;
+    final latest = sorted.last;
+    final totalChange = _oneDecimal(latest.weight - first.weight);
+    final spanDays =
+        latest.recordedAt.difference(first.recordedAt).inHours.abs() / 24;
+    final weeklyAverage = spanDays <= 0
+        ? totalChange
+        : _oneDecimal(totalChange / spanDays * 7);
+    final recentTrendChange = _changeSinceDays(sorted, 14) ?? totalChange;
+    final trend = recentTrendChange.abs() < 0.2
+        ? WeightTrend.stable
+        : recentTrendChange < 0
+        ? WeightTrend.down
+        : WeightTrend.up;
+    final lowestWeight = sorted
+        .map((entry) => entry.weight)
+        .reduce((a, b) => a < b ? a : b);
+
+    return WeightStats(
+      totalChange: totalChange,
+      sevenDayChange: _changeSinceDays(sorted, 7),
+      thirtyDayChange: _changeSinceDays(sorted, 30),
+      weeklyAverage: weeklyAverage,
+      trend: trend,
+      lowestWeight: _oneDecimal(lowestWeight),
+    );
+  }
+
+  double? _changeSinceDays(List<WeightEntry> sortedEntries, int days) {
+    if (sortedEntries.length < 2) return null;
+    final latest = sortedEntries.last;
+    final since = latest.recordedAt.subtract(Duration(days: days));
+    WeightEntry? baseline;
+    for (final entry in sortedEntries) {
+      if (!entry.recordedAt.isBefore(since)) {
+        baseline = entry;
+        break;
+      }
+    }
+    baseline ??= sortedEntries.first;
+    if (baseline.id == latest.id) return null;
+    return _oneDecimal(latest.weight - baseline.weight);
+  }
+
   void _syncProfileWeightFromLatestEntry() {
     if (weightEntries.isEmpty) return;
     final sorted = [...weightEntries]
@@ -340,6 +410,9 @@ class AppState extends ChangeNotifier {
   bool get canAddAnyFood =>
       isPro || canAddFood(FoodCategory.main) || canAddFood(FoodCategory.side);
 
+  bool get canAddMealPrepPlan =>
+      isPro || mealPrepPlans.length < freeMealPrepPlanLimit;
+
   void addMealPrepPlan({
     required String name,
     required FoodItem food,
@@ -351,7 +424,7 @@ class AppState extends ChangeNotifier {
     String note = '',
   }) {
     final cleanName = name.trim();
-    if (!isPro ||
+    if (!canAddMealPrepPlan ||
         cleanName.isEmpty ||
         portionCount <= 0 ||
         (mode == MealPrepMode.fixedPortion && portionWeight <= 0)) {
@@ -398,7 +471,6 @@ class AppState extends ChangeNotifier {
     double sidePortionWeight = 0,
     String note = '',
   }) {
-    if (!isPro) return;
     final index = mealPrepPlans.indexWhere((plan) => plan.id == id);
     if (index == -1) return;
     final cleanName = name.trim();
@@ -442,7 +514,6 @@ class AppState extends ChangeNotifier {
   }
 
   void deleteMealPrepPlan(String id) {
-    if (!isPro) return;
     mealPrepPlans.removeWhere((plan) => plan.id == id);
     notifyListeners();
   }

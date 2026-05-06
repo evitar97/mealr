@@ -46,6 +46,8 @@ const _translations = {
         'You do not have a saved meal prep plan yet.',
     'Először ments el egy ételt a meal prep tervezéshez.':
         'Save a food first to plan meal prep.',
+    'Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.':
+        'In free mode, you can save 1 meal prep plan. More plans require Pro.',
     'Válassz ételt és adagold dobozokra':
         'Choose a food and split it into boxes',
     'Válassz főételt, köretet és adagold dobozokra':
@@ -270,6 +272,17 @@ const _translations = {
         'No change compared with starting weight',
     'Eddigi fogyás': 'Weight lost so far',
     'Eddigi változás': 'Total change so far',
+    'Pro statisztika': 'Pro statistics',
+    'Összes': 'Total',
+    '7 nap': '7 days',
+    '30 nap': '30 days',
+    'Heti átlag': 'Weekly average',
+    'hét': 'week',
+    'Trend': 'Trend',
+    'Legalacsonyabb': 'Lowest',
+    'Csökkenő': 'Decreasing',
+    'Stagnál': 'Stable',
+    'Emelkedő': 'Increasing',
     'Beállítások': 'Settings',
     'Nyelv, téma, mód és verzió': 'Language, theme, mode, and version',
     'Téma': 'Theme',
@@ -313,6 +326,8 @@ const _translations = {
         'Du hast noch keinen gespeicherten Meal-Prep-Plan.',
     'Először ments el egy ételt a meal prep tervezéshez.':
         'Speichere zuerst ein Essen, um Meal Prep zu planen.',
+    'Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.':
+        'Im kostenlosen Modus kannst du 1 Meal-Prep-Plan speichern. Weitere Pläne benötigen Pro.',
     'Válassz ételt és adagold dobozokra':
         'Wähle ein Essen und teile es in Boxen auf',
     'Válassz főételt, köretet és adagold dobozokra':
@@ -535,9 +550,20 @@ const _translations = {
     'Törlés': 'Löschen',
     'Súly szerkesztése': 'Gewicht bearbeiten',
     'Nincs változás a kezdő súlyhoz képest':
-        'Keine Änderung gegenüber dem Startgewicht',
+        'Keine Veränderung im Vergleich zum Startgewicht',
     'Eddigi fogyás': 'Bisher abgenommen',
     'Eddigi változás': 'Bisherige Veränderung',
+    'Pro statisztika': 'Pro-Statistik',
+    'Összes': 'Gesamt',
+    '7 nap': '7 Tage',
+    '30 nap': '30 Tage',
+    'Heti átlag': 'Wochendurchschnitt',
+    'hét': 'Woche',
+    'Trend': 'Trend',
+    'Legalacsonyabb': 'Niedrigstes',
+    'Csökkenő': 'Fallend',
+    'Stagnál': 'Stabil',
+    'Emelkedő': 'Steigend',
     'Beállítások': 'Einstellungen',
     'Nyelv, téma, mód és verzió': 'Sprache, Theme, Modus und Version',
     'Téma': 'Theme',
@@ -581,6 +607,8 @@ const _translations = {
         'Aún no tienes un plan de meal prep guardado.',
     'Először ments el egy ételt a meal prep tervezéshez.':
         'Guarda primero una comida para planificar meal prep.',
+    'Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.':
+        'En el modo gratis puedes guardar 1 plan de meal prep. Para más planes necesitas Pro.',
     'Válassz ételt és adagold dobozokra':
         'Elige una comida y divídela en recipientes',
     'Válassz főételt, köretet és adagold dobozokra':
@@ -807,6 +835,17 @@ const _translations = {
         'Sin cambios respecto al peso inicial',
     'Eddigi fogyás': 'Peso perdido hasta ahora',
     'Eddigi változás': 'Cambio total hasta ahora',
+    'Pro statisztika': 'Estadísticas Pro',
+    'Összes': 'Total',
+    '7 nap': '7 días',
+    '30 nap': '30 días',
+    'Heti átlag': 'Media semanal',
+    'hét': 'semana',
+    'Trend': 'Tendencia',
+    'Legalacsonyabb': 'Más bajo',
+    'Csökkenő': 'Bajando',
+    'Stagnál': 'Estable',
+    'Emelkedő': 'Subiendo',
     'Beállítások': 'Ajustes',
     'Nyelv, téma, mód és verzió': 'Idioma, tema, modo y versión',
     'Téma': 'Tema',

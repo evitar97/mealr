@@ -15,11 +15,10 @@ class BmiScreen extends StatelessWidget {
     final p = state.palette;
     final weight = state.bmiWeight;
     final height = state.bmiHeight;
-    final gender = state.bmiGender;
     final result = calculateBmi(
       weightKg: weight,
       heightCm: height,
-      gender: gender,
+      gender: Gender.male,
     );
     final categoryColor = switch (result.category) {
       'Sovány' => const Color(0xFF4A9FE0),
@@ -56,8 +55,6 @@ class BmiScreen extends StatelessWidget {
           display: height.round().toString(),
           onChanged: state.updateBmiHeight,
         ),
-        const SizedBox(height: 12),
-        _GenderCard(gender: gender, onChanged: state.updateBmiGender),
         const SizedBox(height: 12),
         _SaveStrip(saved: state.bmiSaved, onSave: state.saveBmiToProfile),
         const SizedBox(height: 10),
@@ -496,50 +493,6 @@ class _StepperButton extends StatelessWidget {
   }
 }
 
-class _GenderCard extends StatelessWidget {
-  const _GenderCard({required this.gender, required this.onChanged});
-
-  final Gender gender;
-  final ValueChanged<Gender> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return _BmiPanel(
-      padding: const EdgeInsets.fromLTRB(24, 20, 24, 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            tx(context, 'Nem'),
-            style: TextStyle(
-              color: p.muted,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              _GenderButton(
-                label: tx(context, 'Férfi'),
-                active: gender == Gender.male,
-                onTap: () => onChanged(Gender.male),
-              ),
-              const SizedBox(width: 12),
-              _GenderButton(
-                label: tx(context, 'Nő'),
-                active: gender == Gender.female,
-                onTap: () => onChanged(Gender.female),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _SaveStrip extends StatelessWidget {
   const _SaveStrip({required this.saved, required this.onSave});
 
@@ -607,39 +560,6 @@ class _BmiPanel extends StatelessWidget {
       opacity: 0.62,
       borderColor: p.text.withValues(alpha: 0.10),
       child: child,
-    );
-  }
-}
-
-class _GenderButton extends StatelessWidget {
-  const _GenderButton({
-    required this.label,
-    required this.active,
-    required this.onTap,
-  });
-
-  final String label;
-  final bool active;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return Expanded(
-      child: CupertinoButton(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        color: active ? p.accent : p.bg,
-        borderRadius: BorderRadius.circular(12),
-        onPressed: onTap,
-        child: Text(
-          label,
-          style: TextStyle(
-            color: active ? p.buttonText : p.muted,
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
     );
   }
 }
