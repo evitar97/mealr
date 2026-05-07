@@ -297,7 +297,7 @@ class _DietPlanPill extends StatelessWidget {
         enabled: enabled,
         child: Container(
           width: 94,
-          padding: const EdgeInsets.fromLTRB(10, 10, 10, 9),
+          padding: const EdgeInsets.fromLTRB(10, 7, 10, 7),
           decoration: BoxDecoration(
             color: enabled ? p.resultBg : p.card,
             borderRadius: BorderRadius.circular(18),
@@ -312,29 +312,29 @@ class _DietPlanPill extends StatelessWidget {
                 '${option.calories}',
                 style: TextStyle(
                   color: enabled ? p.accent : p.text,
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.3,
                 ),
               ),
-              const SizedBox(height: 2),
+              const SizedBox(height: 1),
               Text(
                 'kcal',
                 style: TextStyle(
                   color: p.muted,
-                  fontSize: 12,
+                  fontSize: 11,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               if (locked || !enabled) ...[
-                const SizedBox(height: 2),
+                const SizedBox(height: 1),
                 Text(
                   locked ? tx(context, 'Pro') : tx(context, 'Hamarosan'),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: p.muted.withValues(alpha: 0.72),
-                    fontSize: 10,
+                    fontSize: 9.5,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -2239,12 +2239,14 @@ class _LimitMeter extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(
-            filled ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.plus,
-            color: filled ? p.accent : p.muted,
-            size: 17,
-          ),
-          const SizedBox(width: 8),
+          if (filled) ...[
+            Icon(
+              CupertinoIcons.checkmark_circle_fill,
+              color: p.accent,
+              size: 17,
+            ),
+            const SizedBox(width: 8),
+          ],
           Expanded(
             child: Text(
               label,
@@ -4329,7 +4331,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
 
     return GlassSurface(
       margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
       radius: 26,
       tint: p.card,
       opacity: 1,
@@ -4342,11 +4344,11 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
               tx(context, 'Új étel hozzáadása'),
               style: TextStyle(
                 color: p.text,
-                fontSize: 18,
+                fontSize: 17,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
             Row(
               children: [
                 _CategoryButton(
@@ -4364,7 +4366,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 8),
             _Input(
               controller: name,
               placeholder: tx(context, 'Étel neve'),
@@ -4382,7 +4384,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                     onChanged: () => setState(() {}),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 7),
                 Expanded(
                   child: _Input(
                     controller: cooked,
@@ -4391,7 +4393,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                     onChanged: () => setState(() {}),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 7),
                 Expanded(
                   child: _Input(
                     controller: served,
@@ -4402,8 +4404,9 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 6),
             AppCard(
+              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
               color: p.resultBg,
               child: Row(
                 children: [
@@ -4496,7 +4499,7 @@ class _CategoryButton extends StatelessWidget {
     return Expanded(
       child: CupertinoButton(
         color: active ? p.accent : p.bg,
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 9),
         onPressed: enabled ? onTap : null,
         child: Text(
           label,
@@ -4532,7 +4535,7 @@ class _Input extends StatelessWidget {
     final p = AppScope.of(context).palette;
     final isNumeric = numericTitle != null;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 7),
       child: CupertinoTextField(
         controller: controller,
         focusNode: focusNode,
@@ -4542,7 +4545,7 @@ class _Input extends StatelessWidget {
             ? const TextInputType.numberWithOptions(decimal: true)
             : TextInputType.text,
         onChanged: (_) => onChanged(),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
         placeholderStyle: TextStyle(color: p.muted),
         decoration: BoxDecoration(
@@ -4951,11 +4954,13 @@ class _PricingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
+    final radius = BorderRadius.circular(16);
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: radius,
       child: Container(
         decoration: BoxDecoration(
           color: p.card,
+          borderRadius: radius,
           border: Border.all(color: p.border, width: 1.2),
         ),
         child: Column(
@@ -4966,7 +4971,10 @@ class _PricingCard extends StatelessWidget {
               price: '1.99€',
               suffix: tx(context, '/hó'),
             ),
-            Container(height: 1, color: p.border),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 1),
+              child: Container(height: 1, color: p.border),
+            ),
             _PricingRow(
               title: tx(context, 'Éves előfizetés'),
               subtitle: tx(context, '= 1.00€/hó · legjobb ár'),
