@@ -491,17 +491,19 @@ class _InfoSheet extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                       children: [
-                        TextSpan(text: tx(context, 'Főzés során az étel ')),
                         TextSpan(
-                          text: tx(context, 'veszít a tömegéből'),
+                          text: tx(context, 'Főzés során az étel tömege '),
+                        ),
+                        TextSpan(
+                          text: tx(context, 'csökkenhet vagy növekedhet'),
                           style: TextStyle(
                             color: p.accent,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        TextSpan(text: tx(context, ', de ')),
+                        TextSpan(text: tx(context, ', de ettől ')),
                         TextSpan(
-                          text: tx(context, 'nem a kalóriájából.'),
+                          text: tx(context, 'nem változik a kalóriája.'),
                           style: TextStyle(
                             color: p.text,
                             fontWeight: FontWeight.w600,

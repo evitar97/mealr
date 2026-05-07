@@ -280,7 +280,7 @@ class _ProcessPage extends StatelessWidget {
           title: tx(context, 'Köret külön vezetve'),
           text: tx(
             context,
-            'Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.',
+            'Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.',
           ),
         ),
       ],

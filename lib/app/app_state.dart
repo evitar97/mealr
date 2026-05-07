@@ -86,6 +86,7 @@ class AppState extends ChangeNotifier {
   final List<MealPrepPlan> mealPrepPlans = [];
   final List<ShoppingList> shoppingLists = [];
   final List<WeightEntry> weightEntries = [];
+  final Set<String> favoriteRecipeIds = {};
 
   static const int freeMealPrepPlanLimit = 1;
 
@@ -413,6 +414,18 @@ class AppState extends ChangeNotifier {
   bool get canAddMealPrepPlan =>
       isPro || mealPrepPlans.length < freeMealPrepPlanLimit;
 
+  bool isFavoriteRecipe(String recipeId) =>
+      favoriteRecipeIds.contains(recipeId);
+
+  void toggleFavoriteRecipe(String recipeId) {
+    if (favoriteRecipeIds.contains(recipeId)) {
+      favoriteRecipeIds.remove(recipeId);
+    } else {
+      favoriteRecipeIds.add(recipeId);
+    }
+    notifyListeners();
+  }
+
   void addMealPrepPlan({
     required String name,
     required FoodItem food,
@@ -547,6 +560,50 @@ class AppState extends ChangeNotifier {
         items: cleanItems,
       ),
     );
+    notifyListeners();
+  }
+
+  void addItemsToShoppingList({
+    required String listId,
+    required List<ShoppingListItem> items,
+  }) {
+    if (!isPro) return;
+    final listIndex = shoppingLists.indexWhere((list) => list.id == listId);
+    if (listIndex == -1) return;
+    final cleanItems = items
+        .where((item) => item.name.trim().isNotEmpty)
+        .map((item) => item.copyWith(name: item.name.trim()))
+        .toList();
+    if (cleanItems.isEmpty) return;
+    final list = shoppingLists[listIndex];
+    shoppingLists[listIndex] = list.copyWith(
+      items: [...list.items, ...cleanItems],
+    );
+    notifyListeners();
+  }
+
+  void updateShoppingList({
+    required String id,
+    required String name,
+    required List<ShoppingListItem> items,
+  }) {
+    if (!isPro) return;
+    final index = shoppingLists.indexWhere((list) => list.id == id);
+    if (index == -1) return;
+    final cleanName = name.trim();
+    final cleanItems = items
+        .where((item) => item.name.trim().isNotEmpty)
+        .map((item) => item.copyWith(name: item.name.trim()))
+        .toList();
+    if (cleanName.isEmpty || cleanItems.isEmpty) return;
+    final oldList = shoppingLists[index];
+    shoppingLists[index] = oldList.copyWith(name: cleanName, items: cleanItems);
+    notifyListeners();
+  }
+
+  void deleteShoppingList(String id) {
+    if (!isPro) return;
+    shoppingLists.removeWhere((list) => list.id == id);
     notifyListeners();
   }
 
