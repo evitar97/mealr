@@ -61,7 +61,10 @@ class AppState extends ChangeNotifier {
 
   AppTab tab = AppTab.foods;
   bool isDark = true;
-  ThemeOption theme = themeOptions.first;
+  ThemeOption theme = themeOptions.firstWhere(
+    (option) => option.id == 'forest',
+    orElse: () => themeOptions.first,
+  );
   AppLanguage language = AppLanguage.english;
   bool showOnboarding = true;
   bool isPro = false;
@@ -397,7 +400,7 @@ class AppState extends ChangeNotifier {
         rawWeight: rawWeight,
         cookedWeight: cookedWeight,
         servedWeight: servedWeight <= 0 ? cookedWeight : servedWeight,
-        addedLabel: 'ma',
+        addedLabel: 'today',
       ),
     );
     notifyListeners();

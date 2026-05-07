@@ -69,7 +69,6 @@ class MealWeightShell extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       child: SafeArea(
@@ -79,16 +78,21 @@ class MealWeightShell extends StatelessWidget {
             Positioned.fill(
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    center: const Alignment(0, -0.82),
-                    radius: 1.18,
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0, 0.34, 0.72, 1],
                     colors: [
                       Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.17 : 0.16),
+                        p.accent.withValues(alpha: state.isDark ? 0.15 : 0.10),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.08 : 0.26),
+                        p.card.withValues(alpha: state.isDark ? 0.18 : 0.34),
+                        p.bg,
+                      ),
+                      Color.alphaBlend(
+                        p.card.withValues(alpha: state.isDark ? 0.08 : 0.16),
                         p.bg,
                       ),
                       p.bg,
@@ -104,9 +108,9 @@ class MealWeightShell extends StatelessWidget {
               ],
             ),
             Positioned(
-              left: 28,
-              right: 28,
-              bottom: bottomInset + 8,
+              left: 0,
+              right: 0,
+              bottom: 0,
               child: _BottomTabs(state: state),
             ),
             if (state.showOnboarding) const OnboardingOverlay(),
@@ -210,70 +214,88 @@ class _BottomTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = state.palette;
     final dockColor = Color.alphaBlend(
-      p.card.withValues(alpha: 1),
+      p.card,
       Color.alphaBlend(
-        p.accent.withValues(alpha: state.isDark ? 0.06 : 0.02),
+        p.accent.withValues(alpha: state.isDark ? 0.05 : 0.02),
         p.bg,
       ),
     );
     final dockBorder = Color.alphaBlend(
-      p.accent.withValues(alpha: state.isDark ? 0.38 : 0.18),
-      p.border.withValues(alpha: state.isDark ? 0.32 : 0.28),
+      p.accent.withValues(alpha: state.isDark ? 0.30 : 0.14),
+      p.border.withValues(alpha: state.isDark ? 0.26 : 0.22),
     );
     return GlassSurface(
-      radius: 22,
+      radius: 0,
       padding: EdgeInsets.zero,
       tint: dockColor,
-      opacity: 1,
-      borderColor: dockBorder,
-      blur: 0,
-      child: SizedBox(
-        height: AppLayout.bottomTabsHeight,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(22),
-          child: Stack(
-            children: [
-              Positioned.fill(child: ColoredBox(color: dockColor)),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Row(
-                  children: [
-                    _TabItem(
-                      state: state,
-                      tab: AppTab.foods,
-                      icon: CupertinoIcons.list_bullet,
-                      label: tx(context, 'Lista'),
-                      color: const Color(0xFFB9572C),
-                      edge: _TabEdge.first,
+      opacity: state.isDark ? 0.86 : 0.92,
+      borderColor: CupertinoColors.transparent,
+      blur: 18,
+      shadow: false,
+      child: Container(
+        padding: EdgeInsets.only(
+          left: 12,
+          right: 12,
+          top: 8,
+          bottom: MediaQuery.paddingOf(context).bottom + 6,
+        ),
+        decoration: BoxDecoration(
+          border: Border(top: BorderSide(color: dockBorder, width: 1)),
+        ),
+        child: SizedBox(
+          height: AppLayout.bottomTabsHeight,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(0),
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: ColoredBox(
+                    color: dockColor.withValues(
+                      alpha: state.isDark ? 0.22 : 0.16,
                     ),
-                    _TabItem(
-                      state: state,
-                      tab: AppTab.calories,
-                      icon: CupertinoIcons.flame,
-                      label: tx(context, 'Kalória'),
-                      color: const Color(0xFFD98228),
-                      edge: _TabEdge.middle,
-                    ),
-                    _TabItem(
-                      state: state,
-                      tab: AppTab.bmi,
-                      icon: CupertinoIcons.chart_bar_square,
-                      label: 'BMI',
-                      color: const Color(0xFFA98A2B),
-                      edge: _TabEdge.middle,
-                    ),
-                    _TabItem(
-                      state: state,
-                      tab: AppTab.profile,
-                      icon: CupertinoIcons.person,
-                      label: tx(context, 'Profil'),
-                      color: const Color(0xFF9D704A),
-                      edge: _TabEdge.last,
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.zero,
+                  child: Row(
+                    children: [
+                      _TabItem(
+                        state: state,
+                        tab: AppTab.foods,
+                        icon: CupertinoIcons.list_bullet,
+                        label: tx(context, 'Lista'),
+                        color: const Color(0xFF3A9A62),
+                        edge: _TabEdge.first,
+                      ),
+                      _TabItem(
+                        state: state,
+                        tab: AppTab.calories,
+                        icon: CupertinoIcons.flame,
+                        label: tx(context, 'Kalória'),
+                        color: const Color(0xFFE0842F),
+                        edge: _TabEdge.middle,
+                      ),
+                      _TabItem(
+                        state: state,
+                        tab: AppTab.bmi,
+                        icon: CupertinoIcons.chart_bar_square,
+                        label: 'BMI',
+                        color: const Color(0xFFC2A43B),
+                        edge: _TabEdge.middle,
+                      ),
+                      _TabItem(
+                        state: state,
+                        tab: AppTab.profile,
+                        icon: CupertinoIcons.person,
+                        label: tx(context, 'Profil'),
+                        color: const Color(0xFF58A9C8),
+                        edge: _TabEdge.last,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -304,23 +326,15 @@ class _TabItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = state.palette;
     final active = state.tab == tab;
-    final tabColor = active
-        ? color
-        : Color.alphaBlend(
-            color.withValues(alpha: state.isDark ? 0.90 : 0.82),
-            p.card,
-          );
-    final contourColor = state.isDark
-        ? CupertinoColors.black.withValues(alpha: 0.54)
-        : p.text.withValues(alpha: 0.22);
+    final tabColor = active ? color : p.muted;
     final radius = switch (edge) {
       _TabEdge.first => const BorderRadius.horizontal(
-        left: Radius.circular(18),
+        left: Radius.circular(16),
         right: Radius.circular(8),
       ),
       _TabEdge.last => const BorderRadius.horizontal(
         left: Radius.circular(8),
-        right: Radius.circular(18),
+        right: Radius.circular(16),
       ),
       _TabEdge.middle => BorderRadius.circular(8),
     };
@@ -340,14 +354,14 @@ class _TabItem extends StatelessWidget {
             decoration: BoxDecoration(
               color: active
                   ? Color.alphaBlend(
-                      color.withValues(alpha: state.isDark ? 0.18 : 0.16),
+                      color.withValues(alpha: state.isDark ? 0.14 : 0.10),
                       p.resultBg,
                     )
                   : CupertinoColors.transparent,
               borderRadius: radius,
               border: Border.all(
                 color: active
-                    ? color.withValues(alpha: state.isDark ? 0.54 : 0.30)
+                    ? color.withValues(alpha: state.isDark ? 0.30 : 0.20)
                     : CupertinoColors.transparent,
                 width: 1,
               ),
@@ -359,24 +373,7 @@ class _TabItem extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      icon,
-                      size: active ? 24 : 22,
-                      color: tabColor,
-                      shadows: [
-                        Shadow(
-                          color: contourColor,
-                          blurRadius: 0,
-                          offset: const Offset(0, 0.7),
-                        ),
-                        Shadow(
-                          color: tabColor.withValues(
-                            alpha: active ? 0.20 : 0.12,
-                          ),
-                          blurRadius: 4,
-                        ),
-                      ],
-                    ),
+                    Icon(icon, size: active ? 23 : 22, color: tabColor),
                     const SizedBox(height: 2),
                     FittedBox(
                       fit: BoxFit.scaleDown,
@@ -390,13 +387,6 @@ class _TabItem extends StatelessWidget {
                               ? FontWeight.w700
                               : FontWeight.w600,
                           letterSpacing: 0,
-                          shadows: [
-                            Shadow(
-                              color: contourColor.withValues(alpha: 0.55),
-                              blurRadius: 0,
-                              offset: const Offset(0, 0.45),
-                            ),
-                          ],
                         ),
                       ),
                     ),

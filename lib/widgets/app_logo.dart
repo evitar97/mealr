@@ -14,14 +14,32 @@ class AppLogo extends StatelessWidget {
       children: [
         const MealWeightMark(size: 38, radius: 12),
         const SizedBox(width: 10),
-        Text(
-          'Mealr',
-          style: TextStyle(
-            color: p.text,
-            fontSize: 29,
-            fontWeight: FontWeight.w700,
-            letterSpacing: -0.6,
-          ),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Mealr',
+              style: TextStyle(
+                color: p.text,
+                fontSize: 29,
+                height: 1,
+                fontWeight: FontWeight.w700,
+                letterSpacing: -0.6,
+              ),
+            ),
+            const SizedBox(height: 3),
+            Text(
+              'Plan. Prep. Eat.',
+              style: TextStyle(
+                color: p.muted,
+                fontSize: 11,
+                height: 1,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 1.1,
+              ),
+            ),
+          ],
         ),
       ],
     );

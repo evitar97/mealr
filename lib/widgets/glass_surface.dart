@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 
 import '../app/app_state.dart';
@@ -39,6 +41,17 @@ class GlassSurface extends StatelessWidget {
     final stroke =
         borderColor ?? p.border.withValues(alpha: state.isDark ? 0.56 : 0.34);
 
+    final surface = Container(
+      padding: padding,
+      decoration: BoxDecoration(
+        color: fill,
+        borderRadius: BorderRadius.circular(radius),
+        border: Border.all(color: stroke, width: 1.15),
+      ),
+      child: child,
+    );
+    final shouldBlur = blur > 0 && fillOpacity < 1;
+
     return Container(
       width: width,
       constraints: constraints,
@@ -60,15 +73,12 @@ class GlassSurface extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(radius),
-        child: Container(
-          padding: padding,
-          decoration: BoxDecoration(
-            color: fill,
-            borderRadius: BorderRadius.circular(radius),
-            border: Border.all(color: stroke, width: 1.15),
-          ),
-          child: child,
-        ),
+        child: shouldBlur
+            ? BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+                child: surface,
+              )
+            : surface,
       ),
     );
   }

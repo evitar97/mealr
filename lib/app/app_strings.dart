@@ -54,7 +54,7 @@ const _translations = {
     'Rövid elkészítési idejű ételekkel': 'With meals that are quick to prepare',
     'Pénztárcabarát': 'Budget-friendly',
     'Egyszerűbb, olcsóbb alapanyagokkal': 'With simpler, cheaper ingredients',
-    'Meal prep alapú': 'Meal prep based',
+    'Meal prep alapú': 'Meal Prep based',
     'Előre dobozolható napi menü': 'Daily menu you can prep ahead',
     'Erős nap': 'Strong Day',
     'Fitt nap': 'Fit Day',
@@ -134,19 +134,19 @@ const _translations = {
     'Nyers egyenérték': 'Raw equivalent',
     'Bevásárlás+': 'Shopping+',
     'Meal Prep+': 'Meal Prep+',
-    'Új meal prep terv': 'New meal prep plan',
-    'Elmentett meal prep tervek': 'Saved meal prep plans',
+    'Új meal prep terv': 'New Meal Prep plan',
+    'Elmentett meal prep tervek': 'Saved Meal Prep Plans',
     'Még nincs elmentett meal prep terved.':
-        'You do not have a saved meal prep plan yet.',
+        'You do not have a saved Meal Prep plan yet.',
     'Először ments el egy ételt a meal prep tervezéshez.':
-        'Save a food first to plan meal prep.',
+        'Save a food first to plan Meal Prep.',
     'Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.':
-        'In free mode, you can save 1 meal prep plan. More plans require Pro.',
+        'In free mode, you can save 1 Meal Prep plan. More plans require Pro.',
     'Válassz ételt és adagold dobozokra':
         'Choose a food and split it into boxes',
     'Válassz főételt, köretet és adagold dobozokra':
         'Choose a main dish, side, and split into boxes',
-    'Meal prep terv szerkesztése': 'Edit meal prep plan',
+    'Meal prep terv szerkesztése': 'Edit Meal Prep plan',
     'Teljes mennyiség elosztása': 'Split total amount',
     'Fix adagméret': 'Fixed portion size',
     'Az app a mentett kész mennyiséget osztja el az adagok között.':
@@ -233,7 +233,7 @@ const _translations = {
     'Étel megosztás': 'Food sharing',
     'Bevásárlás+ listák': 'Shopping+ lists',
     'Meal Prep tervező': 'Meal Prep planner',
-    'Korlátlan étel és meal prep mentés': 'Unlimited food and meal prep saving',
+    'Korlátlan étel és meal prep mentés': 'Unlimited food and Meal Prep saving',
     'Korlátlan': 'Unlimited',
     '30/60 napos súlydiagram és statisztika':
         '30/60-day weight chart and statistics',
@@ -257,7 +257,7 @@ const _translations = {
     'A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.':
         'Mealr saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.',
     'Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.':
-        'This makes calorie tracking more accurate, and meal prep portions stop being guesswork.',
+        'This makes calorie tracking more accurate, and Meal Prep portions stop being guesswork.',
     'mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.':
         'weigh the ingredients before cooking, for example chicken + rice + vegetables totaling 950 g.',
     'főzés után mérd le az egész elkészült ételt, például 760 g.':
@@ -278,7 +278,7 @@ const _translations = {
     'BMI': 'BMI',
     'Bevásárlás lista': 'Shopping list',
     'Súly követés': 'Weight tracking',
-    'Meal preppelés': 'Meal prepping',
+    'Meal preppelés': 'Meal Prepping',
     'MI A PROBLÉMA?': 'WHAT IS THE PROBLEM?',
     'Főzés során az étel ': 'During cooking, food ',
     'veszít a tömegéből': 'loses weight',

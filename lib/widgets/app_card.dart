@@ -38,16 +38,17 @@ class SectionLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 8, 4, 6),
+      padding: const EdgeInsets.fromLTRB(4, 10, 4, 7),
       child: Text(
         label.toUpperCase(),
         style: TextStyle(
-          color: p.accent.withValues(alpha: 0.82),
-          fontSize: 11.5,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 1.2,
+          color: state.isDark ? p.accent : p.accentDim,
+          fontSize: 12,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 1.7,
         ),
       ),
     );

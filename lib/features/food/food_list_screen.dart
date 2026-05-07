@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 import '../../app/app_layout.dart';
 import '../../app/app_state.dart';
@@ -14,6 +15,27 @@ import '../../widgets/glass_surface.dart';
 import '../../widgets/mealweight_mark.dart';
 import '../../widgets/spring_pressable.dart';
 import 'recipe_library.dart';
+
+const _headlineSerifFamily = 'Georgia';
+const _headlineSerifFallback = ['Times New Roman', 'Times'];
+
+TextStyle _headlineSerifStyle({
+  required Color color,
+  required double fontSize,
+  FontWeight fontWeight = FontWeight.w600,
+  double? height,
+  double? letterSpacing,
+}) {
+  return TextStyle(
+    color: color,
+    fontFamily: _headlineSerifFamily,
+    fontFamilyFallback: _headlineSerifFallback,
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    height: height,
+    letterSpacing: letterSpacing,
+  );
+}
 
 class FoodListScreen extends StatelessWidget {
   const FoodListScreen({super.key});
@@ -45,8 +67,12 @@ class FoodListScreen extends StatelessWidget {
           const SizedBox(height: 14),
         ],
         SectionLabel(tx(context, 'Főételek')),
+        if (mainFoods.isEmpty)
+          const _EmptyFoodMessage('No main dishes added yet.'),
         for (final food in mainFoods) FoodTile(food: food),
         SectionLabel(tx(context, 'Köretek')),
+        if (sideFoods.isEmpty)
+          const _EmptyFoodMessage('No side dishes added yet.'),
         for (final food in sideFoods) FoodTile(food: food),
         const SizedBox(height: 8),
         Row(
@@ -347,6 +373,31 @@ class _DietPlanPill extends StatelessWidget {
   }
 }
 
+class _EmptyFoodMessage extends StatelessWidget {
+  const _EmptyFoodMessage(this.message);
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final p = state.palette;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(4, 4, 4, 20),
+      child: Text(
+        message,
+        style: TextStyle(
+          color: p.muted.withValues(alpha: state.isDark ? 0.86 : 0.78),
+          fontSize: 14,
+          height: 1.25,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
 const _highProtein1500Plans = [
   DietDayPlan(
     name: 'Erős nap',
@@ -586,36 +637,48 @@ class DietPlanTypeScreen extends StatelessWidget {
         icon: CupertinoIcons.bolt_fill,
         title: tx(context, 'Magas fehérje'),
         subtitle: tx(context, 'Edzéshez és jobb teltségérzethez'),
+        accent: const Color(0xFFD86F35),
+        macros: _MacroProfile.highProtein,
         plans: _highProtein1500Plans,
       ),
       _DietTypeOption(
         icon: CupertinoIcons.leaf_arrow_circlepath,
         title: tx(context, 'Gluténmentes'),
         subtitle: tx(context, 'Glutént tartalmazó alapanyagok nélkül'),
+        accent: const Color(0xFF8E9E44),
+        macros: _MacroProfile.balanced,
         plans: _glutenFree1500Plans,
       ),
       _DietTypeOption(
         icon: CupertinoIcons.leaf_arrow_circlepath,
         title: tx(context, 'Vegetáriánus'),
         subtitle: tx(context, 'Húsmentes napi étrend'),
+        accent: const Color(0xFF4F9B62),
+        macros: _MacroProfile.plantForward,
         plans: _vegetarian1500Plans,
       ),
       _DietTypeOption(
         icon: CupertinoIcons.clock,
         title: tx(context, 'Gyors'),
         subtitle: tx(context, 'Rövid elkészítési idejű ételekkel'),
+        accent: const Color(0xFFC89132),
+        macros: _MacroProfile.quick,
         plans: _quick1500Plans,
       ),
       _DietTypeOption(
         icon: CupertinoIcons.money_euro_circle,
         title: tx(context, 'Pénztárcabarát'),
         subtitle: tx(context, 'Egyszerűbb, olcsóbb alapanyagokkal'),
+        accent: const Color(0xFFB87A3A),
+        macros: _MacroProfile.budget,
         plans: _budget1500Plans,
       ),
       _DietTypeOption(
         icon: CupertinoIcons.archivebox,
         title: tx(context, 'Meal prep alapú'),
         subtitle: tx(context, 'Előre dobozolható napi menü'),
+        accent: const Color(0xFF9B7452),
+        macros: _MacroProfile.mealPrep,
         plans: _mealPrep1500Plans,
       ),
     ];
@@ -625,6 +688,7 @@ class DietPlanTypeScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         backgroundColor: p.bg.withValues(alpha: 0.82),
         border: Border(bottom: BorderSide(color: p.border)),
+        leading: const _WarmBackButton(),
         middle: Text('$calories kcal'),
       ),
       child: SafeArea(
@@ -680,13 +744,44 @@ class _DietTypeOption {
     required this.icon,
     required this.title,
     required this.subtitle,
+    required this.accent,
+    required this.macros,
     required this.plans,
   });
 
   final IconData icon;
   final String title;
   final String subtitle;
+  final Color accent;
+  final _MacroProfile macros;
   final List<DietDayPlan> plans;
+}
+
+class _MacroProfile {
+  const _MacroProfile({
+    required this.protein,
+    required this.carbs,
+    required this.fat,
+  });
+
+  static const highProtein = _MacroProfile(
+    protein: 0.36,
+    carbs: 0.34,
+    fat: 0.30,
+  );
+  static const balanced = _MacroProfile(protein: 0.28, carbs: 0.44, fat: 0.28);
+  static const plantForward = _MacroProfile(
+    protein: 0.26,
+    carbs: 0.48,
+    fat: 0.26,
+  );
+  static const quick = _MacroProfile(protein: 0.30, carbs: 0.42, fat: 0.28);
+  static const budget = _MacroProfile(protein: 0.27, carbs: 0.47, fat: 0.26);
+  static const mealPrep = _MacroProfile(protein: 0.32, carbs: 0.40, fat: 0.28);
+
+  final double protein;
+  final double carbs;
+  final double fat;
 }
 
 class _DietTypeTile extends StatelessWidget {
@@ -701,23 +796,42 @@ class _DietTypeTile extends StatelessWidget {
       padding: EdgeInsets.zero,
       onPressed: () => Navigator.of(context).push(
         CupertinoPageRoute<void>(
-          builder: (_) =>
-              DietPlanListScreen(title: option.title, plans: option.plans),
+          builder: (_) => _DietPlanListScreen(
+            title: option.title,
+            plans: option.plans,
+            macros: option.macros,
+          ),
         ),
       ),
       child: AppCard(
-        padding: const EdgeInsets.fromLTRB(14, 13, 14, 13),
+        padding: EdgeInsets.zero,
         child: Row(
           children: [
+            Container(
+              width: 5,
+              height: 74,
+              decoration: BoxDecoration(
+                color: option.accent.withValues(alpha: 0.78),
+                borderRadius: const BorderRadius.horizontal(
+                  left: Radius.circular(18),
+                ),
+              ),
+            ),
+            const SizedBox(width: 11),
             Container(
               width: 42,
               height: 42,
               decoration: BoxDecoration(
-                color: p.resultBg,
+                color: Color.alphaBlend(
+                  option.accent.withValues(alpha: 0.12),
+                  p.resultBg,
+                ),
                 borderRadius: BorderRadius.circular(13),
-                border: Border.all(color: p.resultBorder),
+                border: Border.all(
+                  color: option.accent.withValues(alpha: 0.38),
+                ),
               ),
-              child: Icon(option.icon, color: p.accent, size: 20),
+              child: Icon(option.icon, color: option.accent, size: 20),
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -749,6 +863,7 @@ class _DietTypeTile extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Icon(CupertinoIcons.chevron_forward, color: p.muted, size: 18),
+            const SizedBox(width: 14),
           ],
         ),
       ),
@@ -756,15 +871,16 @@ class _DietTypeTile extends StatelessWidget {
   }
 }
 
-class DietPlanListScreen extends StatelessWidget {
-  const DietPlanListScreen({
+class _DietPlanListScreen extends StatelessWidget {
+  const _DietPlanListScreen({
     required this.title,
     required this.plans,
-    super.key,
+    required this.macros,
   });
 
   final String title;
   final List<DietDayPlan> plans;
+  final _MacroProfile macros;
 
   @override
   Widget build(BuildContext context) {
@@ -774,6 +890,7 @@ class DietPlanListScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         backgroundColor: p.bg.withValues(alpha: 0.82),
         border: Border(bottom: BorderSide(color: p.border)),
+        leading: const _WarmBackButton(),
         middle: Text(title),
       ),
       child: SafeArea(
@@ -787,7 +904,8 @@ class DietPlanListScreen extends StatelessWidget {
           ),
           children: [
             SectionLabel(tx(context, '1500 kcal étrendek')),
-            for (final plan in plans) _DietDayPlanCard(plan: plan),
+            for (final plan in plans)
+              _DietDayPlanCard(plan: plan, macros: macros),
           ],
         ),
       ),
@@ -820,9 +938,10 @@ class DietMeal {
 }
 
 class _DietDayPlanCard extends StatelessWidget {
-  const _DietDayPlanCard({required this.plan});
+  const _DietDayPlanCard({required this.plan, required this.macros});
 
   final DietDayPlan plan;
+  final _MacroProfile macros;
 
   @override
   Widget build(BuildContext context) {
@@ -836,61 +955,199 @@ class _DietDayPlanCard extends StatelessWidget {
       ),
       child: AppCard(
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
-        child: Row(
+        child: Column(
           children: [
-            Container(
-              width: 42,
-              height: 42,
-              decoration: BoxDecoration(
-                color: p.resultBg,
-                borderRadius: BorderRadius.circular(13),
-                border: Border.all(color: p.resultBorder),
-              ),
-              child: Icon(CupertinoIcons.calendar, color: p.accent, size: 20),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tx(context, plan.name),
+            Row(
+              children: [
+                Container(
+                  width: 42,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: p.resultBg,
+                    borderRadius: BorderRadius.circular(13),
+                    border: Border.all(color: p.resultBorder),
+                  ),
+                  child: Icon(
+                    CupertinoIcons.calendar,
+                    color: p.accent,
+                    size: 20,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tx(context, plan.name),
+                        style: _headlineSerifStyle(
+                          color: p.text,
+                          fontSize: 18,
+                          letterSpacing: 0.1,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '${plan.meals.length} ${tx(context, 'étkezés')}',
+                        style: TextStyle(
+                          color: p.muted,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: p.resultBg,
+                    borderRadius: BorderRadius.circular(999),
+                    border: Border.all(color: p.resultBorder),
+                  ),
+                  child: Text(
+                    '${plan.totalCalories} kcal',
                     style: TextStyle(
-                      color: p.text,
-                      fontSize: 17,
+                      color: p.accent,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    '${plan.meals.length} ${tx(context, 'étkezés')}',
-                    style: TextStyle(
-                      color: p.muted,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(width: 8),
+                Icon(CupertinoIcons.chevron_forward, color: p.muted, size: 18),
+              ],
             ),
-            const SizedBox(width: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              decoration: BoxDecoration(
-                color: p.resultBg,
-                borderRadius: BorderRadius.circular(999),
-                border: Border.all(color: p.resultBorder),
-              ),
-              child: Text(
-                '${plan.totalCalories} kcal',
-                style: TextStyle(color: p.accent, fontWeight: FontWeight.w600),
-              ),
-            ),
-            const SizedBox(width: 8),
-            Icon(CupertinoIcons.chevron_forward, color: p.muted, size: 18),
+            const SizedBox(height: 12),
+            _MacroBreakdownBar(calories: plan.totalCalories, macros: macros),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _MacroBreakdownBar extends StatelessWidget {
+  const _MacroBreakdownBar({required this.calories, required this.macros});
+
+  final int calories;
+  final _MacroProfile macros;
+
+  int get proteinGrams => (calories * macros.protein / 4).round();
+
+  int get carbGrams => (calories * macros.carbs / 4).round();
+
+  int get fatGrams => (calories * macros.fat / 9).round();
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final p = state.palette;
+    const proteinColor = Color(0xFFD56A2D);
+    const carbColor = Color(0xFFC09A38);
+    const fatColor = Color(0xFF8E6B4E);
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(999),
+          child: SizedBox(
+            height: 8,
+            child: Row(
+              children: [
+                _MacroSegment(
+                  flex: (macros.protein * 1000).round(),
+                  color: proteinColor,
+                ),
+                _MacroSegment(
+                  flex: (macros.carbs * 1000).round(),
+                  color: carbColor,
+                ),
+                _MacroSegment(
+                  flex: (macros.fat * 1000).round(),
+                  color: fatColor,
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 7),
+        Row(
+          children: [
+            _MacroLabel(
+              label: 'P',
+              value: '${proteinGrams}g',
+              color: proteinColor,
+            ),
+            const SizedBox(width: 10),
+            _MacroLabel(label: 'C', value: '${carbGrams}g', color: carbColor),
+            const SizedBox(width: 10),
+            _MacroLabel(label: 'F', value: '${fatGrams}g', color: fatColor),
+            const Spacer(),
+            Text(
+              'macro split',
+              style: TextStyle(
+                color: p.muted.withValues(alpha: state.isDark ? 0.82 : 0.72),
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _MacroSegment extends StatelessWidget {
+  const _MacroSegment({required this.flex, required this.color});
+
+  final int flex;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: flex,
+      child: ColoredBox(color: color),
+    );
+  }
+}
+
+class _MacroLabel extends StatelessWidget {
+  const _MacroLabel({
+    required this.label,
+    required this.value,
+    required this.color,
+  });
+
+  final String label;
+  final String value;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 7,
+          height: 7,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        ),
+        const SizedBox(width: 5),
+        Text(
+          '$label $value',
+          style: TextStyle(
+            color: p.text,
+            fontSize: 11.5,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -908,6 +1165,7 @@ class DietPlanDetailScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         backgroundColor: p.bg.withValues(alpha: 0.82),
         border: Border(bottom: BorderSide(color: p.border)),
+        leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Étrend')),
       ),
       child: SafeArea(
@@ -927,11 +1185,12 @@ class DietPlanDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     tx(context, plan.name),
-                    style: TextStyle(
+                    style: _headlineSerifStyle(
                       color: p.text,
                       fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: -0.5,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.1,
+                      height: 1.08,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -1098,11 +1357,12 @@ class _DietPlanShoppingListSheetState extends State<DietPlanShoppingListSheet> {
     final items = _dietPlanShoppingItems(widget.plan);
     return GlassSurface(
       margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 22),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
       radius: 26,
       tint: p.card,
       opacity: 1,
       child: SafeArea(
+        top: false,
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -1298,6 +1558,7 @@ class RecipeListScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         backgroundColor: p.bg.withValues(alpha: 0.82),
         border: Border(bottom: BorderSide(color: p.border)),
+        leading: const _WarmBackButton(),
         middle: Text(tx(context, title)),
       ),
       child: SafeArea(
@@ -1451,6 +1712,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
       navigationBar: CupertinoNavigationBar(
         backgroundColor: p.bg.withValues(alpha: 0.82),
         border: Border(bottom: BorderSide(color: p.border)),
+        leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Recept')),
       ),
       child: SafeArea(
@@ -1664,11 +1926,12 @@ class _RecipeShoppingListSheetState extends State<RecipeShoppingListSheet> {
     final items = _recipeShoppingItems(widget.recipe, widget.servings);
     return GlassSurface(
       margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 22),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
       radius: 26,
       tint: p.card,
       opacity: 1,
       child: SafeArea(
+        top: false,
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -2085,16 +2348,22 @@ List<ShoppingListItem> _recipeShoppingItems(Recipe recipe, int servings) {
 void showProPaywallSheet(BuildContext context) {
   showCupertinoModalPopup<void>(
     context: context,
-    barrierColor: const Color(0x99000000),
+    barrierColor: const Color(0xCC000000),
     builder: (context) {
       return Container(
         color: CupertinoColors.transparent,
         child: SafeArea(
+          top: false,
           child: Align(
             alignment: Alignment.bottomCenter,
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(12),
-              child: const ProUpsellCard(),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(context).height * 0.82,
+              ),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                child: const ProUpsellCard(),
+              ),
             ),
           ),
         ),
@@ -2273,6 +2542,56 @@ class _LimitMeter extends StatelessWidget {
   }
 }
 
+class _SwipeActionBackground extends StatelessWidget {
+  const _SwipeActionBackground({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.alignment,
+  });
+
+  final IconData icon;
+  final String label;
+  final Color color;
+  final Alignment alignment;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    final isStart = alignment == Alignment.centerLeft;
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 22),
+      alignment: alignment,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: Color.alphaBlend(color, p.border)),
+      ),
+      child: Row(
+        mainAxisAlignment: isStart
+            ? MainAxisAlignment.start
+            : MainAxisAlignment.end,
+        children: [
+          if (!isStart) Text(label, style: _swipeActionTextStyle()),
+          if (!isStart) const SizedBox(width: 9),
+          Icon(icon, color: CupertinoColors.white, size: 22),
+          if (isStart) const SizedBox(width: 9),
+          if (isStart) Text(label, style: _swipeActionTextStyle()),
+        ],
+      ),
+    );
+  }
+
+  TextStyle _swipeActionTextStyle() {
+    return const TextStyle(
+      color: CupertinoColors.white,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+    );
+  }
+}
+
 class FoodTile extends StatefulWidget {
   const FoodTile({required this.food, super.key});
 
@@ -2327,232 +2646,279 @@ class _FoodTileState extends State<FoodTile> {
     final sharingEnabled = state.isPro;
     final accent = p.accent;
 
-    return AppCard(
-      padding: EdgeInsets.zero,
-      child: Column(
-        children: [
-          CupertinoButton(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-            onPressed: () => setState(() => expanded = !expanded),
-            child: Row(
-              children: [
-                Container(
-                  width: 9,
-                  height: 9,
-                  decoration: BoxDecoration(
-                    color: accent,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.food.name,
-                        style: TextStyle(
-                          color: p.text,
-                          fontSize: 17,
-                          height: 1.1,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        '${tx(context, 'Hozzáadva')}: ${widget.food.addedLabel}',
-                        style: TextStyle(
-                          color: p.muted,
-                          fontSize: 13,
-                          height: 1.2,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                if (sharingEnabled)
-                  _IconChip(
-                    icon: CupertinoIcons.square_arrow_up,
-                    color: p.accent,
-                    onPressed: () => _shareFood(context),
-                  ),
-                if (notesEnabled)
-                  _IconChip(
-                    icon: CupertinoIcons.doc_text,
-                    color: widget.food.hasNote ? p.noteColor : p.muted,
-                    onPressed: () => setState(() => noteOpen = !noteOpen),
-                  ),
-                _IconChip(
-                  icon: CupertinoIcons.trash,
-                  color: const Color(0xFFC04040),
-                  onPressed: () => state.deleteFood(widget.food.id),
-                ),
-                Icon(
-                  expanded
-                      ? CupertinoIcons.chevron_down
-                      : CupertinoIcons.chevron_right,
-                  size: 18,
-                  color: p.border,
-                ),
-              ],
-            ),
-          ),
-          if (expanded) ...[
-            Container(height: 1, color: p.border),
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Column(
+    return Dismissible(
+      key: ValueKey('food-${widget.food.id}'),
+      background: _SwipeActionBackground(
+        icon: CupertinoIcons.archivebox,
+        label: tx(context, 'Meal prep'),
+        color: p.accent,
+        alignment: Alignment.centerLeft,
+      ),
+      secondaryBackground: _SwipeActionBackground(
+        icon: CupertinoIcons.trash_fill,
+        label: 'Delete',
+        color: const Color(0xFFC04040),
+        alignment: Alignment.centerRight,
+      ),
+      confirmDismiss: (direction) async {
+        FocusManager.instance.primaryFocus?.unfocus();
+        HapticFeedback.mediumImpact();
+        if (direction == DismissDirection.startToEnd) {
+          _openMealPrepFromFood(context, state);
+        } else {
+          state.deleteFood(widget.food.id);
+        }
+        return false;
+      },
+      child: AppCard(
+        padding: EdgeInsets.zero,
+        child: Column(
+          children: [
+            CupertinoButton(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+              onPressed: () => setState(() => expanded = !expanded),
+              child: Row(
                 children: [
-                  _WeightRow(
-                    label: tx(context, 'Nyers adag'),
-                    value: grams(widget.food.rawWeight),
-                  ),
-                  _WeightRow(
-                    label: tx(context, 'Kész súly'),
-                    value: grams(widget.food.cookedWeight),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          tx(context, 'Kimért adag'),
-                          style: TextStyle(
-                            color: accent,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 86,
-                        child: CupertinoTextField(
-                          controller: servedController,
-                          focusNode: servedFocus,
-                          keyboardType: const TextInputType.numberWithOptions(
-                            decimal: true,
-                          ),
-                          onTap: () {
-                            servedController.selection = TextSelection(
-                              baseOffset: 0,
-                              extentOffset: servedController.text.length,
-                            );
-                          },
-                          textAlign: TextAlign.right,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 7,
-                          ),
-                          style: TextStyle(
-                            color: accent,
-                            fontWeight: FontWeight.w600,
-                          ),
-                          decoration: BoxDecoration(
-                            color: p.bg,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: accent, width: 1.5),
-                          ),
-                          onChanged: (value) => state.updateServedWeight(
-                            widget.food.id,
-                            double.tryParse(value.replaceAll(',', '.')) ?? 0,
-                          ),
-                          onEditingComplete: () {
-                            servedFocus.unfocus();
-                            servedController.text = widget.food.servedWeight
-                                .toStringAsFixed(1);
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      Text('g', style: TextStyle(color: p.muted)),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
                   Container(
-                    padding: const EdgeInsets.all(12),
+                    width: 9,
+                    height: 9,
                     decoration: BoxDecoration(
-                      color: p.resultBg,
-                      borderRadius: BorderRadius.circular(11),
-                      border: Border.all(color: p.resultBorder),
+                      color: accent,
+                      shape: BoxShape.circle,
                     ),
-                    child: Row(
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          tx(context, 'Nyers egyenérték'),
+                          widget.food.name,
                           style: TextStyle(
-                            color: accent,
+                            color: p.text,
+                            fontSize: 17,
+                            height: 1.1,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        const Spacer(),
                         Text(
-                          grams(widget.food.rawEquivalent),
+                          'Added: ${_addedLabel(widget.food.addedLabel)}',
                           style: TextStyle(
-                            color: accent,
-                            fontSize: 20,
+                            color: p.muted,
+                            fontSize: 13,
+                            height: 1.2,
                             fontWeight: FontWeight.w600,
-                            letterSpacing: -0.4,
                           ),
                         ),
                       ],
                     ),
                   ),
+                  Icon(
+                    expanded
+                        ? CupertinoIcons.chevron_up
+                        : CupertinoIcons.chevron_down,
+                    size: 18,
+                    color: p.border,
+                  ),
                 ],
               ),
             ),
-          ],
-          if (noteOpen && notesEnabled)
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: p.bg,
-                border: Border(top: BorderSide(color: p.border)),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        CupertinoIcons.doc_text,
-                        color: p.noteColor,
-                        size: 15,
-                      ),
-                      const SizedBox(width: 6),
-                      Text(
-                        tx(context, 'Jegyzet'),
-                        style: TextStyle(
-                          color: p.noteColor,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
+            if (expanded) ...[
+              Container(height: 1, color: p.border),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  children: [
+                    _WeightRow(
+                      label: tx(context, 'Nyers adag'),
+                      value: grams(widget.food.rawWeight),
+                    ),
+                    _WeightRow(
+                      label: 'Cooked weight',
+                      value: grams(widget.food.cookedWeight),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Served portion',
+                            style: TextStyle(
+                              color: accent,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
+                        SizedBox(
+                          width: 86,
+                          child: CupertinoTextField(
+                            controller: servedController,
+                            focusNode: servedFocus,
+                            keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true,
+                            ),
+                            onTap: () {
+                              servedController.selection = TextSelection(
+                                baseOffset: 0,
+                                extentOffset: servedController.text.length,
+                              );
+                            },
+                            textAlign: TextAlign.right,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 7,
+                            ),
+                            style: TextStyle(
+                              color: accent,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            decoration: BoxDecoration(
+                              color: p.bg,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: accent, width: 1.5),
+                            ),
+                            onChanged: (value) => state.updateServedWeight(
+                              widget.food.id,
+                              double.tryParse(value.replaceAll(',', '.')) ?? 0,
+                            ),
+                            onEditingComplete: () {
+                              servedFocus.unfocus();
+                              servedController.text = widget.food.servedWeight
+                                  .toStringAsFixed(1);
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text('g', style: TextStyle(color: p.muted)),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: p.resultBg,
+                        borderRadius: BorderRadius.circular(11),
+                        border: Border.all(color: p.resultBorder),
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Raw equivalent',
+                            style: TextStyle(
+                              color: accent,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const Spacer(),
+                          Text(
+                            grams(widget.food.rawEquivalent),
+                            style: TextStyle(
+                              color: accent,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: -0.4,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (sharingEnabled || notesEnabled) ...[
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          if (sharingEnabled)
+                            Expanded(
+                              child: _FoodActionButton(
+                                icon: CupertinoIcons.square_arrow_up,
+                                label: 'Share',
+                                color: p.accent,
+                                onPressed: () => _shareFood(context),
+                              ),
+                            ),
+                          if (sharingEnabled && notesEnabled)
+                            const SizedBox(width: 8),
+                          if (notesEnabled)
+                            Expanded(
+                              child: _FoodActionButton(
+                                icon: CupertinoIcons.doc_text,
+                                label: 'Note',
+                                color: widget.food.hasNote
+                                    ? p.noteColor
+                                    : p.accent,
+                                onPressed: () =>
+                                    setState(() => noteOpen = !noteOpen),
+                              ),
+                            ),
+                        ],
                       ),
                     ],
-                  ),
-                  const SizedBox(height: 8),
-                  CupertinoTextField(
-                    controller: noteController,
-                    minLines: 3,
-                    maxLines: 6,
-                    placeholder: tx(
-                      context,
-                      'Írj receptet, tippet vagy emlékeztetőt...',
-                    ),
-                    padding: const EdgeInsets.all(11),
-                    style: TextStyle(color: p.text, height: 1.42),
-                    placeholderStyle: TextStyle(color: p.muted),
-                    decoration: BoxDecoration(
-                      color: p.card,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: p.border),
-                    ),
-                    onChanged: (value) =>
-                        state.updateFoodNote(widget.food.id, value),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-        ],
+            ],
+            if (noteOpen && notesEnabled)
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: p.bg,
+                  border: Border(top: BorderSide(color: p.border)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          CupertinoIcons.doc_text,
+                          color: p.noteColor,
+                          size: 15,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          tx(context, 'Jegyzet'),
+                          style: TextStyle(
+                            color: p.noteColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    CupertinoTextField(
+                      controller: noteController,
+                      minLines: 3,
+                      maxLines: 6,
+                      placeholder: 'Write a recipe, tip or reminder...',
+                      padding: const EdgeInsets.all(11),
+                      style: TextStyle(color: p.text, height: 1.42),
+                      placeholderStyle: TextStyle(color: p.muted),
+                      decoration: BoxDecoration(
+                        color: p.card,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: p.border),
+                      ),
+                      onChanged: (value) =>
+                          state.updateFoodNote(widget.food.id, value),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
       ),
+    );
+  }
+
+  void _openMealPrepFromFood(BuildContext context, AppState state) {
+    if (!state.canAddMealPrepPlan) {
+      showProPaywallSheet(context);
+      return;
+    }
+    showCupertinoModalPopup<void>(
+      context: context,
+      barrierColor: const Color(0x99000000),
+      builder: (_) => AddMealPrepSheet(initialFood: widget.food),
     );
   }
 
@@ -2561,12 +2927,67 @@ class _FoodTileState extends State<FoodTile> {
     final text = [
       food.name,
       '${tx(context, 'Nyers adag')}: ${grams(food.rawWeight)}',
-      '${tx(context, 'Kész súly')}: ${grams(food.cookedWeight)}',
-      '${tx(context, 'Kimért adag')}: ${grams(food.servedWeight)}',
-      '${tx(context, 'Nyers egyenérték')}: ${grams(food.rawEquivalent)}',
-      if (food.hasNote) '${tx(context, 'Jegyzet')}: ${food.note}',
+      'Cooked weight: ${grams(food.cookedWeight)}',
+      'Served portion: ${grams(food.servedWeight)}',
+      'Raw equivalent: ${grams(food.rawEquivalent)}',
+      if (food.hasNote) 'Note: ${food.note}',
     ].join('\n');
     await const ShareService().shareText(text);
+  }
+}
+
+String _addedLabel(String label) {
+  return switch (label.trim().toLowerCase()) {
+    'ma' => 'today',
+    'tegnap' => 'yesterday',
+    _ => label,
+  };
+}
+
+class _FoodActionButton extends StatelessWidget {
+  const _FoodActionButton({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.onPressed,
+  });
+
+  final IconData icon;
+  final String label;
+  final Color color;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return SpringPressable(
+      pressedScale: 0.96,
+      child: CupertinoButton(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        color: p.bg,
+        borderRadius: BorderRadius.circular(12),
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: color, size: 16),
+            const SizedBox(width: 7),
+            Flexible(
+              child: Text(
+                label,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: color,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -2637,6 +3058,7 @@ class ShoppingListScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         backgroundColor: p.bg,
         border: Border(bottom: BorderSide(color: p.border)),
+        leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Bevásárlás+')),
       ),
       child: SafeArea(
@@ -2873,17 +3295,18 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
     return Container(
       color: CupertinoColors.transparent,
       child: SafeArea(
+        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
             width: double.infinity,
-            margin: const EdgeInsets.all(12),
-            padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
             radius: 26,
             tint: p.card,
             opacity: 1,
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 640),
+              constraints: const BoxConstraints(maxHeight: 590),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -2902,7 +3325,7 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
                         'Nevezd el és add hozzá a tételeket',
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 10),
                     Text(
                       tx(context, 'Lista neve'),
                       style: TextStyle(
@@ -3114,17 +3537,18 @@ class ShoppingListDetailSheet extends StatelessWidget {
     return Container(
       color: CupertinoColors.transparent,
       child: SafeArea(
+        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
             width: double.infinity,
-            margin: const EdgeInsets.all(12),
-            padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
             radius: 26,
             tint: p.card,
             opacity: 1,
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 560),
+              constraints: const BoxConstraints(maxHeight: 520),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -3254,8 +3678,8 @@ class _SheetHeader extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 42,
-          height: 42,
+          width: 38,
+          height: 38,
           decoration: BoxDecoration(
             color: p.resultBg,
             borderRadius: BorderRadius.circular(13),
@@ -3274,7 +3698,7 @@ class _SheetHeader extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: p.text,
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600,
                   letterSpacing: -0.3,
                 ),
@@ -3284,7 +3708,7 @@ class _SheetHeader extends StatelessWidget {
           ),
         ),
         CupertinoButton(
-          minimumSize: const Size(34, 34),
+          minimumSize: const Size(32, 32),
           padding: EdgeInsets.zero,
           color: p.bg,
           borderRadius: BorderRadius.circular(18),
@@ -3302,6 +3726,29 @@ String _shoppingDate(DateTime date) {
   return '${date.year}. $month. $day.';
 }
 
+class _WarmBackButton extends StatelessWidget {
+  const _WarmBackButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: SpringPressable(
+        pressedScale: 0.9,
+        child: CupertinoButton(
+          minimumSize: const Size(46, 46),
+          padding: EdgeInsets.zero,
+          color: p.card,
+          borderRadius: BorderRadius.circular(16),
+          onPressed: () => Navigator.maybePop(context),
+          child: Icon(CupertinoIcons.chevron_left, color: p.accent, size: 24),
+        ),
+      ),
+    );
+  }
+}
+
 class MealPrepScreen extends StatelessWidget {
   const MealPrepScreen({super.key});
 
@@ -3315,6 +3762,7 @@ class MealPrepScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         backgroundColor: p.bg,
         border: Border(bottom: BorderSide(color: p.border)),
+        leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Meal Prep+')),
       ),
       child: SafeArea(
@@ -3480,9 +3928,10 @@ class _MealPrepPlanTile extends StatelessWidget {
 }
 
 class AddMealPrepSheet extends StatefulWidget {
-  const AddMealPrepSheet({this.plan, super.key});
+  const AddMealPrepSheet({this.plan, this.initialFood, super.key});
 
   final MealPrepPlan? plan;
+  final FoodItem? initialFood;
 
   @override
   State<AddMealPrepSheet> createState() => _AddMealPrepSheetState();
@@ -3503,7 +3952,9 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
     super.initState();
     final plan = widget.plan;
     mode = plan?.mode ?? MealPrepMode.divideTotal;
-    nameController = TextEditingController(text: plan?.name ?? '');
+    nameController = TextEditingController(
+      text: plan?.name ?? widget.initialFood?.name ?? '',
+    );
     portionsController = TextEditingController(
       text: (plan?.portionCount ?? 4).toString(),
     );
@@ -3559,8 +4010,10 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
     final sideFoods = state.foods
         .where((food) => food.category == FoodCategory.side)
         .toList();
+    final initialFood = widget.initialFood;
     selectedFood ??=
         _findFoodByName(state.foods, widget.plan?.foodName) ??
+        (initialFood?.category == FoodCategory.main ? initialFood : null) ??
         (mainFoods.isNotEmpty
             ? mainFoods.first
             : state.foods.isNotEmpty
@@ -3571,6 +4024,9 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
         state.foods,
         widget.plan!.sideFoodName,
       );
+    } else if (initialFood?.category == FoodCategory.side &&
+        selectedSideFood == null) {
+      selectedSideFood = initialFood;
     }
     final food = selectedFood;
     final sideFood = selectedSideFood;
@@ -3608,6 +4064,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
     return Container(
       color: CupertinoColors.transparent,
       child: SafeArea(
+        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
@@ -3618,7 +4075,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
             tint: p.card,
             opacity: 1,
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 660),
+              constraints: const BoxConstraints(maxHeight: 610),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -3637,13 +4094,13 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                         'Válassz főételt, köretet és adagold dobozokra',
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 10),
                     _Input(
                       controller: nameController,
                       placeholder: tx(context, 'Terv neve'),
                       onChanged: () => setState(() {}),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 8),
                     Row(
                       children: [
                         _MealPrepModeButton(
@@ -3661,7 +4118,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 6),
                     Text(
                       mode == MealPrepMode.divideTotal
                           ? tx(
@@ -3679,7 +4136,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 8),
                     Text(
                       tx(context, 'Főétel'),
                       style: TextStyle(
@@ -3687,13 +4144,13 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 6),
                     _MealPrepFoodPicker(
                       foods: mainFoods.isEmpty ? state.foods : mainFoods,
                       selected: selectedFood,
                       onSelected: (food) => setState(() => selectedFood = food),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 8),
                     Text(
                       tx(context, 'Köret hozzáadása'),
                       style: TextStyle(
@@ -3701,7 +4158,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 6),
                     _MealPrepFoodPicker(
                       foods: sideFoods,
                       selected: selectedSideFood,
@@ -3752,8 +4209,9 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                       placeholder: tx(context, 'Megjegyzés'),
                       onChanged: () => setState(() {}),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 4),
                     AppCard(
+                      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
                       color: p.resultBg,
                       child: Column(
                         children: [
@@ -3799,6 +4257,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                         Expanded(
                           child: CupertinoButton(
                             color: p.bg,
+                            padding: const EdgeInsets.symmetric(vertical: 11),
                             borderRadius: BorderRadius.circular(14),
                             onPressed: () => Navigator.pop(context),
                             child: Text(
@@ -3814,6 +4273,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                             color: canSave
                                 ? p.accent
                                 : _disabledActionFill(state),
+                            padding: const EdgeInsets.symmetric(vertical: 11),
                             borderRadius: BorderRadius.circular(14),
                             onPressed: canSave
                                 ? () {
@@ -3906,7 +4366,7 @@ class _MealPrepFoodPicker extends StatelessWidget {
       children: [
         if (optionalLabel != null)
           Padding(
-            padding: const EdgeInsets.only(bottom: 7),
+            padding: const EdgeInsets.only(bottom: 6),
             child: _MealPrepFoodOption(
               label: optionalLabel!,
               active: selected == null,
@@ -3915,7 +4375,7 @@ class _MealPrepFoodPicker extends StatelessWidget {
           ),
         for (final item in foods)
           Padding(
-            padding: const EdgeInsets.only(bottom: 7),
+            padding: const EdgeInsets.only(bottom: 6),
             child: _MealPrepFoodOption(
               label: item.name,
               active: item.id == selected?.id,
@@ -3943,7 +4403,7 @@ class _MealPrepModeButton extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return Expanded(
       child: CupertinoButton(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 11),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
         color: active ? p.accent : p.bg,
         borderRadius: BorderRadius.circular(12),
         onPressed: onTap,
@@ -3982,7 +4442,7 @@ class _MealPrepFoodOption extends StatelessWidget {
       padding: EdgeInsets.zero,
       onPressed: onPressed,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
         decoration: BoxDecoration(
           color: active ? p.resultBg : p.bg.withValues(alpha: 0.76),
           borderRadius: BorderRadius.circular(12),
@@ -4054,6 +4514,7 @@ class MealPrepDetailSheet extends StatelessWidget {
     return Container(
       color: CupertinoColors.transparent,
       child: SafeArea(
+        top: false,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: GlassSurface(
@@ -4064,7 +4525,7 @@ class MealPrepDetailSheet extends StatelessWidget {
             tint: p.card,
             opacity: 1,
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 600),
+              constraints: const BoxConstraints(maxHeight: 560),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -4076,7 +4537,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                       subtitle:
                           '${plan.hasSide ? '${plan.foodName} + ${plan.sideFoodName}' : plan.foodName} · ${_shoppingDate(plan.createdAt)}',
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
                         Expanded(
@@ -4117,7 +4578,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 8),
                     AppCard(
                       color: p.resultBg,
                       child: Column(
@@ -4162,7 +4623,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                       ),
                     ),
                     if (plan.note.trim().isNotEmpty) ...[
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 8),
                       Text(
                         plan.note,
                         style: TextStyle(
@@ -4171,7 +4632,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                         ),
                       ),
                     ],
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 10),
                     Text(
                       tx(context, 'Dobozok'),
                       style: TextStyle(
@@ -4179,7 +4640,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 6),
                     for (var i = 0; i < plan.boxes.length; i++)
                       _MealPrepBoxRow(
                         index: i,
@@ -4189,7 +4650,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                           boxIndex: i,
                         ),
                       ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 6),
                     SizedBox(
                       width: double.infinity,
                       child: CupertinoButton(
@@ -4331,21 +4792,25 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
 
     return GlassSurface(
       margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+      padding: const EdgeInsets.fromLTRB(16, 18, 16, 14),
       radius: 26,
       tint: p.card,
       opacity: 1,
       child: SafeArea(
+        top: false,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              tx(context, 'Új étel hozzáadása'),
-              style: TextStyle(
-                color: p.text,
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
+            Center(
+              child: Text(
+                tx(context, 'Új étel hozzáadása'),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: p.text,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             const SizedBox(height: 10),
@@ -4366,7 +4831,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 6),
             _Input(
               controller: name,
               placeholder: tx(context, 'Étel neve'),
@@ -4404,10 +4869,16 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                 ),
               ],
             ),
-            const SizedBox(height: 6),
-            AppCard(
-              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-              color: p.resultBg,
+            const SizedBox(height: 4),
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
+              decoration: BoxDecoration(
+                color: p.resultBg,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: p.resultBorder),
+              ),
               child: Row(
                 children: [
                   Text(
@@ -4434,6 +4905,8 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                 Expanded(
                   child: CupertinoButton(
                     color: p.bg,
+                    padding: const EdgeInsets.symmetric(vertical: 11),
+                    borderRadius: BorderRadius.circular(14),
                     onPressed: () => Navigator.pop(context),
                     child: Text(
                       tx(context, 'Mégse'),
@@ -4448,6 +4921,8 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                     color: canAddSelected
                         ? p.accent
                         : _disabledActionFill(state),
+                    padding: const EdgeInsets.symmetric(vertical: 11),
+                    borderRadius: BorderRadius.circular(14),
                     onPressed: canAddSelected
                         ? () {
                             state.addFood(
@@ -4499,7 +4974,8 @@ class _CategoryButton extends StatelessWidget {
     return Expanded(
       child: CupertinoButton(
         color: active ? p.accent : p.bg,
-        padding: const EdgeInsets.symmetric(vertical: 9),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        borderRadius: BorderRadius.circular(14),
         onPressed: enabled ? onTap : null,
         child: Text(
           label,
@@ -4535,7 +5011,7 @@ class _Input extends StatelessWidget {
     final p = AppScope.of(context).palette;
     final isNumeric = numericTitle != null;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 7),
+      padding: const EdgeInsets.only(bottom: 6),
       child: CupertinoTextField(
         controller: controller,
         focusNode: focusNode,
@@ -4545,7 +5021,7 @@ class _Input extends StatelessWidget {
             ? const TextInputType.numberWithOptions(decimal: true)
             : TextInputType.text,
         onChanged: (_) => onChanged(),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
         style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
         placeholderStyle: TextStyle(color: p.muted),
         decoration: BoxDecoration(
@@ -4650,20 +5126,20 @@ class ProUpsellCard extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return GlassSurface(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(18, 18, 18, 22),
-      radius: 28,
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      radius: 26,
       tint: p.resultBg,
-      opacity: 0.58,
+      opacity: 1,
       borderColor: p.resultBorder.withValues(alpha: 0.72),
       child: Column(
         children: [
           Row(
             children: [
               Container(
-                width: 50,
-                height: 50,
+                width: 44,
+                height: 44,
                 alignment: Alignment.center,
-                child: const MealWeightMark(size: 50, radius: 15),
+                child: const MealWeightMark(size: 44, radius: 14),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -4674,7 +5150,7 @@ class ProUpsellCard extends StatelessWidget {
                       tx(context, 'Mealr Pro'),
                       style: TextStyle(
                         color: p.text,
-                        fontSize: 22,
+                        fontSize: 20,
                         fontWeight: FontWeight.w600,
                         letterSpacing: -0.6,
                       ),
@@ -4683,7 +5159,7 @@ class ProUpsellCard extends StatelessWidget {
                       tx(context, 'Korlátlan mentés és extra funkciók'),
                       style: TextStyle(
                         color: p.muted,
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -4701,15 +5177,15 @@ class ProUpsellCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 12),
           _PaywallFeatureSections(),
-          const SizedBox(height: 18),
+          const SizedBox(height: 12),
           _PricingCard(),
-          const SizedBox(height: 20),
+          const SizedBox(height: 14),
           SizedBox(
             width: double.infinity,
             child: CupertinoButton(
-              padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 12),
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
               color: p.accent,
               borderRadius: BorderRadius.circular(18),
               onPressed: () {},
@@ -4720,7 +5196,7 @@ class ProUpsellCard extends StatelessWidget {
                   maxLines: 1,
                   style: TextStyle(
                     color: p.buttonText,
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                     letterSpacing: -0.3,
                   ),
@@ -4728,7 +5204,7 @@ class ProUpsellCard extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 10),
           Text(
             tx(
               context,
@@ -4784,7 +5260,7 @@ class _PaywallFeatureSections extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 8),
         _PaywallFeatureGroup(
           title: tx(context, 'Pro-val feloldható extrák'),
           subtitle: tx(context, 'Rendszeres használathoz'),
@@ -4843,7 +5319,7 @@ class _PaywallFeatureGroup extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(14, 14, 14, 8),
+      padding: const EdgeInsets.fromLTRB(12, 11, 12, 5),
       decoration: BoxDecoration(
         color: accent ? p.resultBg : p.card,
         borderRadius: BorderRadius.circular(18),
@@ -4859,7 +5335,7 @@ class _PaywallFeatureGroup extends StatelessWidget {
             title,
             style: TextStyle(
               color: accent ? p.accent : p.text,
-              fontSize: 17,
+              fontSize: 15,
               fontWeight: FontWeight.w600,
               letterSpacing: -0.2,
             ),
@@ -4873,7 +5349,7 @@ class _PaywallFeatureGroup extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 7),
           for (final feature in features) _PaywallFeatureRow(feature: feature),
         ],
       ),
@@ -4898,18 +5374,18 @@ class _PaywallFeatureRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 6),
       child: Row(
         children: [
           Container(
-            width: 30,
-            height: 30,
+            width: 26,
+            height: 26,
             decoration: BoxDecoration(
               color: p.bg.withValues(alpha: 0.75),
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: p.border.withValues(alpha: 0.7)),
             ),
-            child: Icon(feature.icon, color: p.accent, size: 16),
+            child: Icon(feature.icon, color: p.accent, size: 14),
           ),
           const SizedBox(width: 10),
           Expanded(
@@ -4919,7 +5395,7 @@ class _PaywallFeatureRow extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: p.text,
-                fontSize: 14,
+                fontSize: 13,
                 height: 1.2,
                 fontWeight: FontWeight.w600,
               ),
@@ -4928,7 +5404,7 @@ class _PaywallFeatureRow extends StatelessWidget {
           if (feature.limit != null) ...[
             const SizedBox(width: 8),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
               decoration: BoxDecoration(
                 color: p.bg.withValues(alpha: 0.72),
                 borderRadius: BorderRadius.circular(999),
@@ -5008,7 +5484,7 @@ class _PricingRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
       child: Row(
         children: [
           Expanded(
