@@ -59,6 +59,8 @@ class FoodListScreen extends StatelessWidget {
         AppLayout.screenBottomPadding,
       ),
       children: [
+        const _MealGreeting(),
+        const SizedBox(height: 16),
         if (!state.isPro) ...[
           _FreeLimitStrip(
             mainCount: mainFoods.length,
@@ -396,6 +398,92 @@ class _EmptyFoodMessage extends StatelessWidget {
       ),
     );
   }
+}
+
+class _MealGreeting extends StatelessWidget {
+  const _MealGreeting();
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final p = state.palette;
+    final greeting = _timeGreeting(DateTime.now().hour);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(2, 10, 2, 0),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: p.resultBg,
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(color: p.resultBorder),
+            ),
+            child: Icon(greeting.icon, color: p.accent, size: 22),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  greeting.title,
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 24,
+                    height: 1.05,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -0.5,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  greeting.subtitle,
+                  style: TextStyle(
+                    color: p.muted,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.2,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+({String title, String subtitle, IconData icon}) _timeGreeting(int hour) {
+  if (hour >= 5 && hour < 11) {
+    return (
+      title: 'Good morning',
+      subtitle: 'Plan a calm, strong day.',
+      icon: CupertinoIcons.sun_max,
+    );
+  }
+  if (hour >= 11 && hour < 14) {
+    return (
+      title: 'Good day',
+      subtitle: 'Keep your meals on track.',
+      icon: CupertinoIcons.sun_max_fill,
+    );
+  }
+  if (hour >= 14 && hour < 18) {
+    return (
+      title: 'Good afternoon',
+      subtitle: 'Prep what makes later easier.',
+      icon: CupertinoIcons.cloud_sun,
+    );
+  }
+  return (
+    title: 'Good evening',
+    subtitle: 'Wrap up with something nourishing.',
+    icon: CupertinoIcons.moon_stars,
+  );
 }
 
 const _highProtein1500Plans = [
