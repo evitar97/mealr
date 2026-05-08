@@ -143,7 +143,7 @@ class _RecipeCategoryStrip extends StatelessWidget {
   Widget build(BuildContext context) {
     final categories = [
       _RecipeCategory(
-        emoji: '☕',
+        icon: _RecipeCategoryIcon.breakfast,
         label: tx(context, 'Reggeli'),
         onPressed: () => Navigator.of(context).push(
           CupertinoPageRoute<void>(
@@ -155,7 +155,7 @@ class _RecipeCategoryStrip extends StatelessWidget {
         ),
       ),
       _RecipeCategory(
-        emoji: '🍽️',
+        icon: _RecipeCategoryIcon.lunch,
         label: tx(context, 'Ebéd'),
         onPressed: () => Navigator.of(context).push(
           CupertinoPageRoute<void>(
@@ -165,7 +165,7 @@ class _RecipeCategoryStrip extends StatelessWidget {
         ),
       ),
       _RecipeCategory(
-        emoji: '🌙',
+        icon: _RecipeCategoryIcon.dinner,
         label: tx(context, 'Vacsora'),
         onPressed: () => Navigator.of(context).push(
           CupertinoPageRoute<void>(
@@ -177,7 +177,7 @@ class _RecipeCategoryStrip extends StatelessWidget {
         ),
       ),
       _RecipeCategory(
-        emoji: '🍓',
+        icon: _RecipeCategoryIcon.snack,
         label: tx(context, 'Nasi'),
         onPressed: () => Navigator.of(context).push(
           CupertinoPageRoute<void>(
@@ -204,15 +204,17 @@ class _RecipeCategoryStrip extends StatelessWidget {
 
 class _RecipeCategory {
   const _RecipeCategory({
-    required this.emoji,
+    required this.icon,
     required this.label,
     this.onPressed,
   });
 
-  final String emoji;
+  final _RecipeCategoryIcon icon;
   final String label;
   final VoidCallback? onPressed;
 }
+
+enum _RecipeCategoryIcon { breakfast, lunch, dinner, snack }
 
 class _RecipeCategoryPill extends StatelessWidget {
   const _RecipeCategoryPill({required this.category});
@@ -238,7 +240,16 @@ class _RecipeCategoryPill extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(category.emoji, style: const TextStyle(fontSize: 24)),
+              SizedBox(
+                width: 28,
+                height: 28,
+                child: CustomPaint(
+                  painter: _RecipeCategoryIconPainter(
+                    icon: category.icon,
+                    color: _recipeCategoryIconColor(category.icon),
+                  ),
+                ),
+              ),
               const SizedBox(height: 5),
               FittedBox(
                 fit: BoxFit.scaleDown,
@@ -257,6 +268,204 @@ class _RecipeCategoryPill extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+Color _recipeCategoryIconColor(_RecipeCategoryIcon icon) {
+  return switch (icon) {
+    _RecipeCategoryIcon.breakfast => const Color(0xFF9A5A2F),
+    _RecipeCategoryIcon.lunch => const Color(0xFF2E7A4F),
+    _RecipeCategoryIcon.dinner => const Color(0xFFD5A72D),
+    _RecipeCategoryIcon.snack => const Color(0xFFD54B56),
+  };
+}
+
+class _RecipeCategoryIconPainter extends CustomPainter {
+  const _RecipeCategoryIconPainter({required this.icon, required this.color});
+
+  final _RecipeCategoryIcon icon;
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final stroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..strokeWidth = size.width * 0.075;
+    final fill = Paint()
+      ..color = color.withValues(alpha: 0.14)
+      ..style = PaintingStyle.fill;
+
+    switch (icon) {
+      case _RecipeCategoryIcon.breakfast:
+        _paintCup(canvas, size, stroke, fill);
+      case _RecipeCategoryIcon.lunch:
+        _paintPlate(canvas, size, stroke, fill);
+      case _RecipeCategoryIcon.dinner:
+        _paintMoon(canvas, size, stroke, fill);
+      case _RecipeCategoryIcon.snack:
+        _paintBerry(canvas, size, stroke, fill);
+    }
+  }
+
+  void _paintCup(Canvas canvas, Size size, Paint stroke, Paint fill) {
+    final cup = RRect.fromRectAndRadius(
+      Rect.fromLTWH(
+        size.width * 0.18,
+        size.height * 0.42,
+        size.width * 0.46,
+        size.height * 0.30,
+      ),
+      Radius.circular(size.width * 0.08),
+    );
+    canvas.drawRRect(cup, fill);
+    canvas.drawRRect(cup, stroke);
+    canvas.drawArc(
+      Rect.fromLTWH(
+        size.width * 0.56,
+        size.height * 0.45,
+        size.width * 0.24,
+        size.height * 0.22,
+      ),
+      -1.2,
+      2.4,
+      false,
+      stroke,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.16, size.height * 0.78),
+      Offset(size.width * 0.70, size.height * 0.78),
+      stroke,
+    );
+    for (final x in [0.32, 0.47]) {
+      canvas.drawPath(
+        Path()
+          ..moveTo(size.width * x, size.height * 0.16)
+          ..cubicTo(
+            size.width * (x - 0.08),
+            size.height * 0.26,
+            size.width * (x + 0.08),
+            size.height * 0.30,
+            size.width * x,
+            size.height * 0.38,
+          ),
+        stroke,
+      );
+    }
+  }
+
+  void _paintPlate(Canvas canvas, Size size, Paint stroke, Paint fill) {
+    canvas.drawCircle(size.center(Offset.zero), size.width * 0.24, fill);
+    canvas.drawCircle(size.center(Offset.zero), size.width * 0.24, stroke);
+    canvas.drawCircle(size.center(Offset.zero), size.width * 0.12, stroke);
+
+    final forkX = size.width * 0.16;
+    canvas.drawLine(
+      Offset(forkX, size.height * 0.24),
+      Offset(forkX, size.height * 0.76),
+      stroke,
+    );
+    for (final dx in [-0.045, 0.0, 0.045]) {
+      canvas.drawLine(
+        Offset(forkX + size.width * dx, size.height * 0.20),
+        Offset(forkX + size.width * dx, size.height * 0.36),
+        stroke,
+      );
+    }
+
+    canvas.drawLine(
+      Offset(size.width * 0.84, size.height * 0.22),
+      Offset(size.width * 0.84, size.height * 0.76),
+      stroke,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.80, size.height * 0.22),
+      Offset(size.width * 0.84, size.height * 0.42),
+      stroke,
+    );
+  }
+
+  void _paintMoon(Canvas canvas, Size size, Paint stroke, Paint fill) {
+    final moon = Path()
+      ..moveTo(size.width * 0.62, size.height * 0.18)
+      ..cubicTo(
+        size.width * 0.36,
+        size.height * 0.30,
+        size.width * 0.34,
+        size.height * 0.70,
+        size.width * 0.64,
+        size.height * 0.82,
+      )
+      ..cubicTo(
+        size.width * 0.44,
+        size.height * 0.88,
+        size.width * 0.18,
+        size.height * 0.70,
+        size.width * 0.18,
+        size.height * 0.48,
+      )
+      ..cubicTo(
+        size.width * 0.18,
+        size.height * 0.26,
+        size.width * 0.42,
+        size.height * 0.10,
+        size.width * 0.62,
+        size.height * 0.18,
+      );
+    canvas.drawPath(moon, fill);
+    canvas.drawPath(moon, stroke);
+  }
+
+  void _paintBerry(Canvas canvas, Size size, Paint stroke, Paint fill) {
+    final berry = Path()
+      ..moveTo(size.width * 0.50, size.height * 0.27)
+      ..cubicTo(
+        size.width * 0.22,
+        size.height * 0.30,
+        size.width * 0.20,
+        size.height * 0.72,
+        size.width * 0.50,
+        size.height * 0.86,
+      )
+      ..cubicTo(
+        size.width * 0.80,
+        size.height * 0.72,
+        size.width * 0.78,
+        size.height * 0.30,
+        size.width * 0.50,
+        size.height * 0.27,
+      );
+    canvas.drawPath(berry, fill);
+    canvas.drawPath(berry, stroke);
+
+    for (final seed in [
+      const Offset(0.40, 0.48),
+      const Offset(0.56, 0.48),
+      const Offset(0.48, 0.62),
+      const Offset(0.60, 0.68),
+    ]) {
+      canvas.drawCircle(
+        Offset(size.width * seed.dx, size.height * seed.dy),
+        size.width * 0.025,
+        Paint()..color = color,
+      );
+    }
+
+    final leaf = Path()
+      ..moveTo(size.width * 0.50, size.height * 0.28)
+      ..lineTo(size.width * 0.34, size.height * 0.16)
+      ..moveTo(size.width * 0.50, size.height * 0.28)
+      ..lineTo(size.width * 0.66, size.height * 0.16)
+      ..moveTo(size.width * 0.50, size.height * 0.28)
+      ..lineTo(size.width * 0.50, size.height * 0.12);
+    canvas.drawPath(leaf, stroke);
+  }
+
+  @override
+  bool shouldRepaint(covariant _RecipeCategoryIconPainter oldDelegate) {
+    return oldDelegate.icon != icon || oldDelegate.color != color;
   }
 }
 
@@ -407,21 +616,15 @@ class _MealGreeting extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    final greeting = _timeGreeting(DateTime.now().hour);
+    final greeting = _timeGreeting(DateTime.now());
     return Padding(
       padding: const EdgeInsets.fromLTRB(2, 10, 2, 0),
       child: Row(
         children: [
-          Container(
-            width: 44,
-            height: 44,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: p.resultBg,
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: p.resultBorder),
-            ),
-            child: Icon(greeting.icon, color: p.accent, size: 22),
+          SizedBox(
+            width: 48,
+            height: 48,
+            child: Icon(greeting.icon, color: greeting.color, size: 36),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -451,38 +654,71 @@ class _MealGreeting extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(width: 14),
+          const MealWeightMark(size: 44, radius: 14),
         ],
       ),
     );
   }
 }
 
-({String title, String subtitle, IconData icon}) _timeGreeting(int hour) {
+({String title, String subtitle, IconData icon, Color color}) _timeGreeting(
+  DateTime now,
+) {
+  final hour = now.hour;
   if (hour >= 5 && hour < 11) {
+    final mottos = [
+      'Start simple, stay steady.',
+      'Plan a calm, strong day.',
+      'Build today one meal at a time.',
+      'Fuel the morning with intention.',
+    ];
     return (
       title: 'Good morning',
-      subtitle: 'Plan a calm, strong day.',
+      subtitle: mottos[now.day % mottos.length],
       icon: CupertinoIcons.sun_max,
+      color: const Color(0xFFD9A629),
     );
   }
   if (hour >= 11 && hour < 14) {
+    final mottos = [
+      'Keep your meals on track.',
+      'Small choices, solid momentum.',
+      'Stay fueled and focused.',
+      'Make the next meal easy.',
+    ];
     return (
       title: 'Good day',
-      subtitle: 'Keep your meals on track.',
+      subtitle: mottos[now.day % mottos.length],
       icon: CupertinoIcons.sun_max_fill,
+      color: const Color(0xFF3A9A62),
     );
   }
   if (hour >= 14 && hour < 18) {
+    final mottos = [
+      'Prep what makes later easier.',
+      'Set up dinner before the rush.',
+      'A little prep goes a long way.',
+      'Keep the afternoon light and useful.',
+    ];
     return (
       title: 'Good afternoon',
-      subtitle: 'Prep what makes later easier.',
+      subtitle: mottos[now.day % mottos.length],
       icon: CupertinoIcons.cloud_sun,
+      color: const Color(0xFFE0842F),
     );
   }
+  final mottos = [
+    'Wrap up with something nourishing.',
+    'Slow down, eat well, rest easy.',
+    'Close the day with care.',
+    'Tomorrow starts with tonight’s prep.',
+  ];
   return (
     title: 'Good evening',
-    subtitle: 'Wrap up with something nourishing.',
+    subtitle: mottos[now.day % mottos.length],
     icon: CupertinoIcons.moon_stars,
+    color: const Color(0xFF7A86D8),
   );
 }
 
@@ -2552,25 +2788,22 @@ class _FreeLimitStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
-      child: Row(
-        children: [
-          Expanded(
-            child: _LimitMeter(
-              label: tx(context, 'Főétel'),
-              value: mainCount.clamp(0, 1),
-            ),
+    return Row(
+      children: [
+        Expanded(
+          child: _LimitMeter(
+            label: tx(context, 'Főétel'),
+            value: mainCount.clamp(0, 1),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: _LimitMeter(
-              label: tx(context, 'Köret'),
-              value: sideCount.clamp(0, 1),
-            ),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: _LimitMeter(
+            label: tx(context, 'Köret'),
+            value: sideCount.clamp(0, 1),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -2586,9 +2819,9 @@ class _LimitMeter extends StatelessWidget {
     final p = AppScope.of(context).palette;
     final filled = value >= 1;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
       decoration: BoxDecoration(
-        color: p.bg,
+        color: p.card,
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: (filled ? p.accent : p.border).withValues(alpha: 0.72),

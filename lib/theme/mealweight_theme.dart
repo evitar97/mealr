@@ -5,8 +5,8 @@ import '../models/theme_option.dart';
 const themeOptions = <ThemeOption>[
   ThemeOption(
     id: 'original',
-    name: 'Toasted',
-    isFree: true,
+    name: 'Toast',
+    isFree: false,
     dark: MealWeightPalette(
       bg: Color(0xFF1E1D1B),
       card: Color(0xFF322217),
@@ -46,8 +46,8 @@ const themeOptions = <ThemeOption>[
   ),
   ThemeOption(
     id: 'clean',
-    name: 'Clean',
-    isFree: true,
+    name: 'Cream',
+    isFree: false,
     dark: MealWeightPalette(
       bg: Color(0xFF1C1C1E),
       card: Color(0xFF2C2C2E),
@@ -87,7 +87,7 @@ const themeOptions = <ThemeOption>[
   ),
   ThemeOption(
     id: 'aurum',
-    name: 'Aurum',
+    name: 'Burgur',
     isFree: false,
     dark: MealWeightPalette(
       bg: Color(0xFF100D06),
@@ -128,7 +128,7 @@ const themeOptions = <ThemeOption>[
   ),
   ThemeOption(
     id: 'blush',
-    name: 'Blush',
+    name: 'Candy',
     isFree: false,
     dark: MealWeightPalette(
       bg: Color(0xFF170A13),
@@ -169,8 +169,8 @@ const themeOptions = <ThemeOption>[
   ),
   ThemeOption(
     id: 'forest',
-    name: 'Forest',
-    isFree: false,
+    name: 'Spinach',
+    isFree: true,
     dark: MealWeightPalette(
       bg: Color(0xFF080F0A),
       card: Color(0xFF0F1A12),
@@ -210,7 +210,7 @@ const themeOptions = <ThemeOption>[
   ),
   ThemeOption(
     id: 'ocean',
-    name: 'Ocean',
+    name: 'Dew',
     isFree: false,
     dark: MealWeightPalette(
       bg: Color(0xFF070D18),

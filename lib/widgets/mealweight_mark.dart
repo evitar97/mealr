@@ -13,17 +13,23 @@ class MealWeightMark extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     final cornerRadius = radius ?? size * 0.28;
+    final surfaceColor = state.isDark
+        ? Color.alphaBlend(p.accent.withValues(alpha: 0.06), p.card)
+        : Color.alphaBlend(p.accent.withValues(alpha: 0.04), p.bg);
     return Container(
       width: size,
       height: size,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: state.isDark ? const Color(0xFF080604) : const Color(0xFFFFF3E2),
+        color: surfaceColor,
         borderRadius: BorderRadius.circular(cornerRadius),
-        border: Border.all(color: p.border.withValues(alpha: 0.78), width: 1.3),
+        border: Border.all(
+          color: p.border.withValues(alpha: state.isDark ? 0.62 : 0.46),
+          width: 1.2,
+        ),
         boxShadow: [
           BoxShadow(
-            color: p.accent.withValues(alpha: state.isDark ? 0.24 : 0.16),
+            color: p.accent.withValues(alpha: state.isDark ? 0.18 : 0.12),
             blurRadius: size * 0.22,
             offset: Offset(0, size * 0.06),
           ),

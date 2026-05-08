@@ -193,7 +193,6 @@ class _BottomTabs extends StatelessWidget {
                         icon: CupertinoIcons.square_grid_2x2,
                         label: 'Meals',
                         color: const Color(0xFF3A9A62),
-                        edge: _TabEdge.first,
                       ),
                       _TabItem(
                         state: state,
@@ -201,7 +200,6 @@ class _BottomTabs extends StatelessWidget {
                         icon: CupertinoIcons.flame,
                         label: tx(context, 'Kalória'),
                         color: const Color(0xFFE0842F),
-                        edge: _TabEdge.middle,
                       ),
                       _TabItem(
                         state: state,
@@ -209,7 +207,6 @@ class _BottomTabs extends StatelessWidget {
                         icon: CupertinoIcons.chart_bar_square,
                         label: 'BMI',
                         color: const Color(0xFFC2A43B),
-                        edge: _TabEdge.middle,
                       ),
                       _TabItem(
                         state: state,
@@ -217,7 +214,6 @@ class _BottomTabs extends StatelessWidget {
                         icon: CupertinoIcons.person,
                         label: tx(context, 'Profil'),
                         color: const Color(0xFF58A9C8),
-                        edge: _TabEdge.last,
                       ),
                     ],
                   ),
@@ -231,8 +227,6 @@ class _BottomTabs extends StatelessWidget {
   }
 }
 
-enum _TabEdge { first, middle, last }
-
 class _TabItem extends StatelessWidget {
   const _TabItem({
     required this.state,
@@ -240,7 +234,6 @@ class _TabItem extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.color,
-    required this.edge,
   });
 
   final AppState state;
@@ -248,24 +241,14 @@ class _TabItem extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color color;
-  final _TabEdge edge;
 
   @override
   Widget build(BuildContext context) {
     final p = state.palette;
     final active = state.tab == tab;
-    final tabColor = active ? color : p.muted;
-    final radius = switch (edge) {
-      _TabEdge.first => const BorderRadius.horizontal(
-        left: Radius.circular(16),
-        right: Radius.circular(8),
-      ),
-      _TabEdge.last => const BorderRadius.horizontal(
-        left: Radius.circular(8),
-        right: Radius.circular(16),
-      ),
-      _TabEdge.middle => BorderRadius.circular(8),
-    };
+    final tabColor = active
+        ? color
+        : Color.alphaBlend(color.withValues(alpha: 0.42), p.muted);
     return Expanded(
       child: SpringPressable(
         pressedScale: 0.92,
@@ -279,21 +262,7 @@ class _TabItem extends StatelessWidget {
             duration: const Duration(milliseconds: 180),
             curve: Curves.easeOutCubic,
             height: double.infinity,
-            decoration: BoxDecoration(
-              color: active
-                  ? Color.alphaBlend(
-                      color.withValues(alpha: state.isDark ? 0.14 : 0.10),
-                      p.resultBg,
-                    )
-                  : CupertinoColors.transparent,
-              borderRadius: radius,
-              border: Border.all(
-                color: active
-                    ? color.withValues(alpha: state.isDark ? 0.30 : 0.20)
-                    : CupertinoColors.transparent,
-                width: 1,
-              ),
-            ),
+            decoration: const BoxDecoration(color: CupertinoColors.transparent),
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -301,8 +270,11 @@ class _TabItem extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(icon, size: active ? 23 : 22, color: tabColor),
-                    const SizedBox(height: 2),
+                    if (tab == AppTab.foods)
+                      _MealTabGlyph(color: tabColor, size: active ? 27 : 25)
+                    else
+                      Icon(icon, size: active ? 25 : 23, color: tabColor),
+                    const SizedBox(height: 3),
                     FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
@@ -312,7 +284,7 @@ class _TabItem extends StatelessWidget {
                           color: tabColor,
                           fontSize: 11.5,
                           fontWeight: active
-                              ? FontWeight.w700
+                              ? FontWeight.w800
                               : FontWeight.w600,
                           letterSpacing: 0,
                         ),
@@ -326,5 +298,120 @@ class _TabItem extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _MealTabGlyph extends StatelessWidget {
+  const _MealTabGlyph({required this.color, required this.size});
+
+  final Color color;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: size,
+      height: size,
+      child: CustomPaint(painter: _MealTabGlyphPainter(color)),
+    );
+  }
+}
+
+class _MealTabGlyphPainter extends CustomPainter {
+  const _MealTabGlyphPainter(this.color);
+
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final stroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..strokeWidth = size.width * 0.085;
+    final fill = Paint()
+      ..color = color.withValues(alpha: 0.14)
+      ..style = PaintingStyle.fill;
+
+    final rim = Rect.fromLTWH(
+      size.width * 0.16,
+      size.height * 0.56,
+      size.width * 0.68,
+      size.height * 0.13,
+    );
+    canvas.drawOval(rim, stroke);
+    final bowlPath = Path()
+      ..moveTo(size.width * 0.16, size.height * 0.61)
+      ..quadraticBezierTo(
+        size.width * 0.50,
+        size.height * 0.94,
+        size.width * 0.84,
+        size.height * 0.61,
+      );
+    canvas.drawPath(bowlPath, stroke);
+    canvas.drawPath(
+      Path()
+        ..moveTo(size.width * 0.22, size.height * 0.64)
+        ..quadraticBezierTo(
+          size.width * 0.50,
+          size.height * 0.81,
+          size.width * 0.78,
+          size.height * 0.64,
+        )
+        ..lineTo(size.width * 0.74, size.height * 0.71)
+        ..quadraticBezierTo(
+          size.width * 0.50,
+          size.height * 0.86,
+          size.width * 0.26,
+          size.height * 0.71,
+        )
+        ..close(),
+      fill,
+    );
+
+    final forkX = size.width * 0.25;
+    canvas.drawLine(
+      Offset(forkX, size.height * 0.18),
+      Offset(forkX, size.height * 0.56),
+      stroke,
+    );
+    for (final dx in [-0.075, 0.0, 0.075]) {
+      canvas.drawLine(
+        Offset(forkX + size.width * dx, size.height * 0.14),
+        Offset(forkX + size.width * dx, size.height * 0.30),
+        stroke,
+      );
+    }
+
+    canvas.drawOval(
+      Rect.fromCenter(
+        center: Offset(size.width * 0.50, size.height * 0.22),
+        width: size.width * 0.16,
+        height: size.height * 0.22,
+      ),
+      stroke,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.50, size.height * 0.34),
+      Offset(size.width * 0.50, size.height * 0.58),
+      stroke,
+    );
+
+    canvas.drawLine(
+      Offset(size.width * 0.76, size.height * 0.16),
+      Offset(size.width * 0.66, size.height * 0.56),
+      stroke,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.80, size.height * 0.18),
+      Offset(size.width * 0.72, size.height * 0.45),
+      stroke,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _MealTabGlyphPainter oldDelegate) {
+    return oldDelegate.color != color;
   }
 }
