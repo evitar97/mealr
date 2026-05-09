@@ -238,6 +238,7 @@ const _translations = {
     'Étel megosztás': 'Food sharing',
     'Bevásárlás+ listák': 'Shopping+ lists',
     'Meal Prep tervező': 'Meal Prep planner',
+    'Heti táplálkozási pillanatkép': 'Weekly nutrition snapshot',
     'Korlátlan étel és meal prep mentés': 'Unlimited food and Meal Prep saving',
     'Korlátlan': 'Unlimited',
     '30/60 napos súlydiagram és statisztika':

@@ -136,13 +136,103 @@ class FoodListScreen extends StatelessWidget {
           peekHeight: 46,
           child: _DietPlanStrip(),
         ),
-        if (!state.isPro) ...[
-          const SizedBox(height: 16),
+        const SizedBox(height: 16),
+        if (state.isPro) ...[
+          SectionLabel('Weekly snapshot'),
+          const _WeeklyNutritionSnapshot(),
+        ] else
           const ProCompactUpsellCard(),
-        ],
       ],
     );
   }
+}
+
+class _WeeklyNutritionSnapshot extends StatelessWidget {
+  const _WeeklyNutritionSnapshot();
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final meals = state.foods.length;
+    final prepStreak = state.mealPrepPlans.isEmpty ? 0 : 1;
+    final avgKcal = meals == 0
+        ? state.profileCalorieTarget
+        : (state.foods.fold<double>(
+                    0,
+                    (total, food) => total + _estimatedFoodCalories(food),
+                  ) /
+                  meals)
+              .round();
+
+    return SizedBox(
+      height: 58,
+      child: Row(
+        children: [
+          Expanded(
+            child: _SnapshotMetric(value: '$meals', label: '7-day meals'),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: _SnapshotMetric(value: '$avgKcal', label: 'Avg kcal'),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: _SnapshotMetric(value: '$prepStreak', label: 'Prep streak'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SnapshotMetric extends StatelessWidget {
+  const _SnapshotMetric({required this.value, required this.label});
+
+  final String value;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            value,
+            maxLines: 1,
+            style: TextStyle(
+              color: p.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w800,
+              letterSpacing: -0.4,
+            ),
+          ),
+          const SizedBox(height: 2),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              label,
+              maxLines: 1,
+              style: TextStyle(
+                color: p.muted,
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+double _estimatedFoodCalories(FoodItem food) {
+  final rawEquivalent = food.rawEquivalent;
+  if (rawEquivalent <= 0) return 0;
+  final density = food.category == FoodCategory.main ? 1.65 : 1.1;
+  return rawEquivalent * density;
 }
 
 class _PeekReveal extends StatefulWidget {
@@ -1981,15 +2071,15 @@ class _FoodSubpageScaffold extends StatelessWidget {
                     stops: const [0, 0.34, 0.72, 1],
                     colors: [
                       Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.15 : 0.10),
+                        p.accent.withValues(alpha: state.isDark ? 0.05 : 0.03),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.18 : 0.34),
+                        p.card.withValues(alpha: state.isDark ? 0.06 : 0.12),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.08 : 0.16),
+                        p.card.withValues(alpha: state.isDark ? 0.03 : 0.06),
                         p.bg,
                       ),
                       p.bg,
@@ -5897,6 +5987,10 @@ class _PaywallFeatureSections extends StatelessWidget {
             _PaywallFeature(
               icon: CupertinoIcons.calendar,
               title: tx(context, 'Étrendek'),
+            ),
+            _PaywallFeature(
+              icon: CupertinoIcons.chart_bar_alt_fill,
+              title: tx(context, 'Heti táplálkozási pillanatkép'),
             ),
             _PaywallFeature(
               icon: CupertinoIcons.share,

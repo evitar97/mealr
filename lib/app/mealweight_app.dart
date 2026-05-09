@@ -83,15 +83,15 @@ class MealWeightShell extends StatelessWidget {
                     stops: const [0, 0.34, 0.72, 1],
                     colors: [
                       Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.15 : 0.10),
+                        p.accent.withValues(alpha: state.isDark ? 0.05 : 0.03),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.18 : 0.34),
+                        p.card.withValues(alpha: state.isDark ? 0.06 : 0.12),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.08 : 0.16),
+                        p.card.withValues(alpha: state.isDark ? 0.03 : 0.06),
                         p.bg,
                       ),
                       p.bg,
@@ -164,8 +164,8 @@ class _BottomTabs extends StatelessWidget {
         padding: EdgeInsets.only(
           left: 12,
           right: 12,
-          top: 8,
-          bottom: MediaQuery.paddingOf(context).bottom + 6,
+          top: 4,
+          bottom: MediaQuery.paddingOf(context).bottom + 2,
         ),
         decoration: BoxDecoration(
           border: Border(top: BorderSide(color: dockBorder, width: 1)),
@@ -264,33 +264,36 @@ class _TabItem extends StatelessWidget {
             height: double.infinity,
             decoration: const BoxDecoration(color: CupertinoColors.transparent),
             child: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (tab == AppTab.foods)
-                      _MealTabGlyph(color: tabColor, size: active ? 27 : 25)
-                    else
-                      Icon(icon, size: active ? 25 : 23, color: tabColor),
-                    const SizedBox(height: 3),
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        label,
-                        maxLines: 1,
-                        style: TextStyle(
-                          color: tabColor,
-                          fontSize: 11.5,
-                          fontWeight: active
-                              ? FontWeight.w800
-                              : FontWeight.w600,
-                          letterSpacing: 0,
+              child: Transform.translate(
+                offset: const Offset(0, 3),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (tab == AppTab.foods)
+                        _MealTabGlyph(color: tabColor, size: active ? 27 : 25)
+                      else
+                        Icon(icon, size: active ? 25 : 23, color: tabColor),
+                      const SizedBox(height: 3),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          label,
+                          maxLines: 1,
+                          style: TextStyle(
+                            color: tabColor,
+                            fontSize: 11.5,
+                            fontWeight: active
+                                ? FontWeight.w800
+                                : FontWeight.w600,
+                            letterSpacing: 0,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
