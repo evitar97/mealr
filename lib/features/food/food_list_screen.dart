@@ -18,6 +18,7 @@ import 'recipe_library.dart';
 
 const _headlineSerifFamily = 'Georgia';
 const _headlineSerifFallback = ['Times New Roman', 'Times'];
+final _greetingMottoSeed = DateTime.now().microsecondsSinceEpoch;
 
 TextStyle _headlineSerifStyle({
   required Color color,
@@ -123,15 +124,104 @@ class FoodListScreen extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         SectionLabel(tx(context, 'Receptek')),
-        const _RecipeCategoryStrip(),
+        const _PeekReveal(
+          expandedHeight: 78,
+          peekHeight: 59,
+          child: _RecipeCategoryStrip(),
+        ),
         const SizedBox(height: 12),
         SectionLabel(tx(context, 'Étrendek')),
-        const _DietPlanStrip(),
+        const _PeekReveal(
+          expandedHeight: 76,
+          peekHeight: 46,
+          child: _DietPlanStrip(),
+        ),
         if (!state.isPro) ...[
           const SizedBox(height: 16),
           const ProCompactUpsellCard(),
         ],
       ],
+    );
+  }
+}
+
+class _PeekReveal extends StatefulWidget {
+  const _PeekReveal({
+    required this.child,
+    required this.expandedHeight,
+    required this.peekHeight,
+  });
+
+  final Widget child;
+  final double expandedHeight;
+  final double peekHeight;
+
+  @override
+  State<_PeekReveal> createState() => _PeekRevealState();
+}
+
+class _PeekRevealState extends State<_PeekReveal> {
+  bool _expanded = false;
+
+  void _toggle() {
+    setState(() {
+      _expanded = !_expanded;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: _toggle,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 170),
+        curve: Curves.easeOutCubic,
+        height: _expanded ? widget.expandedHeight : widget.peekHeight,
+        child: ClipRect(
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.topCenter,
+                child: IgnorePointer(
+                  ignoring: !_expanded,
+                  child: OverflowBox(
+                    alignment: Alignment.topCenter,
+                    minHeight: widget.expandedHeight,
+                    maxHeight: widget.expandedHeight,
+                    child: SizedBox(
+                      height: widget.expandedHeight,
+                      child: widget.child,
+                    ),
+                  ),
+                ),
+              ),
+              if (!_expanded)
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  height: 12,
+                  child: IgnorePointer(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            p.bg.withValues(alpha: 0),
+                            p.bg.withValues(alpha: 0.94),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -273,10 +363,10 @@ class _RecipeCategoryPill extends StatelessWidget {
 
 Color _recipeCategoryIconColor(_RecipeCategoryIcon icon) {
   return switch (icon) {
-    _RecipeCategoryIcon.breakfast => const Color(0xFF9A5A2F),
-    _RecipeCategoryIcon.lunch => const Color(0xFF2E7A4F),
-    _RecipeCategoryIcon.dinner => const Color(0xFFD5A72D),
-    _RecipeCategoryIcon.snack => const Color(0xFFD54B56),
+    _RecipeCategoryIcon.breakfast => const Color(0xFF9A6846),
+    _RecipeCategoryIcon.lunch => const Color(0xFF4F8B62),
+    _RecipeCategoryIcon.dinner => const Color(0xFFC7A040),
+    _RecipeCategoryIcon.snack => const Color(0xFFC65F68),
   };
 }
 
@@ -672,12 +762,13 @@ class _MealGreeting extends StatelessWidget {
       'Plan a calm, strong day.',
       'Build today one meal at a time.',
       'Fuel the morning with intention.',
+      'Make the first choice an easy one.',
     ];
     return (
       title: 'Good morning',
-      subtitle: mottos[now.day % mottos.length],
+      subtitle: _startupMotto(mottos),
       icon: CupertinoIcons.sun_max,
-      color: const Color(0xFFD9A629),
+      color: const Color(0xFFC6A34A),
     );
   }
   if (hour >= 11 && hour < 14) {
@@ -686,12 +777,13 @@ class _MealGreeting extends StatelessWidget {
       'Small choices, solid momentum.',
       'Stay fueled and focused.',
       'Make the next meal easy.',
+      'A steady plate keeps the day steady.',
     ];
     return (
       title: 'Good day',
-      subtitle: mottos[now.day % mottos.length],
+      subtitle: _startupMotto(mottos),
       icon: CupertinoIcons.sun_max_fill,
-      color: const Color(0xFF3A9A62),
+      color: const Color(0xFF6FA77B),
     );
   }
   if (hour >= 14 && hour < 18) {
@@ -700,12 +792,13 @@ class _MealGreeting extends StatelessWidget {
       'Set up dinner before the rush.',
       'A little prep goes a long way.',
       'Keep the afternoon light and useful.',
+      'Give your evening a head start.',
     ];
     return (
       title: 'Good afternoon',
-      subtitle: mottos[now.day % mottos.length],
+      subtitle: _startupMotto(mottos),
       icon: CupertinoIcons.cloud_sun,
-      color: const Color(0xFFE0842F),
+      color: const Color(0xFFB98758),
     );
   }
   final mottos = [
@@ -713,13 +806,18 @@ class _MealGreeting extends StatelessWidget {
     'Slow down, eat well, rest easy.',
     'Close the day with care.',
     'Tomorrow starts with tonight’s prep.',
+    'End the day full, not rushed.',
   ];
   return (
     title: 'Good evening',
-    subtitle: mottos[now.day % mottos.length],
+    subtitle: _startupMotto(mottos),
     icon: CupertinoIcons.moon_stars,
-    color: const Color(0xFF7A86D8),
+    color: const Color(0xFF8D94C6),
   );
+}
+
+String _startupMotto(List<String> mottos) {
+  return mottos[_greetingMottoSeed % mottos.length];
 }
 
 const _highProtein1500Plans = [
@@ -1857,7 +1955,66 @@ String _dietMealEmoji(String label) => switch (label) {
   _ => '•',
 };
 
-class RecipeListScreen extends StatelessWidget {
+enum _RecipeDietFilter { all, normal, vegan }
+
+class _FoodSubpageScaffold extends StatelessWidget {
+  const _FoodSubpageScaffold({required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final p = state.palette;
+    return CupertinoPageScaffold(
+      backgroundColor: p.bg,
+      child: SafeArea(
+        bottom: false,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0, 0.34, 0.72, 1],
+                    colors: [
+                      Color.alphaBlend(
+                        p.accent.withValues(alpha: state.isDark ? 0.15 : 0.10),
+                        p.bg,
+                      ),
+                      Color.alphaBlend(
+                        p.card.withValues(alpha: state.isDark ? 0.18 : 0.34),
+                        p.bg,
+                      ),
+                      Color.alphaBlend(
+                        p.card.withValues(alpha: state.isDark ? 0.08 : 0.16),
+                        p.bg,
+                      ),
+                      p.bg,
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            ListView(
+              padding: const EdgeInsets.fromLTRB(
+                14,
+                10,
+                14,
+                AppLayout.screenBottomPadding,
+              ),
+              children: children,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RecipeListScreen extends StatefulWidget {
   const RecipeListScreen({
     required this.title,
     required this.recipes,
@@ -1868,41 +2025,191 @@ class RecipeListScreen extends StatelessWidget {
   final List<Recipe> recipes;
 
   @override
+  State<RecipeListScreen> createState() => _RecipeListScreenState();
+}
+
+class _RecipeListScreenState extends State<RecipeListScreen> {
+  late final TextEditingController _searchController;
+  _RecipeDietFilter _filter = _RecipeDietFilter.all;
+  String _query = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
-    final p = AppScope.of(context).palette;
-    final favorites = recipes
+    final filteredRecipes = widget.recipes.where(_matchesFilters).toList();
+    final favorites = filteredRecipes
         .where((recipe) => state.isFavoriteRecipe(recipe.id))
         .toList();
-    final regularRecipes = recipes
+    final regularRecipes = filteredRecipes
         .where((recipe) => !state.isFavoriteRecipe(recipe.id))
         .toList();
-    return CupertinoPageScaffold(
-      backgroundColor: p.bg,
-      navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg.withValues(alpha: 0.82),
-        border: Border(bottom: BorderSide(color: p.border)),
-        leading: const _WarmBackButton(),
-        middle: Text(tx(context, title)),
-      ),
-      child: SafeArea(
-        bottom: false,
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(
-            14,
-            14,
-            14,
-            AppLayout.screenBottomPadding,
-          ),
+    return _FoodSubpageScaffold(
+      children: [
+        _RecipeSearchAndFilter(
+          controller: _searchController,
+          filter: _filter,
+          onQueryChanged: (value) {
+            setState(() {
+              _query = value.trim().toLowerCase();
+            });
+          },
+          onFilterChanged: (value) {
+            setState(() {
+              _filter = value;
+            });
+          },
+        ),
+        const SizedBox(height: 14),
+        if (favorites.isNotEmpty) ...[
+          SectionLabel(tx(context, 'Kedvencek')),
+          for (final recipe in favorites) _RecipeTile(recipe: recipe),
+          const SizedBox(height: 8),
+        ],
+        SectionLabel(tx(context, 'Receptek')),
+        if (regularRecipes.isEmpty && favorites.isEmpty)
+          _EmptyFoodMessage(tx(context, 'Nincs találat.')),
+        for (final recipe in regularRecipes) _RecipeTile(recipe: recipe),
+      ],
+    );
+  }
+
+  bool _matchesFilters(Recipe recipe) {
+    final matchesDiet = switch (_filter) {
+      _RecipeDietFilter.all => true,
+      _RecipeDietFilter.normal => !recipe.isVegan,
+      _RecipeDietFilter.vegan => recipe.isVegan,
+    };
+    if (!matchesDiet) return false;
+    if (_query.isEmpty) return true;
+    return recipe.name.toLowerCase().contains(_query) ||
+        recipe.ingredients.any(
+          (ingredient) => ingredient.name.toLowerCase().contains(_query),
+        );
+  }
+}
+
+class _RecipeSearchAndFilter extends StatelessWidget {
+  const _RecipeSearchAndFilter({
+    required this.controller,
+    required this.filter,
+    required this.onQueryChanged,
+    required this.onFilterChanged,
+  });
+
+  final TextEditingController controller;
+  final _RecipeDietFilter filter;
+  final ValueChanged<String> onQueryChanged;
+  final ValueChanged<_RecipeDietFilter> onFilterChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Column(
+      children: [
+        Row(
           children: [
-            if (favorites.isNotEmpty) ...[
-              SectionLabel(tx(context, 'Kedvencek')),
-              for (final recipe in favorites) _RecipeTile(recipe: recipe),
-              const SizedBox(height: 8),
-            ],
-            SectionLabel(tx(context, 'Receptek')),
-            for (final recipe in regularRecipes) _RecipeTile(recipe: recipe),
+            const _WarmBackButton(size: 48, radius: 16, iconSize: 25),
+            const SizedBox(width: 10),
+            Expanded(
+              child: CupertinoTextField(
+                controller: controller,
+                onChanged: onQueryChanged,
+                placeholder: tx(context, 'Keresés receptek között'),
+                prefix: Padding(
+                  padding: const EdgeInsetsDirectional.only(start: 12, end: 6),
+                  child: Icon(CupertinoIcons.search, color: p.muted, size: 19),
+                ),
+                suffix: controller.text.isEmpty
+                    ? null
+                    : CupertinoButton(
+                        minimumSize: const Size(34, 34),
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          controller.clear();
+                          onQueryChanged('');
+                        },
+                        child: Icon(
+                          CupertinoIcons.xmark_circle_fill,
+                          color: p.muted,
+                          size: 18,
+                        ),
+                      ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 14,
+                ),
+                style: TextStyle(
+                  color: p.text,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+                placeholderStyle: TextStyle(
+                  color: p.muted.withValues(alpha: 0.72),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+                decoration: BoxDecoration(
+                  color: p.card,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: p.border),
+                ),
+              ),
+            ),
           ],
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          width: double.infinity,
+          child: CupertinoSlidingSegmentedControl<_RecipeDietFilter>(
+            groupValue: filter,
+            backgroundColor: p.card,
+            thumbColor: p.resultBg,
+            padding: const EdgeInsets.all(4),
+            children: {
+              _RecipeDietFilter.all: _RecipeFilterLabel(tx(context, 'Mind')),
+              _RecipeDietFilter.normal: _RecipeFilterLabel(
+                tx(context, 'Normál receptek'),
+              ),
+              _RecipeDietFilter.vegan: _RecipeFilterLabel(tx(context, 'Vegán')),
+            },
+            onValueChanged: (value) {
+              if (value != null) onFilterChanged(value);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _RecipeFilterLabel extends StatelessWidget {
+  const _RecipeFilterLabel(this.label);
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: p.text,
+          fontSize: 13,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );
@@ -2031,172 +2338,156 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
     final recipe = widget.recipe;
     final isFavorite = state.isFavoriteRecipe(recipe.id);
     final totalCalories = recipe.caloriesPerServing * servings;
-    return CupertinoPageScaffold(
-      backgroundColor: p.bg,
-      navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg.withValues(alpha: 0.82),
-        border: Border(bottom: BorderSide(color: p.border)),
-        leading: const _WarmBackButton(),
-        middle: Text(tx(context, 'Recept')),
-      ),
-      child: SafeArea(
-        bottom: false,
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(
-            14,
-            14,
-            14,
-            AppLayout.screenBottomPadding,
-          ),
-          children: [
-            AppCard(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-              child: Column(
+    return _FoodSubpageScaffold(
+      children: [
+        const _WarmBackButton(size: 48, radius: 16, iconSize: 25),
+        const SizedBox(height: 10),
+        AppCard(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 58,
-                        height: 58,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: p.bg.withValues(alpha: 0.72),
-                          borderRadius: BorderRadius.circular(18),
-                          border: Border.all(color: p.border),
-                        ),
-                        child: Text(
-                          recipe.emoji,
-                          style: const TextStyle(fontSize: 30),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
+                  Container(
+                    width: 58,
+                    height: 58,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: p.bg.withValues(alpha: 0.72),
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(color: p.border),
+                    ),
+                    child: Text(
+                      recipe.emoji,
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    tx(context, recipe.name),
-                                    style: TextStyle(
-                                      color: p.text,
-                                      fontSize: 22,
-                                      height: 1.12,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: -0.4,
-                                    ),
-                                  ),
+                            Expanded(
+                              child: Text(
+                                tx(context, recipe.name),
+                                style: TextStyle(
+                                  color: p.text,
+                                  fontSize: 22,
+                                  height: 1.12,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: -0.4,
                                 ),
-                                const SizedBox(width: 8),
-                                CupertinoButton(
-                                  minimumSize: const Size(34, 34),
-                                  padding: EdgeInsets.zero,
-                                  color: p.bg.withValues(alpha: 0.68),
-                                  borderRadius: BorderRadius.circular(12),
-                                  onPressed: () =>
-                                      state.toggleFavoriteRecipe(recipe.id),
-                                  child: Icon(
-                                    isFavorite
-                                        ? CupertinoIcons.star_fill
-                                        : CupertinoIcons.star,
-                                    color: isFavorite ? p.accent : p.muted,
-                                    size: 19,
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                            const SizedBox(height: 8),
-                            Text(
-                              '${recipe.prepTimeMinutes} ${tx(context, 'perc')} · ${recipe.caloriesPerServing} kcal/${tx(context, 'adag')}',
-                              style: TextStyle(
-                                color: p.muted,
-                                fontWeight: FontWeight.w600,
+                            const SizedBox(width: 8),
+                            CupertinoButton(
+                              minimumSize: const Size(34, 34),
+                              padding: EdgeInsets.zero,
+                              color: p.bg.withValues(alpha: 0.68),
+                              borderRadius: BorderRadius.circular(12),
+                              onPressed: () =>
+                                  state.toggleFavoriteRecipe(recipe.id),
+                              child: Icon(
+                                isFavorite
+                                    ? CupertinoIcons.star_fill
+                                    : CupertinoIcons.star,
+                                color: isFavorite ? p.accent : p.muted,
+                                size: 19,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  _RecipeServingsStepper(
-                    value: servings,
-                    controller: servingsController,
-                    onChanged: _setServings,
-                  ),
-                  const SizedBox(height: 14),
-                  _RecipeSummaryRow(
-                    label: tx(context, 'Összes kalória'),
-                    value: '$totalCalories kcal',
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    child: CupertinoButton(
-                      padding: const EdgeInsets.symmetric(vertical: 13),
-                      color: p.accent,
-                      borderRadius: BorderRadius.circular(14),
-                      onPressed: state.isPro
-                          ? () => showCupertinoModalPopup<void>(
-                              context: context,
-                              barrierColor: const Color(0x99000000),
-                              builder: (_) => RecipeShoppingListSheet(
-                                recipe: recipe,
-                                servings: servings,
-                              ),
-                            )
-                          : () => showProPaywallSheet(context),
-                      child: Text(
-                        tx(context, 'Bevásárláshoz adás'),
-                        style: TextStyle(
-                          color: p.buttonText,
-                          fontWeight: FontWeight.w600,
+                        const SizedBox(height: 8),
+                        Text(
+                          '${recipe.prepTimeMinutes} ${tx(context, 'perc')} · ${recipe.caloriesPerServing} kcal/${tx(context, 'adag')}',
+                          style: TextStyle(
+                            color: p.muted,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-            SectionLabel(tx(context, 'Hozzávalók')),
-            AppCard(
-              child: Column(
-                children: [
-                  for (final ingredient in recipe.ingredients)
-                    _RecipeIngredientRow(
-                      ingredient: ingredient,
-                      scale: servings / recipe.baseServings,
+              const SizedBox(height: 16),
+              _RecipeServingsStepper(
+                value: servings,
+                controller: servingsController,
+                onChanged: _setServings,
+              ),
+              const SizedBox(height: 14),
+              _RecipeSummaryRow(
+                label: tx(context, 'Összes kalória'),
+                value: '$totalCalories kcal',
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                width: double.infinity,
+                child: CupertinoButton(
+                  padding: const EdgeInsets.symmetric(vertical: 13),
+                  color: p.accent,
+                  borderRadius: BorderRadius.circular(14),
+                  onPressed: state.isPro
+                      ? () => showCupertinoModalPopup<void>(
+                          context: context,
+                          barrierColor: const Color(0x99000000),
+                          builder: (_) => RecipeShoppingListSheet(
+                            recipe: recipe,
+                            servings: servings,
+                          ),
+                        )
+                      : () => showProPaywallSheet(context),
+                  child: Text(
+                    tx(context, 'Bevásárláshoz adás'),
+                    style: TextStyle(
+                      color: p.buttonText,
+                      fontWeight: FontWeight.w600,
                     ),
-                ],
+                  ),
+                ),
               ),
-            ),
-            SectionLabel(tx(context, 'Elkészítés')),
-            AppCard(
-              child: Column(
-                children: [
-                  for (var index = 0; index < recipe.steps.length; index++)
-                    _RecipeStepRow(index: index, text: recipe.steps[index]),
-                ],
-              ),
-            ),
-            SectionLabel(tx(context, 'Allergének')),
-            AppCard(
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  for (final allergen in recipe.allergens)
-                    _RecipeAllergenChip(label: allergen),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+        SectionLabel(tx(context, 'Hozzávalók')),
+        AppCard(
+          child: Column(
+            children: [
+              for (final ingredient in recipe.ingredients)
+                _RecipeIngredientRow(
+                  ingredient: ingredient,
+                  scale: servings / recipe.baseServings,
+                ),
+            ],
+          ),
+        ),
+        SectionLabel(tx(context, 'Elkészítés')),
+        AppCard(
+          child: Column(
+            children: [
+              for (var index = 0; index < recipe.steps.length; index++)
+                _RecipeStepRow(index: index, text: recipe.steps[index]),
+            ],
+          ),
+        ),
+        SectionLabel(tx(context, 'Allergének')),
+        AppCard(
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final allergen in recipe.allergens)
+                _RecipeAllergenChip(label: allergen),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -4048,7 +4339,11 @@ String _shoppingDate(DateTime date) {
 }
 
 class _WarmBackButton extends StatelessWidget {
-  const _WarmBackButton();
+  const _WarmBackButton({this.size = 46, this.radius = 16, this.iconSize = 24});
+
+  final double size;
+  final double radius;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -4058,12 +4353,16 @@ class _WarmBackButton extends StatelessWidget {
       child: SpringPressable(
         pressedScale: 0.9,
         child: CupertinoButton(
-          minimumSize: const Size(46, 46),
+          minimumSize: Size(size, size),
           padding: EdgeInsets.zero,
           color: p.card,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(radius),
           onPressed: () => Navigator.maybePop(context),
-          child: Icon(CupertinoIcons.chevron_left, color: p.accent, size: 24),
+          child: Icon(
+            CupertinoIcons.chevron_left,
+            color: p.accent,
+            size: iconSize,
+          ),
         ),
       ),
     );

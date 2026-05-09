@@ -24,6 +24,7 @@ class Recipe {
     required this.steps,
     required this.allergens,
     required this.prepTimeMinutes,
+    this.isVegan = false,
   });
 
   final String id;
@@ -36,4 +37,5 @@ class Recipe {
   final List<String> steps;
   final List<String> allergens;
   final int prepTimeMinutes;
+  final bool isVegan;
 }
