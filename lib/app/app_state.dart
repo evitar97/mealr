@@ -60,7 +60,9 @@ class AppState extends ChangeNotifier {
   final PreferencesStore _preferences;
 
   AppTab tab = AppTab.foods;
-  bool isDark = true;
+  bool isDark =
+      WidgetsBinding.instance.platformDispatcher.platformBrightness ==
+      Brightness.dark;
   ThemeOption theme = themeOptions.firstWhere(
     (option) => option.id == 'forest',
     orElse: () => themeOptions.first,
