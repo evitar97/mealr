@@ -655,6 +655,14 @@ class AppState extends ChangeNotifier {
   }
 }
 
+extension AppChromeColors on AppState {
+  Color get chromeSurface =>
+      isDark ? const Color(0xFF1B1D1B) : CupertinoColors.white;
+
+  Color get chromeBorder =>
+      isDark ? const Color(0xFF313631) : const Color(0xFFE4E9E5);
+}
+
 class AppScope extends InheritedNotifier<AppState> {
   const AppScope({required AppState state, required super.child, super.key})
     : super(notifier: state);

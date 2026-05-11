@@ -16,27 +16,10 @@ import '../../widgets/mealweight_mark.dart';
 import '../../widgets/spring_pressable.dart';
 import 'recipe_library.dart';
 
-const _headlineSerifFamily = 'Georgia';
-const _headlineSerifFallback = ['Times New Roman', 'Times'];
 final _greetingMottoSeed = DateTime.now().microsecondsSinceEpoch;
 
-TextStyle _headlineSerifStyle({
-  required Color color,
-  required double fontSize,
-  FontWeight fontWeight = FontWeight.w600,
-  double? height,
-  double? letterSpacing,
-}) {
-  return TextStyle(
-    color: color,
-    fontFamily: _headlineSerifFamily,
-    fontFamilyFallback: _headlineSerifFallback,
-    fontSize: fontSize,
-    fontWeight: fontWeight,
-    height: height,
-    letterSpacing: letterSpacing,
-  );
-}
+const _homeStripItemWidth = 86.0;
+const _homeStripItemGap = 10.0;
 
 class FoodListScreen extends StatelessWidget {
   const FoodListScreen({super.key});
@@ -124,194 +107,11 @@ class FoodListScreen extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         SectionLabel(tx(context, 'Receptek')),
-        const _PeekReveal(
-          expandedHeight: 78,
-          peekHeight: 59,
-          child: _RecipeCategoryStrip(),
-        ),
+        const _RecipeCategoryStrip(),
         const SizedBox(height: 12),
         SectionLabel(tx(context, 'Étrendek')),
-        const _PeekReveal(
-          expandedHeight: 76,
-          peekHeight: 46,
-          child: _DietPlanStrip(),
-        ),
-        const SizedBox(height: 16),
-        if (state.isPro) ...[
-          SectionLabel('Weekly snapshot'),
-          const _WeeklyNutritionSnapshot(),
-        ] else
-          const ProCompactUpsellCard(),
+        const _DietPlanStrip(),
       ],
-    );
-  }
-}
-
-class _WeeklyNutritionSnapshot extends StatelessWidget {
-  const _WeeklyNutritionSnapshot();
-
-  @override
-  Widget build(BuildContext context) {
-    final state = AppScope.of(context);
-    final meals = state.foods.length;
-    final prepStreak = state.mealPrepPlans.isEmpty ? 0 : 1;
-    final avgKcal = meals == 0
-        ? state.profileCalorieTarget
-        : (state.foods.fold<double>(
-                    0,
-                    (total, food) => total + _estimatedFoodCalories(food),
-                  ) /
-                  meals)
-              .round();
-
-    return SizedBox(
-      height: 58,
-      child: Row(
-        children: [
-          Expanded(
-            child: _SnapshotMetric(value: '$meals', label: '7-day meals'),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: _SnapshotMetric(value: '$avgKcal', label: 'Avg kcal'),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: _SnapshotMetric(value: '$prepStreak', label: 'Prep streak'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SnapshotMetric extends StatelessWidget {
-  const _SnapshotMetric({required this.value, required this.label});
-
-  final String value;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            value,
-            maxLines: 1,
-            style: TextStyle(
-              color: p.text,
-              fontSize: 20,
-              fontWeight: FontWeight.w800,
-              letterSpacing: -0.4,
-            ),
-          ),
-          const SizedBox(height: 2),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              label,
-              maxLines: 1,
-              style: TextStyle(
-                color: p.muted,
-                fontSize: 11,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-double _estimatedFoodCalories(FoodItem food) {
-  final rawEquivalent = food.rawEquivalent;
-  if (rawEquivalent <= 0) return 0;
-  final density = food.category == FoodCategory.main ? 1.65 : 1.1;
-  return rawEquivalent * density;
-}
-
-class _PeekReveal extends StatefulWidget {
-  const _PeekReveal({
-    required this.child,
-    required this.expandedHeight,
-    required this.peekHeight,
-  });
-
-  final Widget child;
-  final double expandedHeight;
-  final double peekHeight;
-
-  @override
-  State<_PeekReveal> createState() => _PeekRevealState();
-}
-
-class _PeekRevealState extends State<_PeekReveal> {
-  bool _expanded = false;
-
-  void _toggle() {
-    setState(() {
-      _expanded = !_expanded;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: _toggle,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 170),
-        curve: Curves.easeOutCubic,
-        height: _expanded ? widget.expandedHeight : widget.peekHeight,
-        child: ClipRect(
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: IgnorePointer(
-                  ignoring: !_expanded,
-                  child: OverflowBox(
-                    alignment: Alignment.topCenter,
-                    minHeight: widget.expandedHeight,
-                    maxHeight: widget.expandedHeight,
-                    child: SizedBox(
-                      height: widget.expandedHeight,
-                      child: widget.child,
-                    ),
-                  ),
-                ),
-              ),
-              if (!_expanded)
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  height: 12,
-                  child: IgnorePointer(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            p.bg.withValues(alpha: 0),
-                            p.bg.withValues(alpha: 0.94),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
@@ -369,12 +169,12 @@ class _RecipeCategoryStrip extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 78,
+      height: 88,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemCount: categories.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 10),
+        separatorBuilder: (_, _) => const SizedBox(width: _homeStripItemGap),
         itemBuilder: (context, index) =>
             _RecipeCategoryPill(category: categories[index]),
       ),
@@ -403,15 +203,16 @@ class _RecipeCategoryPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: category.onPressed,
       child: SpringPressable(
         enabled: category.onPressed != null,
         child: Container(
-          width: 86,
-          padding: const EdgeInsets.fromLTRB(10, 9, 10, 8),
+          width: _homeStripItemWidth,
+          padding: const EdgeInsets.fromLTRB(10, 11, 10, 10),
           decoration: BoxDecoration(
             color: p.card,
             borderRadius: BorderRadius.circular(18),
@@ -421,8 +222,8 @@ class _RecipeCategoryPill extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 28,
-                height: 28,
+                width: 31,
+                height: 31,
                 child: CustomPaint(
                   painter: _RecipeCategoryIconPainter(
                     icon: category.icon,
@@ -703,12 +504,12 @@ class _DietPlanStrip extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 76,
+      height: 94,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemCount: plans.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 10),
+        separatorBuilder: (_, _) => const SizedBox(width: _homeStripItemGap),
         itemBuilder: (context, index) => _DietPlanPill(option: plans[index]),
       ),
     );
@@ -743,8 +544,8 @@ class _DietPlanPill extends StatelessWidget {
       child: SpringPressable(
         enabled: enabled,
         child: Container(
-          width: 94,
-          padding: const EdgeInsets.fromLTRB(10, 7, 10, 7),
+          width: _homeStripItemWidth,
+          padding: const EdgeInsets.fromLTRB(10, 12, 10, 12),
           decoration: BoxDecoration(
             color: enabled ? p.resultBg : p.card,
             borderRadius: BorderRadius.circular(18),
@@ -759,7 +560,7 @@ class _DietPlanPill extends StatelessWidget {
                 '${option.calories}',
                 style: TextStyle(
                   color: enabled ? p.accent : p.text,
-                  fontSize: 18,
+                  fontSize: 21,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.3,
                 ),
@@ -769,7 +570,7 @@ class _DietPlanPill extends StatelessWidget {
                 'kcal',
                 style: TextStyle(
                   color: p.muted,
-                  fontSize: 11,
+                  fontSize: 12,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -864,8 +665,6 @@ class _MealGreeting extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 14),
-          const MealWeightMark(size: 44, radius: 14),
         ],
       ),
     );
@@ -903,7 +702,7 @@ class _MealGreeting extends StatelessWidget {
       title: 'Szép napot',
       subtitle: _startupMotto(mottos),
       icon: CupertinoIcons.sun_max_fill,
-      color: const Color(0xFF6FA77B),
+      color: const Color(0xFFC6A34A),
     );
   }
   if (hour >= 14 && hour < 18) {
@@ -1458,7 +1257,8 @@ class DietPlanTypeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final types = [
       _DietTypeOption(
         icon: CupertinoIcons.bolt_fill,
@@ -1519,8 +1319,8 @@ class DietPlanTypeScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg.withValues(alpha: 0.82),
-        border: Border(bottom: BorderSide(color: p.border)),
+        backgroundColor: state.chromeSurface,
+        border: Border(bottom: BorderSide(color: state.chromeBorder)),
         leading: const _WarmBackButton(),
         middle: Text('$calories kcal'),
       ),
@@ -1722,12 +1522,13 @@ class _DietPlanListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg.withValues(alpha: 0.82),
-        border: Border(bottom: BorderSide(color: p.border)),
+        backgroundColor: state.chromeSurface,
+        border: Border(bottom: BorderSide(color: state.chromeBorder)),
         leading: const _WarmBackButton(),
         middle: Text(title),
       ),
@@ -1819,10 +1620,11 @@ class _DietDayPlanCard extends StatelessWidget {
                     children: [
                       Text(
                         tx(context, plan.name),
-                        style: _headlineSerifStyle(
+                        style: TextStyle(
                           color: p.text,
                           fontSize: 18,
-                          letterSpacing: 0.1,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: -0.3,
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -1998,13 +1800,14 @@ class DietPlanDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final totalCalories = _dietPlanTotalCalories(plan);
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg.withValues(alpha: 0.82),
-        border: Border(bottom: BorderSide(color: p.border)),
+        backgroundColor: state.chromeSurface,
+        border: Border(bottom: BorderSide(color: state.chromeBorder)),
         leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Étrend')),
       ),
@@ -2025,11 +1828,11 @@ class DietPlanDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     tx(context, plan.name),
-                    style: _headlineSerifStyle(
+                    style: TextStyle(
                       color: p.text,
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
-                      letterSpacing: 0.1,
+                      letterSpacing: -0.4,
                       height: 1.08,
                     ),
                   ),
@@ -2392,7 +2195,7 @@ class _FoodSubpageScaffold extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     return CupertinoPageScaffold(
-      backgroundColor: p.bg,
+      backgroundColor: state.chromeSurface,
       child: SafeArea(
         bottom: false,
         child: Stack(
@@ -2771,8 +2574,6 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
     final totalCalories = recipe.caloriesPerServing * servings;
     return _FoodSubpageScaffold(
       children: [
-        const _WarmBackButton(size: 48, radius: 16, iconSize: 25),
-        const SizedBox(height: 10),
         AppCard(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
           child: Column(
@@ -2781,18 +2582,23 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 58,
-                    height: 58,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: p.bg.withValues(alpha: 0.72),
-                      borderRadius: BorderRadius.circular(18),
-                      border: Border.all(color: p.border),
-                    ),
-                    child: Text(
-                      recipe.emoji,
-                      style: const TextStyle(fontSize: 30),
+                  SizedBox(
+                    width: 46,
+                    height: 46,
+                    child: SpringPressable(
+                      pressedScale: 0.9,
+                      child: CupertinoButton(
+                        minimumSize: const Size(46, 46),
+                        padding: EdgeInsets.zero,
+                        color: p.bg.withValues(alpha: 0.72),
+                        borderRadius: BorderRadius.circular(16),
+                        onPressed: () => Navigator.maybePop(context),
+                        child: Icon(
+                          CupertinoIcons.chevron_left,
+                          color: p.accent,
+                          size: 24,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -2800,38 +2606,15 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                tx(context, recipe.name),
-                                style: TextStyle(
-                                  color: p.text,
-                                  fontSize: 22,
-                                  height: 1.12,
-                                  fontWeight: FontWeight.w600,
-                                  letterSpacing: -0.4,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            CupertinoButton(
-                              minimumSize: const Size(34, 34),
-                              padding: EdgeInsets.zero,
-                              color: p.bg.withValues(alpha: 0.68),
-                              borderRadius: BorderRadius.circular(12),
-                              onPressed: () =>
-                                  state.toggleFavoriteRecipe(recipe.id),
-                              child: Icon(
-                                isFavorite
-                                    ? CupertinoIcons.star_fill
-                                    : CupertinoIcons.star,
-                                color: isFavorite ? p.accent : p.muted,
-                                size: 19,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          tx(context, recipe.name),
+                          style: TextStyle(
+                            color: p.text,
+                            fontSize: 22,
+                            height: 1.12,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: -0.4,
+                          ),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -2843,6 +2626,40 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                         ),
                       ],
                     ),
+                  ),
+                  const SizedBox(width: 10),
+                  Column(
+                    children: [
+                      Container(
+                        width: 46,
+                        height: 46,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: p.bg.withValues(alpha: 0.72),
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(color: p.border),
+                        ),
+                        child: Text(
+                          recipe.emoji,
+                          style: const TextStyle(fontSize: 25),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      CupertinoButton(
+                        minimumSize: const Size(38, 38),
+                        padding: EdgeInsets.zero,
+                        color: p.bg.withValues(alpha: 0.68),
+                        borderRadius: BorderRadius.circular(13),
+                        onPressed: () => state.toggleFavoriteRecipe(recipe.id),
+                        child: Icon(
+                          isFavorite
+                              ? CupertinoIcons.star_fill
+                              : CupertinoIcons.star,
+                          color: isFavorite ? p.accent : p.muted,
+                          size: 21,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -3400,6 +3217,7 @@ void showProPaywallSheet(BuildContext context) {
         color: CupertinoColors.transparent,
         child: SafeArea(
           top: false,
+          bottom: false,
           child: Align(
             alignment: Alignment.bottomCenter,
             child: ConstrainedBox(
@@ -3407,7 +3225,7 @@ void showProPaywallSheet(BuildContext context) {
                 maxHeight: MediaQuery.sizeOf(context).height * 0.82,
               ),
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
                 child: const ProUpsellCard(),
               ),
             ),
@@ -4099,8 +3917,8 @@ class ShoppingListScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg,
-        border: Border(bottom: BorderSide(color: p.border)),
+        backgroundColor: state.chromeSurface,
+        border: Border(bottom: BorderSide(color: state.chromeBorder)),
         leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Bevásárlás+')),
       ),
@@ -4811,8 +4629,8 @@ class MealPrepScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: p.bg,
-        border: Border(bottom: BorderSide(color: p.border)),
+        backgroundColor: state.chromeSurface,
+        border: Border(bottom: BorderSide(color: state.chromeBorder)),
         leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Meal Prep+')),
       ),
@@ -6079,90 +5897,6 @@ class _Input extends StatelessWidget {
           color: p.bg,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: p.border),
-        ),
-      ),
-    );
-  }
-}
-
-class ProCompactUpsellCard extends StatelessWidget {
-  const ProCompactUpsellCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: () => showProPaywallSheet(context),
-      child: GlassSurface(
-        width: double.infinity,
-        padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
-        radius: 20,
-        tint: p.resultBg,
-        opacity: 1,
-        borderColor: p.resultBorder.withValues(alpha: 0.72),
-        child: Row(
-          children: [
-            const MealWeightMark(size: 42, radius: 13),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tx(context, 'Mealr Pro'),
-                    style: TextStyle(
-                      color: p.text,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: -0.3,
-                    ),
-                  ),
-                  Text(
-                    tx(
-                      context,
-                      'Több mentés, bevásárlólisták, súlykövetés extrák',
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: p.muted,
-                      fontSize: 13,
-                      height: 1.25,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 10),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-              decoration: BoxDecoration(
-                color: p.accent,
-                borderRadius: BorderRadius.circular(999),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    tx(context, 'Részletek'),
-                    style: TextStyle(
-                      color: p.buttonText,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(width: 4),
-                  Icon(
-                    CupertinoIcons.chevron_up,
-                    color: p.buttonText,
-                    size: 13,
-                  ),
-                ],
-              ),
-            ),
-          ],
         ),
       ),
     );

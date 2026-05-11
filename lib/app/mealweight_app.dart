@@ -9,6 +9,7 @@ import '../features/calorie/calorie_screen.dart';
 import '../features/food/food_list_screen.dart';
 import '../features/profile/profile_screen.dart';
 import '../widgets/glass_surface.dart';
+import '../widgets/mealweight_mark.dart';
 import '../widgets/spring_pressable.dart';
 
 class MealWeightApp extends StatefulWidget {
@@ -42,6 +43,7 @@ class _MealWeightAppState extends State<MealWeightApp> {
               brightness: state.isDark ? Brightness.dark : Brightness.light,
               primaryColor: p.accent,
               scaffoldBackgroundColor: p.bg,
+              barBackgroundColor: state.chromeSurface,
               textTheme: CupertinoTextThemeData(
                 textStyle: TextStyle(
                   color: p.text,
@@ -69,7 +71,7 @@ class MealWeightShell extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     return CupertinoPageScaffold(
-      backgroundColor: p.bg,
+      backgroundColor: state.chromeSurface,
       child: SafeArea(
         bottom: false,
         child: Stack(
@@ -140,25 +142,15 @@ class _BottomTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = state.palette;
-    final dockColor = Color.alphaBlend(
-      p.card,
-      Color.alphaBlend(
-        p.accent.withValues(alpha: state.isDark ? 0.05 : 0.02),
-        p.bg,
-      ),
-    );
-    final dockBorder = Color.alphaBlend(
-      p.accent.withValues(alpha: state.isDark ? 0.30 : 0.14),
-      p.border.withValues(alpha: state.isDark ? 0.26 : 0.22),
-    );
+    final dockColor = state.chromeSurface;
+    final dockBorder = state.chromeBorder;
     return GlassSurface(
       radius: 0,
       padding: EdgeInsets.zero,
       tint: dockColor,
-      opacity: state.isDark ? 0.86 : 0.92,
+      opacity: 1,
       borderColor: CupertinoColors.transparent,
-      blur: 18,
+      blur: 0,
       shadow: false,
       child: Container(
         padding: EdgeInsets.only(
@@ -176,13 +168,7 @@ class _BottomTabs extends StatelessWidget {
             borderRadius: BorderRadius.circular(0),
             child: Stack(
               children: [
-                Positioned.fill(
-                  child: ColoredBox(
-                    color: dockColor.withValues(
-                      alpha: state.isDark ? 0.22 : 0.16,
-                    ),
-                  ),
-                ),
+                Positioned.fill(child: ColoredBox(color: dockColor)),
                 Padding(
                   padding: EdgeInsets.zero,
                   child: Row(
@@ -215,6 +201,7 @@ class _BottomTabs extends StatelessWidget {
                         label: tx(context, 'Profil'),
                         color: const Color(0xFF6F9CA5),
                       ),
+                      _ProTabItem(state: state),
                     ],
                   ),
                 ),
@@ -288,6 +275,65 @@ class _TabItem extends StatelessWidget {
                             fontWeight: active
                                 ? FontWeight.w800
                                 : FontWeight.w600,
+                            letterSpacing: 0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ProTabItem extends StatelessWidget {
+  const _ProTabItem({required this.state});
+
+  final AppState state;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = state.palette;
+    final labelColor = Color.alphaBlend(
+      p.accent.withValues(alpha: state.isDark ? 0.46 : 0.52),
+      p.muted,
+    );
+    return Expanded(
+      child: SpringPressable(
+        pressedScale: 0.92,
+        child: CupertinoButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+            showProPaywallSheet(context);
+          },
+          child: SizedBox(
+            height: double.infinity,
+            child: Center(
+              child: Transform.translate(
+                offset: const Offset(0, 3),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const MealWeightMark(size: 27, radius: 9),
+                      const SizedBox(height: 3),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'Pro',
+                          maxLines: 1,
+                          style: TextStyle(
+                            color: labelColor,
+                            fontSize: 11.5,
+                            fontWeight: FontWeight.w700,
                             letterSpacing: 0,
                           ),
                         ),
