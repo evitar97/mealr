@@ -71,11 +71,11 @@ class FoodListScreen extends StatelessWidget {
         ],
         SectionLabel(tx(context, 'Főételek')),
         if (mainFoods.isEmpty)
-          const _EmptyFoodMessage('No main dishes added yet.'),
+          _EmptyFoodMessage(tx(context, 'Még nincs főétel hozzáadva.')),
         for (final food in mainFoods) FoodTile(food: food),
         SectionLabel(tx(context, 'Köretek')),
         if (sideFoods.isEmpty)
-          const _EmptyFoodMessage('No side dishes added yet.'),
+          _EmptyFoodMessage(tx(context, 'Még nincs köret hozzáadva.')),
         for (final food in sideFoods) FoodTile(food: food),
         const SizedBox(height: 8),
         Row(
@@ -842,7 +842,7 @@ class _MealGreeting extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  greeting.title,
+                  tx(context, greeting.title),
                   style: TextStyle(
                     color: p.text,
                     fontSize: 24,
@@ -853,7 +853,7 @@ class _MealGreeting extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  greeting.subtitle,
+                  tx(context, greeting.subtitle),
                   style: TextStyle(
                     color: p.muted,
                     fontSize: 13,
@@ -878,14 +878,14 @@ class _MealGreeting extends StatelessWidget {
   final hour = now.hour;
   if (hour >= 5 && hour < 11) {
     final mottos = [
-      'Start simple, stay steady.',
-      'Plan a calm, strong day.',
-      'Build today one meal at a time.',
-      'Fuel the morning with intention.',
-      'Make the first choice an easy one.',
+      'Kezdj egyszerűen, maradj következetes.',
+      'Tervezz egy nyugodt, erős napot.',
+      'Építsd fel a mai napot étkezésről étkezésre.',
+      'Indítsd tudatosan a reggelt.',
+      'Legyen az első döntés könnyű.',
     ];
     return (
-      title: 'Good morning',
+      title: 'Jó reggelt',
       subtitle: _startupMotto(mottos),
       icon: CupertinoIcons.sun_max,
       color: const Color(0xFFC6A34A),
@@ -893,14 +893,14 @@ class _MealGreeting extends StatelessWidget {
   }
   if (hour >= 11 && hour < 14) {
     final mottos = [
-      'Keep your meals on track.',
-      'Small choices, solid momentum.',
-      'Stay fueled and focused.',
-      'Make the next meal easy.',
-      'A steady plate keeps the day steady.',
+      'Tartsd kézben az étkezéseidet.',
+      'Kis döntések, stabil lendület.',
+      'Maradj feltöltve és fókuszban.',
+      'Legyen egyszerű a következő étkezés.',
+      'Egy kiegyensúlyozott tányér stabilan tartja a napot.',
     ];
     return (
-      title: 'Good day',
+      title: 'Szép napot',
       subtitle: _startupMotto(mottos),
       icon: CupertinoIcons.sun_max_fill,
       color: const Color(0xFF6FA77B),
@@ -908,28 +908,28 @@ class _MealGreeting extends StatelessWidget {
   }
   if (hour >= 14 && hour < 18) {
     final mottos = [
-      'Prep what makes later easier.',
-      'Set up dinner before the rush.',
-      'A little prep goes a long way.',
-      'Keep the afternoon light and useful.',
-      'Give your evening a head start.',
+      'Készítsd elő, ami később könnyít.',
+      'Tervezd meg a vacsorát még a rohanás előtt.',
+      'Egy kis előkészítés sokat számít.',
+      'Legyen a délután könnyű és hasznos.',
+      'Adj előnyt az estédnek.',
     ];
     return (
-      title: 'Good afternoon',
+      title: 'Jó délutánt',
       subtitle: _startupMotto(mottos),
       icon: CupertinoIcons.cloud_sun,
       color: const Color(0xFFB98758),
     );
   }
   final mottos = [
-    'Wrap up with something nourishing.',
-    'Slow down, eat well, rest easy.',
-    'Close the day with care.',
-    'Tomorrow starts with tonight’s prep.',
-    'End the day full, not rushed.',
+    'Zárd a napot valami táplálóval.',
+    'Lassíts, egyél jól, pihenj könnyen.',
+    'Zárd gondoskodással a napot.',
+    'A holnap a ma esti előkészítéssel indul.',
+    'Zárd a napot jóllakottan, nem rohanva.',
   ];
   return (
-    title: 'Good evening',
+    title: 'Jó estét',
     subtitle: _startupMotto(mottos),
     icon: CupertinoIcons.moon_stars,
     color: const Color(0xFF8D94C6),
