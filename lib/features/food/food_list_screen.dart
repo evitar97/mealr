@@ -667,9 +667,39 @@ class _DietPlanStrip extends StatelessWidget {
               )
             : () => showProPaywallSheet(context),
       ),
-      const _DietPlanOption(calories: 2000),
-      const _DietPlanOption(calories: 2500),
-      const _DietPlanOption(calories: 3000),
+      _DietPlanOption(
+        calories: 2000,
+        active: true,
+        onPressed: state.isPro
+            ? () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                  builder: (_) => const DietPlanTypeScreen(calories: 2000),
+                ),
+              )
+            : () => showProPaywallSheet(context),
+      ),
+      _DietPlanOption(
+        calories: 2500,
+        active: true,
+        onPressed: state.isPro
+            ? () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                  builder: (_) => const DietPlanTypeScreen(calories: 2500),
+                ),
+              )
+            : () => showProPaywallSheet(context),
+      ),
+      _DietPlanOption(
+        calories: 3000,
+        active: true,
+        onPressed: state.isPro
+            ? () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                  builder: (_) => const DietPlanTypeScreen(calories: 3000),
+                ),
+              )
+            : () => showProPaywallSheet(context),
+      ),
     ];
 
     return SizedBox(
@@ -1136,6 +1166,291 @@ const _mealPrep1500Plans = [
   ),
 ];
 
+enum _DietPlanKind {
+  highProtein,
+  glutenFree,
+  vegetarian,
+  quick,
+  budget,
+  mealPrep,
+}
+
+List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
+  if (calories == 1500) {
+    return switch (kind) {
+      _DietPlanKind.highProtein => _highProtein1500Plans,
+      _DietPlanKind.glutenFree => _glutenFree1500Plans,
+      _DietPlanKind.vegetarian => _vegetarian1500Plans,
+      _DietPlanKind.quick => _quick1500Plans,
+      _DietPlanKind.budget => _budget1500Plans,
+      _DietPlanKind.mealPrep => _mealPrep1500Plans,
+    };
+  }
+
+  final names = switch (kind) {
+    _DietPlanKind.highProtein => ['Izmos nap', 'Sportos nap'],
+    _DietPlanKind.glutenFree => ['Tiszta energia nap', 'Könnyed nap'],
+    _DietPlanKind.vegetarian => ['Növényi nap', 'Zöld lendület nap'],
+    _DietPlanKind.quick => ['Villám nap', 'Pörgős nap'],
+    _DietPlanKind.budget => ['Takarékos nap', 'Alap nap'],
+    _DietPlanKind.mealPrep => ['Heti doboz nap', 'Előkészített nap'],
+  };
+  final pools = switch (kind) {
+    _DietPlanKind.highProtein => [
+      [
+        'Pulykás tojásos wrap',
+        'Protein zabkása bogyós gyümölccsel',
+        'Banános mogyoróvajas smoothie',
+        'Sós cottage cheese tál',
+        'Lazacos krémsajtos bagel',
+        'Túrós zabpalacsinta',
+      ],
+      [
+        'Csirkés rizses fit bowl',
+        'Pulykás bolognai tészta',
+        'Marhahúsos bulgur serpenyő',
+        'Sertésszűz kuszkusszal',
+        'Lazacos burgonyás ebéd',
+        'Tonhalas kukoricás tésztasaláta',
+      ],
+      [
+        'Görög csirkés tányér',
+        'Sonkás sajtos omlett',
+        'Töltött paprika light módra',
+        'Pulykagolyók cukkinispagettivel',
+        'Garnélás quinoa bowl',
+        'Sült hal zöldségágyon',
+      ],
+      [
+        'Protein joghurt pohár',
+        'Fehérjés puding',
+        'Főtt tojás avokádóval',
+        'Mini csirkés wrap',
+        'Tonhalas ropogós falatok',
+        'Túrós bogyós tál',
+      ],
+    ],
+    _DietPlanKind.glutenFree => [
+      [
+        'Zöldséges omlett',
+        'Görög joghurtos granola pohár gluténmentes granolával',
+        'Banános mogyoróvajas smoothie',
+        'Sós cottage cheese tál',
+        'Főtt tojás avokádóval',
+        'Protein zabkása bogyós gyümölccsel',
+      ],
+      [
+        'Lazacos burgonyás ebéd',
+        'Csicseriborsó curry rizzsel',
+        'Csirkés rizses fit bowl',
+        'Lencsés feta saláta',
+        'Könnyű csirkés saláta',
+        'Tojásos zöldséges rizs',
+      ],
+      [
+        'Sült hal zöldségágyon',
+        'Garnélás quinoa bowl',
+        'Görög csirkés tányér',
+        'Cottage cheese zöldségtál',
+        'Könnyű babos chili',
+        'Sonkás sajtos omlett',
+      ],
+      [
+        'Almaszeletek mogyoróvajjal',
+        'Hummuszos zöldségdoboz',
+        'Protein joghurt pohár',
+        'Túrós bogyós tál',
+        'Fehérjés puding',
+        'Banános kakaós falatok',
+      ],
+    ],
+    _DietPlanKind.vegetarian => [
+      [
+        'Almás fahéjas overnight oats',
+        'Túrós zabpalacsinta',
+        'Görög joghurtos granola pohár',
+        'Zöldséges omlett',
+        'Sós cottage cheese tál',
+        'Banános mogyoróvajas smoothie',
+      ],
+      [
+        'Lencsés feta saláta',
+        'Tofus zöldséges noodle box',
+        'Csicseriborsó curry rizzsel',
+        'Tojásos zöldséges rizs',
+        'Könnyű babos chili',
+        'Lencsés feta saláta',
+      ],
+      [
+        'Tojásos zöldséges rizs',
+        'Cottage cheese zöldségtál',
+        'Könnyű babos chili',
+        'Lencsés feta saláta',
+        'Zöldséges omlett',
+        'Túrós zabpalacsinta',
+      ],
+      [
+        'Túrós bogyós tál',
+        'Banános kakaós falatok',
+        'Almaszeletek mogyoróvajjal',
+        'Hummuszos zöldségdoboz',
+        'Rizsszelet cottage cheese-zel',
+        'Fehérjés puding',
+      ],
+    ],
+    _DietPlanKind.quick => [
+      [
+        'Banános mogyoróvajas smoothie',
+        'Görög joghurtos granola pohár',
+        'Pulykás tojásos wrap',
+        'Sós cottage cheese tál',
+        'Tojásos avokádós pirítós',
+        'Protein zabkása bogyós gyümölccsel',
+      ],
+      [
+        'Tonhalas kukoricás tésztasaláta',
+        'Csirkés pita tál',
+        'Könnyű csirkés saláta',
+        'Lencsés feta saláta',
+        'Tofus zöldséges noodle box',
+        'Csirkés rizses fit bowl',
+      ],
+      [
+        'Zöldséges omlett',
+        'Cottage cheese zöldségtál',
+        'Görög csirkés tányér',
+        'Sonkás sajtos omlett',
+        'Sült hal zöldségágyon',
+        'Tojásos zöldséges rizs',
+      ],
+      [
+        'Tonhalas ropogós falatok',
+        'Rizsszelet cottage cheese-zel',
+        'Protein joghurt pohár',
+        'Mini csirkés wrap',
+        'Fehérjés puding',
+        'Almaszeletek mogyoróvajjal',
+      ],
+    ],
+    _DietPlanKind.budget => [
+      [
+        'Almás fahéjas overnight oats',
+        'Zöldséges omlett',
+        'Túrós zabpalacsinta',
+        'Görög joghurtos granola pohár',
+        'Pulykás tojásos wrap',
+        'Sós cottage cheese tál',
+      ],
+      [
+        'Csicseriborsó curry rizzsel',
+        'Pulykás bolognai tészta',
+        'Lencsés feta saláta',
+        'Tofus zöldséges noodle box',
+        'Tonhalas kukoricás tésztasaláta',
+        'Csirkés rizses fit bowl',
+      ],
+      [
+        'Könnyű babos chili',
+        'Tojásos zöldséges rizs',
+        'Töltött paprika light módra',
+        'Cottage cheese zöldségtál',
+        'Pulykagolyók cukkinispagettivel',
+        'Sonkás sajtos omlett',
+      ],
+      [
+        'Banános kakaós falatok',
+        'Almaszeletek mogyoróvajjal',
+        'Rizsszelet cottage cheese-zel',
+        'Hummuszos zöldségdoboz',
+        'Főtt tojás avokádóval',
+        'Protein joghurt pohár',
+      ],
+    ],
+    _DietPlanKind.mealPrep => [
+      [
+        'Overnight oats előre bekészítve',
+        'Túrós zabpalacsinta előre sütve',
+        'Protein zabkása bogyós gyümölccsel',
+        'Pulykás tojásos wrap',
+        'Almás fahéjas overnight oats',
+        'Sós cottage cheese tál',
+      ],
+      [
+        'Csirkés rizses fit bowl',
+        'Marhahúsos bulgur serpenyő',
+        'Pulykás bolognai tészta',
+        'Csicseriborsó curry rizzsel',
+        'Lazacos burgonyás ebéd',
+        'Sertésszűz kuszkusszal',
+      ],
+      [
+        'Könnyű babos chili',
+        'Töltött paprika light módra',
+        'Görög csirkés tányér',
+        'Tojásos zöldséges rizs',
+        'Sült hal zöldségágyon',
+        'Pulykagolyók cukkinispagettivel',
+      ],
+      [
+        'Protein joghurt pohár',
+        'Hummuszos zöldségdoboz',
+        'Fehérjés puding',
+        'Mini csirkés wrap',
+        'Túrós bogyós tál',
+        'Rizsszelet cottage cheese-zel',
+      ],
+    ],
+  };
+  final calorieOffset = switch (calories) {
+    2000 => 0,
+    2500 => 2,
+    3000 => 4,
+    _ => 0,
+  };
+
+  return List<DietDayPlan>.generate(2, (index) {
+    final mealCalories = _mealCaloriesFor(calories, index);
+    final recipeIndex = calorieOffset + index;
+    return DietDayPlan(
+      name: names[index],
+      totalCalories: mealCalories.reduce((a, b) => a + b),
+      meals: [
+        DietMeal(
+          label: 'Reggeli',
+          name: pools[0][recipeIndex],
+          calories: mealCalories[0],
+        ),
+        DietMeal(
+          label: 'Ebéd',
+          name: pools[1][recipeIndex],
+          calories: mealCalories[1],
+        ),
+        DietMeal(
+          label: 'Vacsora',
+          name: pools[2][recipeIndex],
+          calories: mealCalories[2],
+        ),
+        DietMeal(
+          label: 'Nasi',
+          name: pools[3][recipeIndex],
+          calories: mealCalories[3],
+        ),
+      ],
+    );
+  });
+}
+
+List<int> _mealCaloriesFor(int calories, int variant) {
+  final breakfastRatio = variant == 0 ? 0.27 : 0.25;
+  final lunchRatio = variant == 0 ? 0.35 : 0.34;
+  final dinnerRatio = variant == 0 ? 0.28 : 0.30;
+  final breakfast = (calories * breakfastRatio).round();
+  final lunch = (calories * lunchRatio).round();
+  final dinner = (calories * dinnerRatio).round();
+  final snack = calories - breakfast - lunch - dinner;
+  return [breakfast, lunch, dinner, snack];
+}
+
 class DietPlanTypeScreen extends StatelessWidget {
   const DietPlanTypeScreen({required this.calories, super.key});
 
@@ -1150,48 +1465,54 @@ class DietPlanTypeScreen extends StatelessWidget {
         title: tx(context, 'Magas fehérje'),
         subtitle: tx(context, 'Edzéshez és jobb teltségérzethez'),
         accent: const Color(0xFFD86F35),
+        calories: calories,
         macros: _MacroProfile.highProtein,
-        plans: _highProtein1500Plans,
+        plans: _dietPlansFor(calories, _DietPlanKind.highProtein),
       ),
       _DietTypeOption(
         icon: CupertinoIcons.leaf_arrow_circlepath,
         title: tx(context, 'Gluténmentes'),
         subtitle: tx(context, 'Glutént tartalmazó alapanyagok nélkül'),
         accent: const Color(0xFF8E9E44),
+        calories: calories,
         macros: _MacroProfile.balanced,
-        plans: _glutenFree1500Plans,
+        plans: _dietPlansFor(calories, _DietPlanKind.glutenFree),
       ),
       _DietTypeOption(
         icon: CupertinoIcons.leaf_arrow_circlepath,
         title: tx(context, 'Vegetáriánus'),
         subtitle: tx(context, 'Húsmentes napi étrend'),
         accent: const Color(0xFF4F9B62),
+        calories: calories,
         macros: _MacroProfile.plantForward,
-        plans: _vegetarian1500Plans,
+        plans: _dietPlansFor(calories, _DietPlanKind.vegetarian),
       ),
       _DietTypeOption(
         icon: CupertinoIcons.clock,
         title: tx(context, 'Gyors'),
         subtitle: tx(context, 'Rövid elkészítési idejű ételekkel'),
         accent: const Color(0xFFC89132),
+        calories: calories,
         macros: _MacroProfile.quick,
-        plans: _quick1500Plans,
+        plans: _dietPlansFor(calories, _DietPlanKind.quick),
       ),
       _DietTypeOption(
         icon: CupertinoIcons.money_euro_circle,
         title: tx(context, 'Pénztárcabarát'),
         subtitle: tx(context, 'Egyszerűbb, olcsóbb alapanyagokkal'),
         accent: const Color(0xFFB87A3A),
+        calories: calories,
         macros: _MacroProfile.budget,
-        plans: _budget1500Plans,
+        plans: _dietPlansFor(calories, _DietPlanKind.budget),
       ),
       _DietTypeOption(
         icon: CupertinoIcons.archivebox,
         title: tx(context, 'Meal prep alapú'),
         subtitle: tx(context, 'Előre dobozolható napi menü'),
         accent: const Color(0xFF9B7452),
+        calories: calories,
         macros: _MacroProfile.mealPrep,
-        plans: _mealPrep1500Plans,
+        plans: _dietPlansFor(calories, _DietPlanKind.mealPrep),
       ),
     ];
 
@@ -1257,6 +1578,7 @@ class _DietTypeOption {
     required this.title,
     required this.subtitle,
     required this.accent,
+    required this.calories,
     required this.macros,
     required this.plans,
   });
@@ -1265,6 +1587,7 @@ class _DietTypeOption {
   final String title;
   final String subtitle;
   final Color accent;
+  final int calories;
   final _MacroProfile macros;
   final List<DietDayPlan> plans;
 }
@@ -1310,6 +1633,7 @@ class _DietTypeTile extends StatelessWidget {
         CupertinoPageRoute<void>(
           builder: (_) => _DietPlanListScreen(
             title: option.title,
+            calories: option.calories,
             plans: option.plans,
             macros: option.macros,
           ),
@@ -1386,11 +1710,13 @@ class _DietTypeTile extends StatelessWidget {
 class _DietPlanListScreen extends StatelessWidget {
   const _DietPlanListScreen({
     required this.title,
+    required this.calories,
     required this.plans,
     required this.macros,
   });
 
   final String title;
+  final int calories;
   final List<DietDayPlan> plans;
   final _MacroProfile macros;
 
@@ -1415,7 +1741,7 @@ class _DietPlanListScreen extends StatelessWidget {
             AppLayout.screenBottomPadding,
           ),
           children: [
-            SectionLabel(tx(context, '1500 kcal étrendek')),
+            SectionLabel('$calories kcal ${tx(context, 'étrendek')}'),
             for (final plan in plans)
               _DietDayPlanCard(plan: plan, macros: macros),
           ],
@@ -1458,6 +1784,7 @@ class _DietDayPlanCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
+    final totalCalories = _dietPlanTotalCalories(plan);
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: () => Navigator.of(context).push(
@@ -1522,7 +1849,7 @@ class _DietDayPlanCard extends StatelessWidget {
                     border: Border.all(color: p.resultBorder),
                   ),
                   child: Text(
-                    '${plan.totalCalories} kcal',
+                    '$totalCalories kcal',
                     style: TextStyle(
                       color: p.accent,
                       fontWeight: FontWeight.w600,
@@ -1534,7 +1861,7 @@ class _DietDayPlanCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            _MacroBreakdownBar(calories: plan.totalCalories, macros: macros),
+            _MacroBreakdownBar(calories: totalCalories, macros: macros),
           ],
         ),
       ),
@@ -1672,6 +1999,7 @@ class DietPlanDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
+    final totalCalories = _dietPlanTotalCalories(plan);
     return CupertinoPageScaffold(
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
@@ -1708,7 +2036,7 @@ class DietPlanDetailScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   _RecipeSummaryRow(
                     label: tx(context, 'Összes kalória'),
-                    value: '${plan.totalCalories} kcal',
+                    value: '$totalCalories kcal',
                   ),
                   const SizedBox(height: 12),
                   SizedBox(
@@ -1755,13 +2083,15 @@ class _DietPlanMealCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     final recipe = _recipeForMeal(meal);
+    final calories = recipe?.caloriesPerServing ?? meal.calories;
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: recipe == null
           ? null
           : () => Navigator.of(context).push(
               CupertinoPageRoute<void>(
-                builder: (_) => RecipeDetailScreen(recipe: recipe),
+                builder: (_) =>
+                    RecipeDetailScreen(recipe: recipe, initialServings: 1),
               ),
             ),
       child: AppCard(
@@ -1813,7 +2143,7 @@ class _DietPlanMealCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '${meal.calories} kcal',
+                  '$calories kcal',
                   style: TextStyle(
                     color: p.accent,
                     fontSize: 13,
@@ -2009,13 +2339,18 @@ Recipe? _recipeForMeal(DietMeal meal) {
 
 String _normalizeRecipeName(String value) => value.toLowerCase().trim();
 
+int _dietPlanTotalCalories(DietDayPlan plan) => plan.meals.fold<int>(
+  0,
+  (total, meal) =>
+      total + (_recipeForMeal(meal)?.caloriesPerServing ?? meal.calories),
+);
+
 List<ShoppingListItem> _dietPlanShoppingItems(DietDayPlan plan) {
   final totals = <String, ({String name, String unit, double amount})>{};
   for (final meal in plan.meals) {
     final recipe = _recipeForMeal(meal);
     if (recipe == null) continue;
-    final scale =
-        meal.calories / recipe.caloriesPerServing / recipe.baseServings;
+    final scale = 1 / recipe.baseServings;
     for (final ingredient in recipe.ingredients) {
       final key = '${ingredient.name}|${ingredient.unit}';
       final amount = ingredient.amount * scale;
@@ -2325,7 +2660,8 @@ class _RecipeTile extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(14, 13, 8, 13),
               onPressed: () => Navigator.of(context).push(
                 CupertinoPageRoute<void>(
-                  builder: (_) => RecipeDetailScreen(recipe: recipe),
+                  builder: (_) =>
+                      RecipeDetailScreen(recipe: recipe, initialServings: 1),
                 ),
               ),
               child: Row(
@@ -2396,9 +2732,14 @@ class _RecipeTile extends StatelessWidget {
 }
 
 class RecipeDetailScreen extends StatefulWidget {
-  const RecipeDetailScreen({required this.recipe, super.key});
+  const RecipeDetailScreen({
+    required this.recipe,
+    this.initialServings,
+    super.key,
+  });
 
   final Recipe recipe;
+  final int? initialServings;
 
   @override
   State<RecipeDetailScreen> createState() => _RecipeDetailScreenState();
@@ -2411,7 +2752,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
   @override
   void initState() {
     super.initState();
-    servings = widget.recipe.baseServings;
+    servings = (widget.initialServings ?? 1).clamp(1, 20);
     servingsController = TextEditingController(text: servings.toString());
   }
 
@@ -2934,7 +3275,7 @@ class _RecipeIngredientRow extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              ingredient.name,
+              tx(context, ingredient.name),
               style: TextStyle(
                 color: p.text,
                 fontSize: 15,
@@ -2991,7 +3332,7 @@ class _RecipeStepRow extends StatelessWidget {
           const SizedBox(width: 10),
           Expanded(
             child: Text(
-              text,
+              tx(context, text),
               style: TextStyle(
                 color: p.text,
                 fontSize: 15,
@@ -3022,7 +3363,7 @@ class _RecipeAllergenChip extends StatelessWidget {
         border: Border.all(color: p.border),
       ),
       child: Text(
-        label,
+        tx(context, label),
         style: TextStyle(
           color: p.muted,
           fontSize: 13,
