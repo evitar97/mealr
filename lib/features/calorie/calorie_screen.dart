@@ -214,7 +214,7 @@ class _HowToCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CupertinoButton(
-            padding: const EdgeInsets.fromLTRB(24, 20, 24, 18),
+            padding: const EdgeInsets.fromLTRB(24, 13, 24, 12),
             onPressed: onToggle,
             child: Row(
               children: [
@@ -230,10 +230,10 @@ class _HowToCard extends StatelessWidget {
                 const Spacer(),
                 Icon(
                   open
-                      ? CupertinoIcons.chevron_down
-                      : CupertinoIcons.chevron_right,
+                      ? CupertinoIcons.chevron_up
+                      : CupertinoIcons.chevron_down,
                   color: p.muted,
-                  size: 22,
+                  size: 19,
                 ),
               ],
             ),
