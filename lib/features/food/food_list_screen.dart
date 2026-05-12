@@ -976,7 +976,7 @@ enum _DietPlanKind {
 
 List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
   if (calories == 1500) {
-    return switch (kind) {
+    final basePlans = switch (kind) {
       _DietPlanKind.highProtein => _highProtein1500Plans,
       _DietPlanKind.glutenFree => _glutenFree1500Plans,
       _DietPlanKind.vegetarian => _vegetarian1500Plans,
@@ -984,15 +984,98 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
       _DietPlanKind.budget => _budget1500Plans,
       _DietPlanKind.mealPrep => _mealPrep1500Plans,
     };
+    return [
+      for (final plan in basePlans) _retargetDietPlan(plan, calories),
+      ..._generatedDietPlansFor(
+        calories: calories,
+        kind: kind,
+        startIndex: 6,
+        count: 2,
+      ),
+    ];
   }
 
+  final calorieOffset = switch (calories) {
+    2000 => 0,
+    2500 => 2,
+    3000 => 4,
+    _ => 0,
+  };
+  return _generatedDietPlansFor(
+    calories: calories,
+    kind: kind,
+    startIndex: calorieOffset,
+    count: 4,
+  );
+}
+
+List<DietDayPlan> _generatedDietPlansFor({
+  required int calories,
+  required _DietPlanKind kind,
+  required int startIndex,
+  required int count,
+}) {
   final names = switch (kind) {
-    _DietPlanKind.highProtein => ['Izmos nap', 'Sportos nap'],
-    _DietPlanKind.glutenFree => ['Tiszta energia nap', 'Könnyed nap'],
-    _DietPlanKind.vegetarian => ['Növényi nap', 'Zöld lendület nap'],
-    _DietPlanKind.quick => ['Villám nap', 'Pörgős nap'],
-    _DietPlanKind.budget => ['Takarékos nap', 'Alap nap'],
-    _DietPlanKind.mealPrep => ['Heti doboz nap', 'Előkészített nap'],
+    _DietPlanKind.highProtein => [
+      'Izmos nap',
+      'Sportos nap',
+      'Erő plusz nap',
+      'Aktív nap',
+      'Fehérje fókusz nap',
+      'Teljesítmény nap',
+      'Stabil erő nap',
+      'Fit lendület nap',
+    ],
+    _DietPlanKind.glutenFree => [
+      'Tiszta energia nap',
+      'Könnyed nap',
+      'Mentes lendület nap',
+      'Friss mentes nap',
+      'Nyugodt energia nap',
+      'Kímélő nap',
+      'Tiszta ritmus nap',
+      'Laza mentes nap',
+    ],
+    _DietPlanKind.vegetarian => [
+      'Növényi nap',
+      'Zöld lendület nap',
+      'Veggie erő nap',
+      'Kert nap',
+      'Zöld fókusz nap',
+      'Húsmentes lendület nap',
+      'Friss zöld nap',
+      'Növényi ritmus nap',
+    ],
+    _DietPlanKind.quick => [
+      'Villám nap',
+      'Pörgős nap',
+      'Gyors rutin nap',
+      'Tempós tál nap',
+      'Sietős lendület nap',
+      'Egyszerű tempó nap',
+      'Rövid konyha nap',
+      'Gyors fókusz nap',
+    ],
+    _DietPlanKind.budget => [
+      'Takarékos nap',
+      'Alap nap',
+      'Okos kosár nap',
+      'Egyszerű lendület nap',
+      'Pénztárca plusz nap',
+      'Praktikus nap',
+      'Olcsó okos nap',
+      'Kiadós alap nap',
+    ],
+    _DietPlanKind.mealPrep => [
+      'Heti doboz nap',
+      'Előkészített nap',
+      'Kész doboz nap',
+      'Tervezett nap',
+      'Rendezett doboz nap',
+      'Előre haladó nap',
+      'Heti ritmus nap',
+      'Dobozolt lendület nap',
+    ],
   };
   final pools = switch (kind) {
     _DietPlanKind.highProtein => [
@@ -1003,6 +1086,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Sós cottage cheese tál',
         'Lazacos krémsajtos bagel',
         'Túrós zabpalacsinta',
+        'Lazacos spenótos omlett tányér',
+        'Pulykás cottage reggeli doboz',
       ],
       [
         'Csirkés rizses fit bowl',
@@ -1011,6 +1096,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Sertésszűz kuszkusszal',
         'Lazacos burgonyás ebéd',
         'Tonhalas kukoricás tésztasaláta',
+        'Mediterrán pulykás bulgur',
+        'Marhahúsos pita ebéd',
       ],
       [
         'Görög csirkés tányér',
@@ -1019,6 +1106,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Pulykagolyók cukkinispagettivel',
         'Garnélás quinoa bowl',
         'Sült hal zöldségágyon',
+        'Lazacos zöldbabos vacsora',
+        'Marhás cukkinis rizs',
       ],
       [
         'Protein joghurt pohár',
@@ -1027,6 +1116,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Mini csirkés wrap',
         'Tonhalas ropogós falatok',
         'Túrós bogyós tál',
+        'Avokádós tonhalas tojásfalat',
+        'Pulykás sajtos tekercsek',
       ],
     ],
     _DietPlanKind.glutenFree => [
@@ -1037,6 +1128,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Sós cottage cheese tál',
         'Főtt tojás avokádóval',
         'Protein zabkása bogyós gyümölccsel',
+        'Shakshuka reggeli tál',
+        'Quinoás joghurtos reggeli',
       ],
       [
         'Lazacos burgonyás ebéd',
@@ -1045,6 +1138,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Lencsés feta saláta',
         'Könnyű csirkés saláta',
         'Tojásos zöldséges rizs',
+        'Görög lazacos quinoa tál',
+        'Tonhalas babos burgonyasaláta',
       ],
       [
         'Sült hal zöldségágyon',
@@ -1053,6 +1148,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Cottage cheese zöldségtál',
         'Könnyű babos chili',
         'Sonkás sajtos omlett',
+        'Spenótos kókuszos csicseriborsó',
+        'Garnélás cottage saláta',
       ],
       [
         'Almaszeletek mogyoróvajjal',
@@ -1061,6 +1158,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Túrós bogyós tál',
         'Fehérjés puding',
         'Banános kakaós falatok',
+        'Lazacos uborkás falatok',
+        'Mini burgonyás tzatziki doboz',
       ],
     ],
     _DietPlanKind.vegetarian => [
@@ -1071,6 +1170,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Zöldséges omlett',
         'Sós cottage cheese tál',
         'Banános mogyoróvajas smoothie',
+        'Kakaós chia zabpohár',
+        'Fetás bulgur reggeli tál',
       ],
       [
         'Lencsés feta saláta',
@@ -1079,6 +1180,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Tojásos zöldséges rizs',
         'Könnyű babos chili',
         'Lencsés feta saláta',
+        'Lencsés zöldséges rizses egytál',
+        'Tofus csicseriborsó curry',
       ],
       [
         'Tojásos zöldséges rizs',
@@ -1087,6 +1190,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Lencsés feta saláta',
         'Zöldséges omlett',
         'Túrós zabpalacsinta',
+        'Meleg lencsés feta tányér',
+        'Tofus quinoás vacsoratál',
       ],
       [
         'Túrós bogyós tál',
@@ -1095,6 +1200,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Hummuszos zöldségdoboz',
         'Rizsszelet cottage cheese-zel',
         'Fehérjés puding',
+        'Quinoás bogyós snack pohár',
+        'Fetás paradicsomos abonett',
       ],
     ],
     _DietPlanKind.quick => [
@@ -1105,6 +1212,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Sós cottage cheese tál',
         'Tojásos avokádós pirítós',
         'Protein zabkása bogyós gyümölccsel',
+        'Tonhalas reggeli pirítós',
+        'Hummuszos tojásos pita',
       ],
       [
         'Tonhalas kukoricás tésztasaláta',
@@ -1113,6 +1222,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Lencsés feta saláta',
         'Tofus zöldséges noodle box',
         'Csirkés rizses fit bowl',
+        'Garnélás rizstészta wok',
+        'Csirkés kuszkuszos doboz',
       ],
       [
         'Zöldséges omlett',
@@ -1121,6 +1232,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Sonkás sajtos omlett',
         'Sült hal zöldségágyon',
         'Tojásos zöldséges rizs',
+        'Csirkés rizstészta leveses tál',
+        'Sonkás tojásos abonett tál',
       ],
       [
         'Tonhalas ropogós falatok',
@@ -1129,6 +1242,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Mini csirkés wrap',
         'Fehérjés puding',
         'Almaszeletek mogyoróvajjal',
+        'Kakaós skyr ropogóssal',
+        'Hummuszos rizsszelet torony',
       ],
     ],
     _DietPlanKind.budget => [
@@ -1139,6 +1254,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Görög joghurtos granola pohár',
         'Pulykás tojásos wrap',
         'Sós cottage cheese tál',
+        'Almás túrós sült zab',
+        'Tojásos rizses reggeli serpenyő',
       ],
       [
         'Csicseriborsó curry rizzsel',
@@ -1147,6 +1264,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Tofus zöldséges noodle box',
         'Tonhalas kukoricás tésztasaláta',
         'Csirkés rizses fit bowl',
+        'Pulykával töltött cukkini',
+        'Lencsés zöldséges rizses egytál',
       ],
       [
         'Könnyű babos chili',
@@ -1155,6 +1274,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Cottage cheese zöldségtál',
         'Pulykagolyók cukkinispagettivel',
         'Sonkás sajtos omlett',
+        'Chilis pulykával töltött paprika',
+        'Meleg lencsés feta tányér',
       ],
       [
         'Banános kakaós falatok',
@@ -1163,6 +1284,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Hummuszos zöldségdoboz',
         'Főtt tojás avokádóval',
         'Protein joghurt pohár',
+        'Meleg banános zabfalatok',
+        'Csicseriborsós ropogós doboz',
       ],
     ],
     _DietPlanKind.mealPrep => [
@@ -1173,6 +1296,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Pulykás tojásos wrap',
         'Almás fahéjas overnight oats',
         'Sós cottage cheese tál',
+        'Almás túrós sült zab',
+        'Kakaós chia zabpohár',
       ],
       [
         'Csirkés rizses fit bowl',
@@ -1181,6 +1306,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Csicseriborsó curry rizzsel',
         'Lazacos burgonyás ebéd',
         'Sertésszűz kuszkusszal',
+        'Csirkés kuszkuszos doboz',
+        'Mediterrán pulykás bulgur',
       ],
       [
         'Könnyű babos chili',
@@ -1189,6 +1316,8 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Tojásos zöldséges rizs',
         'Sült hal zöldségágyon',
         'Pulykagolyók cukkinispagettivel',
+        'Sertésszűz kuszkusz salátával',
+        'Chilis pulykával töltött paprika',
       ],
       [
         'Protein joghurt pohár',
@@ -1197,21 +1326,17 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
         'Mini csirkés wrap',
         'Túrós bogyós tál',
         'Rizsszelet cottage cheese-zel',
+        'Fetás paradicsomos abonett',
+        'Mini burgonyás tzatziki doboz',
       ],
     ],
   };
-  final calorieOffset = switch (calories) {
-    2000 => 0,
-    2500 => 2,
-    3000 => 4,
-    _ => 0,
-  };
 
-  return List<DietDayPlan>.generate(2, (index) {
+  return List<DietDayPlan>.generate(count, (index) {
     final mealCalories = _mealCaloriesFor(calories, index);
-    final recipeIndex = calorieOffset + index;
+    final recipeIndex = (startIndex + index) % names.length;
     return DietDayPlan(
-      name: names[index],
+      name: names[recipeIndex],
       totalCalories: mealCalories.reduce((a, b) => a + b),
       meals: [
         DietMeal(
@@ -1240,14 +1365,57 @@ List<DietDayPlan> _dietPlansFor(int calories, _DietPlanKind kind) {
 }
 
 List<int> _mealCaloriesFor(int calories, int variant) {
-  final breakfastRatio = variant == 0 ? 0.27 : 0.25;
-  final lunchRatio = variant == 0 ? 0.35 : 0.34;
-  final dinnerRatio = variant == 0 ? 0.28 : 0.30;
+  final pattern = variant % 4;
+  final breakfastRatio = switch (pattern) {
+    0 => 0.27,
+    1 => 0.25,
+    2 => 0.24,
+    _ => 0.28,
+  };
+  final lunchRatio = switch (pattern) {
+    0 => 0.35,
+    1 => 0.34,
+    2 => 0.36,
+    _ => 0.33,
+  };
+  final dinnerRatio = switch (pattern) {
+    0 => 0.28,
+    1 => 0.30,
+    2 => 0.29,
+    _ => 0.27,
+  };
   final breakfast = (calories * breakfastRatio).round();
   final lunch = (calories * lunchRatio).round();
   final dinner = (calories * dinnerRatio).round();
   final snack = calories - breakfast - lunch - dinner;
   return [breakfast, lunch, dinner, snack];
+}
+
+DietDayPlan _retargetDietPlan(DietDayPlan plan, int targetCalories) {
+  final currentTotal = plan.meals.fold<int>(
+    0,
+    (total, meal) => total + meal.calories,
+  );
+  if (currentTotal == targetCalories) {
+    return plan;
+  }
+  final scaledMeals = <DietMeal>[];
+  var usedCalories = 0;
+  for (var index = 0; index < plan.meals.length; index++) {
+    final meal = plan.meals[index];
+    final calories = index == plan.meals.length - 1
+        ? targetCalories - usedCalories
+        : (meal.calories * targetCalories / currentTotal).round();
+    usedCalories += calories;
+    scaledMeals.add(
+      DietMeal(label: meal.label, name: meal.name, calories: calories),
+    );
+  }
+  return DietDayPlan(
+    name: plan.name,
+    totalCalories: targetCalories,
+    meals: scaledMeals,
+  );
 }
 
 class DietPlanTypeScreen extends StatelessWidget {
@@ -1360,6 +1528,40 @@ class DietPlanTypeScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  const SizedBox(height: 12),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: p.resultBg,
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: p.resultBorder),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          CupertinoIcons.info_circle,
+                          color: p.accent,
+                          size: 18,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            tx(
+                              context,
+                              'Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.',
+                            ),
+                            style: TextStyle(
+                              color: p.muted,
+                              fontSize: 12.5,
+                              height: 1.35,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -1417,6 +1619,254 @@ class _MacroProfile {
   final double protein;
   final double carbs;
   final double fat;
+}
+
+class _MacroTotals {
+  const _MacroTotals({
+    required this.protein,
+    required this.carbs,
+    required this.fat,
+  });
+
+  final double protein;
+  final double carbs;
+  final double fat;
+
+  double get proteinCalories => protein * 4;
+  double get carbCalories => carbs * 4;
+  double get fatCalories => fat * 9;
+  double get totalCalories => proteinCalories + carbCalories + fatCalories;
+
+  _MacroTotals scale(double factor) => _MacroTotals(
+    protein: protein * factor,
+    carbs: carbs * factor,
+    fat: fat * factor,
+  );
+
+  _MacroTotals operator +(_MacroTotals other) => _MacroTotals(
+    protein: protein + other.protein,
+    carbs: carbs + other.carbs,
+    fat: fat + other.fat,
+  );
+}
+
+const _zeroMacroTotals = _MacroTotals(protein: 0, carbs: 0, fat: 0);
+
+_MacroTotals _macroTotalsForPlan(DietDayPlan plan, _MacroProfile fallback) {
+  var totals = _zeroMacroTotals;
+  for (final meal in plan.meals) {
+    final recipe = _recipeForMeal(meal);
+    if (recipe == null) {
+      totals += _macroTotalsForPlanCalories(meal.calories, fallback);
+      continue;
+    }
+    final recipeTotals = _macroTotalsForRecipe(recipe);
+    if (recipeTotals.totalCalories <= 0) {
+      totals += _macroTotalsForPlanCalories(meal.calories, fallback);
+      continue;
+    }
+    final scale =
+        meal.calories / recipe.caloriesPerServing / recipe.baseServings;
+    totals += recipeTotals.scale(scale);
+  }
+  return totals.totalCalories > 0
+      ? totals
+      : _macroTotalsForPlanCalories(_dietPlanTotalCalories(plan), fallback);
+}
+
+_MacroTotals _macroTotalsForPlanCalories(int calories, _MacroProfile profile) {
+  return _MacroTotals(
+    protein: calories * profile.protein / 4,
+    carbs: calories * profile.carbs / 4,
+    fat: calories * profile.fat / 9,
+  );
+}
+
+_MacroTotals _macroTotalsForRecipe(Recipe recipe) {
+  var totals = _zeroMacroTotals;
+  for (final ingredient in recipe.ingredients) {
+    final macros = _macroTotalsForIngredient(ingredient);
+    totals += macros;
+  }
+  return totals;
+}
+
+_MacroTotals _macroTotalsForIngredient(RecipeIngredient ingredient) {
+  final name = ingredient.name.toLowerCase();
+  final amount = ingredient.amount;
+  final unit = ingredient.unit;
+  if (unit == 'csipet') return _zeroMacroTotals;
+  if (unit == 'db') {
+    if (name.contains('tojás')) {
+      return const _MacroTotals(protein: 6.3, carbs: 0.4, fat: 5).scale(amount);
+    }
+    if (name.contains('rizsszelet')) {
+      return const _MacroTotals(
+        protein: 0.7,
+        carbs: 7.2,
+        fat: 0.2,
+      ).scale(amount);
+    }
+    return _zeroMacroTotals;
+  }
+
+  final divisor = unit == 'ml' ? 100.0 : 100.0;
+  final per100 = _macroPer100ForIngredient(name);
+  return per100.scale(amount / divisor);
+}
+
+_MacroTotals _macroPer100ForIngredient(String name) {
+  if (name.contains('csirkemell') || name.contains('sült csirkemell')) {
+    return const _MacroTotals(protein: 23, carbs: 0, fat: 2);
+  }
+  if (name.contains('pulyka') || name.contains('pulykasonka')) {
+    return const _MacroTotals(protein: 21, carbs: 1, fat: 5);
+  }
+  if (name.contains('marhahús')) {
+    return const _MacroTotals(protein: 21, carbs: 0, fat: 8);
+  }
+  if (name.contains('sertésszűz')) {
+    return const _MacroTotals(protein: 22, carbs: 0, fat: 4);
+  }
+  if (name.contains('lazac')) {
+    return const _MacroTotals(protein: 20, carbs: 0, fat: 13);
+  }
+  if (name.contains('tonhal')) {
+    return const _MacroTotals(protein: 24, carbs: 0, fat: 1);
+  }
+  if (name.contains('garnéla')) {
+    return const _MacroTotals(protein: 20, carbs: 1, fat: 1);
+  }
+  if (name.contains('halfilé')) {
+    return const _MacroTotals(protein: 19, carbs: 0, fat: 2);
+  }
+  if (name.contains('tofu')) {
+    return const _MacroTotals(protein: 13, carbs: 2, fat: 8);
+  }
+  if (name.contains('szójagranulátum')) {
+    return const _MacroTotals(protein: 50, carbs: 30, fat: 1);
+  }
+  if (name.contains('fehérjepor')) {
+    return const _MacroTotals(protein: 75, carbs: 8, fat: 5);
+  }
+  if (name.contains('skyr') || name.contains('görög joghurt')) {
+    return const _MacroTotals(protein: 10, carbs: 4, fat: 2);
+  }
+  if (name == 'joghurt' || name.contains('joghurtos')) {
+    return const _MacroTotals(protein: 5, carbs: 5, fat: 3);
+  }
+  if (name.contains('cottage')) {
+    return const _MacroTotals(protein: 12, carbs: 3, fat: 4);
+  }
+  if (name.contains('túró')) {
+    return const _MacroTotals(protein: 14, carbs: 4, fat: 5);
+  }
+  if (name.contains('feta')) {
+    return const _MacroTotals(protein: 14, carbs: 4, fat: 21);
+  }
+  if (name.contains('sajt') || name.contains('krémsajt')) {
+    return const _MacroTotals(protein: 18, carbs: 3, fat: 18);
+  }
+  if (name.contains('tej vagy növényi ital') || name == 'tej') {
+    return const _MacroTotals(protein: 3.4, carbs: 5, fat: 1.5);
+  }
+  if (name.contains('zab')) {
+    return const _MacroTotals(protein: 13, carbs: 60, fat: 7);
+  }
+  if (name.contains('granola')) {
+    return const _MacroTotals(protein: 10, carbs: 62, fat: 15);
+  }
+  if (name == 'rizs') {
+    return const _MacroTotals(protein: 7, carbs: 78, fat: 1);
+  }
+  if (name.contains('főtt rizs')) {
+    return const _MacroTotals(protein: 2.7, carbs: 28, fat: 0.3);
+  }
+  if (name.contains('rizstészta')) {
+    return const _MacroTotals(protein: 6, carbs: 80, fat: 1);
+  }
+  if (name.contains('tészta')) {
+    return const _MacroTotals(protein: 13, carbs: 70, fat: 2);
+  }
+  if (name.contains('bulgur')) {
+    return const _MacroTotals(protein: 12, carbs: 76, fat: 1.5);
+  }
+  if (name.contains('kuszkusz')) {
+    return const _MacroTotals(protein: 12, carbs: 72, fat: 1.5);
+  }
+  if (name.contains('quinoa')) {
+    return const _MacroTotals(protein: 14, carbs: 64, fat: 6);
+  }
+  if (name.contains('burgonya')) {
+    return const _MacroTotals(protein: 2, carbs: 17, fat: 0.1);
+  }
+  if (name.contains('kenyér') ||
+      name.contains('pita') ||
+      name.contains('tortilla') ||
+      name.contains('bagel') ||
+      name.contains('abonett') ||
+      name.contains('keksz') ||
+      name.contains('zsemlemorzsa')) {
+    return const _MacroTotals(protein: 10, carbs: 50, fat: 5);
+  }
+  if (name.contains('csicseriborsó') || name.contains('hummusz')) {
+    return const _MacroTotals(protein: 8, carbs: 20, fat: 6);
+  }
+  if (name.contains('lencse') || name.contains('vörösbab')) {
+    return const _MacroTotals(protein: 8, carbs: 20, fat: 1);
+  }
+  if (name.contains('kukorica') || name.contains('zöldborsó')) {
+    return const _MacroTotals(protein: 4, carbs: 18, fat: 1);
+  }
+  if (name.contains('kókusztej')) {
+    return const _MacroTotals(protein: 2, carbs: 3, fat: 17);
+  }
+  if (name.contains('avokádó')) {
+    return const _MacroTotals(protein: 2, carbs: 9, fat: 15);
+  }
+  if (name.contains('mogyoróvaj')) {
+    return const _MacroTotals(protein: 25, carbs: 20, fat: 50);
+  }
+  if (name.contains('mandula') ||
+      name.contains('dió') ||
+      name.contains('tökmag') ||
+      name.contains('chia') ||
+      name.contains('szezámmag')) {
+    return const _MacroTotals(protein: 18, carbs: 15, fat: 45);
+  }
+  if (name.contains('olívaolaj')) {
+    return const _MacroTotals(protein: 0, carbs: 0, fat: 100);
+  }
+  if (name.contains('méz') || name.contains('juharszirup')) {
+    return const _MacroTotals(protein: 0, carbs: 82, fat: 0);
+  }
+  if (name.contains('banán')) {
+    return const _MacroTotals(protein: 1, carbs: 23, fat: 0.3);
+  }
+  if (name.contains('alma') ||
+      name.contains('bogyós') ||
+      name.contains('eper')) {
+    return const _MacroTotals(protein: 0.6, carbs: 12, fat: 0.3);
+  }
+  if (name.contains('paradicsomszósz') || name.contains('paradicsompüré')) {
+    return const _MacroTotals(protein: 2, carbs: 8, fat: 0.5);
+  }
+  if (name.contains('zöldség') ||
+      name.contains('saláta') ||
+      name.contains('uborka') ||
+      name.contains('paradicsom') ||
+      name.contains('paprika') ||
+      name.contains('répa') ||
+      name.contains('cukkini') ||
+      name.contains('spenót') ||
+      name.contains('brokkoli') ||
+      name.contains('zöldbab')) {
+    return const _MacroTotals(protein: 2, carbs: 5, fat: 0.3);
+  }
+  if (name.contains('kakaópor')) {
+    return const _MacroTotals(protein: 20, carbs: 14, fat: 14);
+  }
+  return _zeroMacroTotals;
 }
 
 class _DietTypeTile extends StatelessWidget {
@@ -1586,6 +2036,7 @@ class _DietDayPlanCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     final totalCalories = _dietPlanTotalCalories(plan);
+    final macroTotals = _macroTotalsForPlan(plan, macros);
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: () => Navigator.of(context).push(
@@ -1663,7 +2114,7 @@ class _DietDayPlanCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            _MacroBreakdownBar(calories: totalCalories, macros: macros),
+            _MacroBreakdownBar(totals: macroTotals),
           ],
         ),
       ),
@@ -1672,16 +2123,15 @@ class _DietDayPlanCard extends StatelessWidget {
 }
 
 class _MacroBreakdownBar extends StatelessWidget {
-  const _MacroBreakdownBar({required this.calories, required this.macros});
+  const _MacroBreakdownBar({required this.totals});
 
-  final int calories;
-  final _MacroProfile macros;
+  final _MacroTotals totals;
 
-  int get proteinGrams => (calories * macros.protein / 4).round();
+  int get proteinGrams => totals.protein.round();
 
-  int get carbGrams => (calories * macros.carbs / 4).round();
+  int get carbGrams => totals.carbs.round();
 
-  int get fatGrams => (calories * macros.fat / 9).round();
+  int get fatGrams => totals.fat.round();
 
   @override
   Widget build(BuildContext context) {
@@ -1699,15 +2149,15 @@ class _MacroBreakdownBar extends StatelessWidget {
             child: Row(
               children: [
                 _MacroSegment(
-                  flex: (macros.protein * 1000).round(),
+                  flex: totals.proteinCalories.round().clamp(1, 10000),
                   color: proteinColor,
                 ),
                 _MacroSegment(
-                  flex: (macros.carbs * 1000).round(),
+                  flex: totals.carbCalories.round().clamp(1, 10000),
                   color: carbColor,
                 ),
                 _MacroSegment(
-                  flex: (macros.fat * 1000).round(),
+                  flex: totals.fatCalories.round().clamp(1, 10000),
                   color: fatColor,
                 ),
               ],
@@ -1886,7 +2336,6 @@ class _DietPlanMealCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     final recipe = _recipeForMeal(meal);
-    final calories = recipe?.caloriesPerServing ?? meal.calories;
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: recipe == null
@@ -1894,7 +2343,7 @@ class _DietPlanMealCard extends StatelessWidget {
           : () => Navigator.of(context).push(
               CupertinoPageRoute<void>(
                 builder: (_) =>
-                    RecipeDetailScreen(recipe: recipe, initialServings: 1),
+                    DietRecipeDetailScreen(recipe: recipe, meal: meal),
               ),
             ),
       child: AppCard(
@@ -1946,7 +2395,7 @@ class _DietPlanMealCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '$calories kcal',
+                  '${meal.calories} kcal',
                   style: TextStyle(
                     color: p.accent,
                     fontSize: 13,
@@ -2142,18 +2591,16 @@ Recipe? _recipeForMeal(DietMeal meal) {
 
 String _normalizeRecipeName(String value) => value.toLowerCase().trim();
 
-int _dietPlanTotalCalories(DietDayPlan plan) => plan.meals.fold<int>(
-  0,
-  (total, meal) =>
-      total + (_recipeForMeal(meal)?.caloriesPerServing ?? meal.calories),
-);
+int _dietPlanTotalCalories(DietDayPlan plan) =>
+    plan.meals.fold<int>(0, (total, meal) => total + meal.calories);
 
 List<ShoppingListItem> _dietPlanShoppingItems(DietDayPlan plan) {
   final totals = <String, ({String name, String unit, double amount})>{};
   for (final meal in plan.meals) {
     final recipe = _recipeForMeal(meal);
     if (recipe == null) continue;
-    final scale = 1 / recipe.baseServings;
+    final scale =
+        meal.calories / recipe.caloriesPerServing / recipe.baseServings;
     for (final ingredient in recipe.ingredients) {
       final key = '${ingredient.name}|${ingredient.unit}';
       final amount = ingredient.amount * scale;
@@ -2169,7 +2616,7 @@ List<ShoppingListItem> _dietPlanShoppingItems(DietDayPlan plan) {
       .map(
         (item) => ShoppingListItem(
           name:
-              '${item.name} - ${_formatRecipeAmount(item.amount)} ${item.unit}',
+              '${item.name} - ${_formatIngredientAmount(item.amount, item.unit)} ${item.unit}',
         ),
       )
       .toList();
@@ -2299,6 +2746,8 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
             });
           },
         ),
+        const SizedBox(height: 12),
+        const _RecipeGuidanceNote(),
         const SizedBox(height: 14),
         if (favorites.isNotEmpty) ...[
           SectionLabel(tx(context, 'Kedvencek')),
@@ -2325,6 +2774,44 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
         recipe.ingredients.any(
           (ingredient) => ingredient.name.toLowerCase().contains(_query),
         );
+  }
+}
+
+class _RecipeGuidanceNote extends StatelessWidget {
+  const _RecipeGuidanceNote();
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Container(
+      padding: const EdgeInsets.fromLTRB(12, 11, 12, 11),
+      decoration: BoxDecoration(
+        color: p.resultBg,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: p.resultBorder),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(CupertinoIcons.info_circle, color: p.accent, size: 17),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              tx(
+                context,
+                'Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.',
+              ),
+              style: TextStyle(
+                color: p.muted,
+                fontSize: 12,
+                height: 1.32,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -2752,6 +3239,146 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
   }
 }
 
+class DietRecipeDetailScreen extends StatelessWidget {
+  const DietRecipeDetailScreen({
+    required this.recipe,
+    required this.meal,
+    super.key,
+  });
+
+  final Recipe recipe;
+  final DietMeal meal;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    final scale =
+        meal.calories / recipe.caloriesPerServing / recipe.baseServings;
+    final servingEquivalent = meal.calories / recipe.caloriesPerServing;
+    return _FoodSubpageScaffold(
+      children: [
+        AppCard(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 46,
+                    height: 46,
+                    child: SpringPressable(
+                      pressedScale: 0.9,
+                      child: CupertinoButton(
+                        minimumSize: const Size(46, 46),
+                        padding: EdgeInsets.zero,
+                        color: p.bg.withValues(alpha: 0.72),
+                        borderRadius: BorderRadius.circular(16),
+                        onPressed: () => Navigator.maybePop(context),
+                        child: Icon(
+                          CupertinoIcons.chevron_left,
+                          color: p.accent,
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          tx(context, recipe.name),
+                          style: TextStyle(
+                            color: p.text,
+                            fontSize: 22,
+                            height: 1.12,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: -0.4,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          '${tx(context, meal.label)} · ${recipe.prepTimeMinutes} ${tx(context, 'perc')}',
+                          style: TextStyle(
+                            color: p.muted,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    width: 46,
+                    height: 46,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: p.bg.withValues(alpha: 0.72),
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: p.border),
+                    ),
+                    child: Text(
+                      recipe.emoji,
+                      style: const TextStyle(fontSize: 25),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 14),
+              _RecipeSummaryRow(
+                label: tx(context, 'Összes kalória'),
+                value: '${meal.calories} kcal',
+              ),
+              const SizedBox(height: 8),
+              Text(
+                '${_formatRecipeAmount(servingEquivalent)} ${tx(context, 'adag')}',
+                style: TextStyle(
+                  color: p.muted,
+                  fontSize: 13,
+                  height: 1.3,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SectionLabel(tx(context, 'Hozzávalók')),
+        AppCard(
+          child: Column(
+            children: [
+              for (final ingredient in recipe.ingredients)
+                _RecipeIngredientRow(ingredient: ingredient, scale: scale),
+            ],
+          ),
+        ),
+        SectionLabel(tx(context, 'Elkészítés')),
+        AppCard(
+          child: Column(
+            children: [
+              for (var index = 0; index < recipe.steps.length; index++)
+                _RecipeStepRow(index: index, text: recipe.steps[index]),
+            ],
+          ),
+        ),
+        SectionLabel(tx(context, 'Allergének')),
+        AppCard(
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final allergen in recipe.allergens)
+                _RecipeAllergenChip(label: allergen),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class RecipeShoppingListSheet extends StatefulWidget {
   const RecipeShoppingListSheet({
     required this.recipe,
@@ -3086,27 +3713,49 @@ class _RecipeIngredientRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     final amount = ingredient.amount * scale;
+    final note = _ingredientKitchenNote(context, ingredient, amount);
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Text(
-              tx(context, ingredient.name),
-              style: TextStyle(
-                color: p.text,
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tx(context, ingredient.name),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                if (note != null) ...[
+                  const SizedBox(height: 3),
+                  Text(
+                    note,
+                    style: TextStyle(
+                      color: p.muted,
+                      fontSize: 12,
+                      height: 1.25,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ],
             ),
           ),
           const SizedBox(width: 12),
-          Text(
-            '${_formatRecipeAmount(amount)} ${ingredient.unit}',
-            style: TextStyle(
-              color: p.accent,
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
+          Padding(
+            padding: const EdgeInsets.only(top: 1),
+            child: Text(
+              '${_formatIngredientAmount(amount, ingredient.unit)} ${ingredient.unit}',
+              style: TextStyle(
+                color: p.accent,
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
@@ -3124,6 +3773,7 @@ class _RecipeStepRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
+    final hint = _recipeStepHint(context, text);
     return Padding(
       padding: EdgeInsets.only(bottom: index == 0 ? 12 : 10),
       child: Row(
@@ -3148,14 +3798,31 @@ class _RecipeStepRow extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: Text(
-              tx(context, text),
-              style: TextStyle(
-                color: p.text,
-                fontSize: 15,
-                height: 1.35,
-                fontWeight: FontWeight.w600,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tx(context, text),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 15,
+                    height: 1.35,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                if (hint != null) ...[
+                  const SizedBox(height: 5),
+                  Text(
+                    hint,
+                    style: TextStyle(
+                      color: p.muted,
+                      fontSize: 12,
+                      height: 1.3,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ],
             ),
           ),
         ],
@@ -3191,8 +3858,440 @@ class _RecipeAllergenChip extends StatelessWidget {
   }
 }
 
+String? _ingredientKitchenNote(
+  BuildContext context,
+  RecipeIngredient ingredient,
+  double amount,
+) {
+  final language = AppScope.of(context).language;
+  final name = ingredient.name.toLowerCase();
+  final unit = ingredient.unit;
+  String approx(String hu, String en, String de, String es) {
+    return switch (language) {
+      AppLanguage.hungarian => hu,
+      AppLanguage.english => en,
+      AppLanguage.german => de,
+      AppLanguage.spanish => es,
+    };
+  }
+
+  if (unit == 'db') {
+    if (name.contains('tojás')) {
+      return approx(
+        'M-es tojással számolva, kb. 53-63 g/db héjjal együtt.',
+        'Calculated with medium eggs, about 53-63 g each with shell.',
+        'Mit Eiern Größe M gerechnet, ca. 53-63 g pro Stück mit Schale.',
+        'Calculado con huevos medianos, aprox. 53-63 g cada uno con cáscara.',
+      );
+    }
+    return approx(
+      'Kb. ${_formatRecipeAmount(amount)} darab.',
+      'About ${_formatRecipeAmount(amount)} piece(s).',
+      'Ca. ${_formatRecipeAmount(amount)} Stück.',
+      'Aprox. ${_formatRecipeAmount(amount)} unidad(es).',
+    );
+  }
+  if (unit == 'csipet') {
+    return approx(
+      'Ízlés szerint, kb. egy nagyobb csipet.',
+      'To taste, about one generous pinch.',
+      'Nach Geschmack, etwa eine großzügige Prise.',
+      'Al gusto, aprox. una pizca generosa.',
+    );
+  }
+  if (unit == 'ml') {
+    if (amount <= 15) {
+      final teaspoons = amount / 5;
+      return approx(
+        'Kb. ${_formatRecipeAmount(teaspoons)} teáskanál.',
+        'About ${_formatRecipeAmount(teaspoons)} tsp.',
+        'Ca. ${_formatRecipeAmount(teaspoons)} TL.',
+        'Aprox. ${_formatRecipeAmount(teaspoons)} cucharadita(s).',
+      );
+    }
+    final tablespoons = amount / 15;
+    return approx(
+      'Kb. ${_formatRecipeAmount(tablespoons)} evőkanál vagy ${_formatRecipeAmount(amount / 100)} dl.',
+      'About ${_formatRecipeAmount(tablespoons)} tbsp or ${_formatRecipeAmount(amount / 100)} dl.',
+      'Ca. ${_formatRecipeAmount(tablespoons)} EL oder ${_formatRecipeAmount(amount / 100)} dl.',
+      'Aprox. ${_formatRecipeAmount(tablespoons)} cucharada(s) o ${_formatRecipeAmount(amount / 100)} dl.',
+    );
+  }
+  if (unit != 'g') return null;
+
+  if (name.contains('rizstészta')) {
+    return approx(
+      'Szárazon mérd ki; általában 5-8 perc áztatás vagy főzés elég.',
+      'Measure dry; usually 5-8 minutes soaking or cooking is enough.',
+      'Trocken abwiegen; meist reichen 5-8 Minuten Einweichen oder Kochen.',
+      'Pésalo en seco; normalmente bastan 5-8 minutos de remojo o cocción.',
+    );
+  }
+  if (name == 'rizs' || name.contains('főtt rizs')) {
+    return approx(
+      'Száraz rizsnél kb. kétszeres vízzel számolj; főtt rizsnél kész súlyt mérsz.',
+      'For dry rice use about twice as much water; cooked rice is weighed ready-made.',
+      'Bei trockenem Reis etwa doppelt so viel Wasser nehmen; gekochten Reis fertig wiegen.',
+      'Para arroz seco usa aprox. el doble de agua; el arroz cocido se pesa ya hecho.',
+    );
+  }
+  if (name.contains('bulgur')) {
+    return approx(
+      'Szárazon mérd ki, kb. kétszeres forró vízzel puhul meg.',
+      'Measure dry; it softens with about twice as much hot water.',
+      'Trocken abwiegen; mit etwa doppelt so viel heißem Wasser quellen lassen.',
+      'Pésalo en seco; se hidrata con aprox. el doble de agua caliente.',
+    );
+  }
+  if (name.contains('kuszkusz')) {
+    return approx(
+      'Szárazon mérd ki, kb. azonos mennyiségű forró vízzel párold.',
+      'Measure dry and steam with roughly the same amount of hot water.',
+      'Trocken abwiegen und mit etwa gleicher Menge heißem Wasser quellen lassen.',
+      'Pésalo en seco y usa aprox. la misma cantidad de agua caliente.',
+    );
+  }
+  if (name.contains('quinoa')) {
+    return approx(
+      'Szárazon mérd ki, mosd át, majd kb. kétszeres vízzel főzd.',
+      'Measure dry, rinse, then cook with about twice as much water.',
+      'Trocken abwiegen, abspülen und mit etwa doppelt so viel Wasser kochen.',
+      'Pésala en seco, enjuágala y cocina con aprox. el doble de agua.',
+    );
+  }
+  if (name == 'tészta' || name.contains('teljes kiőrlésű tészta')) {
+    return approx(
+      'Szárazon mérd ki; bő, sós vízben főzd a csomagolás ideje szerint.',
+      'Measure dry; cook in plenty of salted water according to the package time.',
+      'Trocken abwiegen; in reichlich Salzwasser nach Packungszeit kochen.',
+      'Pésala en seco; cuece en abundante agua salada según el envase.',
+    );
+  }
+  if (name.contains('burgonya')) {
+    return approx(
+      'Kb. közepes burgonyákból számolva; főzve 15-20 perc, sütve 25-35 perc.',
+      'Based on medium potatoes; boil 15-20 min or roast 25-35 min.',
+      'Mit mittelgroßen Kartoffeln gerechnet; 15-20 Min. kochen oder 25-35 Min. backen.',
+      'Calculado con patatas medianas; hierve 15-20 min u hornea 25-35 min.',
+    );
+  }
+  if (name.contains('tzatziki')) {
+    return approx(
+      'Készen is használható. Házi verzióhoz keverj sűrű görög joghurtot reszelt, kinyomkodott uborkával, kevés citromlével, fokhagymával, sóval és borssal.',
+      'Ready-made is fine. For a homemade version, mix thick Greek yogurt with grated squeezed cucumber, a little lemon juice, garlic, salt, and pepper.',
+      'Fertig gekauft ist in Ordnung. Für hausgemachte Variante dicken griechischen Joghurt mit geriebener, ausgedrückter Gurke, etwas Zitronensaft, Knoblauch, Salz und Pfeffer mischen.',
+      'Puede ser comprado. Para hacerlo en casa, mezcla yogur griego espeso con pepino rallado y escurrido, un poco de limón, ajo, sal y pimienta.',
+    );
+  }
+  if (name.contains('joghurtos öntet') || name.contains('joghurtos szósz')) {
+    return approx(
+      'Házi öntethez keverj natúr vagy görög joghurtot kevés citromlével, mustárral vagy fokhagymával, sóval és borssal; a megadott mennyiséget a kész öntetből mérd ki.',
+      'For a homemade dressing, mix plain or Greek yogurt with a little lemon juice, mustard or garlic, salt, and pepper; measure the listed amount from the finished dressing.',
+      'Für ein hausgemachtes Dressing Natur- oder griechischen Joghurt mit etwas Zitronensaft, Senf oder Knoblauch, Salz und Pfeffer mischen; die angegebene Menge vom fertigen Dressing abwiegen.',
+      'Para un aderezo casero, mezcla yogur natural o griego con un poco de limón, mostaza o ajo, sal y pimienta; pesa la cantidad indicada ya preparada.',
+    );
+  }
+
+  if (name.contains('banán')) {
+    final pieces = amount / 120;
+    return approx(
+      'Kb. ${_formatRecipeAmount(pieces)} közepes banán.',
+      'About ${_formatRecipeAmount(pieces)} medium banana(s).',
+      'Ca. ${_formatRecipeAmount(pieces)} mittelgroße Banane(n).',
+      'Aprox. ${_formatRecipeAmount(pieces)} plátano(s) mediano(s).',
+    );
+  }
+  if (name.contains('alma')) {
+    final pieces = amount / 150;
+    return approx(
+      'Kb. ${_formatRecipeAmount(pieces)} közepes alma.',
+      'About ${_formatRecipeAmount(pieces)} medium apple(s).',
+      'Ca. ${_formatRecipeAmount(pieces)} mittelgroße Äpfel.',
+      'Aprox. ${_formatRecipeAmount(pieces)} manzana(s) mediana(s).',
+    );
+  }
+  if (name.contains('eper')) {
+    final pieces = amount / 15;
+    return approx(
+      'Kb. ${_formatRecipeAmount(pieces)} szem eper.',
+      'About ${_formatRecipeAmount(pieces)} strawberries.',
+      'Ca. ${_formatRecipeAmount(pieces)} Erdbeeren.',
+      'Aprox. ${_formatRecipeAmount(pieces)} fresa(s).',
+    );
+  }
+  if (name.contains('bogyós')) {
+    return approx(
+      'Kb. egy kisebb maréknyi adag.',
+      'About a small handful.',
+      'Etwa eine kleine Handvoll.',
+      'Aprox. un puñado pequeño.',
+    );
+  }
+  if (name.contains('méz') || name.contains('juharszirup')) {
+    final teaspoons = amount / 7;
+    return approx(
+      'Kb. ${_formatRecipeAmount(teaspoons)} teáskanál.',
+      'About ${_formatRecipeAmount(teaspoons)} tsp.',
+      'Ca. ${_formatRecipeAmount(teaspoons)} TL.',
+      'Aprox. ${_formatRecipeAmount(teaspoons)} cucharadita(s).',
+    );
+  }
+  if (name.contains('fahéj') ||
+      name.contains('kakaó') ||
+      name.contains('chia')) {
+    final teaspoons = amount / 3;
+    return approx(
+      'Kb. ${_formatRecipeAmount(teaspoons)} teáskanál.',
+      'About ${_formatRecipeAmount(teaspoons)} tsp.',
+      'Ca. ${_formatRecipeAmount(teaspoons)} TL.',
+      'Aprox. ${_formatRecipeAmount(teaspoons)} cucharadita(s).',
+    );
+  }
+  if (name.contains('olívaolaj') || name.contains('mustár')) {
+    final tablespoons = amount / 15;
+    return approx(
+      'Kb. ${_formatRecipeAmount(tablespoons)} evőkanál.',
+      'About ${_formatRecipeAmount(tablespoons)} tbsp.',
+      'Ca. ${_formatRecipeAmount(tablespoons)} EL.',
+      'Aprox. ${_formatRecipeAmount(tablespoons)} cucharada(s).',
+    );
+  }
+  if (name.contains('zab')) {
+    return approx(
+      'Szárazon mérd ki; melegítés után 3-5 perc pihentetéstől krémesebb lesz.',
+      'Measure dry; after heating, resting 3-5 minutes makes it creamier.',
+      'Trocken abwiegen; nach dem Erhitzen 3-5 Minuten quellen lassen.',
+      'Pésala en seco; tras calentar, reposa 3-5 minutos para más cremosidad.',
+    );
+  }
+  if (name.contains('granola')) {
+    return approx(
+      'Kész, ropogós alapanyag, csak mérd ki és tálaláskor add hozzá.',
+      'Ready crunchy ingredient; just measure and add when serving.',
+      'Fertige knusprige Zutat; nur abwiegen und beim Servieren zugeben.',
+      'Ingrediente crujiente listo; solo pésalo y añádelo al servir.',
+    );
+  }
+  if (name.contains('uborka') ||
+      name.contains('paradicsom') ||
+      name.contains('paprika') ||
+      name.contains('répa') ||
+      name.contains('cukkini')) {
+    return approx(
+      'Kb. egy kisebb adag feldarabolt zöldség.',
+      'About a small portion of chopped vegetables.',
+      'Etwa eine kleine Portion geschnittenes Gemüse.',
+      'Aprox. una porción pequeña de verdura troceada.',
+    );
+  }
+  if (name.contains('sajt') ||
+      name.contains('túró') ||
+      name.contains('joghurt') ||
+      name.contains('cottage')) {
+    return approx(
+      'Konyhai mérlegen a legpontosabb kimérni.',
+      'Best measured on a kitchen scale.',
+      'Am genauesten mit einer Küchenwaage abwiegen.',
+      'Lo más preciso es pesarlo con una báscula de cocina.',
+    );
+  }
+  return approx(
+    'A pontos kalóriához mérlegen mérd ki.',
+    'Use a kitchen scale for the most accurate calories.',
+    'Für genaue Kalorien mit der Küchenwaage abwiegen.',
+    'Para calorías precisas, pésalo con una báscula.',
+  );
+}
+
+String? _recipeStepHint(BuildContext context, String step) {
+  final language = AppScope.of(context).language;
+  final lower = step.toLowerCase();
+  String local(String hu, String en, String de, String es) {
+    return switch (language) {
+      AppLanguage.hungarian => hu,
+      AppLanguage.english => en,
+      AppLanguage.german => de,
+      AppLanguage.spanish => es,
+    };
+  }
+
+  if (lower.contains('rizstésztát')) {
+    return local(
+      'Általában 5-8 perc forró vizes áztatás elég; ha főzöd, csak addig, amíg rugalmas, de nem pépes.',
+      'Usually 5-8 minutes in hot water is enough; if boiling, cook only until flexible, not mushy.',
+      'Meist reichen 5-8 Minuten in heißem Wasser; beim Kochen nur garen, bis sie elastisch, nicht matschig ist.',
+      'Normalmente bastan 5-8 minutos en agua caliente; si la cueces, que quede flexible, no blanda.',
+    );
+  }
+  if (lower.contains('tésztát főzd')) {
+    return local(
+      'Bő, sós vízben főzd, általában 8-11 percig; al dente állagnál szűrd le.',
+      'Cook in plenty of salted water, usually 8-11 minutes; drain when al dente.',
+      'In reichlich Salzwasser meist 8-11 Minuten kochen; al dente abgießen.',
+      'Cuece en abundante agua salada, normalmente 8-11 minutos; escurre al dente.',
+    );
+  }
+  if (lower.contains('rizst főzd')) {
+    return local(
+      'Száraz rizshez kb. kétszeres víz kell. Fedő alatt, alacsony lángon főzd 12-15 percig, majd pihentesd 5 percet.',
+      'Use about twice as much water as dry rice. Simmer covered on low heat for 12-15 minutes, then rest 5 minutes.',
+      'Für trockenen Reis etwa doppelt so viel Wasser nehmen. Zugedeckt 12-15 Minuten leise kochen, dann 5 Minuten ruhen lassen.',
+      'Usa aprox. el doble de agua que de arroz seco. Cocina tapado a fuego bajo 12-15 min y reposa 5 min.',
+    );
+  }
+  if (lower.contains('bulgurt főzd')) {
+    return local(
+      'A bulgurhoz kb. kétszeres forró víz kell. Fedd le 10-12 percre, majd villával lazítsd át.',
+      'Use about twice as much hot water as bulgur. Cover for 10-12 minutes, then fluff with a fork.',
+      'Für Bulgur etwa doppelt so viel heißes Wasser nehmen. 10-12 Minuten abdecken, dann mit der Gabel lockern.',
+      'Usa aprox. el doble de agua caliente que de bulgur. Tapa 10-12 min y suelta con un tenedor.',
+    );
+  }
+  if (lower.contains('kuszkuszt')) {
+    return local(
+      'A kuszkuszhoz kb. azonos mennyiségű forró víz elég. Fedd le 5-8 percre, majd lazítsd át.',
+      'Use roughly the same amount of hot water as couscous. Cover for 5-8 minutes, then fluff.',
+      'Für Couscous reicht etwa die gleiche Menge heißes Wasser. 5-8 Minuten abdecken, dann lockern.',
+      'Usa aprox. la misma cantidad de agua caliente que de cuscús. Tapa 5-8 min y suelta.',
+    );
+  }
+  if (lower.contains('quinoát főzd')) {
+    return local(
+      'A quinoát főzés előtt öblítsd át. Kb. kétszeres vízzel, fedő alatt 12-15 percig főzd.',
+      'Rinse quinoa before cooking. Use about twice as much water and simmer covered for 12-15 minutes.',
+      'Quinoa vor dem Kochen abspülen. Mit etwa doppelt so viel Wasser zugedeckt 12-15 Minuten kochen.',
+      'Enjuaga la quinoa antes de cocinar. Usa aprox. el doble de agua y cuece tapada 12-15 min.',
+    );
+  }
+  if (lower.contains('burgonyát főzd') ||
+      lower.contains('burgonyát főzd vagy süsd')) {
+    return local(
+      'Kockázva főzve kb. 15-20 perc alatt puhul meg; sütőben 200 fokon 25-35 perc kellhet.',
+      'Diced potatoes soften in about 15-20 minutes boiling; roasting at 200 C can take 25-35 minutes.',
+      'Gewürfelt braucht sie gekocht ca. 15-20 Minuten; im Ofen bei 200 Grad etwa 25-35 Minuten.',
+      'En dados se cuece en 15-20 min; al horno a 200 grados puede tardar 25-35 min.',
+    );
+  }
+  if (lower.contains('tojásokat főzd')) {
+    return local(
+      'M-es tojással számolva: lágy 6-7 perc, krémes közép 8-9 perc, kemény 10-11 perc forrástól számítva.',
+      'Using medium eggs: soft 6-7 min, jammy 8-9 min, hard 10-11 min from boiling.',
+      'Mit Eiern Größe M: weich 6-7 Min., cremig 8-9 Min., hart 10-11 Min. ab Kochbeginn.',
+      'Con huevos medianos: blando 6-7 min, cremoso 8-9 min, duro 10-11 min desde que hierve.',
+    );
+  }
+  if (lower.contains('tojásokat verd') || lower.contains('felvert tojást')) {
+    return local(
+      'M-es tojással számolj; verd fel villával, amíg a fehérje és a sárgája teljesen elkeveredik.',
+      'Use medium eggs; beat with a fork until whites and yolks are fully combined.',
+      'Eier Größe M verwenden; mit einer Gabel schlagen, bis Eiweiß und Eigelb verbunden sind.',
+      'Usa huevos medianos; bate con tenedor hasta integrar clara y yema.',
+    );
+  }
+  if (lower.contains('tojásból') || lower.contains('tojásként')) {
+    return local(
+      'M-es tojással számolj. Rántottánál alacsony-közepes hőn 2-3 perc alatt marad szaftos.',
+      'Use medium eggs. For scrambled eggs, low-medium heat keeps them creamy in 2-3 minutes.',
+      'Eier Größe M verwenden. Rührei bleibt bei niedriger bis mittlerer Hitze in 2-3 Minuten saftig.',
+      'Usa huevos medianos. Para revuelto, fuego bajo-medio durante 2-3 min lo mantiene jugoso.',
+    );
+  }
+  if (lower.contains('turmix')) {
+    return local(
+      'Ha túl sűrű, apránként adj hozzá folyadékot, így nem hígul túl.',
+      'If it is too thick, add liquid gradually so it does not get too thin.',
+      'Wenn es zu dick ist, Flüssigkeit nach und nach zugeben.',
+      'Si queda muy espeso, añade líquido poco a poco.',
+    );
+  }
+  if (lower.contains('hűtő') || lower.contains('éjszakára')) {
+    return local(
+      'Zárható dobozban vagy pohárban praktikus, reggel csak át kell keverni.',
+      'Use a sealed jar or container; in the morning just stir it.',
+      'In einem verschließbaren Glas oder Behälter lagern und morgens umrühren.',
+      'Guárdalo en un tarro o recipiente cerrado y remueve por la mañana.',
+    );
+  }
+  if (lower.contains('tzatziki')) {
+    return local(
+      'Ha nem kész tzatzikit használsz: sűrű görög joghurtba keverj reszelt, kinyomkodott uborkát, kevés citromlevet, fokhagymát, sót és borsot. Pihentesd 5-10 percet, hogy összeérjen.',
+      'If you are not using ready-made tzatziki, mix thick Greek yogurt with grated squeezed cucumber, a little lemon juice, garlic, salt, and pepper. Rest 5-10 minutes so the flavors come together.',
+      'Wenn du kein fertiges Tzatziki nutzt: dicken griechischen Joghurt mit geriebener, ausgedrückter Gurke, etwas Zitronensaft, Knoblauch, Salz und Pfeffer mischen. 5-10 Minuten ziehen lassen.',
+      'Si no usas tzatziki comprado, mezcla yogur griego espeso con pepino rallado y escurrido, un poco de limón, ajo, sal y pimienta. Reposa 5-10 minutos.',
+    );
+  }
+  if (lower.contains('joghurtos öntet') ||
+      lower.contains('joghurtos szósszal') ||
+      lower.contains('joghurtból készíts')) {
+    return local(
+      'Az öntethez keverd simára a joghurtot kevés citromlével, sóval, borssal és opcionálisan mustárral vagy fokhagymával. Ha túl sűrű, 1-2 teáskanál vízzel lazítsd.',
+      'For the dressing, mix the yogurt with a little lemon juice, salt, pepper, and optionally mustard or garlic until smooth. If too thick, loosen with 1-2 teaspoons of water.',
+      'Für das Dressing Joghurt mit etwas Zitronensaft, Salz, Pfeffer und optional Senf oder Knoblauch glatt rühren. Wenn es zu dick ist, mit 1-2 TL Wasser verdünnen.',
+      'Para el aderezo, mezcla el yogur con un poco de limón, sal, pimienta y opcionalmente mostaza o ajo. Si queda espeso, aligera con 1-2 cucharaditas de agua.',
+    );
+  }
+  if (lower.contains('mustáros szósszal')) {
+    return local(
+      'A mustáros szószhoz keverd el a mustárt kevés joghurttal vagy főzőlével, majd sóval és borssal igazítsd. Így nem csak mustárt teszel rá, hanem valódi öntetet kapsz.',
+      'For the mustard sauce, mix mustard with a little yogurt or cooking liquid, then adjust with salt and pepper. This makes it a real sauce, not just plain mustard.',
+      'Für die Senfsauce Senf mit etwas Joghurt oder Kochflüssigkeit verrühren und mit Salz und Pfeffer abschmecken. So entsteht eine echte Sauce.',
+      'Para la salsa de mostaza, mezcla mostaza con un poco de yogur o líquido de cocción y ajusta con sal y pimienta. Así queda una salsa real.',
+    );
+  }
+  if (lower.contains('paradicsomszósz') ||
+      lower.contains('paradicsomszósszal')) {
+    return local(
+      'Ha alap paradicsomszószt használsz, főzd 5-8 percig sóval, borssal, fokhagymával és oregánóval vagy bazsalikommal, hogy ne nyers paradicsomízű legyen.',
+      'If using plain tomato sauce, simmer it 5-8 minutes with salt, pepper, garlic, and oregano or basil so it does not taste raw.',
+      'Wenn du einfache Tomatensauce nutzt, 5-8 Minuten mit Salz, Pfeffer, Knoblauch und Oregano oder Basilikum köcheln lassen.',
+      'Si usas salsa de tomate simple, cocínala 5-8 minutos con sal, pimienta, ajo y orégano o albahaca para quitar el sabor crudo.',
+    );
+  }
+  if (lower.contains('süsd') ||
+      lower.contains('pirítsd') ||
+      lower.contains('serpenyő')) {
+    return local(
+      'Közepes hőfokon dolgozz, így nem ég meg kívül, mielőtt belül elkészül.',
+      'Use medium heat so the outside does not burn before the inside is done.',
+      'Bei mittlerer Hitze arbeiten, damit außen nichts verbrennt.',
+      'Cocina a fuego medio para que no se queme por fuera antes de hacerse.',
+    );
+  }
+  if (lower.contains('főzd') || lower.contains('párold')) {
+    return local(
+      'A főzési idő alapanyagtól függhet, a kész állagot ellenőrizd.',
+      'Cooking time can vary, so check the final texture.',
+      'Die Garzeit kann variieren, daher die Konsistenz prüfen.',
+      'El tiempo puede variar; comprueba la textura final.',
+    );
+  }
+  if (lower.contains('keverd')) {
+    return local(
+      'Addig keverd, amíg egységes állagot kapsz, így pontosabban adagolható.',
+      'Mix until even in texture so it portions more accurately.',
+      'So lange rühren, bis die Masse gleichmäßig ist.',
+      'Mezcla hasta que quede uniforme para porcionar mejor.',
+    );
+  }
+  if (lower.contains('vágd') || lower.contains('szeleteld')) {
+    return local(
+      'Hasonló méretű darabokra vágd, így egyenletesebben készül el.',
+      'Cut into similar-sized pieces so it cooks more evenly.',
+      'In ähnlich große Stücke schneiden, damit alles gleichmäßig gart.',
+      'Corta en piezas parecidas para que se cocinen de forma uniforme.',
+    );
+  }
+  return null;
+}
+
 String _formatRecipeAmount(double value) {
   if (value == value.roundToDouble()) return value.round().toString();
+  return value.toStringAsFixed(1);
+}
+
+String _formatIngredientAmount(double value, String unit) {
+  if (unit == 'g' || unit == 'ml') return value.round().toString();
+  if ((value - value.round()).abs() < 0.05) return value.round().toString();
   return value.toStringAsFixed(1);
 }
 
@@ -3202,7 +4301,7 @@ List<ShoppingListItem> _recipeShoppingItems(Recipe recipe, int servings) {
       .map(
         (ingredient) => ShoppingListItem(
           name:
-              '${ingredient.name} - ${_formatRecipeAmount(ingredient.amount * scale)} ${ingredient.unit}',
+              '${ingredient.name} - ${_formatIngredientAmount(ingredient.amount * scale, ingredient.unit)} ${ingredient.unit}',
         ),
       )
       .toList();
