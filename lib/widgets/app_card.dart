@@ -25,7 +25,7 @@ class AppCard extends StatelessWidget {
       padding: padding,
       radius: 18,
       tint: color ?? p.card,
-      borderColor: p.border.withValues(alpha: state.isDark ? 0.56 : 0.36),
+      borderColor: p.border.withValues(alpha: state.isDark ? 0.62 : 0.32),
       child: child,
     );
   }
@@ -45,10 +45,12 @@ class SectionLabel extends StatelessWidget {
       child: Text(
         label.toUpperCase(),
         style: TextStyle(
-          color: state.isDark ? p.accent : p.accentDim,
+          color: state.isDark
+              ? Color.alphaBlend(p.accent.withValues(alpha: 0.68), p.muted)
+              : p.accentDim,
           fontSize: 12,
-          fontWeight: FontWeight.w700,
-          letterSpacing: 1.7,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 1.9,
         ),
       ),
     );

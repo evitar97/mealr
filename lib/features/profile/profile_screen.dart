@@ -8,7 +8,7 @@ import '../../app/app_strings.dart';
 import '../../models/theme_option.dart';
 import '../../models/weight_entry.dart';
 import '../../widgets/app_card.dart';
-import '../../widgets/glass_surface.dart';
+import '../../widgets/app_sheet.dart';
 import '../../widgets/mealweight_mark.dart';
 import '../../widgets/theme_picker_sheet.dart';
 
@@ -93,6 +93,7 @@ class ProfileScreen extends StatelessWidget {
   void _showSettingsSheet(BuildContext context) {
     showCupertinoModalPopup<void>(
       context: context,
+      barrierDismissible: true,
       barrierColor: const Color(0x99000000),
       builder: (context) => const _SettingsSheet(),
     );
@@ -591,7 +592,7 @@ class _RangeButton extends StatelessWidget {
     return Expanded(
       child: CupertinoButton(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        color: active ? p.accent : p.bg,
+        color: active ? state.primaryActionSurface : p.bg,
         borderRadius: BorderRadius.circular(12),
         onPressed: () => state.selectWeightChartRange(range),
         child: Row(
@@ -724,7 +725,7 @@ class _WeightInputRowState extends State<_WeightInputRow> {
         const SizedBox(width: 10),
         CupertinoButton(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-          color: p.accent,
+          color: AppScope.of(context).primaryActionSurface,
           borderRadius: BorderRadius.circular(16),
           onPressed: () {
             _commit();
@@ -823,6 +824,7 @@ class _WeightHistoryRow extends StatelessWidget {
               color: p.accent,
               onPressed: () => showCupertinoModalPopup<void>(
                 context: context,
+                barrierDismissible: true,
                 barrierColor: const Color(0x99000000),
                 builder: (_) => _EditWeightEntrySheet(entry: entry),
               ),
@@ -895,122 +897,103 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    return Container(
-      color: CupertinoColors.transparent,
-      child: SafeArea(
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: GlassSurface(
-            width: double.infinity,
-            margin: const EdgeInsets.all(12),
-            padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
-            radius: 26,
-            tint: p.card,
-            opacity: 1,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return AppSheetFrame(
+      scrollable: false,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _SheetHeader(
+            icon: CupertinoIcons.pencil,
+            title: tx(context, 'Súly szerkesztése'),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            decoration: BoxDecoration(
+              color: p.bg.withValues(alpha: 0.62),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: p.border),
+            ),
+            child: Row(
               children: [
-                _SheetHeader(
-                  icon: CupertinoIcons.pencil,
-                  title: tx(context, 'Súly szerkesztése'),
+                _WeightStepButton(
+                  icon: CupertinoIcons.minus,
+                  onPressed: () => _step(-0.1),
                 ),
-                const SizedBox(height: 16),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    color: p.bg.withValues(alpha: 0.62),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: p.border),
-                  ),
-                  child: Row(
-                    children: [
-                      _WeightStepButton(
-                        icon: CupertinoIcons.minus,
-                        onPressed: () => _step(-0.1),
-                      ),
-                      Expanded(
-                        child: CupertinoTextField(
-                          controller: controller,
-                          keyboardType: const TextInputType.numberWithOptions(
-                            decimal: true,
-                          ),
-                          textAlign: TextAlign.center,
-                          padding: EdgeInsets.zero,
-                          decoration: const BoxDecoration(),
-                          style: TextStyle(
-                            color: p.accent,
-                            fontSize: 23,
-                            height: 1,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        'kg',
-                        style: TextStyle(
-                          color: p.muted,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(width: 6),
-                      _WeightStepButton(
-                        icon: CupertinoIcons.plus,
-                        onPressed: () => _step(0.1),
-                      ),
-                    ],
+                Expanded(
+                  child: CupertinoTextField(
+                    controller: controller,
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
+                    textAlign: TextAlign.center,
+                    padding: EdgeInsets.zero,
+                    decoration: const BoxDecoration(),
+                    style: TextStyle(
+                      color: p.accent,
+                      fontSize: 23,
+                      height: 1,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Expanded(
-                      child: CupertinoButton(
-                        color: p.deleteBg,
-                        borderRadius: BorderRadius.circular(14),
-                        onPressed: () {
-                          state.deleteWeightEntry(widget.entry.id);
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          tx(context, 'Törlés'),
-                          style: const TextStyle(
-                            color: Color(0xFFC04040),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      flex: 2,
-                      child: CupertinoButton(
-                        color: p.accent,
-                        borderRadius: BorderRadius.circular(14),
-                        onPressed: () {
-                          final next = _currentValue();
-                          if (next == null) return;
-                          state.updateWeightEntry(widget.entry.id, next);
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          tx(context, 'Mentés'),
-                          style: TextStyle(
-                            color: p.buttonText,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                Text(
+                  'kg',
+                  style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(width: 6),
+                _WeightStepButton(
+                  icon: CupertinoIcons.plus,
+                  onPressed: () => _step(0.1),
                 ),
               ],
             ),
           ),
-        ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: CupertinoButton(
+                  color: p.deleteBg,
+                  borderRadius: BorderRadius.circular(14),
+                  onPressed: () {
+                    state.deleteWeightEntry(widget.entry.id);
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    tx(context, 'Törlés'),
+                    style: const TextStyle(
+                      color: Color(0xFFC04040),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                flex: 2,
+                child: CupertinoButton(
+                  color: p.accent,
+                  borderRadius: BorderRadius.circular(14),
+                  onPressed: () {
+                    final next = _currentValue();
+                    if (next == null) return;
+                    state.updateWeightEntry(widget.entry.id, next);
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    tx(context, 'Mentés'),
+                    style: TextStyle(
+                      color: p.buttonText,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -1214,8 +1197,10 @@ class _ProfileRow extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-            const SizedBox(width: 6),
-            Icon(CupertinoIcons.chevron_right, color: p.muted, size: 17),
+            if (onTap != null) ...[
+              const SizedBox(width: 6),
+              Icon(CupertinoIcons.chevron_right, color: p.muted, size: 17),
+            ],
           ],
         ),
       ),
@@ -1230,95 +1215,65 @@ class _LanguageSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    return Container(
-      color: CupertinoColors.transparent,
-      child: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Align(
-              alignment: Alignment.bottomCenter,
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(12),
-                child: GlassSurface(
-                  width: double.infinity,
-                  constraints: BoxConstraints(
-                    maxHeight: constraints.maxHeight - 24,
-                  ),
-                  padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
-                  radius: 26,
-                  tint: p.card,
-                  opacity: 1,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: 42,
-                            height: 42,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: p.resultBg,
-                              borderRadius: BorderRadius.circular(13),
-                              border: Border.all(color: p.resultBorder),
-                            ),
-                            child: Icon(CupertinoIcons.globe, color: p.accent),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  tx(context, 'Nyelv'),
-                                  style: TextStyle(
-                                    color: p.text,
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: -0.4,
-                                  ),
-                                ),
-                                Text(
-                                  tx(context, 'Alapértelmezett: English'),
-                                  style: TextStyle(
-                                    color: p.muted,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          CupertinoButton(
-                            minimumSize: const Size(34, 34),
-                            padding: EdgeInsets.zero,
-                            color: p.bg,
-                            borderRadius: BorderRadius.circular(18),
-                            onPressed: () => Navigator.pop(context),
-                            child: Icon(
-                              CupertinoIcons.xmark,
-                              color: p.muted,
-                              size: 17,
-                            ),
-                          ),
-                        ],
+    return AppSheetFrame(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: p.resultBg,
+                  borderRadius: BorderRadius.circular(13),
+                  border: Border.all(color: p.resultBorder),
+                ),
+                child: Icon(CupertinoIcons.globe, color: p.accent),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      tx(context, 'Nyelv'),
+                      style: TextStyle(
+                        color: p.text,
+                        fontSize: 19,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: -0.4,
                       ),
-                      const SizedBox(height: 18),
-                      for (final language in AppLanguage.values)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: _LanguageOption(
-                            language: language,
-                            active: state.language == language,
-                          ),
-                        ),
-                    ],
-                  ),
+                    ),
+                    Text(
+                      tx(context, 'Alapértelmezett: English'),
+                      style: TextStyle(color: p.muted, fontSize: 13),
+                    ),
+                  ],
                 ),
               ),
-            );
-          },
-        ),
+              CupertinoButton(
+                minimumSize: const Size(34, 34),
+                padding: EdgeInsets.zero,
+                color: p.bg,
+                borderRadius: BorderRadius.circular(18),
+                onPressed: () => Navigator.pop(context),
+                child: Icon(CupertinoIcons.xmark, color: p.muted, size: 17),
+              ),
+            ],
+          ),
+          const SizedBox(height: 18),
+          for (final language in AppLanguage.values)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: _LanguageOption(
+                language: language,
+                active: state.language == language,
+              ),
+            ),
+        ],
       ),
     );
   }
@@ -1373,70 +1328,51 @@ class _SettingsSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
-    final p = state.palette;
-    return Container(
-      color: CupertinoColors.transparent,
-      child: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Align(
-              alignment: Alignment.bottomCenter,
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(12),
-                child: GlassSurface(
-                  width: double.infinity,
-                  constraints: BoxConstraints(
-                    maxHeight: constraints.maxHeight - 24,
-                  ),
-                  padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
-                  radius: 26,
-                  tint: p.card,
-                  opacity: 1,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _SheetHeader(
-                        icon: CupertinoIcons.gear_alt_fill,
-                        title: tx(context, 'Beállítások'),
-                      ),
-                      const SizedBox(height: 16),
-                      AppCard(
-                        padding: EdgeInsets.zero,
-                        child: Column(
-                          children: [
-                            _ProfileRow(
-                              icon: CupertinoIcons.paintbrush,
-                              title: tx(context, 'Téma'),
-                              value: state.theme.name,
-                              onTap: () => showThemePickerSheet(context),
-                            ),
-                            _ProfileRow(
-                              icon: CupertinoIcons.globe,
-                              title: tx(context, 'Nyelv'),
-                              value: state.language.label,
-                              onTap: () => _showLanguageSheet(context),
-                            ),
-                            _ToggleRow(
-                              icon: CupertinoIcons.moon,
-                              title: tx(context, 'Sötét mód'),
-                              value: state.isDark,
-                              onChanged: (_) => state.toggleBrightness(),
-                            ),
-                            _ProfileRow(
-                              icon: CupertinoIcons.info,
-                              title: tx(context, 'Verzió 1.0.0'),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+    return AppSheetFrame(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _SheetHeader(
+            icon: CupertinoIcons.gear_alt_fill,
+            title: tx(context, 'Beállítások'),
+          ),
+          const SizedBox(height: 16),
+          SectionLabel(tx(context, 'Megjelenés')),
+          AppCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                _ProfileRow(
+                  icon: CupertinoIcons.paintbrush,
+                  title: tx(context, 'Téma'),
+                  value: state.theme.name,
+                  onTap: () => showThemePickerSheet(context),
                 ),
-              ),
-            );
-          },
-        ),
+                _ProfileRow(
+                  icon: CupertinoIcons.globe,
+                  title: tx(context, 'Nyelv'),
+                  value: state.language.label,
+                  onTap: () => _showLanguageSheet(context),
+                ),
+                _ToggleRow(
+                  icon: CupertinoIcons.moon,
+                  title: tx(context, 'Sötét mód'),
+                  value: state.isDark,
+                  onChanged: (_) => state.toggleBrightness(),
+                ),
+              ],
+            ),
+          ),
+          SectionLabel(tx(context, 'Névjegy')),
+          AppCard(
+            padding: EdgeInsets.zero,
+            child: _ProfileRow(
+              icon: CupertinoIcons.info,
+              title: tx(context, 'Verzió 1.0.0'),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -1444,6 +1380,7 @@ class _SettingsSheet extends StatelessWidget {
   void _showLanguageSheet(BuildContext context) {
     showCupertinoModalPopup<void>(
       context: context,
+      barrierDismissible: true,
       barrierColor: const Color(0x99000000),
       builder: (context) => const _LanguageSheet(),
     );

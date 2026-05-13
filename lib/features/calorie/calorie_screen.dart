@@ -207,7 +207,8 @@ class _HowToCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return _CaloriePanel(
       padding: EdgeInsets.zero,
       child: Column(
@@ -300,7 +301,8 @@ class _Metric extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return Expanded(
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -378,7 +380,8 @@ class _SliderCardState extends State<_SliderCard> {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return _CaloriePanel(
       padding: const EdgeInsets.fromLTRB(20, 18, 16, 18),
       child: Row(
@@ -567,7 +570,8 @@ class _SaveStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return _CaloriePanel(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
       child: Row(
@@ -589,7 +593,7 @@ class _SaveStrip extends StatelessWidget {
           SpringPressable(
             child: CupertinoButton(
               padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-              color: saved ? p.noteColor : p.accent,
+              color: saved ? p.noteColor : state.primaryActionSurface,
               borderRadius: BorderRadius.circular(14),
               onPressed: onSave,
               child: Text(
@@ -623,11 +627,12 @@ class _Choice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final child = SpringPressable(
       pressedScale: 0.96,
       child: CupertinoButton(
-        color: active ? p.accent : p.resultBg,
+        color: active ? state.primaryActionSurface : p.resultBg,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
         borderRadius: BorderRadius.circular(9),
         onPressed: onTap,

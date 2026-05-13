@@ -85,15 +85,15 @@ class MealWeightShell extends StatelessWidget {
                     stops: const [0, 0.34, 0.72, 1],
                     colors: [
                       Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.05 : 0.03),
+                        p.accent.withValues(alpha: state.isDark ? 0.025 : 0.02),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.06 : 0.12),
+                        p.card.withValues(alpha: state.isDark ? 0.025 : 0.08),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.03 : 0.06),
+                        p.card.withValues(alpha: state.isDark ? 0.015 : 0.04),
                         p.bg,
                       ),
                       p.bg,
@@ -178,28 +178,24 @@ class _BottomTabs extends StatelessWidget {
                         tab: AppTab.foods,
                         icon: CupertinoIcons.square_grid_2x2,
                         label: 'Meals',
-                        color: const Color(0xFF6FA77B),
                       ),
                       _TabItem(
                         state: state,
                         tab: AppTab.calories,
                         icon: CupertinoIcons.flame,
                         label: tx(context, 'Kalória'),
-                        color: const Color(0xFFB98758),
                       ),
                       _TabItem(
                         state: state,
                         tab: AppTab.bmi,
                         icon: CupertinoIcons.chart_bar_square,
                         label: 'BMI',
-                        color: const Color(0xFFA8955C),
                       ),
                       _TabItem(
                         state: state,
                         tab: AppTab.profile,
                         icon: CupertinoIcons.person,
                         label: tx(context, 'Profil'),
-                        color: const Color(0xFF6F9CA5),
                       ),
                       _ProTabItem(state: state),
                     ],
@@ -220,22 +216,21 @@ class _TabItem extends StatelessWidget {
     required this.tab,
     required this.icon,
     required this.label,
-    required this.color,
   });
 
   final AppState state;
   final AppTab tab;
   final IconData icon;
   final String label;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
     final p = state.palette;
     final active = state.tab == tab;
-    final tabColor = active
-        ? color
-        : Color.alphaBlend(color.withValues(alpha: 0.42), p.muted);
+    final inactiveColor = state.isDark
+        ? const Color(0xFFA5AAA6)
+        : const Color(0xFF757A76);
+    final tabColor = active ? p.accent : inactiveColor;
     return Expanded(
       child: SpringPressable(
         pressedScale: 0.92,
@@ -299,10 +294,10 @@ class _ProTabItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = state.palette;
-    final labelColor = Color.alphaBlend(
-      p.accent.withValues(alpha: state.isDark ? 0.46 : 0.52),
-      p.muted,
-    );
+    final labelColor = state.isDark
+        ? const Color(0xFFA5AAA6)
+        : const Color(0xFF757A76);
+    final proColor = state.isPro ? p.accent : labelColor;
     return Expanded(
       child: SpringPressable(
         pressedScale: 0.92,
@@ -323,7 +318,36 @@ class _ProTabItem extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const MealWeightMark(size: 27, radius: 9),
+                      Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          const MealWeightMark(size: 27, radius: 9),
+                          Positioned(
+                            right: -4,
+                            top: -4,
+                            child: Container(
+                              width: 12,
+                              height: 12,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: state.chromeSurface,
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: proColor.withValues(alpha: 0.72),
+                                  width: 1,
+                                ),
+                              ),
+                              child: Icon(
+                                state.isPro
+                                    ? CupertinoIcons.check_mark
+                                    : CupertinoIcons.lock_fill,
+                                size: 7,
+                                color: proColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       const SizedBox(height: 3),
                       FittedBox(
                         fit: BoxFit.scaleDown,
@@ -331,7 +355,7 @@ class _ProTabItem extends StatelessWidget {
                           'Pro',
                           maxLines: 1,
                           style: TextStyle(
-                            color: labelColor,
+                            color: proColor,
                             fontSize: 11.5,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0,

@@ -11,6 +11,7 @@ import '../../models/shopping_list.dart';
 import '../../services/share_service.dart';
 import '../../utils/calculators.dart';
 import '../../widgets/app_card.dart';
+import '../../widgets/app_sheet.dart';
 import '../../widgets/glass_surface.dart';
 import '../../widgets/mealweight_mark.dart';
 import '../../widgets/spring_pressable.dart';
@@ -20,6 +21,15 @@ final _greetingMottoSeed = DateTime.now().microsecondsSinceEpoch;
 
 const _homeStripItemWidth = 86.0;
 const _homeStripItemGap = 10.0;
+
+void _showAddFoodSheet(BuildContext context, FoodCategory category) {
+  showCupertinoModalPopup<void>(
+    context: context,
+    barrierDismissible: true,
+    barrierColor: const Color(0x99000000),
+    builder: (_) => AddFoodSheet(initialCategory: category),
+  );
+}
 
 class FoodListScreen extends StatelessWidget {
   const FoodListScreen({super.key});
@@ -54,11 +64,19 @@ class FoodListScreen extends StatelessWidget {
         ],
         SectionLabel(tx(context, 'Főételek')),
         if (mainFoods.isEmpty)
-          _EmptyFoodMessage(tx(context, 'Még nincs főétel hozzáadva.')),
+          _EmptyFoodMessage(
+            tx(context, 'Még nincs főétel hozzáadva.'),
+            actionLabel: tx(context, 'Új étel'),
+            onAction: () => _showAddFoodSheet(context, FoodCategory.main),
+          ),
         for (final food in mainFoods) FoodTile(food: food),
         SectionLabel(tx(context, 'Köretek')),
         if (sideFoods.isEmpty)
-          _EmptyFoodMessage(tx(context, 'Még nincs köret hozzáadva.')),
+          _EmptyFoodMessage(
+            tx(context, 'Még nincs köret hozzáadva.'),
+            actionLabel: tx(context, 'Új étel'),
+            onAction: () => _showAddFoodSheet(context, FoodCategory.side),
+          ),
         for (final food in sideFoods) FoodTile(food: food),
         const SizedBox(height: 8),
         Row(
@@ -68,11 +86,7 @@ class FoodListScreen extends StatelessWidget {
                 icon: CupertinoIcons.plus,
                 label: tx(context, 'Új étel'),
                 enabled: canAddFood,
-                onPressed: () => showCupertinoModalPopup<void>(
-                  context: context,
-                  barrierColor: const Color(0x99000000),
-                  builder: (_) => const AddFoodSheet(),
-                ),
+                onPressed: () => _showAddFoodSheet(context, FoodCategory.main),
               ),
             ),
             const SizedBox(width: 10),
@@ -216,7 +230,9 @@ class _RecipeCategoryPill extends StatelessWidget {
           decoration: BoxDecoration(
             color: p.card,
             borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: p.border.withValues(alpha: 0.82)),
+            border: Border.all(
+              color: p.border.withValues(alpha: state.isDark ? 0.58 : 0.30),
+            ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -535,9 +551,10 @@ class _DietPlanPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final enabled = option.active && option.onPressed != null;
-    final locked = enabled && !AppScope.of(context).isPro;
+    final locked = enabled && !state.isPro;
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: enabled ? option.onPressed : null,
@@ -547,10 +564,12 @@ class _DietPlanPill extends StatelessWidget {
           width: _homeStripItemWidth,
           padding: const EdgeInsets.fromLTRB(10, 12, 10, 12),
           decoration: BoxDecoration(
-            color: enabled ? p.resultBg : p.card,
+            color: p.card,
             borderRadius: BorderRadius.circular(18),
             border: Border.all(
-              color: enabled ? p.resultBorder : p.border.withValues(alpha: 0.8),
+              color: enabled
+                  ? p.border.withValues(alpha: state.isDark ? 0.64 : 0.34)
+                  : p.border.withValues(alpha: state.isDark ? 0.50 : 0.28),
             ),
           ),
           child: Column(
@@ -596,25 +615,60 @@ class _DietPlanPill extends StatelessWidget {
 }
 
 class _EmptyFoodMessage extends StatelessWidget {
-  const _EmptyFoodMessage(this.message);
+  const _EmptyFoodMessage(
+    this.message, {
+    this.icon = CupertinoIcons.tray,
+    this.actionLabel,
+    this.onAction,
+  });
 
   final String message;
+  final IconData icon;
+  final String? actionLabel;
+  final VoidCallback? onAction;
 
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
+    final emptyColor = p.muted.withValues(alpha: state.isDark ? 0.82 : 0.76);
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(4, 4, 4, 20),
-      child: Text(
-        message,
-        style: TextStyle(
-          color: p.muted.withValues(alpha: state.isDark ? 0.86 : 0.78),
-          fontSize: 14,
-          height: 1.25,
-          fontWeight: FontWeight.w600,
-        ),
+      padding: const EdgeInsets.fromLTRB(2, 4, 4, 20),
+      child: Row(
+        children: [
+          Icon(icon, color: emptyColor, size: 15),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              message,
+              style: TextStyle(
+                color: emptyColor,
+                fontSize: 13.5,
+                height: 1.25,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          if (actionLabel != null && onAction != null) ...[
+            const SizedBox(width: 8),
+            CupertinoButton(
+              minimumSize: const Size(0, 30),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              color: p.card,
+              borderRadius: BorderRadius.circular(999),
+              onPressed: onAction,
+              child: Text(
+                actionLabel!,
+                style: TextStyle(
+                  color: p.accent,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }
@@ -629,15 +683,15 @@ class _MealGreeting extends StatelessWidget {
     final p = state.palette;
     final greeting = _timeGreeting(DateTime.now());
     return Padding(
-      padding: const EdgeInsets.fromLTRB(2, 10, 2, 0),
+      padding: const EdgeInsets.fromLTRB(2, 4, 2, 0),
       child: Row(
         children: [
           SizedBox(
-            width: 48,
-            height: 48,
-            child: Icon(greeting.icon, color: greeting.color, size: 36),
+            width: 42,
+            height: 42,
+            child: Icon(greeting.icon, color: greeting.color, size: 32),
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -646,7 +700,7 @@ class _MealGreeting extends StatelessWidget {
                   tx(context, greeting.title),
                   style: TextStyle(
                     color: p.text,
-                    fontSize: 24,
+                    fontSize: 22,
                     height: 1.05,
                     fontWeight: FontWeight.w700,
                     letterSpacing: -0.5,
@@ -657,8 +711,8 @@ class _MealGreeting extends StatelessWidget {
                   tx(context, greeting.subtitle),
                   style: TextStyle(
                     color: p.muted,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w600,
                     letterSpacing: 0.2,
                   ),
                 ),
@@ -1876,7 +1930,8 @@ class _DietTypeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: () => Navigator.of(context).push(
@@ -2034,7 +2089,8 @@ class _DietDayPlanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final totalCalories = _dietPlanTotalCalories(plan);
     final macroTotals = _macroTotalsForPlan(plan, macros);
     return CupertinoButton(
@@ -2220,7 +2276,8 @@ class _MacroLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -2301,6 +2358,7 @@ class DietPlanDetailScreen extends StatelessWidget {
                       onPressed: AppScope.of(context).isPro
                           ? () => showCupertinoModalPopup<void>(
                               context: context,
+                              barrierDismissible: true,
                               barrierColor: const Color(0x99000000),
                               builder: (_) =>
                                   DietPlanShoppingListSheet(plan: plan),
@@ -2334,7 +2392,8 @@ class _DietPlanMealCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final recipe = _recipeForMeal(meal);
     return CupertinoButton(
       padding: EdgeInsets.zero,
@@ -2449,127 +2508,112 @@ class _DietPlanShoppingListSheetState extends State<DietPlanShoppingListSheet> {
     final state = AppScope.of(context);
     final p = state.palette;
     final items = _dietPlanShoppingItems(widget.plan);
-    return GlassSurface(
-      margin: const EdgeInsets.all(10),
+    return AppSheetFrame(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
-      radius: 26,
-      tint: p.card,
-      opacity: 1,
-      child: SafeArea(
-        top: false,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      tx(context, 'Bevásárlólista mentése'),
-                      style: TextStyle(
-                        color: p.text,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  CupertinoButton(
-                    minimumSize: const Size(34, 34),
-                    padding: EdgeInsets.zero,
-                    color: p.bg,
-                    borderRadius: BorderRadius.circular(18),
-                    onPressed: () => Navigator.pop(context),
-                    child: Icon(CupertinoIcons.xmark, color: p.muted, size: 17),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              Text(
-                tx(context, 'Új lista neve'),
-                style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(height: 8),
-              CupertinoTextField(
-                controller: nameController,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 12,
-                ),
-                style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
-                decoration: BoxDecoration(
-                  color: p.bg,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: p.border),
-                ),
-              ),
-              const SizedBox(height: 12),
-              SizedBox(
-                width: double.infinity,
-                child: CupertinoButton(
-                  color: p.accent,
-                  borderRadius: BorderRadius.circular(14),
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  onPressed: items.isEmpty
-                      ? null
-                      : () {
-                          state.addShoppingList(
-                            name: nameController.text,
-                            items: items,
-                          );
-                          Navigator.pop(context);
-                        },
-                  child: Text(
-                    tx(context, 'Mentés új listaként'),
-                    style: TextStyle(
-                      color: p.buttonText,
-                      fontWeight: FontWeight.w600,
-                    ),
+              Expanded(
+                child: Text(
+                  tx(context, 'Bevásárlólista mentése'),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
-              if (state.shoppingLists.isNotEmpty) ...[
-                const SizedBox(height: 16),
-                SectionLabel(tx(context, 'Meglévő listához adás')),
-                for (final list in state.shoppingLists)
-                  _RecipeShoppingTargetRow(
-                    list: list,
-                    onPressed: items.isEmpty
-                        ? () {}
-                        : () {
-                            state.addItemsToShoppingList(
-                              listId: list.id,
-                              items: items,
-                            );
-                            Navigator.pop(context);
-                          },
-                  ),
-              ],
-              const SizedBox(height: 12),
-              Text(
-                tx(context, 'Hozzávalók'),
-                style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+              CupertinoButton(
+                minimumSize: const Size(34, 34),
+                padding: EdgeInsets.zero,
+                color: p.bg,
+                borderRadius: BorderRadius.circular(18),
+                onPressed: () => Navigator.pop(context),
+                child: Icon(CupertinoIcons.xmark, color: p.muted, size: 17),
               ),
-              const SizedBox(height: 8),
-              for (final item in items.take(10))
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 6),
-                  child: Text(
-                    item.name,
-                    style: TextStyle(
-                      color: p.text,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              if (items.length > 10)
-                Text(
-                  '+${items.length - 10} ${tx(context, 'tétel')}',
-                  style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
-                ),
             ],
           ),
-        ),
+          const SizedBox(height: 14),
+          Text(
+            tx(context, 'Új lista neve'),
+            style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 8),
+          CupertinoTextField(
+            controller: nameController,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
+            decoration: BoxDecoration(
+              color: p.bg,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: p.border),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: CupertinoButton(
+              color: state.primaryActionSurface,
+              borderRadius: BorderRadius.circular(14),
+              padding: const EdgeInsets.symmetric(vertical: 13),
+              onPressed: items.isEmpty
+                  ? null
+                  : () {
+                      state.addShoppingList(
+                        name: nameController.text,
+                        items: items,
+                      );
+                      Navigator.pop(context);
+                    },
+              child: Text(
+                tx(context, 'Mentés új listaként'),
+                style: TextStyle(
+                  color: p.buttonText,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+          if (state.shoppingLists.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            SectionLabel(tx(context, 'Meglévő listához adás')),
+            for (final list in state.shoppingLists)
+              _RecipeShoppingTargetRow(
+                list: list,
+                onPressed: items.isEmpty
+                    ? () {}
+                    : () {
+                        state.addItemsToShoppingList(
+                          listId: list.id,
+                          items: items,
+                        );
+                        Navigator.pop(context);
+                      },
+              ),
+          ],
+          const SizedBox(height: 12),
+          Text(
+            tx(context, 'Hozzávalók'),
+            style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 8),
+          for (final item in items.take(10))
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Text(
+                item.name,
+                style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
+              ),
+            ),
+          if (items.length > 10)
+            Text(
+              '+${items.length - 10} ${tx(context, 'tétel')}',
+              style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+            ),
+        ],
       ),
     );
   }
@@ -2656,15 +2700,15 @@ class _FoodSubpageScaffold extends StatelessWidget {
                     stops: const [0, 0.34, 0.72, 1],
                     colors: [
                       Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.05 : 0.03),
+                        p.accent.withValues(alpha: state.isDark ? 0.025 : 0.02),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.06 : 0.12),
+                        p.card.withValues(alpha: state.isDark ? 0.025 : 0.08),
                         p.bg,
                       ),
                       Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.03 : 0.06),
+                        p.card.withValues(alpha: state.isDark ? 0.015 : 0.04),
                         p.bg,
                       ),
                       p.bg,
@@ -2756,7 +2800,10 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
         ],
         SectionLabel(tx(context, 'Receptek')),
         if (regularRecipes.isEmpty && favorites.isEmpty)
-          _EmptyFoodMessage(tx(context, 'Nincs találat.')),
+          _EmptyFoodMessage(
+            tx(context, 'Nincs találat.'),
+            icon: CupertinoIcons.search,
+          ),
         for (final recipe in regularRecipes) _RecipeTile(recipe: recipe),
       ],
     );
@@ -2782,7 +2829,8 @@ class _RecipeGuidanceNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return Container(
       padding: const EdgeInsets.fromLTRB(12, 11, 12, 11),
       decoration: BoxDecoration(
@@ -2835,7 +2883,7 @@ class _RecipeSearchAndFilter extends StatelessWidget {
       children: [
         Row(
           children: [
-            const _WarmBackButton(size: 48, radius: 16, iconSize: 25),
+            const _WarmBackButton(),
             const SizedBox(width: 10),
             Expanded(
               child: CupertinoTextField(
@@ -3062,7 +3110,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
     return _FoodSubpageScaffold(
       children: [
         AppCard(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -3070,20 +3118,20 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 46,
-                    height: 46,
+                    width: 44,
+                    height: 44,
                     child: SpringPressable(
                       pressedScale: 0.9,
                       child: CupertinoButton(
-                        minimumSize: const Size(46, 46),
+                        minimumSize: const Size(44, 44),
                         padding: EdgeInsets.zero,
                         color: p.bg.withValues(alpha: 0.72),
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(15),
                         onPressed: () => Navigator.maybePop(context),
                         child: Icon(
                           CupertinoIcons.chevron_left,
                           color: p.accent,
-                          size: 24,
+                          size: 22,
                         ),
                       ),
                     ),
@@ -3097,7 +3145,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                           tx(context, recipe.name),
                           style: TextStyle(
                             color: p.text,
-                            fontSize: 22,
+                            fontSize: 21,
                             height: 1.12,
                             fontWeight: FontWeight.w600,
                             letterSpacing: -0.4,
@@ -3118,8 +3166,8 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                   Column(
                     children: [
                       Container(
-                        width: 46,
-                        height: 46,
+                        width: 44,
+                        height: 44,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: p.bg.withValues(alpha: 0.72),
@@ -3128,12 +3176,12 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                         ),
                         child: Text(
                           recipe.emoji,
-                          style: const TextStyle(fontSize: 25),
+                          style: const TextStyle(fontSize: 24),
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 6),
                       CupertinoButton(
-                        minimumSize: const Size(38, 38),
+                        minimumSize: const Size(36, 36),
                         padding: EdgeInsets.zero,
                         color: p.bg.withValues(alpha: 0.68),
                         borderRadius: BorderRadius.circular(13),
@@ -3143,34 +3191,35 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                               ? CupertinoIcons.star_fill
                               : CupertinoIcons.star,
                           color: isFavorite ? p.accent : p.muted,
-                          size: 21,
+                          size: 20,
                         ),
                       ),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
               _RecipeServingsStepper(
                 value: servings,
                 controller: servingsController,
                 onChanged: _setServings,
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: 10),
               _RecipeSummaryRow(
                 label: tx(context, 'Összes kalória'),
                 value: '$totalCalories kcal',
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
               SizedBox(
                 width: double.infinity,
                 child: CupertinoButton(
-                  padding: const EdgeInsets.symmetric(vertical: 13),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
                   color: p.accent,
                   borderRadius: BorderRadius.circular(14),
                   onPressed: state.isPro
                       ? () => showCupertinoModalPopup<void>(
                           context: context,
+                          barrierDismissible: true,
                           barrierColor: const Color(0x99000000),
                           builder: (_) => RecipeShoppingListSheet(
                             recipe: recipe,
@@ -3414,118 +3463,97 @@ class _RecipeShoppingListSheetState extends State<RecipeShoppingListSheet> {
     final state = AppScope.of(context);
     final p = state.palette;
     final items = _recipeShoppingItems(widget.recipe, widget.servings);
-    return GlassSurface(
-      margin: const EdgeInsets.all(10),
+    return AppSheetFrame(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
-      radius: 26,
-      tint: p.card,
-      opacity: 1,
-      child: SafeArea(
-        top: false,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      tx(context, 'Bevásárlólista mentése'),
-                      style: TextStyle(
-                        color: p.text,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  CupertinoButton(
-                    minimumSize: const Size(34, 34),
-                    padding: EdgeInsets.zero,
-                    color: p.bg,
-                    borderRadius: BorderRadius.circular(18),
-                    onPressed: () => Navigator.pop(context),
-                    child: Icon(CupertinoIcons.xmark, color: p.muted, size: 17),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              Text(
-                tx(context, 'Új lista neve'),
-                style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(height: 8),
-              CupertinoTextField(
-                controller: nameController,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 12,
-                ),
-                style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
-                decoration: BoxDecoration(
-                  color: p.bg,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: p.border),
-                ),
-              ),
-              const SizedBox(height: 12),
-              SizedBox(
-                width: double.infinity,
-                child: CupertinoButton(
-                  color: p.accent,
-                  borderRadius: BorderRadius.circular(14),
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  onPressed: () {
-                    state.addShoppingList(
-                      name: nameController.text,
-                      items: items,
-                    );
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    tx(context, 'Mentés új listaként'),
-                    style: TextStyle(
-                      color: p.buttonText,
-                      fontWeight: FontWeight.w600,
-                    ),
+              Expanded(
+                child: Text(
+                  tx(context, 'Bevásárlólista mentése'),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
-              if (state.shoppingLists.isNotEmpty) ...[
-                const SizedBox(height: 16),
-                SectionLabel(tx(context, 'Meglévő listához adás')),
-                for (final list in state.shoppingLists)
-                  _RecipeShoppingTargetRow(
-                    list: list,
-                    onPressed: () {
-                      state.addItemsToShoppingList(
-                        listId: list.id,
-                        items: items,
-                      );
-                      Navigator.pop(context);
-                    },
-                  ),
-              ],
-              const SizedBox(height: 12),
-              Text(
-                tx(context, 'Hozzávalók'),
-                style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+              CupertinoButton(
+                minimumSize: const Size(34, 34),
+                padding: EdgeInsets.zero,
+                color: p.bg,
+                borderRadius: BorderRadius.circular(18),
+                onPressed: () => Navigator.pop(context),
+                child: Icon(CupertinoIcons.xmark, color: p.muted, size: 17),
               ),
-              const SizedBox(height: 8),
-              for (final item in items)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 6),
-                  child: Text(
-                    item.name,
-                    style: TextStyle(
-                      color: p.text,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
             ],
           ),
-        ),
+          const SizedBox(height: 14),
+          Text(
+            tx(context, 'Új lista neve'),
+            style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 8),
+          CupertinoTextField(
+            controller: nameController,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
+            decoration: BoxDecoration(
+              color: p.bg,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: p.border),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: CupertinoButton(
+              color: p.accent,
+              borderRadius: BorderRadius.circular(14),
+              padding: const EdgeInsets.symmetric(vertical: 13),
+              onPressed: () {
+                state.addShoppingList(name: nameController.text, items: items);
+                Navigator.pop(context);
+              },
+              child: Text(
+                tx(context, 'Mentés új listaként'),
+                style: TextStyle(
+                  color: p.buttonText,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+          if (state.shoppingLists.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            SectionLabel(tx(context, 'Meglévő listához adás')),
+            for (final list in state.shoppingLists)
+              _RecipeShoppingTargetRow(
+                list: list,
+                onPressed: () {
+                  state.addItemsToShoppingList(listId: list.id, items: items);
+                  Navigator.pop(context);
+                },
+              ),
+          ],
+          const SizedBox(height: 12),
+          Text(
+            tx(context, 'Hozzávalók'),
+            style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 8),
+          for (final item in items)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Text(
+                item.name,
+                style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
+              ),
+            ),
+        ],
       ),
     );
   }
@@ -3588,7 +3616,7 @@ class _RecipeServingsStepper extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return Container(
-      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+      padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
       decoration: BoxDecoration(
         color: p.bg.withValues(alpha: 0.68),
         borderRadius: BorderRadius.circular(16),
@@ -3601,7 +3629,7 @@ class _RecipeServingsStepper extends StatelessWidget {
               tx(context, 'Adagok száma'),
               style: TextStyle(
                 color: p.text,
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -3612,12 +3640,12 @@ class _RecipeServingsStepper extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           SizedBox(
-            width: 54,
+            width: 50,
             child: CupertinoTextField(
               controller: controller,
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
-              padding: const EdgeInsets.symmetric(vertical: 9),
+              padding: const EdgeInsets.symmetric(vertical: 8),
               style: TextStyle(
                 color: p.text,
                 fontSize: 16,
@@ -3655,12 +3683,12 @@ class _RecipeStepButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return CupertinoButton(
-      minimumSize: const Size(34, 34),
+      minimumSize: const Size(32, 32),
       padding: EdgeInsets.zero,
       color: p.card,
       borderRadius: BorderRadius.circular(12),
       onPressed: onPressed,
-      child: Icon(icon, color: p.accent, size: 17),
+      child: Icon(icon, color: p.accent, size: 16),
     );
   }
 }
@@ -3675,7 +3703,7 @@ class _RecipeSummaryRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
       decoration: BoxDecoration(
         color: p.resultBg,
         borderRadius: BorderRadius.circular(14),
@@ -3693,7 +3721,7 @@ class _RecipeSummaryRow extends StatelessWidget {
             value,
             style: TextStyle(
               color: p.accent,
-              fontSize: 17,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -4310,22 +4338,28 @@ List<ShoppingListItem> _recipeShoppingItems(Recipe recipe, int servings) {
 void showProPaywallSheet(BuildContext context) {
   showCupertinoModalPopup<void>(
     context: context,
+    barrierDismissible: true,
     barrierColor: const Color(0xCC000000),
     builder: (context) {
-      return Container(
-        color: CupertinoColors.transparent,
+      return GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.maybePop(context),
         child: SafeArea(
           top: false,
           bottom: false,
           child: Align(
             alignment: Alignment.bottomCenter,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.sizeOf(context).height * 0.82,
-              ),
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
-                child: const ProUpsellCard(),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {},
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.82,
+                ),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
+                  child: const ProUpsellCard(),
+                ),
               ),
             ),
           ),
@@ -4337,15 +4371,21 @@ void showProPaywallSheet(BuildContext context) {
 
 Color _disabledActionFill(AppState state) {
   final p = state.palette;
-  if (state.isDark) return p.resultBg;
-  return Color.alphaBlend(p.accent.withValues(alpha: 0.12), p.card);
+  if (state.isDark) {
+    return Color.alphaBlend(p.accent.withValues(alpha: 0.025), p.card);
+  }
+  return Color.alphaBlend(p.accent.withValues(alpha: 0.025), p.card);
 }
 
 Color _disabledActionText(AppState state) {
   final p = state.palette;
   return state.isDark
-      ? p.muted.withValues(alpha: 0.86)
-      : p.accentDim.withValues(alpha: 0.94);
+      ? p.muted.withValues(alpha: 0.78)
+      : p.muted.withValues(alpha: 0.90);
+}
+
+Color _primaryActionFill(AppState state) {
+  return state.primaryActionSurface;
 }
 
 class _ActionPillButton extends StatelessWidget {
@@ -4367,52 +4407,62 @@ class _ActionPillButton extends StatelessWidget {
     final p = state.palette;
     final disabledFill = _disabledActionFill(state);
     final disabledContent = _disabledActionText(state);
+    final borderColor = enabled
+        ? CupertinoColors.transparent
+        : p.border.withValues(alpha: state.isDark ? 0.58 : 0.34);
     return SpringPressable(
       enabled: enabled,
-      child: CupertinoButton(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        borderRadius: BorderRadius.circular(999),
-        color: enabled ? p.accent : disabledFill,
-        onPressed: enabled ? onPressed : null,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 24,
-              height: 24,
-              decoration: BoxDecoration(
-                color: enabled
-                    ? p.buttonText.withValues(alpha: 0.18)
-                    : disabledContent.withValues(alpha: 0.12),
-                shape: BoxShape.circle,
-                border: enabled
-                    ? null
-                    : Border.all(
-                        color: disabledContent.withValues(alpha: 0.42),
-                      ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: enabled ? _primaryActionFill(state) : disabledFill,
+          borderRadius: BorderRadius.circular(999),
+          border: Border.all(color: borderColor, width: 1.1),
+        ),
+        child: CupertinoButton(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          borderRadius: BorderRadius.circular(999),
+          color: CupertinoColors.transparent,
+          onPressed: enabled ? onPressed : null,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 23,
+                height: 23,
+                decoration: BoxDecoration(
+                  color: enabled
+                      ? p.buttonText.withValues(alpha: 0.16)
+                      : disabledContent.withValues(alpha: 0.08),
+                  shape: BoxShape.circle,
+                  border: enabled
+                      ? null
+                      : Border.all(
+                          color: disabledContent.withValues(alpha: 0.26),
+                        ),
+                ),
+                child: Icon(
+                  icon,
+                  color: enabled ? p.buttonText : disabledContent,
+                  size: 16,
+                ),
               ),
-              child: Icon(
-                icon,
-                color: enabled ? p.buttonText : disabledContent,
-                size: 17,
-              ),
-            ),
-            const SizedBox(width: 8),
-            Flexible(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  label,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: enabled ? p.buttonText : disabledContent,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
+              const SizedBox(width: 8),
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: enabled ? p.buttonText : disabledContent,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -4455,7 +4505,8 @@ class _LimitMeter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final filled = value >= 1;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
@@ -4517,7 +4568,8 @@ class _SwipeActionBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     final isStart = alignment == Alignment.centerLeft;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
@@ -4877,6 +4929,7 @@ class _FoodTileState extends State<FoodTile> {
     }
     showCupertinoModalPopup<void>(
       context: context,
+      barrierDismissible: true,
       barrierColor: const Color(0x99000000),
       builder: (_) => AddMealPrepSheet(initialFood: widget.food),
     );
@@ -5039,6 +5092,7 @@ class ShoppingListScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 onPressed: () => showCupertinoModalPopup<void>(
                   context: context,
+                  barrierDismissible: true,
                   barrierColor: const Color(0x99000000),
                   builder: (_) => const AddShoppingListSheet(),
                 ),
@@ -5088,6 +5142,7 @@ class _ShoppingListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         onPressed: () => showCupertinoModalPopup<void>(
           context: context,
+          barrierDismissible: true,
           barrierColor: const Color(0x99000000),
           builder: (_) => ShoppingListDetailSheet(listId: list.id),
         ),
@@ -5139,6 +5194,7 @@ class _ShoppingListTile extends StatelessWidget {
               color: p.accent,
               onPressed: () => showCupertinoModalPopup<void>(
                 context: context,
+                barrierDismissible: true,
                 barrierColor: const Color(0x99000000),
                 builder: (_) => AddShoppingListSheet(list: list),
               ),
@@ -5687,11 +5743,11 @@ String _shoppingDate(DateTime date) {
 }
 
 class _WarmBackButton extends StatelessWidget {
-  const _WarmBackButton({this.size = 46, this.radius = 16, this.iconSize = 24});
+  const _WarmBackButton();
 
-  final double size;
-  final double radius;
-  final double iconSize;
+  static const double _size = 44;
+  static const double _radius = 15;
+  static const double _iconSize = 22;
 
   @override
   Widget build(BuildContext context) {
@@ -5701,15 +5757,15 @@ class _WarmBackButton extends StatelessWidget {
       child: SpringPressable(
         pressedScale: 0.9,
         child: CupertinoButton(
-          minimumSize: Size(size, size),
+          minimumSize: const Size(_size, _size),
           padding: EdgeInsets.zero,
           color: p.card,
-          borderRadius: BorderRadius.circular(radius),
+          borderRadius: BorderRadius.circular(_radius),
           onPressed: () => Navigator.maybePop(context),
           child: Icon(
             CupertinoIcons.chevron_left,
             color: p.accent,
-            size: iconSize,
+            size: _iconSize,
           ),
         ),
       ),
@@ -5772,6 +5828,7 @@ class MealPrepScreen extends StatelessWidget {
                     : state.canAddMealPrepPlan
                     ? () => showCupertinoModalPopup<void>(
                         context: context,
+                        barrierDismissible: true,
                         barrierColor: const Color(0x99000000),
                         builder: (_) => const AddMealPrepSheet(),
                       )
@@ -5837,6 +5894,7 @@ class _MealPrepPlanTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         onPressed: () => showCupertinoModalPopup<void>(
           context: context,
+          barrierDismissible: true,
           barrierColor: const Color(0x99000000),
           builder: (_) => MealPrepDetailSheet(planId: plan.id),
         ),
@@ -6368,11 +6426,12 @@ class _MealPrepModeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return Expanded(
       child: CupertinoButton(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
-        color: active ? p.accent : p.bg,
+        color: active ? state.primaryActionSurface : p.bg,
         borderRadius: BorderRadius.circular(12),
         onPressed: onTap,
         child: FittedBox(
@@ -6405,7 +6464,8 @@ class _MealPrepFoodOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: onPressed,
@@ -6514,6 +6574,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                             borderRadius: BorderRadius.circular(14),
                             onPressed: () => showCupertinoModalPopup<void>(
                               context: context,
+                              barrierDismissible: true,
                               barrierColor: const Color(0x99000000),
                               builder: (_) => AddMealPrepSheet(plan: plan),
                             ),
@@ -6699,14 +6760,16 @@ class _MealPrepBoxRow extends StatelessWidget {
 }
 
 class AddFoodSheet extends StatefulWidget {
-  const AddFoodSheet({super.key});
+  const AddFoodSheet({this.initialCategory = FoodCategory.main, super.key});
+
+  final FoodCategory initialCategory;
 
   @override
   State<AddFoodSheet> createState() => _AddFoodSheetState();
 }
 
 class _AddFoodSheetState extends State<AddFoodSheet> {
-  FoodCategory category = FoodCategory.main;
+  late FoodCategory category;
   final name = TextEditingController();
   final raw = TextEditingController();
   final cooked = TextEditingController();
@@ -6716,6 +6779,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
   @override
   void initState() {
     super.initState();
+    category = widget.initialCategory;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) nameFocus.requestFocus();
     });
@@ -6758,166 +6822,158 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
       });
     }
 
-    return GlassSurface(
-      margin: const EdgeInsets.all(10),
+    return AppSheetFrame(
       padding: const EdgeInsets.fromLTRB(16, 18, 16, 14),
-      radius: 26,
-      tint: p.card,
-      opacity: 1,
-      child: SafeArea(
-        top: false,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Text(
-                tx(context, 'Új étel hozzáadása'),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: p.text,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+      scrollable: false,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Text(
+              tx(context, 'Új étel hozzáadása'),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: p.text,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                _CategoryButton(
-                  label: tx(context, 'Főétel'),
-                  active: category == FoodCategory.main,
-                  enabled: canAddMain,
-                  onTap: () => setState(() => category = FoodCategory.main),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              _CategoryButton(
+                label: tx(context, 'Főétel'),
+                active: category == FoodCategory.main,
+                enabled: canAddMain,
+                onTap: () => setState(() => category = FoodCategory.main),
+              ),
+              const SizedBox(width: 8),
+              _CategoryButton(
+                label: tx(context, 'Köret'),
+                active: category == FoodCategory.side,
+                enabled: canAddSide,
+                onTap: () => setState(() => category = FoodCategory.side),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          _Input(
+            controller: name,
+            placeholder: tx(context, 'Étel neve'),
+            focusNode: nameFocus,
+            autofocus: true,
+            onChanged: () => setState(() {}),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: _Input(
+                  controller: raw,
+                  placeholder: tx(context, 'Nyers g'),
+                  numericTitle: tx(context, 'Nyers adag'),
+                  onChanged: () => setState(() {}),
                 ),
-                const SizedBox(width: 8),
-                _CategoryButton(
-                  label: tx(context, 'Köret'),
-                  active: category == FoodCategory.side,
-                  enabled: canAddSide,
-                  onTap: () => setState(() => category = FoodCategory.side),
+              ),
+              const SizedBox(width: 7),
+              Expanded(
+                child: _Input(
+                  controller: cooked,
+                  placeholder: tx(context, 'Kész g'),
+                  numericTitle: tx(context, 'Kész súly'),
+                  onChanged: () => setState(() {}),
+                ),
+              ),
+              const SizedBox(width: 7),
+              Expanded(
+                child: _Input(
+                  controller: served,
+                  placeholder: tx(context, 'Kimért g'),
+                  numericTitle: tx(context, 'Kimért adag'),
+                  onChanged: () => setState(() {}),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
+            decoration: BoxDecoration(
+              color: p.resultBg,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: p.resultBorder),
+            ),
+            child: Row(
+              children: [
+                Text(
+                  tx(context, 'Nyers egyenérték'),
+                  style: TextStyle(
+                    color: p.accent,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  result <= 0 ? '- g' : grams(result),
+                  style: TextStyle(
+                    color: p.accent,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 6),
-            _Input(
-              controller: name,
-              placeholder: tx(context, 'Étel neve'),
-              focusNode: nameFocus,
-              autofocus: true,
-              onChanged: () => setState(() {}),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: _Input(
-                    controller: raw,
-                    placeholder: tx(context, 'Nyers g'),
-                    numericTitle: tx(context, 'Nyers adag'),
-                    onChanged: () => setState(() {}),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: CupertinoButton(
+                  color: p.bg,
+                  padding: const EdgeInsets.symmetric(vertical: 11),
+                  borderRadius: BorderRadius.circular(14),
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(
+                    tx(context, 'Mégse'),
+                    style: TextStyle(color: p.muted),
                   ),
                 ),
-                const SizedBox(width: 7),
-                Expanded(
-                  child: _Input(
-                    controller: cooked,
-                    placeholder: tx(context, 'Kész g'),
-                    numericTitle: tx(context, 'Kész súly'),
-                    onChanged: () => setState(() {}),
-                  ),
-                ),
-                const SizedBox(width: 7),
-                Expanded(
-                  child: _Input(
-                    controller: served,
-                    placeholder: tx(context, 'Kimért g'),
-                    numericTitle: tx(context, 'Kimért adag'),
-                    onChanged: () => setState(() {}),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 4),
-            Container(
-              width: double.infinity,
-              margin: const EdgeInsets.only(bottom: 10),
-              padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
-              decoration: BoxDecoration(
-                color: p.resultBg,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: p.resultBorder),
               ),
-              child: Row(
-                children: [
-                  Text(
-                    tx(context, 'Nyers egyenérték'),
+              const SizedBox(width: 8),
+              Expanded(
+                flex: 2,
+                child: CupertinoButton(
+                  color: canAddSelected ? p.accent : _disabledActionFill(state),
+                  padding: const EdgeInsets.symmetric(vertical: 11),
+                  borderRadius: BorderRadius.circular(14),
+                  onPressed: canAddSelected
+                      ? () {
+                          state.addFood(
+                            name: name.text,
+                            category: category,
+                            rawWeight: _num(raw),
+                            cookedWeight: _num(cooked),
+                            servedWeight: _num(served),
+                          );
+                          Navigator.pop(context);
+                        }
+                      : null,
+                  child: Text(
+                    tx(context, 'Mentés'),
                     style: TextStyle(
-                      color: p.accent,
+                      color: canAddSelected
+                          ? p.buttonText
+                          : _disabledActionText(state),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const Spacer(),
-                  Text(
-                    result <= 0 ? '- g' : grams(result),
-                    style: TextStyle(
-                      color: p.accent,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: CupertinoButton(
-                    color: p.bg,
-                    padding: const EdgeInsets.symmetric(vertical: 11),
-                    borderRadius: BorderRadius.circular(14),
-                    onPressed: () => Navigator.pop(context),
-                    child: Text(
-                      tx(context, 'Mégse'),
-                      style: TextStyle(color: p.muted),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  flex: 2,
-                  child: CupertinoButton(
-                    color: canAddSelected
-                        ? p.accent
-                        : _disabledActionFill(state),
-                    padding: const EdgeInsets.symmetric(vertical: 11),
-                    borderRadius: BorderRadius.circular(14),
-                    onPressed: canAddSelected
-                        ? () {
-                            state.addFood(
-                              name: name.text,
-                              category: category,
-                              rawWeight: _num(raw),
-                              cookedWeight: _num(cooked),
-                              servedWeight: _num(served),
-                            );
-                            Navigator.pop(context);
-                          }
-                        : null,
-                    child: Text(
-                      tx(context, 'Mentés'),
-                      style: TextStyle(
-                        color: canAddSelected
-                            ? p.buttonText
-                            : _disabledActionText(state),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -6938,10 +6994,11 @@ class _CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return Expanded(
       child: CupertinoButton(
-        color: active ? p.accent : p.bg,
+        color: active ? state.primaryActionSurface : p.bg,
         padding: const EdgeInsets.symmetric(vertical: 8),
         borderRadius: BorderRadius.circular(14),
         onPressed: enabled ? onTap : null,
@@ -7012,9 +7069,9 @@ class ProUpsellCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
       radius: 26,
-      tint: p.resultBg,
+      tint: p.card,
       opacity: 1,
-      borderColor: p.resultBorder.withValues(alpha: 0.72),
+      borderColor: p.border.withValues(alpha: 0.54),
       child: Column(
         children: [
           Row(
@@ -7070,7 +7127,7 @@ class ProUpsellCard extends StatelessWidget {
             width: double.infinity,
             child: CupertinoButton(
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
-              color: p.accent,
+              color: AppScope.of(context).primaryActionSurface,
               borderRadius: BorderRadius.circular(18),
               onPressed: () {},
               child: FittedBox(
@@ -7207,13 +7264,15 @@ class _PaywallFeatureGroup extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(12, 11, 12, 5),
+      padding: const EdgeInsets.fromLTRB(12, 11, 12, 7),
       decoration: BoxDecoration(
-        color: accent ? p.resultBg : p.card,
+        color: p.card,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: accent ? p.resultBorder : p.border,
-          width: 1.2,
+          color: accent
+              ? p.resultBorder.withValues(alpha: 0.58)
+              : p.border.withValues(alpha: 0.42),
+          width: 1.05,
         ),
       ),
       child: Column(
@@ -7266,14 +7325,14 @@ class _PaywallFeatureRow extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 26,
-            height: 26,
+            width: 24,
+            height: 24,
             decoration: BoxDecoration(
-              color: p.bg.withValues(alpha: 0.75),
+              color: p.resultBg.withValues(alpha: 0.78),
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: p.border.withValues(alpha: 0.7)),
+              border: Border.all(color: p.border.withValues(alpha: 0.44)),
             ),
-            child: Icon(feature.icon, color: p.accent, size: 14),
+            child: Icon(feature.icon, color: p.accent, size: 13),
           ),
           const SizedBox(width: 10),
           Expanded(
@@ -7294,9 +7353,9 @@ class _PaywallFeatureRow extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
               decoration: BoxDecoration(
-                color: p.bg.withValues(alpha: 0.72),
+                color: p.resultBg.withValues(alpha: 0.84),
                 borderRadius: BorderRadius.circular(999),
-                border: Border.all(color: p.border.withValues(alpha: 0.72)),
+                border: Border.all(color: p.border.withValues(alpha: 0.44)),
               ),
               child: Text(
                 feature.limit!,
@@ -7325,7 +7384,10 @@ class _PricingCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: p.card,
           borderRadius: radius,
-          border: Border.all(color: p.border, width: 1.2),
+          border: Border.all(
+            color: p.border.withValues(alpha: 0.46),
+            width: 1.05,
+          ),
         ),
         child: Column(
           children: [
@@ -7337,7 +7399,10 @@ class _PricingCard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 1),
-              child: Container(height: 1, color: p.border),
+              child: Container(
+                height: 1,
+                color: p.border.withValues(alpha: 0.36),
+              ),
             ),
             _PricingRow(
               title: tx(context, 'Éves előfizetés'),
