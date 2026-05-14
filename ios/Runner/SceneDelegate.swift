@@ -30,6 +30,54 @@ class SceneDelegate: FlutterSceneDelegate {
       self?.presentShareSheet(text: text)
       result(nil)
     }
+
+    let preferencesChannel = FlutterMethodChannel(
+      name: "mealweight/preferences",
+      binaryMessenger: controller.binaryMessenger
+    )
+    preferencesChannel.setMethodCallHandler { call, result in
+      let defaults = UserDefaults.standard
+      switch call.method {
+      case "loadThemeId":
+        result(defaults.string(forKey: "themeId"))
+      case "saveThemeId":
+        guard
+          let arguments = call.arguments as? [String: Any],
+          let themeId = arguments["themeId"] as? String
+        else {
+          result(FlutterError(code: "bad_args", message: "Missing themeId", details: nil))
+          return
+        }
+        defaults.set(themeId, forKey: "themeId")
+        result(nil)
+      case "loadLanguageCode":
+        result(defaults.string(forKey: "languageCode"))
+      case "saveLanguageCode":
+        guard
+          let arguments = call.arguments as? [String: Any],
+          let languageCode = arguments["languageCode"] as? String
+        else {
+          result(FlutterError(code: "bad_args", message: "Missing languageCode", details: nil))
+          return
+        }
+        defaults.set(languageCode, forKey: "languageCode")
+        result(nil)
+      case "loadOnboardingCompleted":
+        result(defaults.object(forKey: "onboardingCompleted") as? Bool)
+      case "saveOnboardingCompleted":
+        guard
+          let arguments = call.arguments as? [String: Any],
+          let completed = arguments["completed"] as? Bool
+        else {
+          result(FlutterError(code: "bad_args", message: "Missing completed", details: nil))
+          return
+        }
+        defaults.set(completed, forKey: "onboardingCompleted")
+        result(nil)
+      default:
+        result(FlutterMethodNotImplemented)
+      }
+    }
   }
 
   private func presentShareSheet(text: String) {

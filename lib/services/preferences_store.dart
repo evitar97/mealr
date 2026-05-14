@@ -46,4 +46,26 @@ class PreferencesStore {
       return;
     }
   }
+
+  Future<bool?> loadOnboardingCompleted() async {
+    try {
+      return _channel.invokeMethod<bool>('loadOnboardingCompleted');
+    } on MissingPluginException {
+      return null;
+    } on PlatformException {
+      return null;
+    }
+  }
+
+  Future<void> saveOnboardingCompleted(bool completed) async {
+    try {
+      await _channel.invokeMethod<void>('saveOnboardingCompleted', {
+        'completed': completed,
+      });
+    } on MissingPluginException {
+      return;
+    } on PlatformException {
+      return;
+    }
+  }
 }

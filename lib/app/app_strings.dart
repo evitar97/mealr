@@ -985,8 +985,15 @@ const _translations = {
     '/év': '/yr',
     'db': 'pcs',
     'Nyers súly kalkulátor': 'Raw weight calculator',
+    'Tervezz, főzz, kövess okosabban': 'Plan, cook, track smarter',
     'Értem, kezdjük el! →': 'Got it, let’s start! →',
     'Tovább': 'Next',
+    'ÜDV A MEALR-BEN': 'WELCOME TO MEALR',
+    'Kezdjük egyszerűen.': 'Let’s keep it simple.',
+    'A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.':
+        'Mealr helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.',
+    'Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.':
+        'A calm, practical tool for a more accurate eating routine.',
     'MIÉRT HASZNOS?': 'WHY IS IT USEFUL?',
     'A főtt étel súlya változik, a kalória nem.':
         'Cooked food weight changes, calories do not.',
@@ -1015,6 +1022,13 @@ const _translations = {
     'Bevásárlás lista': 'Shopping list',
     'Súly követés': 'Weight tracking',
     'Meal preppelés': 'Meal Prepping',
+    'SZEMÉLYES ALAPOK': 'PERSONAL BASICS',
+    'Add meg az alapadataidat.': 'Add your basic details.',
+    'A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.':
+        'The details you enter are saved straight to the BMI calculator, the Calorie menu, and your Profile, so you do not have to enter them again later.',
+    'év': 'yrs',
+    'Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.':
+        'The app uses these to calculate your BMI, daily calorie target, and profile basics.',
     'MI A PROBLÉMA?': 'WHAT IS THE PROBLEM?',
     'Főzés során az étel ': 'During cooking, food ',
     'veszít a tömegéből': 'loses weight',
@@ -1587,8 +1601,15 @@ const _translations = {
     '/év': '/Jahr',
     'db': 'Stk.',
     'Nyers súly kalkulátor': 'Rohgewicht-Rechner',
+    'Tervezz, főzz, kövess okosabban': 'Plane, koche, tracke smarter',
     'Értem, kezdjük el! →': 'Verstanden, los geht’s! →',
     'Tovább': 'Weiter',
+    'ÜDV A MEALR-BEN': 'WILLKOMMEN BEI MEALR',
+    'Kezdjük egyszerűen.': 'Fangen wir einfach an.',
+    'A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.':
+        'Mealr hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.',
+    'Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.':
+        'Ein ruhiges, praktisches Tool für eine genauere Ernährungsroutine.',
     'MIÉRT HASZNOS?': 'WARUM IST ES NÜTZLICH?',
     'A főtt étel súlya változik, a kalória nem.':
         'Das Gewicht gekochter Speisen ändert sich, die Kalorien nicht.',
@@ -1617,6 +1638,13 @@ const _translations = {
     'Bevásárlás lista': 'Einkaufsliste',
     'Súly követés': 'Gewichtstracking',
     'Meal preppelés': 'Meal Prep',
+    'SZEMÉLYES ALAPOK': 'PERSÖNLICHE GRUNDLAGEN',
+    'Add meg az alapadataidat.': 'Gib deine Basisdaten ein.',
+    'A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.':
+        'Die eingegebenen Daten werden direkt im BMI-Rechner, im Kalorienmenü und in deinem Profil gespeichert, damit du sie später nicht erneut eingeben musst.',
+    'év': 'Jahre',
+    'Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.':
+        'Daraus berechnet die App deinen BMI, dein tägliches Kalorienziel und die Basisdaten im Profil.',
     'MI A PROBLÉMA?': 'WAS IST DAS PROBLEM?',
     'Főzés során az étel ': 'Beim Kochen verliert Essen ',
     'veszít a tömegéből': 'an Gewicht',
@@ -2191,8 +2219,15 @@ const _translations = {
     '/év': '/año',
     'db': 'uds.',
     'Nyers súly kalkulátor': 'Calculadora de peso crudo',
+    'Tervezz, főzz, kövess okosabban': 'Planifica, cocina y controla mejor',
     'Értem, kezdjük el! →': 'Entendido, empecemos →',
     'Tovább': 'Siguiente',
+    'ÜDV A MEALR-BEN': 'BIENVENIDO A MEALR',
+    'Kezdjük egyszerűen.': 'Empecemos fácil.',
+    'A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.':
+        'Mealr te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.',
+    'Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.':
+        'Una herramienta tranquila y práctica para una rutina de comida más precisa.',
     'MIÉRT HASZNOS?': '¿POR QUÉ ES ÚTIL?',
     'A főtt étel súlya változik, a kalória nem.':
         'El peso de la comida cocida cambia, las calorías no.',
@@ -2221,6 +2256,13 @@ const _translations = {
     'Bevásárlás lista': 'Lista de compra',
     'Súly követés': 'Seguimiento de peso',
     'Meal preppelés': 'Meal prep',
+    'SZEMÉLYES ALAPOK': 'DATOS BÁSICOS',
+    'Add meg az alapadataidat.': 'Añade tus datos básicos.',
+    'A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.':
+        'Los datos que introduces se guardan directamente en la calculadora BMI, el menú de calorías y tu perfil, para que no tengas que volver a introducirlos después.',
+    'év': 'años',
+    'Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.':
+        'La app usa estos datos para calcular tu BMI, tu objetivo diario de calorías y los datos básicos del perfil.',
     'MI A PROBLÉMA?': '¿CUÁL ES EL PROBLEMA?',
     'Főzés során az étel ': 'Al cocinar, la comida ',
     'veszít a tömegéből': 'pierde peso',

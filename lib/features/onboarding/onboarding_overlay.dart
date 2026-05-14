@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
+import '../../utils/calculators.dart';
 import '../food/food_list_screen.dart';
 import '../../widgets/glass_surface.dart';
 import '../../widgets/mealweight_mark.dart';
@@ -28,7 +30,13 @@ class _OnboardingOverlayState extends State<OnboardingOverlay> {
     final state = AppScope.of(context);
     final p = state.palette;
     final bottomInset = MediaQuery.paddingOf(context).bottom;
-    final pages = const [_IntroPage(), _ProcessPage(), _ToolsPage()];
+    final pages = const [
+      _WelcomePage(),
+      _IntroPage(),
+      _ProcessPage(),
+      _ToolsPage(),
+      _ProfileSetupPage(),
+    ];
     final isLast = page == pages.length - 1;
 
     return Positioned.fill(
@@ -194,11 +202,40 @@ class _Header extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         Text(
-          tx(context, 'Nyers súly kalkulátor'),
+          tx(context, 'Tervezz, főzz, kövess okosabban'),
           style: TextStyle(
             color: p.muted,
             fontSize: 17,
             fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _WelcomePage extends StatelessWidget {
+  const _WelcomePage();
+
+  @override
+  Widget build(BuildContext context) {
+    return _OnboardPage(
+      children: [
+        _HeroCard(
+          eyebrow: tx(context, 'ÜDV A MEALR-BEN'),
+          title: tx(context, 'Kezdjük egyszerűen.'),
+          text: tx(
+            context,
+            'A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.',
+          ),
+          icon: CupertinoIcons.sparkles,
+        ),
+        const SizedBox(height: 16),
+        _InfoStrip(
+          icon: CupertinoIcons.heart_fill,
+          text: tx(
+            context,
+            'Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.',
           ),
         ),
       ],
@@ -319,6 +356,7 @@ class _ToolsPage extends StatelessWidget {
               CupertinoIcons.cart_fill,
               tx(context, 'Bevásárlás lista'),
             ),
+            _FeatureInfo(CupertinoIcons.book_fill, tx(context, 'Receptek')),
             _FeatureInfo(
               CupertinoIcons.chart_bar_fill,
               tx(context, 'Súly követés'),
@@ -328,6 +366,82 @@ class _ToolsPage extends StatelessWidget {
               tx(context, 'Meal preppelés'),
             ),
           ],
+        ),
+      ],
+    );
+  }
+}
+
+class _ProfileSetupPage extends StatelessWidget {
+  const _ProfileSetupPage();
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    return _OnboardPage(
+      children: [
+        _HeroCard(
+          eyebrow: tx(context, 'SZEMÉLYES ALAPOK'),
+          title: tx(context, 'Add meg az alapadataidat.'),
+          text: tx(
+            context,
+            'A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.',
+          ),
+          icon: CupertinoIcons.person_crop_circle_fill,
+        ),
+        const SizedBox(height: 16),
+        _OnboardCard(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          child: Column(
+            children: [
+              _OnboardNumberInput(
+                label: tx(context, 'Életkor'),
+                value: state.calorieAge.toDouble(),
+                min: 12,
+                max: 90,
+                suffix: tx(context, 'év'),
+                decimalPlaces: 0,
+                onChanged: (value) =>
+                    state.applyOnboardingProfile(age: value.round()),
+              ),
+              const SizedBox(height: 10),
+              _OnboardNumberInput(
+                label: tx(context, 'Súly'),
+                value: state.profileWeight,
+                min: 1,
+                max: 300,
+                suffix: 'kg',
+                decimalPlaces: 1,
+                onChanged: (value) =>
+                    state.applyOnboardingProfile(weight: value),
+              ),
+              const SizedBox(height: 10),
+              _OnboardNumberInput(
+                label: tx(context, 'Magasság'),
+                value: state.profileHeight,
+                min: 80,
+                max: 230,
+                suffix: 'cm',
+                decimalPlaces: 0,
+                onChanged: (value) =>
+                    state.applyOnboardingProfile(height: value),
+              ),
+              const SizedBox(height: 12),
+              _GenderPicker(
+                selected: state.calorieGender,
+                onChanged: (gender) =>
+                    state.applyOnboardingProfile(gender: gender),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        _InfoStrip(
+          icon: CupertinoIcons.check_mark_circled_solid,
+          text: tx(
+            context,
+            'Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.',
+          ),
         ),
       ],
     );
@@ -556,6 +670,261 @@ class _FeatureInfo {
 
   final IconData icon;
   final String title;
+}
+
+class _OnboardNumberInput extends StatefulWidget {
+  const _OnboardNumberInput({
+    required this.label,
+    required this.value,
+    required this.min,
+    required this.max,
+    required this.suffix,
+    required this.decimalPlaces,
+    required this.onChanged,
+  });
+
+  final String label;
+  final double value;
+  final double min;
+  final double max;
+  final String suffix;
+  final int decimalPlaces;
+  final ValueChanged<double> onChanged;
+
+  @override
+  State<_OnboardNumberInput> createState() => _OnboardNumberInputState();
+}
+
+class _OnboardNumberInputState extends State<_OnboardNumberInput> {
+  late final TextEditingController controller;
+  late final FocusNode focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController(text: _formatValue(widget.value));
+    focusNode = FocusNode();
+  }
+
+  @override
+  void didUpdateWidget(covariant _OnboardNumberInput oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!focusNode.hasFocus && oldWidget.value != widget.value) {
+      controller.text = _formatValue(widget.value);
+    }
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: p.bg.withValues(alpha: 0.62),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: p.border),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              widget.label,
+              style: TextStyle(
+                color: p.text,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+          _OnboardStepperButton(
+            icon: CupertinoIcons.minus,
+            onPressed: () => _stepValue(-1),
+          ),
+          SizedBox(
+            width: 72,
+            child: CupertinoTextField(
+              controller: controller,
+              focusNode: focusNode,
+              keyboardType: TextInputType.numberWithOptions(
+                decimal: widget.decimalPlaces > 0,
+              ),
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'[0-9,.]')),
+              ],
+              textAlign: TextAlign.center,
+              padding: const EdgeInsets.symmetric(vertical: 9),
+              decoration: const BoxDecoration(),
+              style: TextStyle(
+                color: p.accent,
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+              ),
+              onTap: () => controller.selection = TextSelection(
+                baseOffset: 0,
+                extentOffset: controller.text.length,
+              ),
+              onChanged: _updateLiveValue,
+              onSubmitted: (_) => _commitManualValue(),
+              onEditingComplete: _commitManualValue,
+            ),
+          ),
+          _OnboardStepperButton(
+            icon: CupertinoIcons.plus,
+            onPressed: () => _stepValue(1),
+          ),
+          const SizedBox(width: 6),
+          SizedBox(
+            width: 28,
+            child: Text(
+              widget.suffix,
+              style: TextStyle(
+                color: p.muted,
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _commitManualValue() {
+    final parsed = double.tryParse(controller.text.trim().replaceAll(',', '.'));
+    if (parsed == null) {
+      controller.text = _formatValue(widget.value);
+      focusNode.unfocus();
+      return;
+    }
+    final normalized = _normalize(parsed);
+    widget.onChanged(normalized);
+    controller.text = _formatValue(normalized);
+    focusNode.unfocus();
+  }
+
+  void _updateLiveValue(String value) {
+    final parsed = double.tryParse(value.trim().replaceAll(',', '.'));
+    if (parsed == null) return;
+    widget.onChanged(_normalize(parsed));
+  }
+
+  void _stepValue(int direction) {
+    final current =
+        double.tryParse(controller.text.trim().replaceAll(',', '.')) ??
+        widget.value;
+    final step = widget.decimalPlaces == 0 ? 1.0 : 0.1;
+    final next = _normalize(current + step * direction);
+    widget.onChanged(next);
+    controller.text = _formatValue(next);
+    focusNode.unfocus();
+  }
+
+  double _normalize(double value) {
+    final clamped = value.clamp(widget.min, widget.max).toDouble();
+    return widget.decimalPlaces == 0
+        ? clamped.roundToDouble()
+        : double.parse(clamped.toStringAsFixed(widget.decimalPlaces));
+  }
+
+  String _formatValue(double value) => widget.decimalPlaces == 0
+      ? value.round().toString()
+      : value.toStringAsFixed(widget.decimalPlaces);
+}
+
+class _OnboardStepperButton extends StatelessWidget {
+  const _OnboardStepperButton({required this.icon, required this.onPressed});
+
+  final IconData icon;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return CupertinoButton(
+      minimumSize: const Size(34, 34),
+      padding: EdgeInsets.zero,
+      borderRadius: BorderRadius.circular(12),
+      onPressed: onPressed,
+      child: Icon(icon, color: p.accent, size: 19),
+    );
+  }
+}
+
+class _GenderPicker extends StatelessWidget {
+  const _GenderPicker({required this.selected, required this.onChanged});
+
+  final Gender selected;
+  final ValueChanged<Gender> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Container(
+      padding: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        color: p.bg.withValues(alpha: 0.62),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: p.border),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: _GenderOption(
+              label: tx(context, 'Férfi'),
+              active: selected == Gender.male,
+              onTap: () => onChanged(Gender.male),
+            ),
+          ),
+          const SizedBox(width: 6),
+          Expanded(
+            child: _GenderOption(
+              label: tx(context, 'Nő'),
+              active: selected == Gender.female,
+              onTap: () => onChanged(Gender.female),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _GenderOption extends StatelessWidget {
+  const _GenderOption({
+    required this.label,
+    required this.active,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool active;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return CupertinoButton(
+      padding: const EdgeInsets.symmetric(vertical: 11),
+      color: active ? p.accent : CupertinoColors.transparent,
+      borderRadius: BorderRadius.circular(14),
+      onPressed: onTap,
+      child: Text(
+        label,
+        style: TextStyle(
+          color: active ? p.buttonText : p.muted,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
 }
 
 class _OnboardCard extends StatelessWidget {

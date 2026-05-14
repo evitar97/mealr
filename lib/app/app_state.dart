@@ -100,6 +100,7 @@ class AppState extends ChangeNotifier {
   Future<void> loadSavedPreferences() async {
     final themeId = await _preferences.loadThemeId();
     final languageCode = await _preferences.loadLanguageCode();
+    final onboardingCompleted = await _preferences.loadOnboardingCompleted();
     var changed = false;
     if (themeId != null) {
       final savedTheme = _themeById(themeId);
@@ -114,6 +115,10 @@ class AppState extends ChangeNotifier {
         language = savedLanguage;
         changed = true;
       }
+    }
+    if (onboardingCompleted == true) {
+      showOnboarding = false;
+      changed = true;
     }
     if (changed) notifyListeners();
   }
@@ -142,6 +147,7 @@ class AppState extends ChangeNotifier {
 
   void finishOnboarding() {
     showOnboarding = false;
+    _preferences.saveOnboardingCompleted(true);
     notifyListeners();
   }
 
@@ -216,6 +222,45 @@ class AppState extends ChangeNotifier {
     weightTrackerInput = bmiWeight;
     profileHeight = bmiHeight;
     bmiSaved = true;
+    notifyListeners();
+  }
+
+  void applyOnboardingProfile({
+    int? age,
+    double? weight,
+    double? height,
+    Gender? gender,
+  }) {
+    if (age != null) {
+      calorieAge = age.clamp(12, 90);
+    }
+    if (weight != null) {
+      final normalized = _oneDecimal(weight.clamp(1, 300).toDouble());
+      bmiWeight = normalized;
+      calorieWeight = normalized;
+      profileWeight = normalized;
+      weightTrackerInput = normalized;
+    }
+    if (height != null) {
+      final normalized = height.clamp(80, 230).roundToDouble();
+      bmiHeight = normalized;
+      calorieHeight = normalized;
+      profileHeight = normalized;
+    }
+    if (gender != null) {
+      bmiGender = gender;
+      calorieGender = gender;
+    }
+    bmiSaved = true;
+    final result = calculateCalories(
+      age: calorieAge,
+      weightKg: calorieWeight,
+      heightCm: calorieHeight,
+      gender: calorieGender,
+      activityMultiplier: calorieActivity,
+    );
+    profileCalorieTarget = result.tdee.round();
+    calorieSaved = true;
     notifyListeners();
   }
 
