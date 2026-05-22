@@ -74,6 +74,18 @@ class SceneDelegate: FlutterSceneDelegate {
         }
         defaults.set(completed, forKey: "onboardingCompleted")
         result(nil)
+      case "loadAppSnapshot":
+        result(defaults.string(forKey: "appSnapshot"))
+      case "saveAppSnapshot":
+        guard
+          let arguments = call.arguments as? [String: Any],
+          let snapshot = arguments["snapshot"] as? String
+        else {
+          result(FlutterError(code: "bad_args", message: "Missing snapshot", details: nil))
+          return
+        }
+        defaults.set(snapshot, forKey: "appSnapshot")
+        result(nil)
       default:
         result(FlutterMethodNotImplemented)
       }

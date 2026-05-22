@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 
 import '../models/food_item.dart';
@@ -97,11 +99,21 @@ class AppState extends ChangeNotifier {
 
   MealWeightPalette get palette => isDark ? theme.dark : theme.light;
 
+  @override
+  void notifyListeners() {
+    _saveSnapshot();
+    super.notifyListeners();
+  }
+
   Future<void> loadSavedPreferences() async {
+    final snapshot = await _preferences.loadAppSnapshot();
     final themeId = await _preferences.loadThemeId();
     final languageCode = await _preferences.loadLanguageCode();
     final onboardingCompleted = await _preferences.loadOnboardingCompleted();
     var changed = false;
+    if (snapshot != null) {
+      changed = _restoreSnapshot(snapshot) || changed;
+    }
     if (themeId != null) {
       final savedTheme = _themeById(themeId);
       if (savedTheme != null) {
@@ -123,6 +135,10 @@ class AppState extends ChangeNotifier {
     if (changed) notifyListeners();
   }
 
+  void _saveSnapshot() {
+    _preferences.saveAppSnapshot(jsonEncode(_snapshotJson()));
+  }
+
   void selectTab(AppTab next) {
     tab = next;
     notifyListeners();
@@ -136,24 +152,28 @@ class AppState extends ChangeNotifier {
   void selectTheme(ThemeOption next) {
     theme = next;
     _preferences.saveThemeId(next.id);
+    _saveSnapshot();
     notifyListeners();
   }
 
   void selectLanguage(AppLanguage next) {
     language = next;
     _preferences.saveLanguageCode(next.code);
+    _saveSnapshot();
     notifyListeners();
   }
 
   void finishOnboarding() {
     showOnboarding = false;
     _preferences.saveOnboardingCompleted(true);
+    _saveSnapshot();
     notifyListeners();
   }
 
   void setProMode(bool value) {
     isPro = value;
     proExpiresAt = value ? DateTime.now().add(const Duration(days: 30)) : null;
+    _saveSnapshot();
     notifyListeners();
   }
 
@@ -453,6 +473,32 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void updateFood({
+    required String id,
+    required String name,
+    required FoodCategory category,
+    required double rawWeight,
+    required double cookedWeight,
+    required double servedWeight,
+  }) {
+    final index = foods.indexWhere((food) => food.id == id);
+    if (index == -1 ||
+        name.trim().isEmpty ||
+        rawWeight <= 0 ||
+        cookedWeight <= 0) {
+      return;
+    }
+    final oldFood = foods[index];
+    foods[index] = oldFood.copyWith(
+      name: name.trim(),
+      category: category,
+      rawWeight: rawWeight,
+      cookedWeight: cookedWeight,
+      servedWeight: servedWeight <= 0 ? cookedWeight : servedWeight,
+    );
+    notifyListeners();
+  }
+
   bool canAddFood(FoodCategory category) {
     if (isPro) return true;
     return !foods.any((food) => food.category == category);
@@ -597,10 +643,7 @@ class AppState extends ChangeNotifier {
     required List<ShoppingListItem> items,
   }) {
     final cleanName = name.trim();
-    final cleanItems = items
-        .where((item) => item.name.trim().isNotEmpty)
-        .map((item) => item.copyWith(name: item.name.trim()))
-        .toList();
+    final cleanItems = _cleanShoppingItems(items);
     if (!isPro || cleanName.isEmpty || cleanItems.isEmpty) return;
     shoppingLists.add(
       ShoppingList(
@@ -620,14 +663,11 @@ class AppState extends ChangeNotifier {
     if (!isPro) return;
     final listIndex = shoppingLists.indexWhere((list) => list.id == listId);
     if (listIndex == -1) return;
-    final cleanItems = items
-        .where((item) => item.name.trim().isNotEmpty)
-        .map((item) => item.copyWith(name: item.name.trim()))
-        .toList();
+    final cleanItems = _cleanShoppingItems(items);
     if (cleanItems.isEmpty) return;
     final list = shoppingLists[listIndex];
     shoppingLists[listIndex] = list.copyWith(
-      items: [...list.items, ...cleanItems],
+      items: _mergeShoppingItems([...list.items, ...cleanItems]),
     );
     notifyListeners();
   }
@@ -641,10 +681,7 @@ class AppState extends ChangeNotifier {
     final index = shoppingLists.indexWhere((list) => list.id == id);
     if (index == -1) return;
     final cleanName = name.trim();
-    final cleanItems = items
-        .where((item) => item.name.trim().isNotEmpty)
-        .map((item) => item.copyWith(name: item.name.trim()))
-        .toList();
+    final cleanItems = _cleanShoppingItems(items);
     if (cleanName.isEmpty || cleanItems.isEmpty) return;
     final oldList = shoppingLists[index];
     shoppingLists[index] = oldList.copyWith(name: cleanName, items: cleanItems);
@@ -672,9 +709,162 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearCheckedShoppingItems(String id) {
+    if (!isPro) return;
+    final index = shoppingLists.indexWhere((list) => list.id == id);
+    if (index == -1) return;
+    final list = shoppingLists[index];
+    final items = list.items.where((item) => !item.checked).toList();
+    if (items.length == list.items.length) return;
+    shoppingLists[index] = list.copyWith(items: items);
+    notifyListeners();
+  }
+
   void deleteFood(String id) {
     foods.removeWhere((food) => food.id == id);
     notifyListeners();
+  }
+
+  List<ShoppingListItem> _cleanShoppingItems(List<ShoppingListItem> items) {
+    return _mergeShoppingItems(
+      items
+          .where((item) => item.name.trim().isNotEmpty)
+          .map((item) => item.copyWith(name: item.name.trim()))
+          .toList(),
+    );
+  }
+
+  List<ShoppingListItem> _mergeShoppingItems(List<ShoppingListItem> items) {
+    final merged = <ShoppingListItem>[];
+    for (final item in items) {
+      final nameKey = item.name.trim().toLowerCase();
+      final index = merged.indexWhere(
+        (candidate) => candidate.name.trim().toLowerCase() == nameKey,
+      );
+      if (index == -1) {
+        merged.add(item);
+      } else {
+        merged[index] = merged[index].copyWith(
+          checked: merged[index].checked && item.checked,
+        );
+      }
+    }
+    return merged;
+  }
+
+  Map<String, Object?> _snapshotJson() {
+    return {
+      'themeId': theme.id,
+      'languageCode': language.code,
+      'showOnboarding': showOnboarding,
+      'isDark': isDark,
+      'isPro': isPro,
+      'proExpiresAt': proExpiresAt?.toIso8601String(),
+      'bmiWeight': bmiWeight,
+      'bmiHeight': bmiHeight,
+      'bmiGender': bmiGender.name,
+      'bmiSaved': bmiSaved,
+      'calorieAge': calorieAge,
+      'calorieWeight': calorieWeight,
+      'calorieHeight': calorieHeight,
+      'calorieGender': calorieGender.name,
+      'calorieActivity': calorieActivity,
+      'calorieSaved': calorieSaved,
+      'profileWeight': profileWeight,
+      'profileHeight': profileHeight,
+      'profileCalorieTarget': profileCalorieTarget,
+      'weightTrackerInput': weightTrackerInput,
+      'weightChartRange': weightChartRange.name,
+      'foods': [for (final food in foods) food.toJson()],
+      'mealPrepPlans': [for (final plan in mealPrepPlans) plan.toJson()],
+      'shoppingLists': [for (final list in shoppingLists) list.toJson()],
+      'weightEntries': [
+        for (final entry in weightEntries)
+          {
+            'id': entry.id,
+            'weight': entry.weight,
+            'recordedAt': entry.recordedAt.toIso8601String(),
+          },
+      ],
+      'favoriteRecipeIds': favoriteRecipeIds.toList(),
+    };
+  }
+
+  bool _restoreSnapshot(String snapshot) {
+    try {
+      final decoded = jsonDecode(snapshot);
+      if (decoded is! Map) return false;
+      final themeId = decoded['themeId'];
+      if (themeId is String) {
+        final savedTheme = _themeById(themeId);
+        if (savedTheme != null) theme = savedTheme;
+      }
+      final languageCode = decoded['languageCode'];
+      if (languageCode is String) {
+        final savedLanguage = _languageByCode(languageCode);
+        if (savedLanguage != null) language = savedLanguage;
+      }
+      if (decoded['showOnboarding'] is bool) {
+        showOnboarding = decoded['showOnboarding'] as bool;
+      }
+      if (decoded['isDark'] is bool) isDark = decoded['isDark'] as bool;
+      if (decoded['isPro'] is bool) isPro = decoded['isPro'] as bool;
+      final proExpiry = decoded['proExpiresAt'];
+      proExpiresAt = proExpiry is String ? DateTime.tryParse(proExpiry) : null;
+      bmiWeight = _jsonDouble(decoded['bmiWeight'], bmiWeight);
+      bmiHeight = _jsonDouble(decoded['bmiHeight'], bmiHeight);
+      bmiGender = _genderByName(decoded['bmiGender'], bmiGender);
+      bmiSaved = decoded['bmiSaved'] == true;
+      calorieAge = _jsonInt(decoded['calorieAge'], calorieAge);
+      calorieWeight = _jsonDouble(decoded['calorieWeight'], calorieWeight);
+      calorieHeight = _jsonDouble(decoded['calorieHeight'], calorieHeight);
+      calorieGender = _genderByName(decoded['calorieGender'], calorieGender);
+      calorieActivity = _jsonDouble(
+        decoded['calorieActivity'],
+        calorieActivity,
+      );
+      calorieSaved = decoded['calorieSaved'] == true;
+      profileWeight = _jsonDouble(decoded['profileWeight'], profileWeight);
+      profileHeight = _jsonDouble(decoded['profileHeight'], profileHeight);
+      profileCalorieTarget = _jsonInt(
+        decoded['profileCalorieTarget'],
+        profileCalorieTarget,
+      );
+      weightTrackerInput = _jsonDouble(
+        decoded['weightTrackerInput'],
+        weightTrackerInput,
+      );
+      final rangeName = decoded['weightChartRange'];
+      weightChartRange = WeightChartRange.values.firstWhere(
+        (range) => range.name == rangeName,
+        orElse: () => weightChartRange,
+      );
+
+      foods
+        ..clear()
+        ..addAll(_jsonList(decoded['foods'], FoodItem.fromJson));
+      mealPrepPlans
+        ..clear()
+        ..addAll(_jsonList(decoded['mealPrepPlans'], MealPrepPlan.fromJson));
+      shoppingLists
+        ..clear()
+        ..addAll(_jsonList(decoded['shoppingLists'], ShoppingList.fromJson));
+      weightEntries
+        ..clear()
+        ..addAll(_weightEntriesFromJson(decoded['weightEntries']));
+      favoriteRecipeIds
+        ..clear()
+        ..addAll(
+          decoded['favoriteRecipeIds'] is List
+              ? (decoded['favoriteRecipeIds'] as List).whereType<String>()
+              : const <String>[],
+        );
+      return true;
+    } on FormatException {
+      return false;
+    } on TypeError {
+      return false;
+    }
   }
 
   double _oneDecimal(double value) => (value * 10).round() / 10;
@@ -697,6 +887,49 @@ class AppState extends ChangeNotifier {
       if (option.code == code) return option;
     }
     return null;
+  }
+
+  Gender _genderByName(Object? value, Gender fallback) {
+    return Gender.values.firstWhere(
+      (gender) => gender.name == value,
+      orElse: () => fallback,
+    );
+  }
+
+  double _jsonDouble(Object? value, double fallback) {
+    if (value is num) return value.toDouble();
+    if (value is String) return double.tryParse(value) ?? fallback;
+    return fallback;
+  }
+
+  int _jsonInt(Object? value, int fallback) {
+    if (value is num) return value.round();
+    if (value is String) return int.tryParse(value) ?? fallback;
+    return fallback;
+  }
+
+  List<T> _jsonList<T>(Object? value, T? Function(Object?) parse) {
+    if (value is! List) return <T>[];
+    return [
+      for (final item in value)
+        if (parse(item) != null) parse(item)!,
+    ];
+  }
+
+  List<WeightEntry> _weightEntriesFromJson(Object? value) {
+    if (value is! List) return <WeightEntry>[];
+    return [
+      for (final item in value)
+        if (item is Map &&
+            item['id'] is String &&
+            item['recordedAt'] is String &&
+            DateTime.tryParse(item['recordedAt'] as String) != null)
+          WeightEntry(
+            id: item['id'] as String,
+            weight: _jsonDouble(item['weight'], profileWeight),
+            recordedAt: DateTime.parse(item['recordedAt'] as String),
+          ),
+    ];
   }
 }
 

@@ -34,7 +34,6 @@ class _OnboardingOverlayState extends State<OnboardingOverlay> {
       _WelcomePage(),
       _IntroPage(),
       _ProcessPage(),
-      _ToolsPage(),
       _ProfileSetupPage(),
     ];
     final isLast = page == pages.length - 1;
@@ -135,7 +134,7 @@ class _OnboardingOverlayState extends State<OnboardingOverlay> {
                               child: FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: Text(
-                                  tx(context, 'Kihagyás'),
+                                  tx(context, 'Kezdés ingyenesen'),
                                   maxLines: 1,
                                   style: TextStyle(
                                     color: p.muted,
@@ -319,53 +318,6 @@ class _ProcessPage extends StatelessWidget {
             context,
             'Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.',
           ),
-        ),
-      ],
-    );
-  }
-}
-
-class _ToolsPage extends StatelessWidget {
-  const _ToolsPage();
-
-  @override
-  Widget build(BuildContext context) {
-    return _OnboardPage(
-      children: [
-        _HeroCard(
-          eyebrow: tx(context, 'MINDEN EGYBEN'),
-          title: tx(
-            context,
-            'Nem csak mérlegelés: egy app a kajás rutinodhoz.',
-          ),
-          text: tx(
-            context,
-            'A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.',
-          ),
-          icon: CupertinoIcons.square_grid_2x2,
-        ),
-        const SizedBox(height: 16),
-        _FeatureGrid(
-          features: [
-            _FeatureInfo(
-              CupertinoIcons.flame_fill,
-              tx(context, 'Kalória kalkulátor'),
-            ),
-            _FeatureInfo(CupertinoIcons.heart_fill, tx(context, 'BMI')),
-            _FeatureInfo(
-              CupertinoIcons.cart_fill,
-              tx(context, 'Bevásárlás lista'),
-            ),
-            _FeatureInfo(CupertinoIcons.book_fill, tx(context, 'Receptek')),
-            _FeatureInfo(
-              CupertinoIcons.chart_bar_fill,
-              tx(context, 'Súly követés'),
-            ),
-            _FeatureInfo(
-              CupertinoIcons.archivebox_fill,
-              tx(context, 'Meal preppelés'),
-            ),
-          ],
         ),
       ],
     );
@@ -609,67 +561,6 @@ class _InfoStrip extends StatelessWidget {
       ),
     );
   }
-}
-
-class _FeatureGrid extends StatelessWidget {
-  const _FeatureGrid({required this.features});
-
-  final List<_FeatureInfo> features;
-
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 10,
-      runSpacing: 10,
-      children: [
-        for (final feature in features)
-          SizedBox(
-            width: (MediaQuery.sizeOf(context).width - 58) / 2,
-            child: _ToolTile(feature: feature),
-          ),
-      ],
-    );
-  }
-}
-
-class _ToolTile extends StatelessWidget {
-  const _ToolTile({required this.feature});
-
-  final _FeatureInfo feature;
-
-  @override
-  Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return _OnboardCard(
-      padding: const EdgeInsets.all(15),
-      child: Row(
-        children: [
-          Icon(feature.icon, color: p.accent, size: 21),
-          const SizedBox(width: 9),
-          Expanded(
-            child: Text(
-              feature.title,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: p.text,
-                fontSize: 15,
-                height: 1.18,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _FeatureInfo {
-  const _FeatureInfo(this.icon, this.title);
-
-  final IconData icon;
-  final String title;
 }
 
 class _OnboardNumberInput extends StatefulWidget {

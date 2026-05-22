@@ -68,4 +68,26 @@ class PreferencesStore {
       return;
     }
   }
+
+  Future<String?> loadAppSnapshot() async {
+    try {
+      return _channel.invokeMethod<String>('loadAppSnapshot');
+    } on MissingPluginException {
+      return null;
+    } on PlatformException {
+      return null;
+    }
+  }
+
+  Future<void> saveAppSnapshot(String snapshot) async {
+    try {
+      await _channel.invokeMethod<void>('saveAppSnapshot', {
+        'snapshot': snapshot,
+      });
+    } on MissingPluginException {
+      return;
+    } on PlatformException {
+      return;
+    }
+  }
 }

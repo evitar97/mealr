@@ -2979,6 +2979,144 @@ class _RecipeFilterLabel extends StatelessWidget {
   }
 }
 
+class _RecipeDietChip extends StatelessWidget {
+  const _RecipeDietChip({required this.isVegan});
+
+  final bool isVegan;
+
+  @override
+  Widget build(BuildContext context) {
+    return _RecipeInfoChip(
+      label: isVegan ? tx(context, 'Vegán') : tx(context, 'Normál receptek'),
+      icon: isVegan
+          ? CupertinoIcons.check_mark_circled
+          : CupertinoIcons.circle_grid_hex,
+    );
+  }
+}
+
+class _RecipeInfoChip extends StatelessWidget {
+  const _RecipeInfoChip({required this.label, this.icon});
+
+  final String label;
+  final IconData? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final p = state.palette;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: state.isDark
+            ? Color.alphaBlend(p.accent.withValues(alpha: 0.06), p.card)
+            : p.resultBg,
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: p.resultBorder.withValues(alpha: 0.72)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (icon != null) ...[
+            Icon(icon, color: p.accent, size: 12),
+            const SizedBox(width: 4),
+          ],
+          Text(
+            label,
+            style: TextStyle(
+              color: p.accent,
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _RecipeMacroStrip extends StatelessWidget {
+  const _RecipeMacroStrip({required this.recipe, required this.servings});
+
+  final Recipe recipe;
+  final int servings;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    final protein = recipe.proteinEstimate * servings;
+    final carbs = recipe.carbsEstimate * servings;
+    final fat = recipe.fatEstimate * servings;
+    return Container(
+      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+      decoration: BoxDecoration(
+        color: p.bg.withValues(alpha: 0.68),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: p.border),
+      ),
+      child: Row(
+        children: [
+          _MacroMini(
+            label: 'P',
+            value: '${protein}g',
+            color: const Color(0xFFD8722C),
+          ),
+          const SizedBox(width: 10),
+          _MacroMini(
+            label: 'C',
+            value: '${carbs}g',
+            color: const Color(0xFFD4AA32),
+          ),
+          const SizedBox(width: 10),
+          _MacroMini(
+            label: 'F',
+            value: '${fat}g',
+            color: const Color(0xFFA98A68),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MacroMini extends StatelessWidget {
+  const _MacroMini({
+    required this.label,
+    required this.value,
+    required this.color,
+  });
+
+  final String label;
+  final String value;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 7,
+            height: 7,
+            decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          ),
+          const SizedBox(width: 5),
+          Text(
+            '$label $value',
+            style: TextStyle(
+              color: p.text,
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _RecipeTile extends StatelessWidget {
   const _RecipeTile({required this.recipe});
 
@@ -3043,6 +3181,8 @@ class _RecipeTile extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
+                        const SizedBox(height: 7),
+                        _RecipeDietChip(isVegan: recipe.isVegan),
                       ],
                     ),
                   ),
@@ -3159,6 +3299,17 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
+                        const SizedBox(height: 8),
+                        Wrap(
+                          spacing: 6,
+                          runSpacing: 6,
+                          children: [
+                            _RecipeDietChip(isVegan: recipe.isVegan),
+                            _RecipeInfoChip(
+                              label: tx(context, recipe.difficultyLabel),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -3210,6 +3361,8 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                 value: '$totalCalories kcal',
               ),
               const SizedBox(height: 10),
+              _RecipeMacroStrip(recipe: recipe, servings: servings),
+              const SizedBox(height: 10),
               SizedBox(
                 width: double.infinity,
                 child: CupertinoButton(
@@ -3235,6 +3388,24 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                     ),
                   ),
                 ),
+              ),
+            ],
+          ),
+        ),
+        SectionLabel(tx(context, 'Részletek')),
+        AppCard(
+          child: Column(
+            children: [
+              _RecipeSummaryRow(
+                label: tx(context, 'Nehézség'),
+                value: tx(context, recipe.difficultyLabel),
+              ),
+              const SizedBox(height: 8),
+              _RecipeSummaryRow(
+                label: tx(context, 'Étrend típus'),
+                value: recipe.isVegan
+                    ? tx(context, 'Vegán')
+                    : tx(context, 'Normál receptek'),
               ),
             ],
           ),
@@ -4335,6 +4506,18 @@ List<ShoppingListItem> _recipeShoppingItems(Recipe recipe, int servings) {
       .toList();
 }
 
+List<ShoppingListItem> _mealPrepShoppingItems(MealPrepPlan plan) {
+  return [
+    ShoppingListItem(
+      name: '${plan.foodName} - ${grams(plan.totalRawNeeded)} raw',
+    ),
+    if (plan.hasSide)
+      ShoppingListItem(
+        name: '${plan.sideFoodName} - ${grams(plan.sideTotalRawNeeded)} raw',
+      ),
+  ];
+}
+
 void showProPaywallSheet(BuildContext context) {
   showCupertinoModalPopup<void>(
     context: context,
@@ -4833,36 +5016,47 @@ class _FoodTileState extends State<FoodTile> {
                         ],
                       ),
                     ),
-                    if (sharingEnabled || notesEnabled) ...[
-                      const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          if (sharingEnabled)
-                            Expanded(
-                              child: _FoodActionButton(
-                                icon: CupertinoIcons.square_arrow_up,
-                                label: 'Share',
-                                color: p.accent,
-                                onPressed: () => _shareFood(context),
-                              ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        if (sharingEnabled)
+                          Expanded(
+                            child: _FoodActionButton(
+                              icon: CupertinoIcons.square_arrow_up,
+                              label: 'Share',
+                              color: p.accent,
+                              onPressed: () => _shareFood(context),
                             ),
-                          if (sharingEnabled && notesEnabled)
-                            const SizedBox(width: 8),
-                          if (notesEnabled)
-                            Expanded(
-                              child: _FoodActionButton(
-                                icon: CupertinoIcons.doc_text,
-                                label: 'Note',
-                                color: widget.food.hasNote
-                                    ? p.noteColor
-                                    : p.accent,
-                                onPressed: () =>
-                                    setState(() => noteOpen = !noteOpen),
-                              ),
+                          ),
+                        if (sharingEnabled) const SizedBox(width: 8),
+                        Expanded(
+                          child: _FoodActionButton(
+                            icon: CupertinoIcons.pencil,
+                            label: tx(context, 'Szerkesztés'),
+                            color: p.accent,
+                            onPressed: () => showCupertinoModalPopup<void>(
+                              context: context,
+                              barrierDismissible: true,
+                              barrierColor: const Color(0x99000000),
+                              builder: (_) => AddFoodSheet(food: widget.food),
                             ),
-                        ],
-                      ),
-                    ],
+                          ),
+                        ),
+                        if (notesEnabled) const SizedBox(width: 8),
+                        if (notesEnabled)
+                          Expanded(
+                            child: _FoodActionButton(
+                              icon: CupertinoIcons.doc_text,
+                              label: 'Note',
+                              color: widget.food.hasNote
+                                  ? p.noteColor
+                                  : p.accent,
+                              onPressed: () =>
+                                  setState(() => noteOpen = !noteOpen),
+                            ),
+                          ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -5550,6 +5744,7 @@ class ShoppingListDetailSheet extends StatelessWidget {
       }
     }
     if (list == null) return const SizedBox.shrink();
+    final checkedCount = list.items.where((item) => item.checked).length;
     return Container(
       color: CupertinoColors.transparent,
       child: SafeArea(
@@ -5573,9 +5768,30 @@ class ShoppingListDetailSheet extends StatelessWidget {
                     _SheetHeader(
                       icon: CupertinoIcons.cart,
                       title: list.name,
-                      subtitle: _shoppingDate(list.createdAt),
+                      subtitle:
+                          '${_shoppingDate(list.createdAt)} · $checkedCount/${list.items.length}',
                     ),
                     const SizedBox(height: 16),
+                    if (checkedCount > 0) ...[
+                      SizedBox(
+                        width: double.infinity,
+                        child: CupertinoButton(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          color: p.resultBg,
+                          borderRadius: BorderRadius.circular(14),
+                          onPressed: () =>
+                              state.clearCheckedShoppingItems(list!.id),
+                          child: Text(
+                            tx(context, 'Kipipált tételek törlése'),
+                            style: TextStyle(
+                              color: p.accent,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                    ],
                     for (var i = 0; i < list.items.length; i++)
                       _ShoppingCheckRow(
                         item: list.items[i],
@@ -6651,6 +6867,34 @@ class MealPrepDetailSheet extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: CupertinoButton(
+                        color: state.isPro
+                            ? state.primaryActionSurface
+                            : _disabledActionFill(state),
+                        borderRadius: BorderRadius.circular(14),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        onPressed: state.isPro
+                            ? () {
+                                state.addShoppingList(
+                                  name: '${plan!.name} shopping',
+                                  items: _mealPrepShoppingItems(plan),
+                                );
+                                Navigator.pop(context);
+                              }
+                            : () => showProPaywallSheet(context),
+                        child: Text(
+                          tx(context, 'Bevásárlólista mentése'),
+                          style: TextStyle(
+                            color: state.isPro
+                                ? p.buttonText
+                                : _disabledActionText(state),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ),
                     if (plan.note.trim().isNotEmpty) ...[
                       const SizedBox(height: 8),
                       Text(
@@ -6760,9 +7004,14 @@ class _MealPrepBoxRow extends StatelessWidget {
 }
 
 class AddFoodSheet extends StatefulWidget {
-  const AddFoodSheet({this.initialCategory = FoodCategory.main, super.key});
+  const AddFoodSheet({
+    this.initialCategory = FoodCategory.main,
+    this.food,
+    super.key,
+  });
 
   final FoodCategory initialCategory;
+  final FoodItem? food;
 
   @override
   State<AddFoodSheet> createState() => _AddFoodSheetState();
@@ -6779,7 +7028,14 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
   @override
   void initState() {
     super.initState();
-    category = widget.initialCategory;
+    final food = widget.food;
+    category = food?.category ?? widget.initialCategory;
+    if (food != null) {
+      name.text = food.name;
+      raw.text = food.rawWeight.toStringAsFixed(0);
+      cooked.text = food.cookedWeight.toStringAsFixed(0);
+      served.text = food.servedWeight.toStringAsFixed(0);
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) nameFocus.requestFocus();
     });
@@ -6802,9 +7058,15 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    final canAddMain = state.canAddFood(FoodCategory.main);
-    final canAddSide = state.canAddFood(FoodCategory.side);
-    final canAddSelected = state.canAddFood(category);
+    final editingFood = widget.food;
+    final canAddMain =
+        state.canAddFood(FoodCategory.main) ||
+        editingFood?.category == FoodCategory.main;
+    final canAddSide =
+        state.canAddFood(FoodCategory.side) ||
+        editingFood?.category == FoodCategory.side;
+    final canAddSelected =
+        state.canAddFood(category) || editingFood?.category == category;
     final result = rawEquivalent(
       rawWeight: _num(raw),
       cookedWeight: _num(cooked),
@@ -6831,7 +7093,12 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
         children: [
           Center(
             child: Text(
-              tx(context, 'Új étel hozzáadása'),
+              tx(
+                context,
+                widget.food == null
+                    ? 'Új étel hozzáadása'
+                    : 'Étel szerkesztése',
+              ),
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: p.text,
@@ -6950,13 +7217,25 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
                   borderRadius: BorderRadius.circular(14),
                   onPressed: canAddSelected
                       ? () {
-                          state.addFood(
-                            name: name.text,
-                            category: category,
-                            rawWeight: _num(raw),
-                            cookedWeight: _num(cooked),
-                            servedWeight: _num(served),
-                          );
+                          final food = widget.food;
+                          if (food == null) {
+                            state.addFood(
+                              name: name.text,
+                              category: category,
+                              rawWeight: _num(raw),
+                              cookedWeight: _num(cooked),
+                              servedWeight: _num(served),
+                            );
+                          } else {
+                            state.updateFood(
+                              id: food.id,
+                              name: name.text,
+                              category: category,
+                              rawWeight: _num(raw),
+                              cookedWeight: _num(cooked),
+                              servedWeight: _num(served),
+                            );
+                          }
                           Navigator.pop(context);
                         }
                       : null,

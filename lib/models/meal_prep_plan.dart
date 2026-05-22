@@ -102,4 +102,86 @@ class MealPrepPlan {
       note: note ?? this.note,
     );
   }
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'mode': mode.name,
+      'foodName': foodName,
+      'rawWeight': rawWeight,
+      'cookedWeight': cookedWeight,
+      'sideFoodName': sideFoodName,
+      'sideRawWeight': sideRawWeight,
+      'sideCookedWeight': sideCookedWeight,
+      'sidePortionWeight': sidePortionWeight,
+      'portionCount': portionCount,
+      'portionWeight': portionWeight,
+      'createdAt': createdAt.toIso8601String(),
+      'boxes': boxes,
+      'note': note,
+    };
+  }
+
+  static MealPrepPlan? fromJson(Object? value) {
+    if (value is! Map) return null;
+    final id = value['id'];
+    final name = value['name'];
+    final foodName = value['foodName'];
+    final createdAtRaw = value['createdAt'];
+    if (id is! String ||
+        name is! String ||
+        foodName is! String ||
+        createdAtRaw is! String) {
+      return null;
+    }
+    final createdAt = DateTime.tryParse(createdAtRaw);
+    if (createdAt == null) return null;
+    final modeName = value['mode'];
+    final mode = MealPrepMode.values.firstWhere(
+      (item) => item.name == modeName,
+      orElse: () => MealPrepMode.fixedPortion,
+    );
+    final rawBoxes = value['boxes'];
+    final boxes = rawBoxes is List
+        ? rawBoxes.map((box) => box == true).toList()
+        : <bool>[];
+    final portionCount = _jsonInt(value['portionCount']);
+    return MealPrepPlan(
+      id: id,
+      name: name,
+      mode: mode,
+      foodName: foodName,
+      rawWeight: _jsonDouble(value['rawWeight']),
+      cookedWeight: _jsonDouble(value['cookedWeight']),
+      sideFoodName: value['sideFoodName'] is String
+          ? value['sideFoodName'] as String
+          : null,
+      sideRawWeight: _jsonDouble(value['sideRawWeight']),
+      sideCookedWeight: _jsonDouble(value['sideCookedWeight']),
+      sidePortionWeight: _jsonDouble(value['sidePortionWeight']),
+      portionCount: portionCount,
+      portionWeight: _jsonDouble(value['portionWeight']),
+      createdAt: createdAt,
+      boxes: boxes.length == portionCount
+          ? boxes
+          : List<bool>.generate(
+              portionCount,
+              (index) => index < boxes.length ? boxes[index] : false,
+            ),
+      note: value['note'] is String ? value['note'] as String : '',
+    );
+  }
+}
+
+double _jsonDouble(Object? value) {
+  if (value is num) return value.toDouble();
+  if (value is String) return double.tryParse(value) ?? 0;
+  return 0;
+}
+
+int _jsonInt(Object? value) {
+  if (value is num) return value.round();
+  if (value is String) return int.tryParse(value) ?? 0;
+  return 0;
 }

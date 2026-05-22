@@ -665,6 +665,11 @@ const _translations = {
     'End the day full, not rushed.': 'End the day full, not rushed.',
     'Receptek': 'Recipes',
     'Recept': 'Recipe',
+    'Nehézség': 'Difficulty',
+    'Étrend típus': 'Diet type',
+    'Easy': 'Easy',
+    'Medium': 'Medium',
+    'Advanced': 'Advanced',
     'Kedvencek': 'Favorites',
     'Keresés receptek között': 'Search recipes',
     'Mind': 'All',
@@ -857,6 +862,7 @@ const _translations = {
     'Köret': 'Side',
     'Új étel': 'New food',
     'Új étel hozzáadása': 'Add new food',
+    'Étel szerkesztése': 'Edit food',
     'Étel neve': 'Food name',
     'Nyers g': 'Raw g',
     'Kész g': 'Cooked g',
@@ -939,6 +945,7 @@ const _translations = {
     'Meglévő listához adás': 'Add to existing list',
     'tétel': 'items',
     'Tétel hozzáadása': 'Add item',
+    'Kipipált tételek törlése': 'Clear checked items',
     'Hozzáadva': 'Added',
     'Jegyzet': 'Note',
     'Írj receptet, tippet vagy emlékeztetőt...':
@@ -954,6 +961,7 @@ const _translations = {
     'Próbáld ki ingyen 7 napig': 'Try free for 7 days',
     'Éves csomag −50% kedvezménnyel': 'Yearly plan with −50% discount',
     'Kihagyás': 'Skip',
+    'Kezdés ingyenesen': 'Start free',
     'Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható':
         'You are charged only after day 7 · Cancel anytime',
     'FUNKCIÓ': 'FEATURE',
@@ -1555,6 +1563,7 @@ const _translations = {
     'Meglévő listához adás': 'Zu bestehender Liste hinzufügen',
     'tétel': 'Artikel',
     'Tétel hozzáadása': 'Artikel hinzufügen',
+    'Kipipált tételek törlése': 'Abgehakte Artikel löschen',
     'Hozzáadva': 'Hinzugefügt',
     'Jegyzet': 'Notiz',
     'Írj receptet, tippet vagy emlékeztetőt...':
@@ -1568,9 +1577,15 @@ const _translations = {
     'Több mentés, bevásárlólisták, súlykövetés extrák':
         'Mehr Speicherplätze, Einkaufslisten, Gewichtstracking-Extras',
     'Részletek': 'Details',
+    'Nehézség': 'Schwierigkeit',
+    'Étrend típus': 'Ernährungstyp',
+    'Easy': 'Einfach',
+    'Medium': 'Mittel',
+    'Advanced': 'Fortgeschritten',
     'Próbáld ki ingyen 7 napig': '7 Tage kostenlos testen',
     'Éves csomag −50% kedvezménnyel': 'Jahrespaket mit −50% Rabatt',
     'Kihagyás': 'Überspringen',
+    'Kezdés ingyenesen': 'Kostenlos starten',
     'Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható':
         'Abrechnung erst nach dem 7. Tag · Jederzeit kündbar',
     'FUNKCIÓ': 'FUNKTION',
@@ -2172,6 +2187,7 @@ const _translations = {
     'Meglévő listához adás': 'Añadir a lista existente',
     'tétel': 'artículos',
     'Tétel hozzáadása': 'Añadir artículo',
+    'Kipipált tételek törlése': 'Borrar artículos marcados',
     'Hozzáadva': 'Añadido',
     'Jegyzet': 'Nota',
     'Írj receptet, tippet vagy emlékeztetőt...':
@@ -2186,9 +2202,15 @@ const _translations = {
     'Több mentés, bevásárlólisták, súlykövetés extrák':
         'Más guardados, listas de compra y extras de peso',
     'Részletek': 'Detalles',
+    'Nehézség': 'Dificultad',
+    'Étrend típus': 'Tipo de dieta',
+    'Easy': 'Fácil',
+    'Medium': 'Media',
+    'Advanced': 'Avanzada',
     'Próbáld ki ingyen 7 napig': 'Pruébalo gratis 7 días',
     'Éves csomag −50% kedvezménnyel': 'Plan anual con −50% de descuento',
     'Kihagyás': 'Omitir',
+    'Kezdés ingyenesen': 'Empezar gratis',
     'Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható':
         'Se cobra solo después del día 7 · Cancela cuando quieras',
     'FUNKCIÓ': 'FUNCIÓN',

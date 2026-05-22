@@ -10,6 +10,17 @@ class ShoppingListItem {
       checked: checked ?? this.checked,
     );
   }
+
+  Map<String, Object?> toJson() {
+    return {'name': name, 'checked': checked};
+  }
+
+  static ShoppingListItem? fromJson(Object? value) {
+    if (value is! Map) return null;
+    final name = value['name'];
+    if (name is! String) return null;
+    return ShoppingListItem(name: name, checked: value['checked'] == true);
+  }
 }
 
 class ShoppingList {
@@ -37,5 +48,35 @@ class ShoppingList {
       createdAt: createdAt ?? this.createdAt,
       items: items ?? this.items,
     );
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'createdAt': createdAt.toIso8601String(),
+      'items': [for (final item in items) item.toJson()],
+    };
+  }
+
+  static ShoppingList? fromJson(Object? value) {
+    if (value is! Map) return null;
+    final id = value['id'];
+    final name = value['name'];
+    final createdAtRaw = value['createdAt'];
+    if (id is! String || name is! String || createdAtRaw is! String) {
+      return null;
+    }
+    final createdAt = DateTime.tryParse(createdAtRaw);
+    if (createdAt == null) return null;
+    final rawItems = value['items'];
+    final items = rawItems is List
+        ? [
+            for (final item in rawItems)
+              if (ShoppingListItem.fromJson(item) != null)
+                ShoppingListItem.fromJson(item)!,
+          ]
+        : <ShoppingListItem>[];
+    return ShoppingList(id: id, name: name, createdAt: createdAt, items: items);
   }
 }

@@ -47,4 +47,47 @@ class FoodItem {
       note: note ?? this.note,
     );
   }
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'category': category.name,
+      'rawWeight': rawWeight,
+      'cookedWeight': cookedWeight,
+      'servedWeight': servedWeight,
+      'addedLabel': addedLabel,
+      'note': note,
+    };
+  }
+
+  static FoodItem? fromJson(Object? value) {
+    if (value is! Map) return null;
+    final categoryName = value['category'];
+    final category = FoodCategory.values.firstWhere(
+      (item) => item.name == categoryName,
+      orElse: () => FoodCategory.main,
+    );
+    final id = value['id'];
+    final name = value['name'];
+    if (id is! String || name is! String) return null;
+    return FoodItem(
+      id: id,
+      name: name,
+      category: category,
+      rawWeight: _jsonDouble(value['rawWeight']),
+      cookedWeight: _jsonDouble(value['cookedWeight']),
+      servedWeight: _jsonDouble(value['servedWeight']),
+      addedLabel: value['addedLabel'] is String
+          ? value['addedLabel'] as String
+          : 'today',
+      note: value['note'] is String ? value['note'] as String : '',
+    );
+  }
+}
+
+double _jsonDouble(Object? value) {
+  if (value is num) return value.toDouble();
+  if (value is String) return double.tryParse(value) ?? 0;
+  return 0;
 }
