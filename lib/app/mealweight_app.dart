@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_layout.dart';
 import 'app_state.dart';
 import 'app_strings.dart';
+import '../l10n/app_localizations.dart';
 import '../features/onboarding/onboarding_overlay.dart';
 import '../features/bmi/bmi_screen.dart';
 import '../features/calorie/calorie_screen.dart';
@@ -39,6 +41,14 @@ class _MealWeightAppState extends State<MealWeightApp> {
           return CupertinoApp(
             debugShowCheckedModeBanner: false,
             title: 'Mealr',
+            locale: state.localeOverride,
+            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
             theme: CupertinoThemeData(
               brightness: state.isDark ? Brightness.dark : Brightness.light,
               primaryColor: p.accent,
@@ -177,7 +187,7 @@ class _BottomTabs extends StatelessWidget {
                         state: state,
                         tab: AppTab.foods,
                         icon: CupertinoIcons.square_grid_2x2,
-                        label: 'Meals',
+                        label: tx(context, 'Ételek'),
                       ),
                       _TabItem(
                         state: state,

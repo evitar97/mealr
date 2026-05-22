@@ -24,6 +24,7 @@ enum WeightChartRange {
 }
 
 enum AppLanguage {
+  system(null, 'System'),
   english('en', 'English'),
   hungarian('hu', 'Magyar'),
   german('de', 'Deutsch'),
@@ -31,7 +32,7 @@ enum AppLanguage {
 
   const AppLanguage(this.code, this.label);
 
-  final String code;
+  final String? code;
   final String label;
 }
 
@@ -69,7 +70,7 @@ class AppState extends ChangeNotifier {
     (option) => option.id == 'forest',
     orElse: () => themeOptions.first,
   );
-  AppLanguage language = AppLanguage.english;
+  AppLanguage language = AppLanguage.system;
   bool showOnboarding = true;
   bool isPro = false;
   DateTime? proExpiresAt;
@@ -158,7 +159,7 @@ class AppState extends ChangeNotifier {
 
   void selectLanguage(AppLanguage next) {
     language = next;
-    _preferences.saveLanguageCode(next.code);
+    _preferences.saveLanguageCode(next.code ?? 'system');
     _saveSnapshot();
     notifyListeners();
   }
@@ -185,6 +186,7 @@ class AppState extends ChangeNotifier {
   }
 
   String get _localizedFreePlan => switch (language) {
+    AppLanguage.system => 'Free version',
     AppLanguage.english => 'Free version',
     AppLanguage.german => 'Kostenlose Version',
     AppLanguage.spanish => 'Versión gratuita',
@@ -192,6 +194,7 @@ class AppState extends ChangeNotifier {
   };
 
   String get _localizedNoSubscription => switch (language) {
+    AppLanguage.system => 'No active subscription',
     AppLanguage.english => 'No active subscription',
     AppLanguage.german => 'Kein aktives Abo',
     AppLanguage.spanish => 'Sin suscripción activa',
@@ -199,6 +202,7 @@ class AppState extends ChangeNotifier {
   };
 
   String get _localizedExpiresPrefix => switch (language) {
+    AppLanguage.system => 'Expires: ',
     AppLanguage.english => 'Expires: ',
     AppLanguage.german => 'Läuft ab: ',
     AppLanguage.spanish => 'Expira: ',
@@ -755,7 +759,7 @@ class AppState extends ChangeNotifier {
   Map<String, Object?> _snapshotJson() {
     return {
       'themeId': theme.id,
-      'languageCode': language.code,
+      'languageCode': language.code ?? 'system',
       'showOnboarding': showOnboarding,
       'isDark': isDark,
       'isPro': isPro,
@@ -883,10 +887,26 @@ class AppState extends ChangeNotifier {
   }
 
   AppLanguage? _languageByCode(String code) {
+    if (code == 'system') return AppLanguage.system;
     for (final option in AppLanguage.values) {
       if (option.code == code) return option;
     }
     return null;
+  }
+
+  String resolvedLanguageCode(BuildContext context) {
+    final manualCode = language.code;
+    if (manualCode != null) return manualCode;
+    final platformCode = Localizations.localeOf(context).languageCode;
+    return switch (platformCode) {
+      'hu' || 'de' || 'es' => platformCode,
+      _ => 'en',
+    };
+  }
+
+  Locale? get localeOverride {
+    final code = language.code;
+    return code == null ? null : Locale(code);
   }
 
   Gender _genderByName(Object? value, Gender fallback) {

@@ -3633,7 +3633,7 @@ class _RecipeShoppingListSheetState extends State<RecipeShoppingListSheet> {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    final items = _recipeShoppingItems(widget.recipe, widget.servings);
+    final items = _recipeShoppingItems(context, widget.recipe, widget.servings);
     return AppSheetFrame(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
       child: Column(
@@ -4062,15 +4062,15 @@ String? _ingredientKitchenNote(
   RecipeIngredient ingredient,
   double amount,
 ) {
-  final language = AppScope.of(context).language;
+  final languageCode = AppScope.of(context).resolvedLanguageCode(context);
   final name = ingredient.name.toLowerCase();
   final unit = ingredient.unit;
   String approx(String hu, String en, String de, String es) {
-    return switch (language) {
-      AppLanguage.hungarian => hu,
-      AppLanguage.english => en,
-      AppLanguage.german => de,
-      AppLanguage.spanish => es,
+    return switch (languageCode) {
+      'hu' => hu,
+      'de' => de,
+      'es' => es,
+      _ => en,
     };
   }
 
@@ -4303,14 +4303,14 @@ String? _ingredientKitchenNote(
 }
 
 String? _recipeStepHint(BuildContext context, String step) {
-  final language = AppScope.of(context).language;
+  final languageCode = AppScope.of(context).resolvedLanguageCode(context);
   final lower = step.toLowerCase();
   String local(String hu, String en, String de, String es) {
-    return switch (language) {
-      AppLanguage.hungarian => hu,
-      AppLanguage.english => en,
-      AppLanguage.german => de,
-      AppLanguage.spanish => es,
+    return switch (languageCode) {
+      'hu' => hu,
+      'de' => de,
+      'es' => es,
+      _ => en,
     };
   }
 
@@ -4494,26 +4494,35 @@ String _formatIngredientAmount(double value, String unit) {
   return value.toStringAsFixed(1);
 }
 
-List<ShoppingListItem> _recipeShoppingItems(Recipe recipe, int servings) {
+List<ShoppingListItem> _recipeShoppingItems(
+  BuildContext context,
+  Recipe recipe,
+  int servings,
+) {
   final scale = servings / recipe.baseServings;
   return recipe.ingredients
       .map(
         (ingredient) => ShoppingListItem(
           name:
-              '${ingredient.name} - ${_formatIngredientAmount(ingredient.amount * scale, ingredient.unit)} ${ingredient.unit}',
+              '${tx(context, ingredient.name)} - ${_formatIngredientAmount(ingredient.amount * scale, ingredient.unit)} ${ingredient.unit}',
         ),
       )
       .toList();
 }
 
-List<ShoppingListItem> _mealPrepShoppingItems(MealPrepPlan plan) {
+List<ShoppingListItem> _mealPrepShoppingItems(
+  BuildContext context,
+  MealPrepPlan plan,
+) {
   return [
     ShoppingListItem(
-      name: '${plan.foodName} - ${grams(plan.totalRawNeeded)} raw',
+      name:
+          '${plan.foodName} - ${grams(plan.totalRawNeeded)} ${tx(context, 'nyersen')}',
     ),
     if (plan.hasSide)
       ShoppingListItem(
-        name: '${plan.sideFoodName} - ${grams(plan.sideTotalRawNeeded)} raw',
+        name:
+            '${plan.sideFoodName} - ${grams(plan.sideTotalRawNeeded)} ${tx(context, 'nyersen')}',
       ),
   ];
 }
@@ -4851,7 +4860,7 @@ class _FoodTileState extends State<FoodTile> {
       ),
       secondaryBackground: _SwipeActionBackground(
         icon: CupertinoIcons.trash_fill,
-        label: 'Delete',
+        label: tx(context, 'Törlés'),
         color: const Color(0xFFC04040),
         alignment: Alignment.centerRight,
       ),
@@ -4897,7 +4906,7 @@ class _FoodTileState extends State<FoodTile> {
                           ),
                         ),
                         Text(
-                          'Added: ${_addedLabel(widget.food.addedLabel)}',
+                          '${tx(context, 'Hozzáadva')}: ${_addedLabel(context, widget.food.addedLabel)}',
                           style: TextStyle(
                             color: p.muted,
                             fontSize: 13,
@@ -4929,14 +4938,14 @@ class _FoodTileState extends State<FoodTile> {
                       value: grams(widget.food.rawWeight),
                     ),
                     _WeightRow(
-                      label: 'Cooked weight',
+                      label: tx(context, 'Kész súly'),
                       value: grams(widget.food.cookedWeight),
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            'Served portion',
+                            tx(context, 'Kimért adag'),
                             style: TextStyle(
                               color: accent,
                               fontWeight: FontWeight.w600,
@@ -4997,7 +5006,7 @@ class _FoodTileState extends State<FoodTile> {
                       child: Row(
                         children: [
                           Text(
-                            'Raw equivalent',
+                            tx(context, 'Nyers egyenérték'),
                             style: TextStyle(
                               color: accent,
                               fontWeight: FontWeight.w600,
@@ -5023,7 +5032,7 @@ class _FoodTileState extends State<FoodTile> {
                           Expanded(
                             child: _FoodActionButton(
                               icon: CupertinoIcons.square_arrow_up,
-                              label: 'Share',
+                              label: tx(context, 'Megosztás'),
                               color: p.accent,
                               onPressed: () => _shareFood(context),
                             ),
@@ -5047,7 +5056,7 @@ class _FoodTileState extends State<FoodTile> {
                           Expanded(
                             child: _FoodActionButton(
                               icon: CupertinoIcons.doc_text,
-                              label: 'Note',
+                              label: tx(context, 'Jegyzet'),
                               color: widget.food.hasNote
                                   ? p.noteColor
                                   : p.accent,
@@ -5095,7 +5104,10 @@ class _FoodTileState extends State<FoodTile> {
                       controller: noteController,
                       minLines: 3,
                       maxLines: 6,
-                      placeholder: 'Write a recipe, tip or reminder...',
+                      placeholder: tx(
+                        context,
+                        'Írj receptet, tippet vagy emlékeztetőt...',
+                      ),
                       padding: const EdgeInsets.all(11),
                       style: TextStyle(color: p.text, height: 1.42),
                       placeholderStyle: TextStyle(color: p.muted),
@@ -5134,19 +5146,19 @@ class _FoodTileState extends State<FoodTile> {
     final text = [
       food.name,
       '${tx(context, 'Nyers adag')}: ${grams(food.rawWeight)}',
-      'Cooked weight: ${grams(food.cookedWeight)}',
-      'Served portion: ${grams(food.servedWeight)}',
-      'Raw equivalent: ${grams(food.rawEquivalent)}',
-      if (food.hasNote) 'Note: ${food.note}',
+      '${tx(context, 'Kész súly')}: ${grams(food.cookedWeight)}',
+      '${tx(context, 'Kimért adag')}: ${grams(food.servedWeight)}',
+      '${tx(context, 'Nyers egyenérték')}: ${grams(food.rawEquivalent)}',
+      if (food.hasNote) '${tx(context, 'Jegyzet')}: ${food.note}',
     ].join('\n');
     await const ShareService().shareText(text);
   }
 }
 
-String _addedLabel(String label) {
+String _addedLabel(BuildContext context, String label) {
   return switch (label.trim().toLowerCase()) {
-    'ma' => 'today',
-    'tegnap' => 'yesterday',
+    'ma' => tx(context, 'Ma'),
+    'tegnap' => tx(context, 'Tegnap'),
     _ => label,
   };
 }
@@ -6879,7 +6891,7 @@ class MealPrepDetailSheet extends StatelessWidget {
                             ? () {
                                 state.addShoppingList(
                                   name: '${plan!.name} shopping',
-                                  items: _mealPrepShoppingItems(plan),
+                                  items: _mealPrepShoppingItems(context, plan),
                                 );
                                 Navigator.pop(context);
                               }

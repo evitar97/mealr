@@ -73,8 +73,8 @@ class ProfileScreen extends StatelessWidget {
             children: [
               _SubscriptionStatus(
                 isPro: state.isPro,
-                planLabel: state.subscriptionPlanLabel,
-                expiryLabel: state.subscriptionExpiryLabel,
+                planLabel: state.isPro ? 'Mealr Pro' : tx(context, 'Ingyenes'),
+                expiryLabel: _subscriptionExpiryLabel(context, state),
               ),
               const SizedBox(height: 10),
               _ToggleRow(
@@ -1248,7 +1248,7 @@ class _LanguageSheet extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      tx(context, 'Alapértelmezett: English'),
+                      tx(context, 'System nyelv automatikus felismerése'),
                       style: TextStyle(color: p.muted, fontSize: 13),
                     ),
                   ],
@@ -1305,7 +1305,7 @@ class _LanguageOption extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              language.label,
+              _languageLabel(context, language),
               style: TextStyle(
                 color: active ? p.accent : p.text,
                 fontSize: 16,
@@ -1320,6 +1320,21 @@ class _LanguageOption extends StatelessWidget {
       ),
     );
   }
+}
+
+String _languageLabel(BuildContext context, AppLanguage language) {
+  if (language == AppLanguage.system) return tx(context, 'Rendszer');
+  return language.label;
+}
+
+String _subscriptionExpiryLabel(BuildContext context, AppState state) {
+  if (!state.isPro || state.proExpiresAt == null) {
+    return tx(context, 'Nincs aktív előfizetés');
+  }
+  final date = state.proExpiresAt!;
+  final month = date.month.toString().padLeft(2, '0');
+  final day = date.day.toString().padLeft(2, '0');
+  return '${tx(context, 'Lejár: ')}${date.year}. $month. $day.';
 }
 
 class _SettingsSheet extends StatelessWidget {
@@ -1352,7 +1367,7 @@ class _SettingsSheet extends StatelessWidget {
                 _ProfileRow(
                   icon: CupertinoIcons.globe,
                   title: tx(context, 'Nyelv'),
-                  value: state.language.label,
+                  value: _languageLabel(context, state.language),
                   onTap: () => _showLanguageSheet(context),
                 ),
                 _ToggleRow(
