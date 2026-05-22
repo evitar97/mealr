@@ -1327,6 +1327,22 @@ String _languageLabel(BuildContext context, AppLanguage language) {
   return language.label;
 }
 
+String _brightnessModeLabel(BuildContext context, AppBrightnessMode mode) {
+  return switch (mode) {
+    AppBrightnessMode.system => tx(context, 'Rendszer'),
+    AppBrightnessMode.light => tx(context, 'Világos'),
+    AppBrightnessMode.dark => tx(context, 'Sötét'),
+  };
+}
+
+IconData _brightnessModeIcon(AppBrightnessMode mode) {
+  return switch (mode) {
+    AppBrightnessMode.system => CupertinoIcons.device_phone_portrait,
+    AppBrightnessMode.light => CupertinoIcons.sun_max,
+    AppBrightnessMode.dark => CupertinoIcons.moon,
+  };
+}
+
 String _subscriptionExpiryLabel(BuildContext context, AppState state) {
   if (!state.isPro || state.proExpiresAt == null) {
     return tx(context, 'Nincs aktív előfizetés');
@@ -1370,11 +1386,11 @@ class _SettingsSheet extends StatelessWidget {
                   value: _languageLabel(context, state.language),
                   onTap: () => _showLanguageSheet(context),
                 ),
-                _ToggleRow(
+                _ProfileRow(
                   icon: CupertinoIcons.moon,
-                  title: tx(context, 'Sötét mód'),
-                  value: state.isDark,
-                  onChanged: (_) => state.toggleBrightness(),
+                  title: tx(context, 'Megjelenés módja'),
+                  value: _brightnessModeLabel(context, state.brightnessMode),
+                  onTap: () => _showBrightnessModeSheet(context),
                 ),
               ],
             ),
@@ -1382,9 +1398,22 @@ class _SettingsSheet extends StatelessWidget {
           SectionLabel(tx(context, 'Névjegy')),
           AppCard(
             padding: EdgeInsets.zero,
-            child: _ProfileRow(
-              icon: CupertinoIcons.info,
-              title: tx(context, 'Verzió 1.0.0'),
+            child: Column(
+              children: [
+                _ProfileRow(
+                  icon: CupertinoIcons.sparkles,
+                  title: tx(context, 'Onboarding újraindítása'),
+                  subtitle: tx(context, 'Nyisd meg újra a bevezetőt'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    state.restartOnboarding();
+                  },
+                ),
+                _ProfileRow(
+                  icon: CupertinoIcons.info,
+                  title: tx(context, 'Verzió 1.0.0'),
+                ),
+              ],
             ),
           ),
         ],
@@ -1398,6 +1427,94 @@ class _SettingsSheet extends StatelessWidget {
       barrierDismissible: true,
       barrierColor: const Color(0x99000000),
       builder: (context) => const _LanguageSheet(),
+    );
+  }
+
+  void _showBrightnessModeSheet(BuildContext context) {
+    showCupertinoModalPopup<void>(
+      context: context,
+      barrierDismissible: true,
+      barrierColor: const Color(0x99000000),
+      builder: (context) => const _BrightnessModeSheet(),
+    );
+  }
+}
+
+class _BrightnessModeSheet extends StatelessWidget {
+  const _BrightnessModeSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final p = state.palette;
+    return AppSheetFrame(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _SheetHeader(
+            icon: CupertinoIcons.moon,
+            title: tx(context, 'Megjelenés módja'),
+          ),
+          const SizedBox(height: 16),
+          for (final mode in AppBrightnessMode.values)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: CupertinoButton(
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  state.selectBrightnessMode(mode);
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 13,
+                  ),
+                  decoration: BoxDecoration(
+                    color: state.brightnessMode == mode
+                        ? p.resultBg
+                        : p.bg.withValues(alpha: 0.76),
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(
+                      color: state.brightnessMode == mode
+                          ? p.resultBorder
+                          : p.border,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        _brightnessModeIcon(mode),
+                        color: state.brightnessMode == mode
+                            ? p.accent
+                            : p.muted,
+                        size: 18,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        _brightnessModeLabel(context, mode),
+                        style: TextStyle(
+                          color: state.brightnessMode == mode
+                              ? p.accent
+                              : p.text,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const Spacer(),
+                      if (state.brightnessMode == mode)
+                        Icon(
+                          CupertinoIcons.check_mark_circled_solid,
+                          color: p.accent,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

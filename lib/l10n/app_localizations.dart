@@ -2819,341 +2819,347 @@ abstract class AppLocalizations {
   /// **'Appearance'**
   String get m0451;
 
+  /// Source text: Megjelenés módja
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance mode'**
+  String get m0452;
+
   /// Source text: Meglévő listához adás
   ///
   /// In en, this message translates to:
   /// **'Add to existing list'**
-  String get m0452;
+  String get m0453;
 
   /// Source text: Megosztás
   ///
   /// In en, this message translates to:
   /// **'Share'**
-  String get m0453;
+  String get m0454;
 
   /// Source text: Mégse
   ///
   /// In en, this message translates to:
   /// **'Cancel'**
-  String get m0454;
+  String get m0455;
 
   /// Source text: Meleg banános zabfalatok
   ///
   /// In en, this message translates to:
   /// **'Warm banana oat bites'**
-  String get m0455;
+  String get m0456;
 
   /// Source text: Meleg lencsés feta tányér
   ///
   /// In en, this message translates to:
   /// **'Warm lentil feta plate'**
-  String get m0456;
+  String get m0457;
 
   /// Source text: Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.
   ///
   /// In en, this message translates to:
   /// **'Warm the tortilla, then add the ham, cheese, and vegetables.'**
-  String get m0457;
+  String get m0458;
 
   /// Source text: Mentés
   ///
   /// In en, this message translates to:
   /// **'Save'**
-  String get m0458;
+  String get m0459;
 
   /// Source text: Mentes lendület nap
   ///
   /// In en, this message translates to:
   /// **'Free-From Momentum Day'**
-  String get m0459;
+  String get m0460;
 
   /// Source text: Mentés profilba · a Kalória cél frissítése
   ///
   /// In en, this message translates to:
   /// **'Save to profile · update calorie goal'**
-  String get m0460;
+  String get m0461;
 
   /// Source text: Mentés új listaként
   ///
   /// In en, this message translates to:
   /// **'Save as new list'**
-  String get m0461;
+  String get m0462;
 
   /// Source text: Mentett étel
   ///
   /// In en, this message translates to:
   /// **'Saved food'**
-  String get m0462;
+  String get m0463;
 
   /// Source text: Mentve
   ///
   /// In en, this message translates to:
   /// **'Saved'**
-  String get m0463;
+  String get m0464;
 
   /// Source text: Mentve a profilba · legközelebb automatikusan kitöltve
   ///
   /// In en, this message translates to:
   /// **'Saved to profile · prefilled next time'**
-  String get m0464;
+  String get m0465;
 
   /// Source text: Mentve a profilba.
   ///
   /// In en, this message translates to:
   /// **'Saved to profile.'**
-  String get m0465;
+  String get m0466;
 
   /// Source text: mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.
   ///
   /// In en, this message translates to:
   /// **'weigh the ingredients before cooking, for example chicken + rice + vegetables totaling 950 g.'**
-  String get m0466;
+  String get m0467;
 
   /// Source text: Méz
   ///
   /// In en, this message translates to:
   /// **'Honey'**
-  String get m0467;
+  String get m0468;
 
   /// Source text: MI A PROBLÉMA?
   ///
   /// In en, this message translates to:
   /// **'WHAT IS THE PROBLEM?'**
-  String get m0468;
+  String get m0469;
 
   /// Source text: MIÉRT HASZNOS?
   ///
   /// In en, this message translates to:
   /// **'WHY IS IT USEFUL?'**
-  String get m0469;
+  String get m0470;
 
   /// Source text: Mind
   ///
   /// In en, this message translates to:
   /// **'All'**
-  String get m0470;
+  String get m0471;
 
   /// Source text: MINDEN EGYBEN
   ///
   /// In en, this message translates to:
   /// **'ALL IN ONE'**
-  String get m0471;
+  String get m0472;
 
   /// Source text: Minden hozzávalót tegyél turmixgépbe.
   ///
   /// In en, this message translates to:
   /// **'Put all ingredients into a blender.'**
-  String get m0472;
+  String get m0473;
 
   /// Source text: Mini burgonyás tzatziki doboz
   ///
   /// In en, this message translates to:
   /// **'Mini potato tzatziki box'**
-  String get m0473;
+  String get m0474;
 
   /// Source text: Mini csirkés wrap
   ///
   /// In en, this message translates to:
   /// **'Mini chicken wrap'**
-  String get m0474;
+  String get m0475;
 
   /// Source text: Mini tortilla
   ///
   /// In en, this message translates to:
   /// **'Mini tortilla'**
-  String get m0475;
+  String get m0476;
 
   /// Source text: Mogyoróvaj
   ///
   /// In en, this message translates to:
   /// **'Peanut butter'**
-  String get m0476;
+  String get m0477;
 
   /// Source text: Morzsold rá a fetát, és frissen tálald.
   ///
   /// In en, this message translates to:
   /// **'Crumble the feta on top and serve fresh.'**
-  String get m0477;
+  String get m0478;
 
   /// Source text: Morzsold rá a fetát, és tálald a zöldséges bulgurral.
   ///
   /// In en, this message translates to:
   /// **'Crumble the feta on top and serve with the vegetable bulgur.'**
-  String get m0478;
+  String get m0479;
 
   /// Source text: mustár
   ///
   /// In en, this message translates to:
   /// **'mustard'**
-  String get m0479;
+  String get m0480;
 
   /// Source text: Mustár
   ///
   /// In en, this message translates to:
   /// **'Mustard'**
-  String get m0480;
+  String get m0481;
 
   /// Source text: Mustáros sertésszűz burgonyával
   ///
   /// In en, this message translates to:
   /// **'Mustard pork tenderloin with potatoes'**
-  String get m0481;
+  String get m0482;
 
   /// Source text: nap
   ///
   /// In en, this message translates to:
   /// **'days'**
-  String get m0482;
+  String get m0483;
 
   /// Source text: Napi aktivitás
   ///
   /// In en, this message translates to:
   /// **'Daily activity'**
-  String get m0483;
+  String get m0484;
 
   /// Source text: Napi bontás
   ///
   /// In en, this message translates to:
   /// **'Daily breakdown'**
-  String get m0484;
+  String get m0485;
 
   /// Source text: NAPI SZINTENTARTÓ KALÓRIA
   ///
   /// In en, this message translates to:
   /// **'DAILY MAINTENANCE CALORIES'**
-  String get m0485;
+  String get m0486;
 
   /// Source text: Nasi
   ///
   /// In en, this message translates to:
   /// **'Snack'**
-  String get m0486;
+  String get m0487;
 
   /// Source text: Nehézség
   ///
   /// In en, this message translates to:
   /// **'Difficulty'**
-  String get m0487;
+  String get m0488;
 
   /// Source text: Nem
   ///
   /// In en, this message translates to:
   /// **'Gender'**
-  String get m0488;
+  String get m0489;
 
   /// Source text: nem a kalóriájából.
   ///
   /// In en, this message translates to:
   /// **'not its calories.'**
-  String get m0489;
+  String get m0490;
 
   /// Source text: Nem csak mérlegelés: egy app a kajás rutinodhoz.
   ///
   /// In en, this message translates to:
   /// **'Not just weighing: one app for your food routine.'**
-  String get m0490;
+  String get m0491;
 
   /// Source text: nem változik a kalóriája.
   ///
   /// In en, this message translates to:
   /// **'does not change its calories.'**
-  String get m0491;
+  String get m0492;
 
   /// Source text: Nevezd el és add hozzá a tételeket
   ///
   /// In en, this message translates to:
   /// **'Name it and add the items'**
-  String get m0492;
+  String get m0493;
 
   /// Source text: Névjegy
   ///
   /// In en, this message translates to:
   /// **'About'**
-  String get m0493;
+  String get m0494;
 
   /// Source text: Nincs aktív előfizetés
   ///
   /// In en, this message translates to:
   /// **'No active subscription'**
-  String get m0494;
+  String get m0495;
 
   /// Source text: nincs kiemelt allergén
   ///
   /// In en, this message translates to:
   /// **'no highlighted allergen'**
-  String get m0495;
+  String get m0496;
 
   /// Source text: Nincs köret
   ///
   /// In en, this message translates to:
   /// **'No side'**
-  String get m0496;
+  String get m0497;
 
   /// Source text: Nincs mentett étel
   ///
   /// In en, this message translates to:
   /// **'No saved food'**
-  String get m0497;
+  String get m0498;
 
   /// Source text: Nincs találat.
   ///
   /// In en, this message translates to:
   /// **'No results.'**
-  String get m0498;
+  String get m0499;
 
   /// Source text: Nincs változás a kezdő súlyhoz képest
   ///
   /// In en, this message translates to:
   /// **'No change compared with starting weight'**
-  String get m0499;
+  String get m0500;
 
   /// Source text: Nő
   ///
   /// In en, this message translates to:
   /// **'Female'**
-  String get m0500;
+  String get m0501;
 
   /// Source text: Normál
   ///
   /// In en, this message translates to:
   /// **'Normal'**
-  String get m0501;
+  String get m0502;
 
   /// Source text: Normál receptek
   ///
   /// In en, this message translates to:
   /// **'Normal'**
-  String get m0502;
+  String get m0503;
 
   /// Source text: Normál súly
   ///
   /// In en, this message translates to:
   /// **'Normal weight'**
-  String get m0503;
+  String get m0504;
 
   /// Source text: Növényi nap
   ///
   /// In en, this message translates to:
   /// **'Plant Day'**
-  String get m0504;
+  String get m0505;
 
   /// Source text: Növényi ritmus nap
   ///
   /// In en, this message translates to:
   /// **'Plant Rhythm Day'**
-  String get m0505;
+  String get m0506;
 
   /// Source text: Nyelv
   ///
   /// In en, this message translates to:
   /// **'Language'**
-  String get m0506;
+  String get m0507;
 
   /// Source text: Nyelv, téma, mód és verzió
   ///
   /// In en, this message translates to:
   /// **'Language, theme, mode, and version'**
-  String get m0507;
+  String get m0508;
 
   /// Source text: nyers ÷ kész × kimért =
   /// nyers egyenérték
@@ -3161,1441 +3167,1465 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'raw ÷ cooked × served =\nraw equivalent\n'**
-  String get m0508;
+  String get m0509;
 
   /// Source text: Nyers adag
   ///
   /// In en, this message translates to:
   /// **'Raw amount'**
-  String get m0509;
+  String get m0510;
 
   /// Source text: Nyers egyenérték
   ///
   /// In en, this message translates to:
   /// **'Raw equivalent'**
-  String get m0510;
+  String get m0511;
 
   /// Source text: nyers egyenértéket
   ///
   /// In en, this message translates to:
   /// **'raw equivalent'**
-  String get m0511;
+  String get m0512;
 
   /// Source text: nyers egyenértéket.
   ///
   /// In en, this message translates to:
   /// **'raw equivalent.'**
-  String get m0512;
+  String get m0513;
 
   /// Source text: Nyers g
   ///
   /// In en, this message translates to:
   /// **'Raw g'**
-  String get m0513;
+  String get m0514;
 
   /// Source text: Nyers súly kalkulátor
   ///
   /// In en, this message translates to:
   /// **'Raw weight calculator'**
-  String get m0514;
+  String get m0515;
 
   /// Source text: nyersen
   ///
   /// In en, this message translates to:
   /// **'raw'**
-  String get m0515;
+  String get m0516;
+
+  /// Source text: Nyisd meg újra a bevezetőt
+  ///
+  /// In en, this message translates to:
+  /// **'Open the intro again'**
+  String get m0517;
 
   /// Source text: Nyugodt energia nap
   ///
   /// In en, this message translates to:
   /// **'Calm Energy Day'**
-  String get m0516;
+  String get m0518;
 
   /// Source text: Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.
   ///
   /// In en, this message translates to:
   /// **'A calm, practical tool for a more accurate eating routine.'**
-  String get m0517;
+  String get m0519;
 
   /// Source text: Obezitás
   ///
   /// In en, this message translates to:
   /// **'Obesity'**
-  String get m0518;
+  String get m0520;
 
   /// Source text: Okos kosár nap
   ///
   /// In en, this message translates to:
   /// **'Smart Basket Day'**
-  String get m0519;
+  String get m0521;
 
   /// Source text: Okos nap
   ///
   /// In en, this message translates to:
   /// **'Smart Day'**
-  String get m0520;
+  String get m0522;
 
   /// Source text: Olcsó okos nap
   ///
   /// In en, this message translates to:
   /// **'Smart Budget Day'**
-  String get m0521;
+  String get m0523;
 
   /// Source text: Olívaolaj
   ///
   /// In en, this message translates to:
   /// **'Olive oil'**
-  String get m0522;
+  String get m0524;
+
+  /// Source text: Onboarding újraindítása
+  ///
+  /// In en, this message translates to:
+  /// **'Restart onboarding'**
+  String get m0525;
 
   /// Source text: Összes
   ///
   /// In en, this message translates to:
   /// **'Total'**
-  String get m0523;
+  String get m0526;
 
   /// Source text: Összes kalória
   ///
   /// In en, this message translates to:
   /// **'Total calories'**
-  String get m0524;
+  String get m0527;
 
   /// Source text: össztömeget
   ///
   /// In en, this message translates to:
   /// **'total weight'**
-  String get m0525;
+  String get m0528;
 
   /// Source text: Oszd dobozokra a kuszkuszt, csirkét és brokkolit.
   ///
   /// In en, this message translates to:
   /// **'Divide the couscous, chicken, and broccoli into boxes.'**
-  String get m0526;
+  String get m0529;
 
   /// Source text: Oszd dobozokra a rizst, csirkét és brokkolit.
   ///
   /// In en, this message translates to:
   /// **'Divide the rice, chicken, and broccoli into boxes.'**
-  String get m0527;
+  String get m0530;
 
   /// Source text: Overnight oats előre bekészítve
   ///
   /// In en, this message translates to:
   /// **'Overnight oats prepped ahead'**
-  String get m0528;
+  String get m0531;
 
   /// Source text: Paprika
   ///
   /// In en, this message translates to:
   /// **'Pepper'**
-  String get m0529;
+  String get m0532;
 
   /// Source text: Paradicsom
   ///
   /// In en, this message translates to:
   /// **'Tomato'**
-  String get m0530;
+  String get m0533;
 
   /// Source text: Paradicsompüré
   ///
   /// In en, this message translates to:
   /// **'Tomato paste'**
-  String get m0531;
+  String get m0534;
 
   /// Source text: Paradicsomszósszal és sajttal süsd készre.
   ///
   /// In en, this message translates to:
   /// **'Bake with tomato sauce and cheese until done.'**
-  String get m0532;
+  String get m0535;
 
   /// Source text: Paradicsomszósz
   ///
   /// In en, this message translates to:
   /// **'Tomato sauce'**
-  String get m0533;
+  String get m0536;
 
   /// Source text: Pénztárca plusz nap
   ///
   /// In en, this message translates to:
   /// **'Wallet Plus Day'**
-  String get m0534;
+  String get m0537;
 
   /// Source text: Pénztárcabarát
   ///
   /// In en, this message translates to:
   /// **'Budget-friendly'**
-  String get m0535;
+  String get m0538;
 
   /// Source text: perc
   ///
   /// In en, this message translates to:
   /// **'min'**
-  String get m0536;
+  String get m0539;
 
   /// Source text: Pirítsd meg a kenyeret.
   ///
   /// In en, this message translates to:
   /// **'Toast the bread.'**
-  String get m0537;
+  String get m0540;
 
   /// Source text: Pl. Hétvégi főzés
   ///
   /// In en, this message translates to:
   /// **'E.g. Weekend cooking'**
-  String get m0538;
+  String get m0541;
 
   /// Source text: Plan a calm, strong day.
   ///
   /// In en, this message translates to:
   /// **'Plan a calm, strong day.'**
-  String get m0539;
+  String get m0542;
 
   /// Source text: Pörgős nap
   ///
   /// In en, this message translates to:
   /// **'Busy Day'**
-  String get m0540;
+  String get m0543;
 
   /// Source text: Praktikus nap
   ///
   /// In en, this message translates to:
   /// **'Practical Day'**
-  String get m0541;
+  String get m0544;
 
   /// Source text: Prep what makes later easier.
   ///
   /// In en, this message translates to:
   /// **'Prep what makes later easier.'**
-  String get m0542;
+  String get m0545;
 
   /// Source text: Pro
   ///
   /// In en, this message translates to:
   /// **'Pro'**
-  String get m0543;
+  String get m0546;
 
   /// Source text: Pro mód teszt
   ///
   /// In en, this message translates to:
   /// **'Pro mode test'**
-  String get m0544;
+  String get m0547;
 
   /// Source text: Pro statisztika
   ///
   /// In en, this message translates to:
   /// **'Pro statistics'**
-  String get m0545;
+  String get m0548;
 
   /// Source text: Pro-val feloldható extrák
   ///
   /// In en, this message translates to:
   /// **'Unlocked with Pro'**
-  String get m0546;
+  String get m0549;
 
   /// Source text: Próbáld ki ingyen 7 napig
   ///
   /// In en, this message translates to:
   /// **'Try free for 7 days'**
-  String get m0547;
+  String get m0550;
 
   /// Source text: Profil
   ///
   /// In en, this message translates to:
   /// **'Profile'**
-  String get m0548;
+  String get m0551;
 
   /// Source text: Progresszió törlése
   ///
   /// In en, this message translates to:
   /// **'Delete progress'**
-  String get m0549;
+  String get m0552;
 
   /// Source text: Protein joghurt pohár
   ///
   /// In en, this message translates to:
   /// **'Protein yogurt cup'**
-  String get m0550;
+  String get m0553;
 
   /// Source text: Protein zabkása bogyós gyümölccsel
   ///
   /// In en, this message translates to:
   /// **'Protein oatmeal with berries'**
-  String get m0551;
+  String get m0554;
 
   /// Source text: Pulykagolyók cukkinispagettivel
   ///
   /// In en, this message translates to:
   /// **'Turkey meatballs with zucchini noodles'**
-  String get m0552;
+  String get m0555;
 
   /// Source text: Pulykamell sonka
   ///
   /// In en, this message translates to:
   /// **'Turkey breast ham'**
-  String get m0553;
+  String get m0556;
 
   /// Source text: Pulykás bolognai tészta
   ///
   /// In en, this message translates to:
   /// **'Turkey bolognese pasta'**
-  String get m0554;
+  String get m0557;
 
   /// Source text: Pulykás bolognai tészta light adagban
   ///
   /// In en, this message translates to:
   /// **'Turkey bolognese pasta, light portion'**
-  String get m0555;
+  String get m0558;
 
   /// Source text: Pulykás cottage reggeli doboz
   ///
   /// In en, this message translates to:
   /// **'Turkey cottage breakfast box'**
-  String get m0556;
+  String get m0559;
 
   /// Source text: Pulykás sajtos tekercsek
   ///
   /// In en, this message translates to:
   /// **'Turkey cheese rolls'**
-  String get m0557;
+  String get m0560;
 
   /// Source text: Pulykás tojásos wrap
   ///
   /// In en, this message translates to:
   /// **'Turkey egg wrap'**
-  String get m0558;
+  String get m0561;
 
   /// Source text: Pulykasonka
   ///
   /// In en, this message translates to:
   /// **'Turkey ham'**
-  String get m0559;
+  String get m0562;
 
   /// Source text: Pulykával töltött cukkini
   ///
   /// In en, this message translates to:
   /// **'Turkey stuffed zucchini'**
-  String get m0560;
+  String get m0563;
 
   /// Source text: Quinoa
   ///
   /// In en, this message translates to:
   /// **'Quinoa'**
-  String get m0561;
+  String get m0564;
 
   /// Source text: Quinoás bogyós snack pohár
   ///
   /// In en, this message translates to:
   /// **'Quinoa berry snack cup'**
-  String get m0562;
+  String get m0565;
 
   /// Source text: Quinoás joghurtos reggeli
   ///
   /// In en, this message translates to:
   /// **'Quinoa yogurt breakfast'**
-  String get m0563;
+  String get m0566;
 
   /// Source text: rákfélék
   ///
   /// In en, this message translates to:
   /// **'crustaceans'**
-  String get m0564;
+  String get m0567;
 
   /// Source text: Recept
   ///
   /// In en, this message translates to:
   /// **'Recipe'**
-  String get m0565;
+  String get m0568;
 
   /// Source text: Recept szorzó
   ///
   /// In en, this message translates to:
   /// **'Recipe multiplier'**
-  String get m0566;
+  String get m0569;
 
   /// Source text: Receptek
   ///
   /// In en, this message translates to:
   /// **'Recipes'**
-  String get m0567;
+  String get m0570;
 
   /// Source text: Reggeli
   ///
   /// In en, this message translates to:
   /// **'Breakfast'**
-  String get m0568;
+  String get m0571;
 
   /// Source text: Rendezett doboz nap
   ///
   /// In en, this message translates to:
   /// **'Organized Box Day'**
-  String get m0569;
+  String get m0572;
 
   /// Source text: Rendszer
   ///
   /// In en, this message translates to:
   /// **'System'**
-  String get m0570;
+  String get m0573;
 
   /// Source text: Rendszeres használathoz
   ///
   /// In en, this message translates to:
   /// **'For everyday prep'**
-  String get m0571;
+  String get m0574;
 
   /// Source text: Répa
   ///
   /// In en, this message translates to:
   /// **'Carrot'**
-  String get m0572;
+  String get m0575;
 
   /// Source text: Reszeld vagy kockázd bele az almát.
   ///
   /// In en, this message translates to:
   /// **'Grate or dice the apple into it.'**
-  String get m0573;
+  String get m0576;
 
   /// Source text: Reszelt sajt
   ///
   /// In en, this message translates to:
   /// **'Grated cheese'**
-  String get m0574;
+  String get m0577;
 
   /// Source text: Részletek
   ///
   /// In en, this message translates to:
   /// **'Details'**
-  String get m0575;
+  String get m0578;
 
   /// Source text: Rétegezd rá a granolát és a szeletelt banánt.
   ///
   /// In en, this message translates to:
   /// **'Layer the granola and sliced banana on top.'**
-  String get m0576;
+  String get m0579;
 
   /// Source text: Rizs
   ///
   /// In en, this message translates to:
   /// **'Rice'**
-  String get m0577;
+  String get m0580;
 
   /// Source text: Rizsszelet
   ///
   /// In en, this message translates to:
   /// **'Rice cake'**
-  String get m0578;
+  String get m0581;
 
   /// Source text: Rizsszelet cottage cheese-zel
   ///
   /// In en, this message translates to:
   /// **'Rice cakes with cottage cheese'**
-  String get m0579;
+  String get m0582;
 
   /// Source text: Rizstészta
   ///
   /// In en, this message translates to:
   /// **'Rice noodles'**
-  String get m0580;
+  String get m0583;
 
   /// Source text: Rögzített súlyok
   ///
   /// In en, this message translates to:
   /// **'Recorded weights'**
-  String get m0581;
+  String get m0584;
 
   /// Source text: Rövid elkészítési idejű ételekkel
   ///
   /// In en, this message translates to:
   /// **'With meals that are quick to prepare'**
-  String get m0582;
+  String get m0585;
 
   /// Source text: Rövid konyha nap
   ///
   /// In en, this message translates to:
   /// **'Short Kitchen Day'**
-  String get m0583;
+  String get m0586;
 
   /// Source text: Saláta
   ///
   /// In en, this message translates to:
   /// **'Lettuce'**
-  String get m0584;
+  String get m0587;
 
   /// Source text: Saláta mix
   ///
   /// In en, this message translates to:
   /// **'Salad mix'**
-  String get m0585;
+  String get m0588;
 
   /// Source text: Serpenyőben süsd össze sonkával, sajttal és spenóttal.
   ///
   /// In en, this message translates to:
   /// **'Cook in a pan with ham, cheese, and spinach.'**
-  String get m0586;
+  String get m0589;
 
   /// Source text: Sertésszűz
   ///
   /// In en, this message translates to:
   /// **'Pork tenderloin'**
-  String get m0587;
+  String get m0590;
 
   /// Source text: Sertésszűz kuszkusszal
   ///
   /// In en, this message translates to:
   /// **'Pork tenderloin with couscous'**
-  String get m0588;
+  String get m0591;
 
   /// Source text: Sertésszűz kuszkusz salátával
   ///
   /// In en, this message translates to:
   /// **'Pork tenderloin with couscous salad'**
-  String get m0589;
+  String get m0592;
 
   /// Source text: Set up dinner before the rush.
   ///
   /// In en, this message translates to:
   /// **'Set up dinner before the rush.'**
-  String get m0590;
+  String get m0593;
 
   /// Source text: Shakshuka reggeli tál
   ///
   /// In en, this message translates to:
   /// **'Shakshuka breakfast bowl'**
-  String get m0591;
+  String get m0594;
 
   /// Source text: Sietős lendület nap
   ///
   /// In en, this message translates to:
   /// **'Busy Momentum Day'**
-  String get m0592;
+  String get m0595;
 
   /// Source text: Sietős nap
   ///
   /// In en, this message translates to:
   /// **'Fast Day'**
-  String get m0593;
+  String get m0596;
 
   /// Source text: Skyr vagy görög joghurt
   ///
   /// In en, this message translates to:
   /// **'Skyr or Greek yogurt'**
-  String get m0594;
+  String get m0597;
 
   /// Source text: Slow down, eat well, rest easy.
   ///
   /// In en, this message translates to:
   /// **'Slow down, eat well, rest easy.'**
-  String get m0595;
+  String get m0598;
 
   /// Source text: Small choices, solid momentum.
   ///
   /// In en, this message translates to:
   /// **'Small choices, solid momentum.'**
-  String get m0596;
+  String get m0599;
 
   /// Source text: Só, bors
   ///
   /// In en, this message translates to:
   /// **'Salt, pepper'**
-  String get m0597;
+  String get m0600;
 
   /// Source text: Sonkás sajtos omlett
   ///
   /// In en, this message translates to:
   /// **'Ham and cheese omelette'**
-  String get m0598;
+  String get m0601;
 
   /// Source text: Sonkás tojásos abonett tál
   ///
   /// In en, this message translates to:
   /// **'Ham egg crispbread plate'**
-  String get m0599;
+  String get m0602;
 
   /// Source text: Sós cottage cheese tál
   ///
   /// In en, this message translates to:
   /// **'Savory cottage cheese bowl'**
-  String get m0600;
+  String get m0603;
+
+  /// Source text: Sötét
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get m0604;
 
   /// Source text: Sötét mód
   ///
   /// In en, this message translates to:
   /// **'Dark mode'**
-  String get m0601;
+  String get m0605;
 
   /// Source text: Sovány
   ///
   /// In en, this message translates to:
   /// **'Underweight'**
-  String get m0602;
+  String get m0606;
 
   /// Source text: Sovány marhahús
   ///
   /// In en, this message translates to:
   /// **'Lean beef'**
-  String get m0603;
+  String get m0607;
 
   /// Source text: Spenót
   ///
   /// In en, this message translates to:
   /// **'Spinach'**
-  String get m0604;
+  String get m0608;
 
   /// Source text: Spenótos kókuszos csicseriborsó
   ///
   /// In en, this message translates to:
   /// **'Spinach coconut chickpeas'**
-  String get m0605;
+  String get m0609;
 
   /// Source text: Sportos nap
   ///
   /// In en, this message translates to:
   /// **'Sporty Day'**
-  String get m0606;
+  String get m0610;
 
   /// Source text: Stabil erő nap
   ///
   /// In en, this message translates to:
   /// **'Steady Strength Day'**
-  String get m0607;
+  String get m0611;
 
   /// Source text: Stagnál
   ///
   /// In en, this message translates to:
   /// **'Stable'**
-  String get m0608;
+  String get m0612;
 
   /// Source text: Start simple, stay steady.
   ///
   /// In en, this message translates to:
   /// **'Start simple, stay steady.'**
-  String get m0609;
+  String get m0613;
 
   /// Source text: Stay fueled and focused.
   ///
   /// In en, this message translates to:
   /// **'Stay fueled and focused.'**
-  String get m0610;
+  String get m0614;
 
   /// Source text: Sült csirkemell
   ///
   /// In en, this message translates to:
   /// **'Roasted chicken breast'**
-  String get m0611;
+  String get m0615;
 
   /// Source text: Sült hal zöldségágyon
   ///
   /// In en, this message translates to:
   /// **'Baked fish on vegetables'**
-  String get m0612;
+  String get m0616;
 
   /// Source text: Súly
   ///
   /// In en, this message translates to:
   /// **'Weight'**
-  String get m0613;
+  String get m0617;
 
   /// Source text: Súly (kg)
   ///
   /// In en, this message translates to:
   /// **'Weight (kg)'**
-  String get m0614;
+  String get m0618;
 
   /// Source text: Súly követés
   ///
   /// In en, this message translates to:
   /// **'Weight tracking'**
-  String get m0615;
+  String get m0619;
 
   /// Source text: Súly progresszió
   ///
   /// In en, this message translates to:
   /// **'Weight progress'**
-  String get m0616;
+  String get m0620;
 
   /// Source text: Súly szerkesztése
   ///
   /// In en, this message translates to:
   /// **'Edit weight'**
-  String get m0617;
+  String get m0621;
 
   /// Source text: Súlykövetés
   ///
   /// In en, this message translates to:
   /// **'Weight tracking'**
-  String get m0618;
+  String get m0622;
 
   /// Source text: Súlykövetés diagram
   ///
   /// In en, this message translates to:
   /// **'Weight tracking chart'**
-  String get m0619;
+  String get m0623;
 
   /// Source text: Súlynapló szerkesztés
   ///
   /// In en, this message translates to:
   /// **'Weight log editing'**
-  String get m0620;
+  String get m0624;
 
   /// Source text: Süsd készre, amíg a hal omlós lesz.
   ///
   /// In en, this message translates to:
   /// **'Bake until the fish is tender and flaky.'**
-  String get m0621;
+  String get m0625;
 
   /// Source text: Süsd vagy párold készre paradicsomszószban.
   ///
   /// In en, this message translates to:
   /// **'Bake or simmer in tomato sauce until done.'**
-  String get m0622;
+  String get m0626;
 
   /// Source text: Sütőpor
   ///
   /// In en, this message translates to:
   /// **'Baking powder'**
-  String get m0623;
+  String get m0627;
 
   /// Source text: Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.
   ///
   /// In en, this message translates to:
   /// **'Calculate your daily maintenance calories from age, weight, height, and activity.'**
-  String get m0624;
+  String get m0628;
 
   /// Source text: Személyes adatok
   ///
   /// In en, this message translates to:
   /// **'Personal data'**
-  String get m0625;
+  String get m0629;
 
   /// Source text: SZEMÉLYES ALAPOK
   ///
   /// In en, this message translates to:
   /// **'PERSONAL BASICS'**
-  String get m0626;
+  String get m0630;
 
   /// Source text: Szép napot
   ///
   /// In en, this message translates to:
   /// **'Good day'**
-  String get m0627;
+  String get m0631;
 
   /// Source text: Szerkesztés
   ///
   /// In en, this message translates to:
   /// **'Edit'**
-  String get m0628;
+  String get m0632;
 
   /// Source text: szezám
   ///
   /// In en, this message translates to:
   /// **'sesame'**
-  String get m0629;
+  String get m0633;
 
   /// Source text: Szezámmag
   ///
   /// In en, this message translates to:
   /// **'Sesame seeds'**
-  String get m0630;
+  String get m0634;
 
   /// Source text: szója
   ///
   /// In en, this message translates to:
   /// **'soy'**
-  String get m0631;
+  String get m0635;
 
   /// Source text: Szójagranulátum
   ///
   /// In en, this message translates to:
   /// **'Soy granules'**
-  String get m0632;
+  String get m0636;
 
   /// Source text: Szójaszósszal ízesítsd, majd süsd össze.
   ///
   /// In en, this message translates to:
   /// **'Season with soy sauce, then cook together.'**
-  String get m0633;
+  String get m0637;
 
   /// Source text: Szójaszósz
   ///
   /// In en, this message translates to:
   /// **'Soy sauce'**
-  String get m0634;
+  String get m0638;
 
   /// Source text: Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.
   ///
   /// In en, this message translates to:
   /// **'Sprinkle with pumpkin seeds, then season to taste.'**
-  String get m0635;
+  String get m0639;
 
   /// Source text: Szükséges kész étel
   ///
   /// In en, this message translates to:
   /// **'Cooked food needed'**
-  String get m0636;
+  String get m0640;
 
   /// Source text: Szükséges kész főétel
   ///
   /// In en, this message translates to:
   /// **'Cooked main needed'**
-  String get m0637;
+  String get m0641;
 
   /// Source text: Szükséges kész köret
   ///
   /// In en, this message translates to:
   /// **'Cooked side needed'**
-  String get m0638;
+  String get m0642;
 
   /// Source text: Szükséges nyers alapanyag
   ///
   /// In en, this message translates to:
   /// **'Raw ingredients needed'**
-  String get m0639;
+  String get m0643;
 
   /// Source text: Szükséges nyers főétel
   ///
   /// In en, this message translates to:
   /// **'Raw main needed'**
-  String get m0640;
+  String get m0644;
 
   /// Source text: Szükséges nyers köret
   ///
   /// In en, this message translates to:
   /// **'Raw side needed'**
-  String get m0641;
+  String get m0645;
 
   /// Source text: Takarékos nap
   ///
   /// In en, this message translates to:
   /// **'Saver Day'**
-  String get m0642;
+  String get m0646;
 
   /// Source text: Tálald a curry alapot rizzsel.
   ///
   /// In en, this message translates to:
   /// **'Serve the curry base with rice.'**
-  String get m0643;
+  String get m0647;
 
   /// Source text: Tálald bogyós gyümölccsel és chia maggal.
   ///
   /// In en, this message translates to:
   /// **'Serve with berries and chia seeds.'**
-  String get m0644;
+  String get m0648;
 
   /// Source text: Tálald bogyós gyümölccsel.
   ///
   /// In en, this message translates to:
   /// **'Serve with berries.'**
-  String get m0645;
+  String get m0649;
 
   /// Source text: Tálald cottage cheese-zel, abonettel és tökmaggal.
   ///
   /// In en, this message translates to:
   /// **'Serve with cottage cheese, crispbread, and pumpkin seeds.'**
-  String get m0646;
+  String get m0650;
 
   /// Source text: Tálald fetával és tzatzikivel.
   ///
   /// In en, this message translates to:
   /// **'Serve with feta and tzatziki.'**
-  String get m0647;
+  String get m0651;
 
   /// Source text: Tálald gyümölccsel.
   ///
   /// In en, this message translates to:
   /// **'Serve with fruit.'**
-  String get m0648;
+  String get m0652;
 
   /// Source text: Tálald pitával, salátával és joghurtos szósszal.
   ///
   /// In en, this message translates to:
   /// **'Serve with pita, salad, and yogurt sauce.'**
-  String get m0649;
+  String get m0653;
 
   /// Source text: Tálald salátával és joghurtos öntettel.
   ///
   /// In en, this message translates to:
   /// **'Serve with salad and yogurt dressing.'**
-  String get m0650;
+  String get m0654;
 
   /// Source text: Tálald zöldbabbal és kevés mustáros szósszal.
   ///
   /// In en, this message translates to:
   /// **'Serve with green beans and a little mustard sauce.'**
-  String get m0651;
+  String get m0655;
 
   /// Source text: Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.
   ///
   /// In en, this message translates to:
   /// **'Cook small pancakes in a non-stick pan.'**
-  String get m0652;
+  String get m0656;
 
   /// Source text: Tartsd kézben az étkezéseidet.
   ///
   /// In en, this message translates to:
   /// **'Keep your meals on track.'**
-  String get m0653;
+  String get m0657;
 
   /// Source text: Te adod meg, hány gramm kerüljön egy adagba.
   ///
   /// In en, this message translates to:
   /// **'You set how many grams go into each portion.'**
-  String get m0654;
+  String get m0658;
 
   /// Source text: Tedd dobozba hummusszal együtt.
   ///
   /// In en, this message translates to:
   /// **'Pack them into a box with hummus.'**
-  String get m0655;
+  String get m0659;
 
   /// Source text: Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.
   ///
   /// In en, this message translates to:
   /// **'Refrigerate overnight, then stir and eat in the morning.'**
-  String get m0656;
+  String get m0660;
 
   /// Source text: Tedd rá a csirkét és az öntetet.
   ///
   /// In en, this message translates to:
   /// **'Add the chicken and dressing on top.'**
-  String get m0657;
+  String get m0661;
 
   /// Source text: Tedd rá a gyümölcsöt, mézet és diót.
   ///
   /// In en, this message translates to:
   /// **'Top with fruit, honey, and walnuts.'**
-  String get m0658;
+  String get m0662;
 
   /// Source text: Tedd rá a paradicsomot és szórd meg tökmaggal.
   ///
   /// In en, this message translates to:
   /// **'Add the tomato and sprinkle with pumpkin seeds.'**
-  String get m0659;
+  String get m0663;
 
   /// Source text: Tedd rá a tojást és frissen tálald.
   ///
   /// In en, this message translates to:
   /// **'Top with the egg and serve fresh.'**
-  String get m0660;
+  String get m0664;
 
   /// Source text: Tedd rá az epret és a mandulát.
   ///
   /// In en, this message translates to:
   /// **'Top with strawberries and almonds.'**
-  String get m0661;
+  String get m0665;
 
   /// Source text: Tegnap
   ///
   /// In en, this message translates to:
   /// **'Yesterday'**
-  String get m0662;
+  String get m0666;
 
   /// Source text: Tej
   ///
   /// In en, this message translates to:
   /// **'Milk'**
-  String get m0663;
+  String get m0667;
 
   /// Source text: Tej vagy növényi ital
   ///
   /// In en, this message translates to:
   /// **'Milk or plant drink'**
-  String get m0664;
+  String get m0668;
 
   /// Source text: tejfehérje
   ///
   /// In en, this message translates to:
   /// **'milk protein'**
-  String get m0665;
+  String get m0669;
 
   /// Source text: Tekerd fel és vágd félbe.
   ///
   /// In en, this message translates to:
   /// **'Roll it up and cut in half.'**
-  String get m0666;
+  String get m0670;
 
   /// Source text: Teljes kiőrlésű abonett
   ///
   /// In en, this message translates to:
   /// **'Wholegrain crispbread'**
-  String get m0667;
+  String get m0671;
 
   /// Source text: Teljes kiőrlésű keksz
   ///
   /// In en, this message translates to:
   /// **'Wholegrain crackers'**
-  String get m0668;
+  String get m0672;
 
   /// Source text: Teljes kiőrlésű kenyér
   ///
   /// In en, this message translates to:
   /// **'Wholegrain bread'**
-  String get m0669;
+  String get m0673;
 
   /// Source text: Teljes kiőrlésű pita
   ///
   /// In en, this message translates to:
   /// **'Wholegrain pita'**
-  String get m0670;
+  String get m0674;
 
   /// Source text: Teljes kiőrlésű tészta
   ///
   /// In en, this message translates to:
   /// **'Wholegrain pasta'**
-  String get m0671;
+  String get m0675;
 
   /// Source text: Teljes kiőrlésű tortilla
   ///
   /// In en, this message translates to:
   /// **'Wholegrain tortilla'**
-  String get m0672;
+  String get m0676;
 
   /// Source text: Teljes mennyiség elosztása
   ///
   /// In en, this message translates to:
   /// **'Split total amount'**
-  String get m0673;
+  String get m0677;
 
   /// Source text: Teljesítmény nap
   ///
   /// In en, this message translates to:
   /// **'Performance Day'**
-  String get m0674;
+  String get m0678;
 
   /// Source text: Téma
   ///
   /// In en, this message translates to:
   /// **'Theme'**
-  String get m0675;
+  String get m0679;
 
   /// Source text: Téma választása
   ///
   /// In en, this message translates to:
   /// **'Choose theme'**
-  String get m0676;
+  String get m0680;
 
   /// Source text: Témák (6 db)
   ///
   /// In en, this message translates to:
   /// **'Themes (6)'**
-  String get m0677;
+  String get m0681;
 
   /// Source text: Tempós nap
   ///
   /// In en, this message translates to:
   /// **'Quick Day'**
-  String get m0678;
+  String get m0682;
 
   /// Source text: Tempós tál nap
   ///
   /// In en, this message translates to:
   /// **'Fast Bowl Day'**
-  String get m0679;
+  String get m0683;
 
   /// Source text: Terv neve
   ///
   /// In en, this message translates to:
   /// **'Plan name'**
-  String get m0680;
+  String get m0684;
 
   /// Source text: Tervezd meg a vacsorát még a rohanás előtt.
   ///
   /// In en, this message translates to:
   /// **'Set up dinner before the rush.'**
-  String get m0681;
+  String get m0685;
 
   /// Source text: Tervezett nap
   ///
   /// In en, this message translates to:
   /// **'Planned Day'**
-  String get m0682;
+  String get m0686;
 
   /// Source text: Tervezz egy nyugodt, erős napot.
   ///
   /// In en, this message translates to:
   /// **'Plan a calm, strong day.'**
-  String get m0683;
+  String get m0687;
 
   /// Source text: Tervezz, főzz, kövess okosabban
   ///
   /// In en, this message translates to:
   /// **'Plan, cook, track smarter'**
-  String get m0684;
+  String get m0688;
 
   /// Source text: TESTTÖMEG INDEX (BMI)
   ///
   /// In en, this message translates to:
   /// **'BODY MASS INDEX (BMI)'**
-  String get m0685;
+  String get m0689;
 
   /// Source text: Tészta
   ///
   /// In en, this message translates to:
   /// **'Pasta'**
-  String get m0686;
+  String get m0690;
 
   /// Source text: tétel
   ///
   /// In en, this message translates to:
   /// **'items'**
-  String get m0687;
+  String get m0691;
 
   /// Source text: Tétel hozzáadása
   ///
   /// In en, this message translates to:
   /// **'Add item'**
-  String get m0688;
+  String get m0692;
 
   /// Source text: téves értéket kapsz.
   ///
   /// In en, this message translates to:
   /// **'you get an incorrect value.'**
-  String get m0689;
+  String get m0693;
 
   /// Source text: Tiszta energia nap
   ///
   /// In en, this message translates to:
   /// **'Clean Energy Day'**
-  String get m0690;
+  String get m0694;
 
   /// Source text: Tiszta nap
   ///
   /// In en, this message translates to:
   /// **'Clean Day'**
-  String get m0691;
+  String get m0695;
 
   /// Source text: Tiszta ritmus nap
   ///
   /// In en, this message translates to:
   /// **'Clean Rhythm Day'**
-  String get m0692;
+  String get m0696;
 
   /// Source text: Több mentés, bevásárlólisták, súlykövetés extrák
   ///
   /// In en, this message translates to:
   /// **'Unlimited meals, Shopping+, themes, and tracking'**
-  String get m0693;
+  String get m0697;
 
   /// Source text: Tofu
   ///
   /// In en, this message translates to:
   /// **'Tofu'**
-  String get m0694;
+  String get m0698;
 
   /// Source text: Tofus csicseriborsó curry
   ///
   /// In en, this message translates to:
   /// **'Tofu chickpea curry'**
-  String get m0695;
+  String get m0699;
 
   /// Source text: Tofus quinoás vacsoratál
   ///
   /// In en, this message translates to:
   /// **'Tofu quinoa dinner bowl'**
-  String get m0696;
+  String get m0700;
 
   /// Source text: Tofus zöldséges noodle box
   ///
   /// In en, this message translates to:
   /// **'Tofu vegetable noodle box'**
-  String get m0697;
+  String get m0701;
 
   /// Source text: tojás
   ///
   /// In en, this message translates to:
   /// **'egg'**
-  String get m0698;
+  String get m0702;
 
   /// Source text: Tojás
   ///
   /// In en, this message translates to:
   /// **'Egg'**
-  String get m0699;
+  String get m0703;
 
   /// Source text: Tojásos avokádós pirítós
   ///
   /// In en, this message translates to:
   /// **'Egg avocado toast'**
-  String get m0700;
+  String get m0704;
 
   /// Source text: Tojásos rizses reggeli serpenyő
   ///
   /// In en, this message translates to:
   /// **'Egg rice breakfast skillet'**
-  String get m0701;
+  String get m0705;
 
   /// Source text: Tojásos zöldséges rizs
   ///
   /// In en, this message translates to:
   /// **'Egg vegetable rice'**
-  String get m0702;
+  String get m0706;
 
   /// Source text: Tökmag
   ///
   /// In en, this message translates to:
   /// **'Pumpkin seeds'**
-  String get m0703;
+  String get m0707;
 
   /// Source text: Töltött paprika light módra
   ///
   /// In en, this message translates to:
   /// **'Light stuffed peppers'**
-  String get m0704;
+  String get m0708;
 
   /// Source text: Töltsd meg csirkével és salátával.
   ///
   /// In en, this message translates to:
   /// **'Fill with chicken and lettuce.'**
-  String get m0705;
+  String get m0709;
 
   /// Source text: Töltsd meg húsos-rizses keverékkel.
   ///
   /// In en, this message translates to:
   /// **'Fill with the meat and rice mixture.'**
-  String get m0706;
+  String get m0710;
 
   /// Source text: Töltsd meg pulykás-babos keverékkel.
   ///
   /// In en, this message translates to:
   /// **'Fill with the turkey and bean mixture.'**
-  String get m0707;
+  String get m0711;
 
   /// Source text: Tömegnövelés
   ///
   /// In en, this message translates to:
   /// **'For gaining'**
-  String get m0708;
+  String get m0712;
 
   /// Source text: Tömegnöveléshez:
   ///
   /// In en, this message translates to:
   /// **'For gaining: '**
-  String get m0709;
+  String get m0713;
 
   /// Source text: Tomorrow starts with tonight’s prep.
   ///
   /// In en, this message translates to:
   /// **'Tomorrow starts with tonight’s prep.'**
-  String get m0710;
+  String get m0714;
 
   /// Source text: Tonhal
   ///
   /// In en, this message translates to:
   /// **'Tuna'**
-  String get m0711;
+  String get m0715;
 
   /// Source text: Tonhalas babos burgonyasaláta
   ///
   /// In en, this message translates to:
   /// **'Tuna bean potato salad'**
-  String get m0712;
+  String get m0716;
 
   /// Source text: Tonhalas kukoricás tésztasaláta
   ///
   /// In en, this message translates to:
   /// **'Tuna corn pasta salad'**
-  String get m0713;
+  String get m0717;
 
   /// Source text: Tonhalas reggeli pirítós
   ///
   /// In en, this message translates to:
   /// **'Tuna breakfast toast'**
-  String get m0714;
+  String get m0718;
 
   /// Source text: Tonhalas ropogós falatok
   ///
   /// In en, this message translates to:
   /// **'Crunchy tuna bites'**
-  String get m0715;
+  String get m0719;
 
   /// Source text: Törlés
   ///
   /// In en, this message translates to:
   /// **'Delete'**
-  String get m0716;
+  String get m0720;
 
   /// Source text: Tovább
   ///
   /// In en, this message translates to:
   /// **'Next'**
-  String get m0717;
+  String get m0721;
 
   /// Source text: További rögzítések
   ///
   /// In en, this message translates to:
   /// **'Show more records'**
-  String get m0718;
+  String get m0722;
 
   /// Source text: Trend
   ///
   /// In en, this message translates to:
   /// **'Trend'**
-  String get m0719;
+  String get m0723;
 
   /// Source text: Túlsúly
   ///
   /// In en, this message translates to:
   /// **'Overweight'**
-  String get m0720;
+  String get m0724;
 
   /// Source text: Túlsúlyos
   ///
   /// In en, this message translates to:
   /// **'Overweight'**
-  String get m0721;
+  String get m0725;
 
   /// Source text: Turmixold krémesre 30-60 másodperc alatt.
   ///
   /// In en, this message translates to:
   /// **'Blend until creamy for 30-60 seconds.'**
-  String get m0722;
+  String get m0726;
 
   /// Source text: Túró
   ///
   /// In en, this message translates to:
   /// **'Curd cheese'**
-  String get m0723;
+  String get m0727;
 
   /// Source text: Túrós bogyós tál
   ///
   /// In en, this message translates to:
   /// **'Cottage cheese berry bowl'**
-  String get m0724;
+  String get m0728;
 
   /// Source text: Túrós zabpalacsinta
   ///
   /// In en, this message translates to:
   /// **'Cottage cheese oat pancakes'**
-  String get m0725;
+  String get m0729;
 
   /// Source text: Túrós zabpalacsinta előre sütve
   ///
   /// In en, this message translates to:
   /// **'Cottage cheese oat pancakes cooked ahead'**
-  String get m0726;
+  String get m0730;
 
   /// Source text: Tzatziki
   ///
   /// In en, this message translates to:
   /// **'Tzatziki'**
-  String get m0727;
+  String get m0731;
 
   /// Source text: Uborka
   ///
   /// In en, this message translates to:
   /// **'Cucumber'**
-  String get m0728;
+  String get m0732;
 
   /// Source text: ÜDV A MEALR-BEN
   ///
   /// In en, this message translates to:
   /// **'WELCOME TO MEALR'**
-  String get m0729;
+  String get m0733;
 
   /// Source text: Új bevásárlólista
   ///
   /// In en, this message translates to:
   /// **'New shopping list'**
-  String get m0730;
+  String get m0734;
 
   /// Source text: Új étel
   ///
   /// In en, this message translates to:
   /// **'New food'**
-  String get m0731;
+  String get m0735;
 
   /// Source text: Új étel hozzáadása
   ///
   /// In en, this message translates to:
   /// **'Add new food'**
-  String get m0732;
+  String get m0736;
 
   /// Source text: Új lista neve
   ///
   /// In en, this message translates to:
   /// **'New list name'**
-  String get m0733;
+  String get m0737;
 
   /// Source text: Új meal prep terv
   ///
   /// In en, this message translates to:
   /// **'New Meal Prep plan'**
-  String get m0734;
+  String get m0738;
 
   /// Source text: Ülő életmód
   ///
   /// In en, this message translates to:
   /// **'Sedentary'**
-  String get m0735;
+  String get m0739;
 
   /// Source text: Vacsora
   ///
   /// In en, this message translates to:
   /// **'Dinner'**
-  String get m0736;
+  String get m0740;
 
   /// Source text: Vágd félbe és pirítsd meg a bagelt.
   ///
   /// In en, this message translates to:
   /// **'Cut the bagel in half and toast it.'**
-  String get m0737;
+  String get m0741;
 
   /// Source text: Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.
   ///
   /// In en, this message translates to:
   /// **'Choose a type, then view its daily meal plans.'**
-  String get m0738;
+  String get m0742;
 
   /// Source text: Válassz ételt és adagold dobozokra
   ///
   /// In en, this message translates to:
   /// **'Choose a food and split it into boxes'**
-  String get m0739;
+  String get m0743;
 
   /// Source text: Válassz étrend típust
   ///
   /// In en, this message translates to:
   /// **'Choose a meal plan type'**
-  String get m0740;
+  String get m0744;
 
   /// Source text: Válassz főételt, köretet és adagold dobozokra
   ///
   /// In en, this message translates to:
   /// **'Choose a main dish, side, and split into boxes'**
-  String get m0741;
+  String get m0745;
 
   /// Source text: Vegán
   ///
   /// In en, this message translates to:
   /// **'Vegan'**
-  String get m0742;
+  String get m0746;
 
   /// Source text: Vegetáriánus
   ///
   /// In en, this message translates to:
   /// **'Vegetarian'**
-  String get m0743;
+  String get m0747;
 
   /// Source text: Veggie erő nap
   ///
   /// In en, this message translates to:
   /// **'Veggie Strength Day'**
-  String get m0744;
+  String get m0748;
 
   /// Source text: Verzió 1.0.0
   ///
   /// In en, this message translates to:
   /// **'Version 1.0.0'**
-  String get m0745;
+  String get m0749;
 
   /// Source text: veszít a tömegéből
   ///
   /// In en, this message translates to:
   /// **'loses weight'**
-  String get m0746;
+  String get m0750;
+
+  /// Source text: Világos
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get m0751;
 
   /// Source text: Villám nap
   ///
   /// In en, this message translates to:
   /// **'Lightning Day'**
-  String get m0747;
+  String get m0752;
 
   /// Source text: vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.
   ///
@@ -4603,103 +4633,103 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'subtract 300-500 kcal. A daily 500 kcal deficit is about 0.5 kg loss per week.\n\n'**
-  String get m0748;
+  String get m0753;
 
   /// Source text: Vörösbab
   ///
   /// In en, this message translates to:
   /// **'Red beans'**
-  String get m0749;
+  String get m0754;
 
   /// Source text: Wok zöldség
   ///
   /// In en, this message translates to:
   /// **'Wok vegetables'**
-  String get m0750;
+  String get m0755;
 
   /// Source text: Wrap up with something nourishing.
   ///
   /// In en, this message translates to:
   /// **'Wrap up with something nourishing.'**
-  String get m0751;
+  String get m0756;
 
   /// Source text: Zabpehely
   ///
   /// In en, this message translates to:
   /// **'Oats'**
-  String get m0752;
+  String get m0757;
 
   /// Source text: Zabpehelyliszt
   ///
   /// In en, this message translates to:
   /// **'Oat flour'**
-  String get m0753;
+  String get m0758;
 
   /// Source text: Zárd a napot jóllakottan, nem rohanva.
   ///
   /// In en, this message translates to:
   /// **'End the day full, not rushed.'**
-  String get m0754;
+  String get m0759;
 
   /// Source text: Zárd a napot valami táplálóval.
   ///
   /// In en, this message translates to:
   /// **'Wrap up with something nourishing.'**
-  String get m0755;
+  String get m0760;
 
   /// Source text: Zárd gondoskodással a napot.
   ///
   /// In en, this message translates to:
   /// **'Close the day with care.'**
-  String get m0756;
+  String get m0761;
 
   /// Source text: Zöld fókusz nap
   ///
   /// In en, this message translates to:
   /// **'Green Focus Day'**
-  String get m0757;
+  String get m0762;
 
   /// Source text: Zöld lendület nap
   ///
   /// In en, this message translates to:
   /// **'Green Boost Day'**
-  String get m0758;
+  String get m0763;
 
   /// Source text: Zöld nap
   ///
   /// In en, this message translates to:
   /// **'Green Day'**
-  String get m0759;
+  String get m0764;
 
   /// Source text: Zöldbab
   ///
   /// In en, this message translates to:
   /// **'Green beans'**
-  String get m0760;
+  String get m0765;
 
   /// Source text: Zöldborsó
   ///
   /// In en, this message translates to:
   /// **'Green peas'**
-  String get m0761;
+  String get m0766;
 
   /// Source text: Zöldsaláta
   ///
   /// In en, this message translates to:
   /// **'Green salad'**
-  String get m0762;
+  String get m0767;
 
   /// Source text: Zöldséges omlett
   ///
   /// In en, this message translates to:
   /// **'Vegetable omelette'**
-  String get m0763;
+  String get m0768;
 
   /// Source text: Zsemlemorzsa
   ///
   /// In en, this message translates to:
   /// **'Breadcrumbs'**
-  String get m0764;
+  String get m0769;
 }
 
 class _AppLocalizationsDelegate

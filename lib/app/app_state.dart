@@ -36,6 +36,8 @@ enum AppLanguage {
   final String label;
 }
 
+enum AppBrightnessMode { system, light, dark }
+
 enum WeightTrend { down, stable, up }
 
 class WeightStats {
@@ -63,9 +65,7 @@ class AppState extends ChangeNotifier {
   final PreferencesStore _preferences;
 
   AppTab tab = AppTab.foods;
-  bool isDark =
-      WidgetsBinding.instance.platformDispatcher.platformBrightness ==
-      Brightness.dark;
+  AppBrightnessMode brightnessMode = AppBrightnessMode.system;
   ThemeOption theme = themeOptions.firstWhere(
     (option) => option.id == 'forest',
     orElse: () => themeOptions.first,
@@ -97,6 +97,14 @@ class AppState extends ChangeNotifier {
   final Set<String> favoriteRecipeIds = {};
 
   static const int freeMealPrepPlanLimit = 1;
+
+  bool get isDark => switch (brightnessMode) {
+    AppBrightnessMode.system =>
+      WidgetsBinding.instance.platformDispatcher.platformBrightness ==
+          Brightness.dark,
+    AppBrightnessMode.light => false,
+    AppBrightnessMode.dark => true,
+  };
 
   MealWeightPalette get palette => isDark ? theme.dark : theme.light;
 
@@ -145,9 +153,13 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleBrightness() {
-    isDark = !isDark;
+  void selectBrightnessMode(AppBrightnessMode next) {
+    brightnessMode = next;
     notifyListeners();
+  }
+
+  void handlePlatformBrightnessChanged() {
+    if (brightnessMode == AppBrightnessMode.system) notifyListeners();
   }
 
   void selectTheme(ThemeOption next) {
@@ -167,6 +179,13 @@ class AppState extends ChangeNotifier {
   void finishOnboarding() {
     showOnboarding = false;
     _preferences.saveOnboardingCompleted(true);
+    _saveSnapshot();
+    notifyListeners();
+  }
+
+  void restartOnboarding() {
+    showOnboarding = true;
+    _preferences.saveOnboardingCompleted(false);
     _saveSnapshot();
     notifyListeners();
   }
@@ -761,7 +780,7 @@ class AppState extends ChangeNotifier {
       'themeId': theme.id,
       'languageCode': language.code ?? 'system',
       'showOnboarding': showOnboarding,
-      'isDark': isDark,
+      'brightnessMode': brightnessMode.name,
       'isPro': isPro,
       'proExpiresAt': proExpiresAt?.toIso8601String(),
       'bmiWeight': bmiWeight,
@@ -811,7 +830,14 @@ class AppState extends ChangeNotifier {
       if (decoded['showOnboarding'] is bool) {
         showOnboarding = decoded['showOnboarding'] as bool;
       }
-      if (decoded['isDark'] is bool) isDark = decoded['isDark'] as bool;
+      final savedBrightnessMode = decoded['brightnessMode'];
+      if (savedBrightnessMode is String) {
+        final matchedMode = AppBrightnessMode.values.firstWhere(
+          (mode) => mode.name == savedBrightnessMode,
+          orElse: () => AppBrightnessMode.system,
+        );
+        brightnessMode = matchedMode;
+      }
       if (decoded['isPro'] is bool) isPro = decoded['isPro'] as bool;
       final proExpiry = decoded['proExpiresAt'];
       proExpiresAt = proExpiry is String ? DateTime.tryParse(proExpiry) : null;

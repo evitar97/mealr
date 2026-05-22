@@ -1415,948 +1415,963 @@ class AppLocalizationsHu extends AppLocalizations {
   String get m0451 => 'Megjelenés';
 
   @override
-  String get m0452 => 'Meglévő listához adás';
+  String get m0452 => 'Megjelenés módja';
 
   @override
-  String get m0453 => 'Megosztás';
+  String get m0453 => 'Meglévő listához adás';
 
   @override
-  String get m0454 => 'Mégse';
+  String get m0454 => 'Megosztás';
 
   @override
-  String get m0455 => 'Meleg banános zabfalatok';
+  String get m0455 => 'Mégse';
 
   @override
-  String get m0456 => 'Meleg lencsés feta tányér';
+  String get m0456 => 'Meleg banános zabfalatok';
 
   @override
-  String get m0457 =>
+  String get m0457 => 'Meleg lencsés feta tányér';
+
+  @override
+  String get m0458 =>
       'Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.';
 
   @override
-  String get m0458 => 'Mentés';
+  String get m0459 => 'Mentés';
 
   @override
-  String get m0459 => 'Mentes lendület nap';
+  String get m0460 => 'Mentes lendület nap';
 
   @override
-  String get m0460 => 'Mentés profilba · a Kalória cél frissítése';
+  String get m0461 => 'Mentés profilba · a Kalória cél frissítése';
 
   @override
-  String get m0461 => 'Mentés új listaként';
+  String get m0462 => 'Mentés új listaként';
 
   @override
-  String get m0462 => 'Mentett étel';
+  String get m0463 => 'Mentett étel';
 
   @override
-  String get m0463 => 'Mentve';
+  String get m0464 => 'Mentve';
 
   @override
-  String get m0464 => 'Mentve a profilba · legközelebb automatikusan kitöltve';
+  String get m0465 => 'Mentve a profilba · legközelebb automatikusan kitöltve';
 
   @override
-  String get m0465 => 'Mentve a profilba.';
+  String get m0466 => 'Mentve a profilba.';
 
   @override
-  String get m0466 =>
+  String get m0467 =>
       'mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.';
 
   @override
-  String get m0467 => 'Méz';
+  String get m0468 => 'Méz';
 
   @override
-  String get m0468 => 'MI A PROBLÉMA?';
+  String get m0469 => 'MI A PROBLÉMA?';
 
   @override
-  String get m0469 => 'MIÉRT HASZNOS?';
+  String get m0470 => 'MIÉRT HASZNOS?';
 
   @override
-  String get m0470 => 'Mind';
+  String get m0471 => 'Mind';
 
   @override
-  String get m0471 => 'MINDEN EGYBEN';
+  String get m0472 => 'MINDEN EGYBEN';
 
   @override
-  String get m0472 => 'Minden hozzávalót tegyél turmixgépbe.';
+  String get m0473 => 'Minden hozzávalót tegyél turmixgépbe.';
 
   @override
-  String get m0473 => 'Mini burgonyás tzatziki doboz';
+  String get m0474 => 'Mini burgonyás tzatziki doboz';
 
   @override
-  String get m0474 => 'Mini csirkés wrap';
+  String get m0475 => 'Mini csirkés wrap';
 
   @override
-  String get m0475 => 'Mini tortilla';
+  String get m0476 => 'Mini tortilla';
 
   @override
-  String get m0476 => 'Mogyoróvaj';
+  String get m0477 => 'Mogyoróvaj';
 
   @override
-  String get m0477 => 'Morzsold rá a fetát, és frissen tálald.';
+  String get m0478 => 'Morzsold rá a fetát, és frissen tálald.';
 
   @override
-  String get m0478 => 'Morzsold rá a fetát, és tálald a zöldséges bulgurral.';
+  String get m0479 => 'Morzsold rá a fetát, és tálald a zöldséges bulgurral.';
 
   @override
-  String get m0479 => 'mustár';
+  String get m0480 => 'mustár';
 
   @override
-  String get m0480 => 'Mustár';
+  String get m0481 => 'Mustár';
 
   @override
-  String get m0481 => 'Mustáros sertésszűz burgonyával';
+  String get m0482 => 'Mustáros sertésszűz burgonyával';
 
   @override
-  String get m0482 => 'nap';
+  String get m0483 => 'nap';
 
   @override
-  String get m0483 => 'Napi aktivitás';
+  String get m0484 => 'Napi aktivitás';
 
   @override
-  String get m0484 => 'Napi bontás';
+  String get m0485 => 'Napi bontás';
 
   @override
-  String get m0485 => 'NAPI SZINTENTARTÓ KALÓRIA';
+  String get m0486 => 'NAPI SZINTENTARTÓ KALÓRIA';
 
   @override
-  String get m0486 => 'Nasi';
+  String get m0487 => 'Nasi';
 
   @override
-  String get m0487 => 'Nehézség';
+  String get m0488 => 'Nehézség';
 
   @override
-  String get m0488 => 'Nem';
+  String get m0489 => 'Nem';
 
   @override
-  String get m0489 => 'nem a kalóriájából.';
+  String get m0490 => 'nem a kalóriájából.';
 
   @override
-  String get m0490 => 'Nem csak mérlegelés: egy app a kajás rutinodhoz.';
+  String get m0491 => 'Nem csak mérlegelés: egy app a kajás rutinodhoz.';
 
   @override
-  String get m0491 => 'nem változik a kalóriája.';
+  String get m0492 => 'nem változik a kalóriája.';
 
   @override
-  String get m0492 => 'Nevezd el és add hozzá a tételeket';
+  String get m0493 => 'Nevezd el és add hozzá a tételeket';
 
   @override
-  String get m0493 => 'Névjegy';
+  String get m0494 => 'Névjegy';
 
   @override
-  String get m0494 => 'Nincs aktív előfizetés';
+  String get m0495 => 'Nincs aktív előfizetés';
 
   @override
-  String get m0495 => 'nincs kiemelt allergén';
+  String get m0496 => 'nincs kiemelt allergén';
 
   @override
-  String get m0496 => 'Nincs köret';
+  String get m0497 => 'Nincs köret';
 
   @override
-  String get m0497 => 'Nincs mentett étel';
+  String get m0498 => 'Nincs mentett étel';
 
   @override
-  String get m0498 => 'Nincs találat.';
+  String get m0499 => 'Nincs találat.';
 
   @override
-  String get m0499 => 'Nincs változás a kezdő súlyhoz képest';
+  String get m0500 => 'Nincs változás a kezdő súlyhoz képest';
 
   @override
-  String get m0500 => 'Nő';
+  String get m0501 => 'Nő';
 
   @override
-  String get m0501 => 'Normál';
+  String get m0502 => 'Normál';
 
   @override
-  String get m0502 => 'Normál receptek';
+  String get m0503 => 'Normál receptek';
 
   @override
-  String get m0503 => 'Normál súly';
+  String get m0504 => 'Normál súly';
 
   @override
-  String get m0504 => 'Növényi nap';
+  String get m0505 => 'Növényi nap';
 
   @override
-  String get m0505 => 'Növényi ritmus nap';
+  String get m0506 => 'Növényi ritmus nap';
 
   @override
-  String get m0506 => 'Nyelv';
+  String get m0507 => 'Nyelv';
 
   @override
-  String get m0507 => 'Nyelv, téma, mód és verzió';
+  String get m0508 => 'Nyelv, téma, mód és verzió';
 
   @override
-  String get m0508 => 'nyers ÷ kész × kimért =\nnyers egyenérték\n';
+  String get m0509 => 'nyers ÷ kész × kimért =\nnyers egyenérték\n';
 
   @override
-  String get m0509 => 'Nyers adag';
+  String get m0510 => 'Nyers adag';
 
   @override
-  String get m0510 => 'Nyers egyenérték';
+  String get m0511 => 'Nyers egyenérték';
 
   @override
-  String get m0511 => 'nyers egyenértéket';
+  String get m0512 => 'nyers egyenértéket';
 
   @override
-  String get m0512 => 'nyers egyenértéket.';
+  String get m0513 => 'nyers egyenértéket.';
 
   @override
-  String get m0513 => 'Nyers g';
+  String get m0514 => 'Nyers g';
 
   @override
-  String get m0514 => 'Nyers súly kalkulátor';
+  String get m0515 => 'Nyers súly kalkulátor';
 
   @override
-  String get m0515 => 'nyersen';
+  String get m0516 => 'nyersen';
 
   @override
-  String get m0516 => 'Nyugodt energia nap';
+  String get m0517 => 'Nyisd meg újra a bevezetőt';
 
   @override
-  String get m0517 =>
+  String get m0518 => 'Nyugodt energia nap';
+
+  @override
+  String get m0519 =>
       'Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.';
 
   @override
-  String get m0518 => 'Obezitás';
+  String get m0520 => 'Obezitás';
 
   @override
-  String get m0519 => 'Okos kosár nap';
+  String get m0521 => 'Okos kosár nap';
 
   @override
-  String get m0520 => 'Okos nap';
+  String get m0522 => 'Okos nap';
 
   @override
-  String get m0521 => 'Olcsó okos nap';
+  String get m0523 => 'Olcsó okos nap';
 
   @override
-  String get m0522 => 'Olívaolaj';
+  String get m0524 => 'Olívaolaj';
 
   @override
-  String get m0523 => 'Összes';
+  String get m0525 => 'Onboarding újraindítása';
 
   @override
-  String get m0524 => 'Összes kalória';
+  String get m0526 => 'Összes';
 
   @override
-  String get m0525 => 'össztömeget';
+  String get m0527 => 'Összes kalória';
 
   @override
-  String get m0526 => 'Oszd dobozokra a kuszkuszt, csirkét és brokkolit.';
+  String get m0528 => 'össztömeget';
 
   @override
-  String get m0527 => 'Oszd dobozokra a rizst, csirkét és brokkolit.';
+  String get m0529 => 'Oszd dobozokra a kuszkuszt, csirkét és brokkolit.';
 
   @override
-  String get m0528 => 'Overnight oats előre bekészítve';
+  String get m0530 => 'Oszd dobozokra a rizst, csirkét és brokkolit.';
 
   @override
-  String get m0529 => 'Paprika';
+  String get m0531 => 'Overnight oats előre bekészítve';
 
   @override
-  String get m0530 => 'Paradicsom';
+  String get m0532 => 'Paprika';
 
   @override
-  String get m0531 => 'Paradicsompüré';
+  String get m0533 => 'Paradicsom';
 
   @override
-  String get m0532 => 'Paradicsomszósszal és sajttal süsd készre.';
+  String get m0534 => 'Paradicsompüré';
 
   @override
-  String get m0533 => 'Paradicsomszósz';
+  String get m0535 => 'Paradicsomszósszal és sajttal süsd készre.';
 
   @override
-  String get m0534 => 'Pénztárca plusz nap';
+  String get m0536 => 'Paradicsomszósz';
 
   @override
-  String get m0535 => 'Pénztárcabarát';
+  String get m0537 => 'Pénztárca plusz nap';
 
   @override
-  String get m0536 => 'perc';
+  String get m0538 => 'Pénztárcabarát';
 
   @override
-  String get m0537 => 'Pirítsd meg a kenyeret.';
+  String get m0539 => 'perc';
 
   @override
-  String get m0538 => 'Pl. Hétvégi főzés';
+  String get m0540 => 'Pirítsd meg a kenyeret.';
 
   @override
-  String get m0539 => 'Plan a calm, strong day.';
+  String get m0541 => 'Pl. Hétvégi főzés';
 
   @override
-  String get m0540 => 'Pörgős nap';
+  String get m0542 => 'Plan a calm, strong day.';
 
   @override
-  String get m0541 => 'Praktikus nap';
+  String get m0543 => 'Pörgős nap';
 
   @override
-  String get m0542 => 'Prep what makes later easier.';
+  String get m0544 => 'Praktikus nap';
 
   @override
-  String get m0543 => 'Pro';
+  String get m0545 => 'Prep what makes later easier.';
 
   @override
-  String get m0544 => 'Pro mód teszt';
+  String get m0546 => 'Pro';
 
   @override
-  String get m0545 => 'Pro statisztika';
+  String get m0547 => 'Pro mód teszt';
 
   @override
-  String get m0546 => 'Pro-val feloldható extrák';
+  String get m0548 => 'Pro statisztika';
 
   @override
-  String get m0547 => 'Próbáld ki ingyen 7 napig';
+  String get m0549 => 'Pro-val feloldható extrák';
 
   @override
-  String get m0548 => 'Profil';
+  String get m0550 => 'Próbáld ki ingyen 7 napig';
 
   @override
-  String get m0549 => 'Progresszió törlése';
+  String get m0551 => 'Profil';
 
   @override
-  String get m0550 => 'Protein joghurt pohár';
+  String get m0552 => 'Progresszió törlése';
 
   @override
-  String get m0551 => 'Protein zabkása bogyós gyümölccsel';
+  String get m0553 => 'Protein joghurt pohár';
 
   @override
-  String get m0552 => 'Pulykagolyók cukkinispagettivel';
+  String get m0554 => 'Protein zabkása bogyós gyümölccsel';
 
   @override
-  String get m0553 => 'Pulykamell sonka';
+  String get m0555 => 'Pulykagolyók cukkinispagettivel';
 
   @override
-  String get m0554 => 'Pulykás bolognai tészta';
+  String get m0556 => 'Pulykamell sonka';
 
   @override
-  String get m0555 => 'Pulykás bolognai tészta light adagban';
+  String get m0557 => 'Pulykás bolognai tészta';
 
   @override
-  String get m0556 => 'Pulykás cottage reggeli doboz';
+  String get m0558 => 'Pulykás bolognai tészta light adagban';
 
   @override
-  String get m0557 => 'Pulykás sajtos tekercsek';
+  String get m0559 => 'Pulykás cottage reggeli doboz';
 
   @override
-  String get m0558 => 'Pulykás tojásos wrap';
+  String get m0560 => 'Pulykás sajtos tekercsek';
 
   @override
-  String get m0559 => 'Pulykasonka';
+  String get m0561 => 'Pulykás tojásos wrap';
 
   @override
-  String get m0560 => 'Pulykával töltött cukkini';
+  String get m0562 => 'Pulykasonka';
 
   @override
-  String get m0561 => 'Quinoa';
+  String get m0563 => 'Pulykával töltött cukkini';
 
   @override
-  String get m0562 => 'Quinoás bogyós snack pohár';
+  String get m0564 => 'Quinoa';
 
   @override
-  String get m0563 => 'Quinoás joghurtos reggeli';
+  String get m0565 => 'Quinoás bogyós snack pohár';
 
   @override
-  String get m0564 => 'rákfélék';
+  String get m0566 => 'Quinoás joghurtos reggeli';
 
   @override
-  String get m0565 => 'Recept';
+  String get m0567 => 'rákfélék';
 
   @override
-  String get m0566 => 'Recept szorzó';
+  String get m0568 => 'Recept';
 
   @override
-  String get m0567 => 'Receptek';
+  String get m0569 => 'Recept szorzó';
 
   @override
-  String get m0568 => 'Reggeli';
+  String get m0570 => 'Receptek';
 
   @override
-  String get m0569 => 'Rendezett doboz nap';
+  String get m0571 => 'Reggeli';
 
   @override
-  String get m0570 => 'Rendszer';
+  String get m0572 => 'Rendezett doboz nap';
 
   @override
-  String get m0571 => 'Rendszeres használathoz';
+  String get m0573 => 'Rendszer';
 
   @override
-  String get m0572 => 'Répa';
+  String get m0574 => 'Rendszeres használathoz';
 
   @override
-  String get m0573 => 'Reszeld vagy kockázd bele az almát.';
+  String get m0575 => 'Répa';
 
   @override
-  String get m0574 => 'Reszelt sajt';
+  String get m0576 => 'Reszeld vagy kockázd bele az almát.';
 
   @override
-  String get m0575 => 'Részletek';
+  String get m0577 => 'Reszelt sajt';
 
   @override
-  String get m0576 => 'Rétegezd rá a granolát és a szeletelt banánt.';
+  String get m0578 => 'Részletek';
 
   @override
-  String get m0577 => 'Rizs';
+  String get m0579 => 'Rétegezd rá a granolát és a szeletelt banánt.';
 
   @override
-  String get m0578 => 'Rizsszelet';
+  String get m0580 => 'Rizs';
 
   @override
-  String get m0579 => 'Rizsszelet cottage cheese-zel';
+  String get m0581 => 'Rizsszelet';
 
   @override
-  String get m0580 => 'Rizstészta';
+  String get m0582 => 'Rizsszelet cottage cheese-zel';
 
   @override
-  String get m0581 => 'Rögzített súlyok';
+  String get m0583 => 'Rizstészta';
 
   @override
-  String get m0582 => 'Rövid elkészítési idejű ételekkel';
+  String get m0584 => 'Rögzített súlyok';
 
   @override
-  String get m0583 => 'Rövid konyha nap';
+  String get m0585 => 'Rövid elkészítési idejű ételekkel';
 
   @override
-  String get m0584 => 'Saláta';
+  String get m0586 => 'Rövid konyha nap';
 
   @override
-  String get m0585 => 'Saláta mix';
+  String get m0587 => 'Saláta';
 
   @override
-  String get m0586 => 'Serpenyőben süsd össze sonkával, sajttal és spenóttal.';
+  String get m0588 => 'Saláta mix';
 
   @override
-  String get m0587 => 'Sertésszűz';
+  String get m0589 => 'Serpenyőben süsd össze sonkával, sajttal és spenóttal.';
 
   @override
-  String get m0588 => 'Sertésszűz kuszkusszal';
+  String get m0590 => 'Sertésszűz';
 
   @override
-  String get m0589 => 'Sertésszűz kuszkusz salátával';
+  String get m0591 => 'Sertésszűz kuszkusszal';
 
   @override
-  String get m0590 => 'Set up dinner before the rush.';
+  String get m0592 => 'Sertésszűz kuszkusz salátával';
 
   @override
-  String get m0591 => 'Shakshuka reggeli tál';
+  String get m0593 => 'Set up dinner before the rush.';
 
   @override
-  String get m0592 => 'Sietős lendület nap';
+  String get m0594 => 'Shakshuka reggeli tál';
 
   @override
-  String get m0593 => 'Sietős nap';
+  String get m0595 => 'Sietős lendület nap';
 
   @override
-  String get m0594 => 'Skyr vagy görög joghurt';
+  String get m0596 => 'Sietős nap';
 
   @override
-  String get m0595 => 'Slow down, eat well, rest easy.';
+  String get m0597 => 'Skyr vagy görög joghurt';
 
   @override
-  String get m0596 => 'Small choices, solid momentum.';
+  String get m0598 => 'Slow down, eat well, rest easy.';
 
   @override
-  String get m0597 => 'Só, bors';
+  String get m0599 => 'Small choices, solid momentum.';
 
   @override
-  String get m0598 => 'Sonkás sajtos omlett';
+  String get m0600 => 'Só, bors';
 
   @override
-  String get m0599 => 'Sonkás tojásos abonett tál';
+  String get m0601 => 'Sonkás sajtos omlett';
 
   @override
-  String get m0600 => 'Sós cottage cheese tál';
+  String get m0602 => 'Sonkás tojásos abonett tál';
 
   @override
-  String get m0601 => 'Sötét mód';
+  String get m0603 => 'Sós cottage cheese tál';
 
   @override
-  String get m0602 => 'Sovány';
+  String get m0604 => 'Sötét';
 
   @override
-  String get m0603 => 'Sovány marhahús';
+  String get m0605 => 'Sötét mód';
 
   @override
-  String get m0604 => 'Spenót';
+  String get m0606 => 'Sovány';
 
   @override
-  String get m0605 => 'Spenótos kókuszos csicseriborsó';
+  String get m0607 => 'Sovány marhahús';
 
   @override
-  String get m0606 => 'Sportos nap';
+  String get m0608 => 'Spenót';
 
   @override
-  String get m0607 => 'Stabil erő nap';
+  String get m0609 => 'Spenótos kókuszos csicseriborsó';
 
   @override
-  String get m0608 => 'Stagnál';
+  String get m0610 => 'Sportos nap';
 
   @override
-  String get m0609 => 'Start simple, stay steady.';
+  String get m0611 => 'Stabil erő nap';
 
   @override
-  String get m0610 => 'Stay fueled and focused.';
+  String get m0612 => 'Stagnál';
 
   @override
-  String get m0611 => 'Sült csirkemell';
+  String get m0613 => 'Start simple, stay steady.';
 
   @override
-  String get m0612 => 'Sült hal zöldségágyon';
+  String get m0614 => 'Stay fueled and focused.';
 
   @override
-  String get m0613 => 'Súly';
+  String get m0615 => 'Sült csirkemell';
 
   @override
-  String get m0614 => 'Súly (kg)';
+  String get m0616 => 'Sült hal zöldségágyon';
 
   @override
-  String get m0615 => 'Súly követés';
+  String get m0617 => 'Súly';
 
   @override
-  String get m0616 => 'Súly progresszió';
+  String get m0618 => 'Súly (kg)';
 
   @override
-  String get m0617 => 'Súly szerkesztése';
+  String get m0619 => 'Súly követés';
 
   @override
-  String get m0618 => 'Súlykövetés';
+  String get m0620 => 'Súly progresszió';
 
   @override
-  String get m0619 => 'Súlykövetés diagram';
+  String get m0621 => 'Súly szerkesztése';
 
   @override
-  String get m0620 => 'Súlynapló szerkesztés';
+  String get m0622 => 'Súlykövetés';
 
   @override
-  String get m0621 => 'Süsd készre, amíg a hal omlós lesz.';
+  String get m0623 => 'Súlykövetés diagram';
 
   @override
-  String get m0622 => 'Süsd vagy párold készre paradicsomszószban.';
+  String get m0624 => 'Súlynapló szerkesztés';
 
   @override
-  String get m0623 => 'Sütőpor';
+  String get m0625 => 'Süsd készre, amíg a hal omlós lesz.';
 
   @override
-  String get m0624 =>
+  String get m0626 => 'Süsd vagy párold készre paradicsomszószban.';
+
+  @override
+  String get m0627 => 'Sütőpor';
+
+  @override
+  String get m0628 =>
       'Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.';
 
   @override
-  String get m0625 => 'Személyes adatok';
+  String get m0629 => 'Személyes adatok';
 
   @override
-  String get m0626 => 'SZEMÉLYES ALAPOK';
+  String get m0630 => 'SZEMÉLYES ALAPOK';
 
   @override
-  String get m0627 => 'Szép napot';
+  String get m0631 => 'Szép napot';
 
   @override
-  String get m0628 => 'Szerkesztés';
+  String get m0632 => 'Szerkesztés';
 
   @override
-  String get m0629 => 'szezám';
+  String get m0633 => 'szezám';
 
   @override
-  String get m0630 => 'Szezámmag';
+  String get m0634 => 'Szezámmag';
 
   @override
-  String get m0631 => 'szója';
+  String get m0635 => 'szója';
 
   @override
-  String get m0632 => 'Szójagranulátum';
+  String get m0636 => 'Szójagranulátum';
 
   @override
-  String get m0633 => 'Szójaszósszal ízesítsd, majd süsd össze.';
+  String get m0637 => 'Szójaszósszal ízesítsd, majd süsd össze.';
 
   @override
-  String get m0634 => 'Szójaszósz';
+  String get m0638 => 'Szójaszósz';
 
   @override
-  String get m0635 => 'Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.';
+  String get m0639 => 'Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.';
 
   @override
-  String get m0636 => 'Szükséges kész étel';
+  String get m0640 => 'Szükséges kész étel';
 
   @override
-  String get m0637 => 'Szükséges kész főétel';
+  String get m0641 => 'Szükséges kész főétel';
 
   @override
-  String get m0638 => 'Szükséges kész köret';
+  String get m0642 => 'Szükséges kész köret';
 
   @override
-  String get m0639 => 'Szükséges nyers alapanyag';
+  String get m0643 => 'Szükséges nyers alapanyag';
 
   @override
-  String get m0640 => 'Szükséges nyers főétel';
+  String get m0644 => 'Szükséges nyers főétel';
 
   @override
-  String get m0641 => 'Szükséges nyers köret';
+  String get m0645 => 'Szükséges nyers köret';
 
   @override
-  String get m0642 => 'Takarékos nap';
+  String get m0646 => 'Takarékos nap';
 
   @override
-  String get m0643 => 'Tálald a curry alapot rizzsel.';
+  String get m0647 => 'Tálald a curry alapot rizzsel.';
 
   @override
-  String get m0644 => 'Tálald bogyós gyümölccsel és chia maggal.';
+  String get m0648 => 'Tálald bogyós gyümölccsel és chia maggal.';
 
   @override
-  String get m0645 => 'Tálald bogyós gyümölccsel.';
+  String get m0649 => 'Tálald bogyós gyümölccsel.';
 
   @override
-  String get m0646 => 'Tálald cottage cheese-zel, abonettel és tökmaggal.';
+  String get m0650 => 'Tálald cottage cheese-zel, abonettel és tökmaggal.';
 
   @override
-  String get m0647 => 'Tálald fetával és tzatzikivel.';
+  String get m0651 => 'Tálald fetával és tzatzikivel.';
 
   @override
-  String get m0648 => 'Tálald gyümölccsel.';
+  String get m0652 => 'Tálald gyümölccsel.';
 
   @override
-  String get m0649 => 'Tálald pitával, salátával és joghurtos szósszal.';
+  String get m0653 => 'Tálald pitával, salátával és joghurtos szósszal.';
 
   @override
-  String get m0650 => 'Tálald salátával és joghurtos öntettel.';
+  String get m0654 => 'Tálald salátával és joghurtos öntettel.';
 
   @override
-  String get m0651 => 'Tálald zöldbabbal és kevés mustáros szósszal.';
+  String get m0655 => 'Tálald zöldbabbal és kevés mustáros szósszal.';
 
   @override
-  String get m0652 =>
+  String get m0656 =>
       'Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.';
 
   @override
-  String get m0653 => 'Tartsd kézben az étkezéseidet.';
+  String get m0657 => 'Tartsd kézben az étkezéseidet.';
 
   @override
-  String get m0654 => 'Te adod meg, hány gramm kerüljön egy adagba.';
+  String get m0658 => 'Te adod meg, hány gramm kerüljön egy adagba.';
 
   @override
-  String get m0655 => 'Tedd dobozba hummusszal együtt.';
+  String get m0659 => 'Tedd dobozba hummusszal együtt.';
 
   @override
-  String get m0656 => 'Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.';
+  String get m0660 => 'Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.';
 
   @override
-  String get m0657 => 'Tedd rá a csirkét és az öntetet.';
+  String get m0661 => 'Tedd rá a csirkét és az öntetet.';
 
   @override
-  String get m0658 => 'Tedd rá a gyümölcsöt, mézet és diót.';
+  String get m0662 => 'Tedd rá a gyümölcsöt, mézet és diót.';
 
   @override
-  String get m0659 => 'Tedd rá a paradicsomot és szórd meg tökmaggal.';
+  String get m0663 => 'Tedd rá a paradicsomot és szórd meg tökmaggal.';
 
   @override
-  String get m0660 => 'Tedd rá a tojást és frissen tálald.';
+  String get m0664 => 'Tedd rá a tojást és frissen tálald.';
 
   @override
-  String get m0661 => 'Tedd rá az epret és a mandulát.';
+  String get m0665 => 'Tedd rá az epret és a mandulát.';
 
   @override
-  String get m0662 => 'Tegnap';
+  String get m0666 => 'Tegnap';
 
   @override
-  String get m0663 => 'Tej';
+  String get m0667 => 'Tej';
 
   @override
-  String get m0664 => 'Tej vagy növényi ital';
+  String get m0668 => 'Tej vagy növényi ital';
 
   @override
-  String get m0665 => 'tejfehérje';
+  String get m0669 => 'tejfehérje';
 
   @override
-  String get m0666 => 'Tekerd fel és vágd félbe.';
+  String get m0670 => 'Tekerd fel és vágd félbe.';
 
   @override
-  String get m0667 => 'Teljes kiőrlésű abonett';
+  String get m0671 => 'Teljes kiőrlésű abonett';
 
   @override
-  String get m0668 => 'Teljes kiőrlésű keksz';
+  String get m0672 => 'Teljes kiőrlésű keksz';
 
   @override
-  String get m0669 => 'Teljes kiőrlésű kenyér';
+  String get m0673 => 'Teljes kiőrlésű kenyér';
 
   @override
-  String get m0670 => 'Teljes kiőrlésű pita';
+  String get m0674 => 'Teljes kiőrlésű pita';
 
   @override
-  String get m0671 => 'Teljes kiőrlésű tészta';
+  String get m0675 => 'Teljes kiőrlésű tészta';
 
   @override
-  String get m0672 => 'Teljes kiőrlésű tortilla';
+  String get m0676 => 'Teljes kiőrlésű tortilla';
 
   @override
-  String get m0673 => 'Teljes mennyiség elosztása';
+  String get m0677 => 'Teljes mennyiség elosztása';
 
   @override
-  String get m0674 => 'Teljesítmény nap';
+  String get m0678 => 'Teljesítmény nap';
 
   @override
-  String get m0675 => 'Téma';
+  String get m0679 => 'Téma';
 
   @override
-  String get m0676 => 'Téma választása';
+  String get m0680 => 'Téma választása';
 
   @override
-  String get m0677 => 'Témák (6 db)';
+  String get m0681 => 'Témák (6 db)';
 
   @override
-  String get m0678 => 'Tempós nap';
+  String get m0682 => 'Tempós nap';
 
   @override
-  String get m0679 => 'Tempós tál nap';
+  String get m0683 => 'Tempós tál nap';
 
   @override
-  String get m0680 => 'Terv neve';
+  String get m0684 => 'Terv neve';
 
   @override
-  String get m0681 => 'Tervezd meg a vacsorát még a rohanás előtt.';
+  String get m0685 => 'Tervezd meg a vacsorát még a rohanás előtt.';
 
   @override
-  String get m0682 => 'Tervezett nap';
+  String get m0686 => 'Tervezett nap';
 
   @override
-  String get m0683 => 'Tervezz egy nyugodt, erős napot.';
+  String get m0687 => 'Tervezz egy nyugodt, erős napot.';
 
   @override
-  String get m0684 => 'Tervezz, főzz, kövess okosabban';
+  String get m0688 => 'Tervezz, főzz, kövess okosabban';
 
   @override
-  String get m0685 => 'TESTTÖMEG INDEX (BMI)';
+  String get m0689 => 'TESTTÖMEG INDEX (BMI)';
 
   @override
-  String get m0686 => 'Tészta';
+  String get m0690 => 'Tészta';
 
   @override
-  String get m0687 => 'tétel';
+  String get m0691 => 'tétel';
 
   @override
-  String get m0688 => 'Tétel hozzáadása';
+  String get m0692 => 'Tétel hozzáadása';
 
   @override
-  String get m0689 => 'téves értéket kapsz.';
+  String get m0693 => 'téves értéket kapsz.';
 
   @override
-  String get m0690 => 'Tiszta energia nap';
+  String get m0694 => 'Tiszta energia nap';
 
   @override
-  String get m0691 => 'Tiszta nap';
+  String get m0695 => 'Tiszta nap';
 
   @override
-  String get m0692 => 'Tiszta ritmus nap';
+  String get m0696 => 'Tiszta ritmus nap';
 
   @override
-  String get m0693 => 'Több mentés, bevásárlólisták, súlykövetés extrák';
+  String get m0697 => 'Több mentés, bevásárlólisták, súlykövetés extrák';
 
   @override
-  String get m0694 => 'Tofu';
+  String get m0698 => 'Tofu';
 
   @override
-  String get m0695 => 'Tofus csicseriborsó curry';
+  String get m0699 => 'Tofus csicseriborsó curry';
 
   @override
-  String get m0696 => 'Tofus quinoás vacsoratál';
+  String get m0700 => 'Tofus quinoás vacsoratál';
 
   @override
-  String get m0697 => 'Tofus zöldséges noodle box';
+  String get m0701 => 'Tofus zöldséges noodle box';
 
   @override
-  String get m0698 => 'tojás';
+  String get m0702 => 'tojás';
 
   @override
-  String get m0699 => 'Tojás';
+  String get m0703 => 'Tojás';
 
   @override
-  String get m0700 => 'Tojásos avokádós pirítós';
+  String get m0704 => 'Tojásos avokádós pirítós';
 
   @override
-  String get m0701 => 'Tojásos rizses reggeli serpenyő';
+  String get m0705 => 'Tojásos rizses reggeli serpenyő';
 
   @override
-  String get m0702 => 'Tojásos zöldséges rizs';
+  String get m0706 => 'Tojásos zöldséges rizs';
 
   @override
-  String get m0703 => 'Tökmag';
+  String get m0707 => 'Tökmag';
 
   @override
-  String get m0704 => 'Töltött paprika light módra';
+  String get m0708 => 'Töltött paprika light módra';
 
   @override
-  String get m0705 => 'Töltsd meg csirkével és salátával.';
+  String get m0709 => 'Töltsd meg csirkével és salátával.';
 
   @override
-  String get m0706 => 'Töltsd meg húsos-rizses keverékkel.';
+  String get m0710 => 'Töltsd meg húsos-rizses keverékkel.';
 
   @override
-  String get m0707 => 'Töltsd meg pulykás-babos keverékkel.';
+  String get m0711 => 'Töltsd meg pulykás-babos keverékkel.';
 
   @override
-  String get m0708 => 'Tömegnövelés';
+  String get m0712 => 'Tömegnövelés';
 
   @override
-  String get m0709 => 'Tömegnöveléshez: ';
+  String get m0713 => 'Tömegnöveléshez: ';
 
   @override
-  String get m0710 => 'Tomorrow starts with tonight’s prep.';
+  String get m0714 => 'Tomorrow starts with tonight’s prep.';
 
   @override
-  String get m0711 => 'Tonhal';
+  String get m0715 => 'Tonhal';
 
   @override
-  String get m0712 => 'Tonhalas babos burgonyasaláta';
+  String get m0716 => 'Tonhalas babos burgonyasaláta';
 
   @override
-  String get m0713 => 'Tonhalas kukoricás tésztasaláta';
+  String get m0717 => 'Tonhalas kukoricás tésztasaláta';
 
   @override
-  String get m0714 => 'Tonhalas reggeli pirítós';
+  String get m0718 => 'Tonhalas reggeli pirítós';
 
   @override
-  String get m0715 => 'Tonhalas ropogós falatok';
+  String get m0719 => 'Tonhalas ropogós falatok';
 
   @override
-  String get m0716 => 'Törlés';
+  String get m0720 => 'Törlés';
 
   @override
-  String get m0717 => 'Tovább';
+  String get m0721 => 'Tovább';
 
   @override
-  String get m0718 => 'További rögzítések';
+  String get m0722 => 'További rögzítések';
 
   @override
-  String get m0719 => 'Trend';
+  String get m0723 => 'Trend';
 
   @override
-  String get m0720 => 'Túlsúly';
+  String get m0724 => 'Túlsúly';
 
   @override
-  String get m0721 => 'Túlsúlyos';
+  String get m0725 => 'Túlsúlyos';
 
   @override
-  String get m0722 => 'Turmixold krémesre 30-60 másodperc alatt.';
+  String get m0726 => 'Turmixold krémesre 30-60 másodperc alatt.';
 
   @override
-  String get m0723 => 'Túró';
+  String get m0727 => 'Túró';
 
   @override
-  String get m0724 => 'Túrós bogyós tál';
+  String get m0728 => 'Túrós bogyós tál';
 
   @override
-  String get m0725 => 'Túrós zabpalacsinta';
+  String get m0729 => 'Túrós zabpalacsinta';
 
   @override
-  String get m0726 => 'Túrós zabpalacsinta előre sütve';
+  String get m0730 => 'Túrós zabpalacsinta előre sütve';
 
   @override
-  String get m0727 => 'Tzatziki';
+  String get m0731 => 'Tzatziki';
 
   @override
-  String get m0728 => 'Uborka';
+  String get m0732 => 'Uborka';
 
   @override
-  String get m0729 => 'ÜDV A MEALR-BEN';
+  String get m0733 => 'ÜDV A MEALR-BEN';
 
   @override
-  String get m0730 => 'Új bevásárlólista';
+  String get m0734 => 'Új bevásárlólista';
 
   @override
-  String get m0731 => 'Új étel';
+  String get m0735 => 'Új étel';
 
   @override
-  String get m0732 => 'Új étel hozzáadása';
+  String get m0736 => 'Új étel hozzáadása';
 
   @override
-  String get m0733 => 'Új lista neve';
+  String get m0737 => 'Új lista neve';
 
   @override
-  String get m0734 => 'Új meal prep terv';
+  String get m0738 => 'Új meal prep terv';
 
   @override
-  String get m0735 => 'Ülő életmód';
+  String get m0739 => 'Ülő életmód';
 
   @override
-  String get m0736 => 'Vacsora';
+  String get m0740 => 'Vacsora';
 
   @override
-  String get m0737 => 'Vágd félbe és pirítsd meg a bagelt.';
+  String get m0741 => 'Vágd félbe és pirítsd meg a bagelt.';
 
   @override
-  String get m0738 =>
+  String get m0742 =>
       'Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.';
 
   @override
-  String get m0739 => 'Válassz ételt és adagold dobozokra';
+  String get m0743 => 'Válassz ételt és adagold dobozokra';
 
   @override
-  String get m0740 => 'Válassz étrend típust';
+  String get m0744 => 'Válassz étrend típust';
 
   @override
-  String get m0741 => 'Válassz főételt, köretet és adagold dobozokra';
+  String get m0745 => 'Válassz főételt, köretet és adagold dobozokra';
 
   @override
-  String get m0742 => 'Vegán';
+  String get m0746 => 'Vegán';
 
   @override
-  String get m0743 => 'Vegetáriánus';
+  String get m0747 => 'Vegetáriánus';
 
   @override
-  String get m0744 => 'Veggie erő nap';
+  String get m0748 => 'Veggie erő nap';
 
   @override
-  String get m0745 => 'Verzió 1.0.0';
+  String get m0749 => 'Verzió 1.0.0';
 
   @override
-  String get m0746 => 'veszít a tömegéből';
+  String get m0750 => 'veszít a tömegéből';
 
   @override
-  String get m0747 => 'Villám nap';
+  String get m0751 => 'Világos';
 
   @override
-  String get m0748 =>
+  String get m0752 => 'Villám nap';
+
+  @override
+  String get m0753 =>
       'vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n';
 
   @override
-  String get m0749 => 'Vörösbab';
+  String get m0754 => 'Vörösbab';
 
   @override
-  String get m0750 => 'Wok zöldség';
+  String get m0755 => 'Wok zöldség';
 
   @override
-  String get m0751 => 'Wrap up with something nourishing.';
+  String get m0756 => 'Wrap up with something nourishing.';
 
   @override
-  String get m0752 => 'Zabpehely';
+  String get m0757 => 'Zabpehely';
 
   @override
-  String get m0753 => 'Zabpehelyliszt';
+  String get m0758 => 'Zabpehelyliszt';
 
   @override
-  String get m0754 => 'Zárd a napot jóllakottan, nem rohanva.';
+  String get m0759 => 'Zárd a napot jóllakottan, nem rohanva.';
 
   @override
-  String get m0755 => 'Zárd a napot valami táplálóval.';
+  String get m0760 => 'Zárd a napot valami táplálóval.';
 
   @override
-  String get m0756 => 'Zárd gondoskodással a napot.';
+  String get m0761 => 'Zárd gondoskodással a napot.';
 
   @override
-  String get m0757 => 'Zöld fókusz nap';
+  String get m0762 => 'Zöld fókusz nap';
 
   @override
-  String get m0758 => 'Zöld lendület nap';
+  String get m0763 => 'Zöld lendület nap';
 
   @override
-  String get m0759 => 'Zöld nap';
+  String get m0764 => 'Zöld nap';
 
   @override
-  String get m0760 => 'Zöldbab';
+  String get m0765 => 'Zöldbab';
 
   @override
-  String get m0761 => 'Zöldborsó';
+  String get m0766 => 'Zöldborsó';
 
   @override
-  String get m0762 => 'Zöldsaláta';
+  String get m0767 => 'Zöldsaláta';
 
   @override
-  String get m0763 => 'Zöldséges omlett';
+  String get m0768 => 'Zöldséges omlett';
 
   @override
-  String get m0764 => 'Zsemlemorzsa';
+  String get m0769 => 'Zsemlemorzsa';
 }

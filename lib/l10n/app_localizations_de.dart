@@ -1422,956 +1422,971 @@ class AppLocalizationsDe extends AppLocalizations {
   String get m0451 => 'Darstellung';
 
   @override
-  String get m0452 => 'Zu bestehender Liste hinzufügen';
+  String get m0452 => 'Darstellungsmodus';
 
   @override
-  String get m0453 => 'Teilen';
+  String get m0453 => 'Zu bestehender Liste hinzufügen';
 
   @override
-  String get m0454 => 'Abbrechen';
+  String get m0454 => 'Teilen';
 
   @override
-  String get m0455 => 'Warme Bananen-Hafer-Happen';
+  String get m0455 => 'Abbrechen';
 
   @override
-  String get m0456 => 'Warmer Linsen-Feta-Teller';
+  String get m0456 => 'Warme Bananen-Hafer-Happen';
 
   @override
-  String get m0457 =>
+  String get m0457 => 'Warmer Linsen-Feta-Teller';
+
+  @override
+  String get m0458 =>
       'Erwärme die Tortilla und belege sie mit Schinken, Käse und Gemüse.';
 
   @override
-  String get m0458 => 'Speichern';
+  String get m0459 => 'Speichern';
 
   @override
-  String get m0459 => 'Free-From-Schwung-Tag';
+  String get m0460 => 'Free-From-Schwung-Tag';
 
   @override
-  String get m0460 => 'Im Profil speichern · Kalorienziel aktualisieren';
+  String get m0461 => 'Im Profil speichern · Kalorienziel aktualisieren';
 
   @override
-  String get m0461 => 'Als neue Liste speichern';
+  String get m0462 => 'Als neue Liste speichern';
 
   @override
-  String get m0462 => 'Gespeichertes Essen';
+  String get m0463 => 'Gespeichertes Essen';
 
   @override
-  String get m0463 => 'Gespeichert';
+  String get m0464 => 'Gespeichert';
 
   @override
-  String get m0464 =>
+  String get m0465 =>
       'Im Profil gespeichert · nächstes Mal automatisch ausgefüllt';
 
   @override
-  String get m0465 => 'Im Profil gespeichert.';
+  String get m0466 => 'Im Profil gespeichert.';
 
   @override
-  String get m0466 =>
+  String get m0467 =>
       'wiege die Zutaten vor dem Kochen, zum Beispiel Hähnchen + Reis + Gemüse zusammen 950 g.';
 
   @override
-  String get m0467 => 'Honig';
+  String get m0468 => 'Honig';
 
   @override
-  String get m0468 => 'WAS IST DAS PROBLEM?';
+  String get m0469 => 'WAS IST DAS PROBLEM?';
 
   @override
-  String get m0469 => 'WARUM IST ES NÜTZLICH?';
+  String get m0470 => 'WARUM IST ES NÜTZLICH?';
 
   @override
-  String get m0470 => 'Alle';
+  String get m0471 => 'Alle';
 
   @override
-  String get m0471 => 'ALLES IN EINEM';
+  String get m0472 => 'ALLES IN EINEM';
 
   @override
-  String get m0472 => 'Gib alle Zutaten in einen Mixer.';
+  String get m0473 => 'Gib alle Zutaten in einen Mixer.';
 
   @override
-  String get m0473 => 'Mini-Kartoffel-Tzatziki-Box';
+  String get m0474 => 'Mini-Kartoffel-Tzatziki-Box';
 
   @override
-  String get m0474 => 'Mini-Hähnchen-Wrap';
+  String get m0475 => 'Mini-Hähnchen-Wrap';
 
   @override
-  String get m0475 => 'Mini-Tortilla';
+  String get m0476 => 'Mini-Tortilla';
 
   @override
-  String get m0476 => 'Erdnussbutter';
+  String get m0477 => 'Erdnussbutter';
 
   @override
-  String get m0477 => 'Den Feta darüberbröseln und frisch servieren.';
+  String get m0478 => 'Den Feta darüberbröseln und frisch servieren.';
 
   @override
-  String get m0478 =>
+  String get m0479 =>
       'Den Feta darüberbröseln und mit dem Gemüse-Bulgur servieren.';
-
-  @override
-  String get m0479 => 'Senf';
 
   @override
   String get m0480 => 'Senf';
 
   @override
-  String get m0481 => 'Schweinefilet mit Senf und Kartoffeln';
+  String get m0481 => 'Senf';
 
   @override
-  String get m0482 => 'Tage';
+  String get m0482 => 'Schweinefilet mit Senf und Kartoffeln';
 
   @override
-  String get m0483 => 'Tägliche Aktivität';
+  String get m0483 => 'Tage';
 
   @override
-  String get m0484 => 'Tagesübersicht';
+  String get m0484 => 'Tägliche Aktivität';
 
   @override
-  String get m0485 => 'TÄGLICHE ERHALTUNGSKALORIEN';
+  String get m0485 => 'Tagesübersicht';
 
   @override
-  String get m0486 => 'Snack';
+  String get m0486 => 'TÄGLICHE ERHALTUNGSKALORIEN';
 
   @override
-  String get m0487 => 'Schwierigkeit';
+  String get m0487 => 'Snack';
 
   @override
-  String get m0488 => 'Geschlecht';
+  String get m0488 => 'Schwierigkeit';
 
   @override
-  String get m0489 => 'nicht an Kalorien.';
+  String get m0489 => 'Geschlecht';
 
   @override
-  String get m0490 => 'Nicht nur Wiegen: eine App für deine Essensroutine.';
+  String get m0490 => 'nicht an Kalorien.';
 
   @override
-  String get m0491 => 'ändern sich die Kalorien nicht.';
+  String get m0491 => 'Nicht nur Wiegen: eine App für deine Essensroutine.';
 
   @override
-  String get m0492 => 'Benenne sie und füge die Artikel hinzu';
+  String get m0492 => 'ändern sich die Kalorien nicht.';
 
   @override
-  String get m0493 => 'Info';
+  String get m0493 => 'Benenne sie und füge die Artikel hinzu';
 
   @override
-  String get m0494 => 'Kein aktives Abo';
+  String get m0494 => 'Info';
 
   @override
-  String get m0495 => 'kein hervorgehobenes Allergen';
+  String get m0495 => 'Kein aktives Abo';
 
   @override
-  String get m0496 => 'Keine Beilage';
+  String get m0496 => 'kein hervorgehobenes Allergen';
 
   @override
-  String get m0497 => 'Kein gespeichertes Essen';
+  String get m0497 => 'Keine Beilage';
 
   @override
-  String get m0498 => 'Keine Treffer.';
+  String get m0498 => 'Kein gespeichertes Essen';
 
   @override
-  String get m0499 => 'Keine Veränderung im Vergleich zum Startgewicht';
+  String get m0499 => 'Keine Treffer.';
 
   @override
-  String get m0500 => 'Weiblich';
+  String get m0500 => 'Keine Veränderung im Vergleich zum Startgewicht';
 
   @override
-  String get m0501 => 'Normal';
+  String get m0501 => 'Weiblich';
 
   @override
-  String get m0502 => 'Normale Rezepte';
+  String get m0502 => 'Normal';
 
   @override
-  String get m0503 => 'Normalgewicht';
+  String get m0503 => 'Normale Rezepte';
 
   @override
-  String get m0504 => 'Pflanzlicher Tag';
+  String get m0504 => 'Normalgewicht';
 
   @override
-  String get m0505 => 'Pflanzen-Rhythmus-Tag';
+  String get m0505 => 'Pflanzlicher Tag';
 
   @override
-  String get m0506 => 'Sprache';
+  String get m0506 => 'Pflanzen-Rhythmus-Tag';
 
   @override
-  String get m0507 => 'Sprache, Theme, Modus und Version';
+  String get m0507 => 'Sprache';
 
   @override
-  String get m0508 => 'roh ÷ gekocht × Portion =\nRohäquivalent\n';
+  String get m0508 => 'Sprache, Theme, Modus und Version';
 
   @override
-  String get m0509 => 'Rohe Menge';
+  String get m0509 => 'roh ÷ gekocht × Portion =\nRohäquivalent\n';
 
   @override
-  String get m0510 => 'Rohäquivalent';
+  String get m0510 => 'Rohe Menge';
 
   @override
   String get m0511 => 'Rohäquivalent';
 
   @override
-  String get m0512 => 'Rohäquivalent.';
+  String get m0512 => 'Rohäquivalent';
 
   @override
-  String get m0513 => 'Roh g';
+  String get m0513 => 'Rohäquivalent.';
 
   @override
-  String get m0514 => 'Rohgewicht-Rechner';
+  String get m0514 => 'Roh g';
 
   @override
-  String get m0515 => 'roh';
+  String get m0515 => 'Rohgewicht-Rechner';
 
   @override
-  String get m0516 => 'Ruhige-Energie-Tag';
+  String get m0516 => 'roh';
 
   @override
-  String get m0517 =>
+  String get m0517 => 'Einführung erneut öffnen';
+
+  @override
+  String get m0518 => 'Ruhige-Energie-Tag';
+
+  @override
+  String get m0519 =>
       'Ein ruhiges, praktisches Tool für eine genauere Ernährungsroutine.';
 
   @override
-  String get m0518 => 'Adipositas';
+  String get m0520 => 'Adipositas';
 
   @override
-  String get m0519 => 'Smarte-Einkaufskorb-Tag';
+  String get m0521 => 'Smarte-Einkaufskorb-Tag';
 
   @override
-  String get m0520 => 'Cleverer Tag';
+  String get m0522 => 'Cleverer Tag';
 
   @override
-  String get m0521 => 'Smart-Spar-Tag';
+  String get m0523 => 'Smart-Spar-Tag';
 
   @override
-  String get m0522 => 'Olivenöl';
+  String get m0524 => 'Olivenöl';
 
   @override
-  String get m0523 => 'Gesamt';
+  String get m0525 => 'Onboarding neu starten';
 
   @override
-  String get m0524 => 'Kalorien gesamt';
+  String get m0526 => 'Gesamt';
 
   @override
-  String get m0525 => 'Gesamtgewicht';
+  String get m0527 => 'Kalorien gesamt';
 
   @override
-  String get m0526 => 'Couscous, Hähnchen und Brokkoli auf Boxen verteilen.';
+  String get m0528 => 'Gesamtgewicht';
 
   @override
-  String get m0527 => 'Teile Reis, Hähnchen und Brokkoli in Boxen auf.';
+  String get m0529 => 'Couscous, Hähnchen und Brokkoli auf Boxen verteilen.';
 
   @override
-  String get m0528 => 'Vorbereitete Overnight Oats';
+  String get m0530 => 'Teile Reis, Hähnchen und Brokkoli in Boxen auf.';
 
   @override
-  String get m0529 => 'Paprika';
+  String get m0531 => 'Vorbereitete Overnight Oats';
 
   @override
-  String get m0530 => 'Tomate';
+  String get m0532 => 'Paprika';
 
   @override
-  String get m0531 => 'Tomatenmark';
+  String get m0533 => 'Tomate';
 
   @override
-  String get m0532 => 'Mit Tomatensauce und Käse fertig backen.';
+  String get m0534 => 'Tomatenmark';
 
   @override
-  String get m0533 => 'Tomatensauce';
+  String get m0535 => 'Mit Tomatensauce und Käse fertig backen.';
 
   @override
-  String get m0534 => 'Geldbeutel-Plus-Tag';
+  String get m0536 => 'Tomatensauce';
 
   @override
-  String get m0535 => 'Budgetfreundlich';
+  String get m0537 => 'Geldbeutel-Plus-Tag';
 
   @override
-  String get m0536 => 'Min.';
+  String get m0538 => 'Budgetfreundlich';
 
   @override
-  String get m0537 => 'Toaste das Brot.';
+  String get m0539 => 'Min.';
 
   @override
-  String get m0538 => 'Z. B. Wochenendkochen';
+  String get m0540 => 'Toaste das Brot.';
 
   @override
-  String get m0539 => 'Plane einen ruhigen, starken Tag.';
+  String get m0541 => 'Z. B. Wochenendkochen';
 
   @override
-  String get m0540 => 'Aktiver Tag';
+  String get m0542 => 'Plane einen ruhigen, starken Tag.';
 
   @override
-  String get m0541 => 'Praktischer Tag';
+  String get m0543 => 'Aktiver Tag';
 
   @override
-  String get m0542 => 'Bereite vor, was später hilft.';
+  String get m0544 => 'Praktischer Tag';
 
   @override
-  String get m0543 => 'Pro';
+  String get m0545 => 'Bereite vor, was später hilft.';
 
   @override
-  String get m0544 => 'Pro-Modus-Test';
+  String get m0546 => 'Pro';
 
   @override
-  String get m0545 => 'Pro-Statistik';
+  String get m0547 => 'Pro-Modus-Test';
 
   @override
-  String get m0546 => 'Extras mit Pro freischalten';
+  String get m0548 => 'Pro-Statistik';
 
   @override
-  String get m0547 => '7 Tage kostenlos testen';
+  String get m0549 => 'Extras mit Pro freischalten';
 
   @override
-  String get m0548 => 'Profil';
+  String get m0550 => '7 Tage kostenlos testen';
 
   @override
-  String get m0549 => 'Verlauf löschen';
+  String get m0551 => 'Profil';
 
   @override
-  String get m0550 => 'Protein-Joghurt-Becher';
+  String get m0552 => 'Verlauf löschen';
 
   @override
-  String get m0551 => 'Protein-Porridge mit Beeren';
+  String get m0553 => 'Protein-Joghurt-Becher';
 
   @override
-  String get m0552 => 'Putenbällchen mit Zucchini-Spaghetti';
+  String get m0554 => 'Protein-Porridge mit Beeren';
 
   @override
-  String get m0553 => 'Putenbrustschinken';
+  String get m0555 => 'Putenbällchen mit Zucchini-Spaghetti';
 
   @override
-  String get m0554 => 'Puten-Bolognese-Pasta';
+  String get m0556 => 'Putenbrustschinken';
 
   @override
-  String get m0555 => 'Puten-Bolognese-Pasta, leichte Portion';
+  String get m0557 => 'Puten-Bolognese-Pasta';
 
   @override
-  String get m0556 => 'Puten-Cottage-Frühstücksbox';
+  String get m0558 => 'Puten-Bolognese-Pasta, leichte Portion';
 
   @override
-  String get m0557 => 'Puten-Käse-Röllchen';
+  String get m0559 => 'Puten-Cottage-Frühstücksbox';
 
   @override
-  String get m0558 => 'Puten-Ei-Wrap';
+  String get m0560 => 'Puten-Käse-Röllchen';
 
   @override
-  String get m0559 => 'Putenschinken';
+  String get m0561 => 'Puten-Ei-Wrap';
 
   @override
-  String get m0560 => 'Mit Pute gefüllte Zucchini';
+  String get m0562 => 'Putenschinken';
 
   @override
-  String get m0561 => 'Quinoa';
+  String get m0563 => 'Mit Pute gefüllte Zucchini';
 
   @override
-  String get m0562 => 'Quinoa-Beeren-Snackbecher';
+  String get m0564 => 'Quinoa';
 
   @override
-  String get m0563 => 'Quinoa-Joghurt-Frühstück';
+  String get m0565 => 'Quinoa-Beeren-Snackbecher';
 
   @override
-  String get m0564 => 'Krustentiere';
+  String get m0566 => 'Quinoa-Joghurt-Frühstück';
 
   @override
-  String get m0565 => 'Rezept';
+  String get m0567 => 'Krustentiere';
 
   @override
-  String get m0566 => 'Rezeptfaktor';
+  String get m0568 => 'Rezept';
 
   @override
-  String get m0567 => 'Rezepte';
+  String get m0569 => 'Rezeptfaktor';
 
   @override
-  String get m0568 => 'Frühstück';
+  String get m0570 => 'Rezepte';
 
   @override
-  String get m0569 => 'Organisierte-Box-Tag';
+  String get m0571 => 'Frühstück';
 
   @override
-  String get m0570 => 'System';
+  String get m0572 => 'Organisierte-Box-Tag';
 
   @override
-  String get m0571 => 'Für regelmäßige Nutzung';
+  String get m0573 => 'System';
 
   @override
-  String get m0572 => 'Karotte';
+  String get m0574 => 'Für regelmäßige Nutzung';
 
   @override
-  String get m0573 => 'Reibe oder würfle den Apfel hinein.';
+  String get m0575 => 'Karotte';
 
   @override
-  String get m0574 => 'Geriebener Käse';
+  String get m0576 => 'Reibe oder würfle den Apfel hinein.';
 
   @override
-  String get m0575 => 'Details';
+  String get m0577 => 'Geriebener Käse';
 
   @override
-  String get m0576 => 'Schichte Granola und Bananenscheiben darauf.';
+  String get m0578 => 'Details';
 
   @override
-  String get m0577 => 'Reis';
+  String get m0579 => 'Schichte Granola und Bananenscheiben darauf.';
 
   @override
-  String get m0578 => 'Reiswaffel';
+  String get m0580 => 'Reis';
 
   @override
-  String get m0579 => 'Reiswaffeln mit Cottage Cheese';
+  String get m0581 => 'Reiswaffel';
 
   @override
-  String get m0580 => 'Reisnudeln';
+  String get m0582 => 'Reiswaffeln mit Cottage Cheese';
 
   @override
-  String get m0581 => 'Gespeicherte Gewichte';
+  String get m0583 => 'Reisnudeln';
 
   @override
-  String get m0582 => 'Mit schnell zubereiteten Mahlzeiten';
+  String get m0584 => 'Gespeicherte Gewichte';
 
   @override
-  String get m0583 => 'Kurze-Küche-Tag';
+  String get m0585 => 'Mit schnell zubereiteten Mahlzeiten';
 
   @override
-  String get m0584 => 'Salat';
+  String get m0586 => 'Kurze-Küche-Tag';
 
   @override
-  String get m0585 => 'Salatmischung';
+  String get m0587 => 'Salat';
 
   @override
-  String get m0586 => 'In der Pfanne mit Schinken, Käse und Spinat garen.';
+  String get m0588 => 'Salatmischung';
 
   @override
-  String get m0587 => 'Schweinefilet';
+  String get m0589 => 'In der Pfanne mit Schinken, Käse und Spinat garen.';
 
   @override
-  String get m0588 => 'Schweinefilet mit Couscous';
+  String get m0590 => 'Schweinefilet';
 
   @override
-  String get m0589 => 'Schweinefilet mit Couscous-Salat';
+  String get m0591 => 'Schweinefilet mit Couscous';
 
   @override
-  String get m0590 => 'Plane das Abendessen vor dem Trubel.';
+  String get m0592 => 'Schweinefilet mit Couscous-Salat';
 
   @override
-  String get m0591 => 'Shakshuka-Frühstücksbowl';
+  String get m0593 => 'Plane das Abendessen vor dem Trubel.';
 
   @override
-  String get m0592 => 'Eiliger-Schwung-Tag';
+  String get m0594 => 'Shakshuka-Frühstücksbowl';
 
   @override
-  String get m0593 => 'Eiliger Tag';
+  String get m0595 => 'Eiliger-Schwung-Tag';
 
   @override
-  String get m0594 => 'Skyr oder griechischer Joghurt';
+  String get m0596 => 'Eiliger Tag';
 
   @override
-  String get m0595 => 'Werde langsamer, iss gut, ruh dich aus.';
+  String get m0597 => 'Skyr oder griechischer Joghurt';
 
   @override
-  String get m0596 => 'Kleine Entscheidungen, starke Richtung.';
+  String get m0598 => 'Werde langsamer, iss gut, ruh dich aus.';
 
   @override
-  String get m0597 => 'Salz, Pfeffer';
+  String get m0599 => 'Kleine Entscheidungen, starke Richtung.';
 
   @override
-  String get m0598 => 'Schinken-Käse-Omelett';
+  String get m0600 => 'Salz, Pfeffer';
 
   @override
-  String get m0599 => 'Schinken-Ei-Knäckebrot-Teller';
+  String get m0601 => 'Schinken-Käse-Omelett';
 
   @override
-  String get m0600 => 'Herzhafte Cottage-Cheese-Bowl';
+  String get m0602 => 'Schinken-Ei-Knäckebrot-Teller';
 
   @override
-  String get m0601 => 'Dunkler Modus';
+  String get m0603 => 'Herzhafte Cottage-Cheese-Bowl';
 
   @override
-  String get m0602 => 'Untergewicht';
+  String get m0604 => 'Dunkel';
 
   @override
-  String get m0603 => 'Mageres Rindfleisch';
+  String get m0605 => 'Dunkler Modus';
 
   @override
-  String get m0604 => 'Spinat';
+  String get m0606 => 'Untergewicht';
 
   @override
-  String get m0605 => 'Spinat-Kokos-Kichererbsen';
+  String get m0607 => 'Mageres Rindfleisch';
 
   @override
-  String get m0606 => 'Sportlicher Tag';
+  String get m0608 => 'Spinat';
 
   @override
-  String get m0607 => 'Stabile-Kraft-Tag';
+  String get m0609 => 'Spinat-Kokos-Kichererbsen';
 
   @override
-  String get m0608 => 'Stabil';
+  String get m0610 => 'Sportlicher Tag';
 
   @override
-  String get m0609 => 'Einfach starten, beständig bleiben.';
+  String get m0611 => 'Stabile-Kraft-Tag';
 
   @override
-  String get m0610 => 'Bleib versorgt und fokussiert.';
+  String get m0612 => 'Stabil';
 
   @override
-  String get m0611 => 'Gebratene Hähnchenbrust';
+  String get m0613 => 'Einfach starten, beständig bleiben.';
 
   @override
-  String get m0612 => 'Gebackener Fisch auf Gemüse';
+  String get m0614 => 'Bleib versorgt und fokussiert.';
 
   @override
-  String get m0613 => 'Gewicht';
+  String get m0615 => 'Gebratene Hähnchenbrust';
 
   @override
-  String get m0614 => 'Gewicht (kg)';
+  String get m0616 => 'Gebackener Fisch auf Gemüse';
 
   @override
-  String get m0615 => 'Gewichtstracking';
+  String get m0617 => 'Gewicht';
 
   @override
-  String get m0616 => 'Gewichtsverlauf';
+  String get m0618 => 'Gewicht (kg)';
 
   @override
-  String get m0617 => 'Gewicht bearbeiten';
+  String get m0619 => 'Gewichtstracking';
 
   @override
-  String get m0618 => 'Gewichtstracking';
+  String get m0620 => 'Gewichtsverlauf';
 
   @override
-  String get m0619 => 'Gewichtstracking-Diagramm';
+  String get m0621 => 'Gewicht bearbeiten';
 
   @override
-  String get m0620 => 'Gewichtslog bearbeiten';
+  String get m0622 => 'Gewichtstracking';
 
   @override
-  String get m0621 => 'Backe es fertig, bis der Fisch zart ist.';
+  String get m0623 => 'Gewichtstracking-Diagramm';
 
   @override
-  String get m0622 =>
+  String get m0624 => 'Gewichtslog bearbeiten';
+
+  @override
+  String get m0625 => 'Backe es fertig, bis der Fisch zart ist.';
+
+  @override
+  String get m0626 =>
       'In Tomatensauce backen oder schmoren, bis alles gar ist.';
 
   @override
-  String get m0623 => 'Backpulver';
+  String get m0627 => 'Backpulver';
 
   @override
-  String get m0624 =>
+  String get m0628 =>
       'Berechne deine Erhaltungskalorien nach Alter, Gewicht, Größe und Aktivität.';
 
   @override
-  String get m0625 => 'Persönliche Daten';
+  String get m0629 => 'Persönliche Daten';
 
   @override
-  String get m0626 => 'PERSÖNLICHE GRUNDLAGEN';
+  String get m0630 => 'PERSÖNLICHE GRUNDLAGEN';
 
   @override
-  String get m0627 => 'Guten Tag';
+  String get m0631 => 'Guten Tag';
 
   @override
-  String get m0628 => 'Bearbeiten';
+  String get m0632 => 'Bearbeiten';
 
   @override
-  String get m0629 => 'Sesam';
+  String get m0633 => 'Sesam';
 
   @override
-  String get m0630 => 'Sesam';
+  String get m0634 => 'Sesam';
 
   @override
-  String get m0631 => 'Soja';
+  String get m0635 => 'Soja';
 
   @override
-  String get m0632 => 'Sojagranulat';
+  String get m0636 => 'Sojagranulat';
 
   @override
-  String get m0633 => 'Mit Sojasauce würzen und zusammen anbraten.';
+  String get m0637 => 'Mit Sojasauce würzen und zusammen anbraten.';
 
   @override
-  String get m0634 => 'Sojasauce';
+  String get m0638 => 'Sojasauce';
 
   @override
-  String get m0635 =>
+  String get m0639 =>
       'Mit Kürbiskernen bestreuen und nach Geschmack salzen und pfeffern.';
 
   @override
-  String get m0636 => 'Benötigtes gekochtes Essen';
+  String get m0640 => 'Benötigtes gekochtes Essen';
 
   @override
-  String get m0637 => 'Benötigtes gekochtes Hauptgericht';
+  String get m0641 => 'Benötigtes gekochtes Hauptgericht';
 
   @override
-  String get m0638 => 'Benötigte gekochte Beilage';
+  String get m0642 => 'Benötigte gekochte Beilage';
 
   @override
-  String get m0639 => 'Benötigte rohe Zutaten';
+  String get m0643 => 'Benötigte rohe Zutaten';
 
   @override
-  String get m0640 => 'Benötigtes rohes Hauptgericht';
+  String get m0644 => 'Benötigtes rohes Hauptgericht';
 
   @override
-  String get m0641 => 'Benötigte rohe Beilage';
+  String get m0645 => 'Benötigte rohe Beilage';
 
   @override
-  String get m0642 => 'Spar-Tag';
+  String get m0646 => 'Spar-Tag';
 
   @override
-  String get m0643 => 'Serviere die Currybasis mit Reis.';
+  String get m0647 => 'Serviere die Currybasis mit Reis.';
 
   @override
-  String get m0644 => 'Mit Beeren und Chiasamen servieren.';
+  String get m0648 => 'Mit Beeren und Chiasamen servieren.';
 
   @override
-  String get m0645 => 'Mit Beeren servieren.';
+  String get m0649 => 'Mit Beeren servieren.';
 
   @override
-  String get m0646 =>
+  String get m0650 =>
       'Mit Cottage Cheese, Knäckebrot und Kürbiskernen servieren.';
 
   @override
-  String get m0647 => 'Mit Feta und Tzatziki servieren.';
+  String get m0651 => 'Mit Feta und Tzatziki servieren.';
 
   @override
-  String get m0648 => 'Mit Obst servieren.';
+  String get m0652 => 'Mit Obst servieren.';
 
   @override
-  String get m0649 => 'Mit Pita, Salat und Joghurtsauce servieren.';
+  String get m0653 => 'Mit Pita, Salat und Joghurtsauce servieren.';
 
   @override
-  String get m0650 => 'Mit Salat und Joghurtdressing servieren.';
+  String get m0654 => 'Mit Salat und Joghurtdressing servieren.';
 
   @override
-  String get m0651 => 'Mit grünen Bohnen und etwas Senfsauce servieren.';
-
-  @override
-  String get m0652 =>
-      'In einer beschichteten Pfanne zu kleinen Pfannkuchen ausbacken.';
-
-  @override
-  String get m0653 => 'Behalte deine Mahlzeiten im Blick.';
-
-  @override
-  String get m0654 => 'Du legst fest, wie viele Gramm in eine Portion kommen.';
-
-  @override
-  String get m0655 => 'Zusammen mit Hummus in eine Box geben.';
+  String get m0655 => 'Mit grünen Bohnen und etwas Senfsauce servieren.';
 
   @override
   String get m0656 =>
+      'In einer beschichteten Pfanne zu kleinen Pfannkuchen ausbacken.';
+
+  @override
+  String get m0657 => 'Behalte deine Mahlzeiten im Blick.';
+
+  @override
+  String get m0658 => 'Du legst fest, wie viele Gramm in eine Portion kommen.';
+
+  @override
+  String get m0659 => 'Zusammen mit Hummus in eine Box geben.';
+
+  @override
+  String get m0660 =>
       'Über Nacht in den Kühlschrank stellen, morgens umrühren und essen.';
 
   @override
-  String get m0657 => 'Hähnchen und Dressing daraufgeben.';
+  String get m0661 => 'Hähnchen und Dressing daraufgeben.';
 
   @override
-  String get m0658 => 'Obst, Honig und Nüsse daraufgeben.';
+  String get m0662 => 'Obst, Honig und Nüsse daraufgeben.';
 
   @override
-  String get m0659 => 'Tomaten daraufgeben und mit Kürbiskernen bestreuen.';
+  String get m0663 => 'Tomaten daraufgeben und mit Kürbiskernen bestreuen.';
 
   @override
-  String get m0660 => 'Ei darauflegen und frisch servieren.';
+  String get m0664 => 'Ei darauflegen und frisch servieren.';
 
   @override
-  String get m0661 => 'Erdbeeren und Mandeln daraufgeben.';
+  String get m0665 => 'Erdbeeren und Mandeln daraufgeben.';
 
   @override
-  String get m0662 => 'Gestern';
+  String get m0666 => 'Gestern';
 
   @override
-  String get m0663 => 'Milch';
+  String get m0667 => 'Milch';
 
   @override
-  String get m0664 => 'Milch oder Pflanzendrink';
+  String get m0668 => 'Milch oder Pflanzendrink';
 
   @override
-  String get m0665 => 'Milcheiweiß';
+  String get m0669 => 'Milcheiweiß';
 
   @override
-  String get m0666 => 'Aufrollen und halbieren.';
+  String get m0670 => 'Aufrollen und halbieren.';
 
   @override
-  String get m0667 => 'Vollkorn-Knäckebrot';
+  String get m0671 => 'Vollkorn-Knäckebrot';
 
   @override
-  String get m0668 => 'Vollkorncracker';
+  String get m0672 => 'Vollkorncracker';
 
   @override
-  String get m0669 => 'Vollkornbrot';
+  String get m0673 => 'Vollkornbrot';
 
   @override
-  String get m0670 => 'Vollkorn-Pita';
+  String get m0674 => 'Vollkorn-Pita';
 
   @override
-  String get m0671 => 'Vollkornnudeln';
+  String get m0675 => 'Vollkornnudeln';
 
   @override
-  String get m0672 => 'Vollkorn-Tortilla';
+  String get m0676 => 'Vollkorn-Tortilla';
 
   @override
-  String get m0673 => 'Gesamtmenge aufteilen';
+  String get m0677 => 'Gesamtmenge aufteilen';
 
   @override
-  String get m0674 => 'Leistungs-Tag';
+  String get m0678 => 'Leistungs-Tag';
 
   @override
-  String get m0675 => 'Theme';
+  String get m0679 => 'Theme';
 
   @override
-  String get m0676 => 'Theme wählen';
+  String get m0680 => 'Theme wählen';
 
   @override
-  String get m0677 => 'Themes (6)';
+  String get m0681 => 'Themes (6)';
 
   @override
-  String get m0678 => 'Schneller Tag';
+  String get m0682 => 'Schneller Tag';
 
   @override
-  String get m0679 => 'Schnelle-Bowl-Tag';
+  String get m0683 => 'Schnelle-Bowl-Tag';
 
   @override
-  String get m0680 => 'Planname';
+  String get m0684 => 'Planname';
 
   @override
-  String get m0681 => 'Plane das Abendessen vor dem Trubel.';
+  String get m0685 => 'Plane das Abendessen vor dem Trubel.';
 
   @override
-  String get m0682 => 'Geplanter Tag';
+  String get m0686 => 'Geplanter Tag';
 
   @override
-  String get m0683 => 'Plane einen ruhigen, starken Tag.';
+  String get m0687 => 'Plane einen ruhigen, starken Tag.';
 
   @override
-  String get m0684 => 'Plane, koche, tracke smarter';
+  String get m0688 => 'Plane, koche, tracke smarter';
 
   @override
-  String get m0685 => 'BODY-MASS-INDEX (BMI)';
+  String get m0689 => 'BODY-MASS-INDEX (BMI)';
 
   @override
-  String get m0686 => 'Nudeln';
+  String get m0690 => 'Nudeln';
 
   @override
-  String get m0687 => 'Artikel';
+  String get m0691 => 'Artikel';
 
   @override
-  String get m0688 => 'Artikel hinzufügen';
+  String get m0692 => 'Artikel hinzufügen';
 
   @override
-  String get m0689 => 'erhältst du einen falschen Wert.';
+  String get m0693 => 'erhältst du einen falschen Wert.';
 
   @override
-  String get m0690 => 'Saubere-Energie-Tag';
+  String get m0694 => 'Saubere-Energie-Tag';
 
   @override
-  String get m0691 => 'Clean Day';
+  String get m0695 => 'Clean Day';
 
   @override
-  String get m0692 => 'Klarer-Rhythmus-Tag';
+  String get m0696 => 'Klarer-Rhythmus-Tag';
 
   @override
-  String get m0693 =>
+  String get m0697 =>
       'Mehr Speicherplätze, Einkaufslisten, Gewichtstracking-Extras';
 
   @override
-  String get m0694 => 'Tofu';
+  String get m0698 => 'Tofu';
 
   @override
-  String get m0695 => 'Tofu-Kichererbsen-Curry';
+  String get m0699 => 'Tofu-Kichererbsen-Curry';
 
   @override
-  String get m0696 => 'Tofu-Quinoa-Abendbowl';
+  String get m0700 => 'Tofu-Quinoa-Abendbowl';
 
   @override
-  String get m0697 => 'Tofu-Gemüse-Noodle-Box';
+  String get m0701 => 'Tofu-Gemüse-Noodle-Box';
 
   @override
-  String get m0698 => 'Ei';
+  String get m0702 => 'Ei';
 
   @override
-  String get m0699 => 'Ei';
+  String get m0703 => 'Ei';
 
   @override
-  String get m0700 => 'Ei-Avocado-Toast';
+  String get m0704 => 'Ei-Avocado-Toast';
 
   @override
-  String get m0701 => 'Ei-Reis-Frühstückspfanne';
+  String get m0705 => 'Ei-Reis-Frühstückspfanne';
 
   @override
-  String get m0702 => 'Ei-Gemüse-Reis';
+  String get m0706 => 'Ei-Gemüse-Reis';
 
   @override
-  String get m0703 => 'Kürbiskerne';
+  String get m0707 => 'Kürbiskerne';
 
   @override
-  String get m0704 => 'Leichte gefüllte Paprika';
+  String get m0708 => 'Leichte gefüllte Paprika';
 
   @override
-  String get m0705 => 'Mit Hähnchen und Salat füllen.';
+  String get m0709 => 'Mit Hähnchen und Salat füllen.';
 
   @override
-  String get m0706 => 'Mit der Fleisch-Reis-Mischung füllen.';
+  String get m0710 => 'Mit der Fleisch-Reis-Mischung füllen.';
 
   @override
-  String get m0707 => 'Mit der Puten-Bohnen-Mischung füllen.';
+  String get m0711 => 'Mit der Puten-Bohnen-Mischung füllen.';
 
   @override
-  String get m0708 => 'Zum Zunehmen';
+  String get m0712 => 'Zum Zunehmen';
 
   @override
-  String get m0709 => 'Zum Zunehmen: ';
+  String get m0713 => 'Zum Zunehmen: ';
 
   @override
-  String get m0710 => 'Morgen beginnt mit der Vorbereitung heute Abend.';
+  String get m0714 => 'Morgen beginnt mit der Vorbereitung heute Abend.';
 
   @override
-  String get m0711 => 'Thunfisch';
+  String get m0715 => 'Thunfisch';
 
   @override
-  String get m0712 => 'Thunfisch-Bohnen-Kartoffelsalat';
+  String get m0716 => 'Thunfisch-Bohnen-Kartoffelsalat';
 
   @override
-  String get m0713 => 'Thunfisch-Mais-Nudelsalat';
+  String get m0717 => 'Thunfisch-Mais-Nudelsalat';
 
   @override
-  String get m0714 => 'Thunfisch-Frühstückstoast';
+  String get m0718 => 'Thunfisch-Frühstückstoast';
 
   @override
-  String get m0715 => 'Knusprige Thunfisch-Häppchen';
+  String get m0719 => 'Knusprige Thunfisch-Häppchen';
 
   @override
-  String get m0716 => 'Löschen';
+  String get m0720 => 'Löschen';
 
   @override
-  String get m0717 => 'Weiter';
+  String get m0721 => 'Weiter';
 
   @override
-  String get m0718 => 'Mehr Einträge anzeigen';
+  String get m0722 => 'Mehr Einträge anzeigen';
 
   @override
-  String get m0719 => 'Trend';
+  String get m0723 => 'Trend';
 
   @override
-  String get m0720 => 'Übergewicht';
+  String get m0724 => 'Übergewicht';
 
   @override
-  String get m0721 => 'Übergewicht';
+  String get m0725 => 'Übergewicht';
 
   @override
-  String get m0722 => '30 bis 60 Sekunden cremig mixen.';
+  String get m0726 => '30 bis 60 Sekunden cremig mixen.';
 
   @override
-  String get m0723 => 'Quark';
+  String get m0727 => 'Quark';
 
   @override
-  String get m0724 => 'Quark-Beeren-Bowl';
+  String get m0728 => 'Quark-Beeren-Bowl';
 
   @override
-  String get m0725 => 'Quark-Hafer-Pancakes';
+  String get m0729 => 'Quark-Hafer-Pancakes';
 
   @override
-  String get m0726 => 'Vorgebackene Quark-Hafer-Pancakes';
+  String get m0730 => 'Vorgebackene Quark-Hafer-Pancakes';
 
   @override
-  String get m0727 => 'Tzatziki';
+  String get m0731 => 'Tzatziki';
 
   @override
-  String get m0728 => 'Gurke';
+  String get m0732 => 'Gurke';
 
   @override
-  String get m0729 => 'WILLKOMMEN BEI MEALR';
+  String get m0733 => 'WILLKOMMEN BEI MEALR';
 
   @override
-  String get m0730 => 'Neue Einkaufsliste';
+  String get m0734 => 'Neue Einkaufsliste';
 
   @override
-  String get m0731 => 'Neues Essen';
+  String get m0735 => 'Neues Essen';
 
   @override
-  String get m0732 => 'Neues Essen hinzufügen';
+  String get m0736 => 'Neues Essen hinzufügen';
 
   @override
-  String get m0733 => 'Name der neuen Liste';
+  String get m0737 => 'Name der neuen Liste';
 
   @override
-  String get m0734 => 'Neuer Meal-Prep-Plan';
+  String get m0738 => 'Neuer Meal-Prep-Plan';
 
   @override
-  String get m0735 => 'Sitzend';
+  String get m0739 => 'Sitzend';
 
   @override
-  String get m0736 => 'Abendessen';
+  String get m0740 => 'Abendessen';
 
   @override
-  String get m0737 => 'Halbiere und toaste den Bagel.';
+  String get m0741 => 'Halbiere und toaste den Bagel.';
 
   @override
-  String get m0738 =>
+  String get m0742 =>
       'Wähle einen Typ und sieh dir die passenden Tagespläne an.';
 
   @override
-  String get m0739 => 'Wähle ein Essen und teile es in Boxen auf';
+  String get m0743 => 'Wähle ein Essen und teile es in Boxen auf';
 
   @override
-  String get m0740 => 'Wähle einen Ernährungsplantyp';
+  String get m0744 => 'Wähle einen Ernährungsplantyp';
 
   @override
-  String get m0741 =>
+  String get m0745 =>
       'Wähle Hauptgericht, Beilage und teile alles in Boxen auf';
 
   @override
-  String get m0742 => 'Vegan';
+  String get m0746 => 'Vegan';
 
   @override
-  String get m0743 => 'Vegetarisch';
+  String get m0747 => 'Vegetarisch';
 
   @override
-  String get m0744 => 'Veggie-Kraft-Tag';
+  String get m0748 => 'Veggie-Kraft-Tag';
 
   @override
-  String get m0745 => 'Version 1.0.0';
+  String get m0749 => 'Version 1.0.0';
 
   @override
-  String get m0746 => 'an Gewicht';
+  String get m0750 => 'an Gewicht';
 
   @override
-  String get m0747 => 'Blitz-Tag';
+  String get m0751 => 'Hell';
 
   @override
-  String get m0748 =>
+  String get m0752 => 'Blitz-Tag';
+
+  @override
+  String get m0753 =>
       'ziehe 300-500 kcal ab. Ein tägliches Defizit von 500 kcal entspricht ca. 0,5 kg pro Woche.\n\n';
 
   @override
-  String get m0749 => 'Rote Bohnen';
+  String get m0754 => 'Rote Bohnen';
 
   @override
-  String get m0750 => 'Wok-Gemüse';
+  String get m0755 => 'Wok-Gemüse';
 
   @override
-  String get m0751 => 'Schließe den Tag mit etwas Nährendem ab.';
+  String get m0756 => 'Schließe den Tag mit etwas Nährendem ab.';
 
   @override
-  String get m0752 => 'Haferflocken';
+  String get m0757 => 'Haferflocken';
 
   @override
-  String get m0753 => 'Hafermehl';
+  String get m0758 => 'Hafermehl';
 
   @override
-  String get m0754 => 'Beende den Tag satt, nicht gehetzt.';
+  String get m0759 => 'Beende den Tag satt, nicht gehetzt.';
 
   @override
-  String get m0755 => 'Schließe den Tag mit etwas Nährendem ab.';
+  String get m0760 => 'Schließe den Tag mit etwas Nährendem ab.';
 
   @override
-  String get m0756 => 'Beende den Tag mit Achtsamkeit.';
+  String get m0761 => 'Beende den Tag mit Achtsamkeit.';
 
   @override
-  String get m0757 => 'Grüner-Fokus-Tag';
+  String get m0762 => 'Grüner-Fokus-Tag';
 
   @override
-  String get m0758 => 'Grüner-Schwung-Tag';
+  String get m0763 => 'Grüner-Schwung-Tag';
 
   @override
-  String get m0759 => 'Grüner Tag';
+  String get m0764 => 'Grüner Tag';
 
   @override
-  String get m0760 => 'Grüne Bohnen';
+  String get m0765 => 'Grüne Bohnen';
 
   @override
-  String get m0761 => 'Erbsen';
+  String get m0766 => 'Erbsen';
 
   @override
-  String get m0762 => 'Grüner Salat';
+  String get m0767 => 'Grüner Salat';
 
   @override
-  String get m0763 => 'Gemüseomelett';
+  String get m0768 => 'Gemüseomelett';
 
   @override
-  String get m0764 => 'Paniermehl';
+  String get m0769 => 'Paniermehl';
 }

@@ -21,13 +21,26 @@ class MealWeightApp extends StatefulWidget {
   State<MealWeightApp> createState() => _MealWeightAppState();
 }
 
-class _MealWeightAppState extends State<MealWeightApp> {
+class _MealWeightAppState extends State<MealWeightApp>
+    with WidgetsBindingObserver {
   final AppState state = AppState();
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     state.loadSavedPreferences();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    state.handlePlatformBrightnessChanged();
   }
 
   @override
