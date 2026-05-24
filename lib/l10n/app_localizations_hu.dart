@@ -596,7 +596,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get m0187 => 'Előre haladó nap';
 
   @override
-  String get m0188 => 'Először ments el egy ételt a meal prep tervezéshez.';
+  String get m0188 =>
+      'Először ments el egy ételt, utána építhetsz Meal Prep tervet.';
 
   @override
   String get m0189 => 'előtt';
@@ -973,7 +974,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get m0310 =>
-      'Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.';
+      'Az ingyenes csomag 1 mentett Meal Prep tervet tartalmaz. Több tervhez válts Pro-ra.';
 
   @override
   String get m0311 =>
@@ -1397,16 +1398,16 @@ class AppLocalizationsHu extends AppLocalizations {
   String get m0445 => 'Medium';
 
   @override
-  String get m0446 => 'Még nincs elmentett bevásárlólistád.';
+  String get m0446 => 'Az elkészített bevásárlólistáid itt jelennek meg.';
 
   @override
-  String get m0447 => 'Még nincs elmentett meal prep terved.';
+  String get m0447 => 'A mentett Meal Prep terveid itt jelennek meg.';
 
   @override
-  String get m0448 => 'Még nincs főétel hozzáadva.';
+  String get m0448 => 'A főételeid itt fognak megjelenni.';
 
   @override
-  String get m0449 => 'Még nincs köret hozzáadva.';
+  String get m0449 => 'A köreteid itt fognak megjelenni.';
 
   @override
   String get m0450 => 'Megjegyzés';
@@ -1558,7 +1559,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get m0498 => 'Nincs mentett étel';
 
   @override
-  String get m0499 => 'Nincs találat.';
+  String get m0499 => 'Nincs recept ehhez a kereséshez.';
 
   @override
   String get m0500 => 'Nincs változás a kezdő súlyhoz képest';

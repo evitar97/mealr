@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import '../../app/app_layout.dart';
 import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
+import '../../theme/app_typography.dart';
 import '../../utils/calculators.dart';
-import '../../widgets/glass_surface.dart';
+import '../../widgets/app_components.dart';
 import '../../widgets/spring_pressable.dart';
 
 class CalorieScreen extends StatefulWidget {
@@ -63,24 +64,24 @@ class _CalorieScreenState extends State<CalorieScreen> {
             children: [
               Text(
                 tx(context, 'NAPI SZINTENTARTÓ KALÓRIA'),
-                style: TextStyle(
-                  color: p.accent,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.9,
-                ),
+                style: MealText.section(p.accent).copyWith(letterSpacing: 0.9),
               ),
               const SizedBox(height: 6),
               Text(
                 whole(result.tdee),
                 style: TextStyle(
                   color: p.accent,
-                  fontSize: 34,
+                  fontSize: 31,
                   fontWeight: FontWeight.w600,
-                  letterSpacing: -1.4,
+                  letterSpacing: -1.0,
                 ),
               ),
-              Text(tx(context, 'kcal / nap'), style: TextStyle(color: p.muted)),
+              Text(
+                tx(context, 'kcal / nap'),
+                style: MealText.callout(
+                  p.muted,
+                ).copyWith(fontWeight: FontWeight.w500),
+              ),
               const SizedBox(height: 12),
               Row(
                 children: [
@@ -134,14 +135,7 @@ class _CalorieScreenState extends State<CalorieScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                tx(context, 'Nem'),
-                style: TextStyle(
-                  color: p.muted,
-                  fontSize: 16.5,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              Text(tx(context, 'Nem'), style: MealText.cardTitle(p.muted)),
               const SizedBox(height: 12),
               Row(
                 children: [
@@ -169,11 +163,7 @@ class _CalorieScreenState extends State<CalorieScreen> {
             children: [
               Text(
                 tx(context, 'Napi aktivitás'),
-                style: TextStyle(
-                  color: p.muted,
-                  fontSize: 16.5,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: MealText.cardTitle(p.muted),
               ),
               const SizedBox(height: 10),
               for (final item in activities)
@@ -302,24 +292,11 @@ class _Metric extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
-    final p = state.palette;
     return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: p.card,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              value,
-              style: TextStyle(color: p.text, fontWeight: FontWeight.w600),
-            ),
-            Text(label, style: TextStyle(color: p.muted, fontSize: 10)),
-          ],
-        ),
+      child: AppMetricTile(
+        label: label,
+        value: value,
+        fill: state.palette.card,
       ),
     );
   }
@@ -444,7 +421,7 @@ class _SliderCardState extends State<_SliderCard> {
                     decoration: const BoxDecoration(),
                     style: TextStyle(
                       color: p.accent,
-                      fontSize: 23,
+                      fontSize: 21,
                       height: 1,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.8,
@@ -523,7 +500,7 @@ class _StepperButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return SpringPressable(
-      pressedScale: 0.90,
+      pressedScale: 0.96,
       child: CupertinoButton(
         minimumSize: const Size(32, 32),
         padding: EdgeInsets.zero,
@@ -549,16 +526,7 @@ class _CaloriePanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return GlassSurface(
-      width: double.infinity,
-      padding: padding,
-      radius: 24,
-      tint: color ?? p.card,
-      opacity: color == null ? 0.88 : 0.72,
-      borderColor: p.border.withValues(alpha: 0.60),
-      child: child,
-    );
+    return AppPanel(padding: padding, color: color, child: child);
   }
 }
 
@@ -627,29 +595,11 @@ class _Choice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = AppScope.of(context);
-    final p = state.palette;
-    final child = SpringPressable(
-      pressedScale: 0.96,
-      child: CupertinoButton(
-        color: active ? state.primaryActionSurface : p.resultBg,
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-        borderRadius: BorderRadius.circular(9),
-        onPressed: onTap,
-        child: Align(
-          alignment: Alignment.center,
-          child: Text(
-            label,
-            style: TextStyle(
-              color: active ? p.buttonText : p.muted,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ),
+    return AppChoicePill(
+      label: label,
+      active: active,
+      onPressed: onTap,
+      fullWidth: fullWidth,
     );
-    return fullWidth
-        ? SizedBox(width: double.infinity, child: child)
-        : Expanded(child: child);
   }
 }

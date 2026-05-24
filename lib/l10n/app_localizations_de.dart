@@ -602,7 +602,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get m0187 => 'Vorausplan-Tag';
 
   @override
-  String get m0188 => 'Speichere zuerst ein Essen, um Meal Prep zu planen.';
+  String get m0188 =>
+      'Speichere zuerst ein Essen, dann kannst du einen Meal-Prep-Plan erstellen.';
 
   @override
   String get m0189 => 'vor dem Kochen';
@@ -979,7 +980,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get m0310 =>
-      'Im kostenlosen Modus kannst du 1 Meal-Prep-Plan speichern. Weitere Pläne benötigen Pro.';
+      'Free enthält 1 gespeicherten Meal-Prep-Plan. Für mehr Pläne brauchst du Pro.';
 
   @override
   String get m0311 =>
@@ -1404,16 +1405,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get m0445 => 'Mittel';
 
   @override
-  String get m0446 => 'Du hast noch keine gespeicherte Einkaufsliste.';
+  String get m0446 => 'Deine Einkaufslisten erscheinen hier.';
 
   @override
-  String get m0447 => 'Du hast noch keinen gespeicherten Meal-Prep-Plan.';
+  String get m0447 => 'Gespeicherte Meal-Prep-Pläne erscheinen hier.';
 
   @override
-  String get m0448 => 'Noch keine Hauptgerichte hinzugefügt.';
+  String get m0448 => 'Deine Hauptgerichte erscheinen hier.';
 
   @override
-  String get m0449 => 'Noch keine Beilagen hinzugefügt.';
+  String get m0449 => 'Deine Beilagen erscheinen hier.';
 
   @override
   String get m0450 => 'Notiz';
@@ -1567,7 +1568,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get m0498 => 'Kein gespeichertes Essen';
 
   @override
-  String get m0499 => 'Keine Treffer.';
+  String get m0499 => 'Keine Rezepte passen zu dieser Suche.';
 
   @override
   String get m0500 => 'Keine Veränderung im Vergleich zum Startgewicht';

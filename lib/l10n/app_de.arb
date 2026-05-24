@@ -752,7 +752,7 @@
   "@m0187": {
     "description": "Source text: Előre haladó nap"
   },
-  "m0188": "Speichere zuerst ein Essen, um Meal Prep zu planen.",
+  "m0188": "Speichere zuerst ein Essen, dann kannst du einen Meal-Prep-Plan erstellen.",
   "@m0188": {
     "description": "Source text: Először ments el egy ételt a meal prep tervezéshez."
   },
@@ -1240,7 +1240,7 @@
   "@m0309": {
     "description": "Source text: Ingyenes alapok"
   },
-  "m0310": "Im kostenlosen Modus kannst du 1 Meal-Prep-Plan speichern. Weitere Pläne benötigen Pro.",
+  "m0310": "Free enthält 1 gespeicherten Meal-Prep-Plan. Für mehr Pläne brauchst du Pro.",
   "@m0310": {
     "description": "Source text: Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges."
   },
@@ -1784,19 +1784,19 @@
   "@m0445": {
     "description": "Source text: Medium"
   },
-  "m0446": "Du hast noch keine gespeicherte Einkaufsliste.",
+  "m0446": "Deine Einkaufslisten erscheinen hier.",
   "@m0446": {
     "description": "Source text: Még nincs elmentett bevásárlólistád."
   },
-  "m0447": "Du hast noch keinen gespeicherten Meal-Prep-Plan.",
+  "m0447": "Gespeicherte Meal-Prep-Pläne erscheinen hier.",
   "@m0447": {
     "description": "Source text: Még nincs elmentett meal prep terved."
   },
-  "m0448": "Noch keine Hauptgerichte hinzugefügt.",
+  "m0448": "Deine Hauptgerichte erscheinen hier.",
   "@m0448": {
     "description": "Source text: Még nincs főétel hozzáadva."
   },
-  "m0449": "Noch keine Beilagen hinzugefügt.",
+  "m0449": "Deine Beilagen erscheinen hier.",
   "@m0449": {
     "description": "Source text: Még nincs köret hozzáadva."
   },
@@ -1996,7 +1996,7 @@
   "@m0498": {
     "description": "Source text: Nincs mentett étel"
   },
-  "m0499": "Keine Treffer.",
+  "m0499": "Keine Rezepte passen zu dieser Suche.",
   "@m0499": {
     "description": "Source text: Nincs találat."
   },

@@ -4,6 +4,7 @@ import '../app/app_state.dart';
 import '../app/app_strings.dart';
 import '../features/food/food_list_screen.dart';
 import '../models/theme_option.dart';
+import '../theme/app_typography.dart';
 import '../theme/mealweight_theme.dart';
 import 'app_sheet.dart';
 
@@ -45,11 +46,7 @@ class ThemePickerSheet extends StatelessWidget {
         children: [
           Text(
             tx(context, 'Téma választása'),
-            style: TextStyle(
-              color: p.text,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
+            style: MealText.sheetTitle(p.text),
           ),
           const SizedBox(height: 12),
           GridView.count(
@@ -116,10 +113,7 @@ class ThemePickerSheet extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     theme.name,
-                                    style: TextStyle(
-                                      color: theme.dark.text,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                    style: MealText.bodyStrong(theme.dark.text),
                                   ),
                                 ),
                                 Icon(

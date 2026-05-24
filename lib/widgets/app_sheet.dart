@@ -6,8 +6,8 @@ import 'glass_surface.dart';
 class AppSheetFrame extends StatelessWidget {
   const AppSheetFrame({
     required this.child,
-    this.padding = const EdgeInsets.fromLTRB(18, 18, 18, 20),
-    this.margin = const EdgeInsets.fromLTRB(10, 0, 10, 10),
+    this.padding = const EdgeInsets.fromLTRB(16, 16, 16, 18),
+    this.margin = const EdgeInsets.fromLTRB(10, 0, 10, 8),
     this.maxHeightPadding = 20,
     this.scrollable = true,
     super.key,
@@ -40,11 +40,11 @@ class AppSheetFrame extends StatelessWidget {
                 ),
                 margin: margin,
                 padding: padding,
-                radius: 26,
+                radius: 22,
                 tint: p.card,
                 opacity: 1,
                 borderColor: p.border.withValues(
-                  alpha: state.isDark ? 0.62 : 0.34,
+                  alpha: state.isDark ? 0.50 : 0.24,
                 ),
                 child: child,
               ),

@@ -10,6 +10,7 @@ import '../features/bmi/bmi_screen.dart';
 import '../features/calorie/calorie_screen.dart';
 import '../features/food/food_list_screen.dart';
 import '../features/profile/profile_screen.dart';
+import '../theme/app_typography.dart';
 import '../widgets/glass_surface.dart';
 import '../widgets/mealweight_mark.dart';
 import '../widgets/spring_pressable.dart';
@@ -70,7 +71,7 @@ class _MealWeightAppState extends State<MealWeightApp>
               textTheme: CupertinoTextThemeData(
                 textStyle: TextStyle(
                   color: p.text,
-                  fontFamily: '.SF Pro Text',
+                  fontFamily: MealText.family,
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                 ),
@@ -177,10 +178,10 @@ class _BottomTabs extends StatelessWidget {
       shadow: false,
       child: Container(
         padding: EdgeInsets.only(
-          left: 12,
-          right: 12,
-          top: 4,
-          bottom: MediaQuery.paddingOf(context).bottom + 2,
+          left: 10,
+          right: 10,
+          top: 2,
+          bottom: MediaQuery.paddingOf(context).bottom,
         ),
         decoration: BoxDecoration(
           border: Border(top: BorderSide(color: dockBorder, width: 1)),
@@ -256,7 +257,7 @@ class _TabItem extends StatelessWidget {
     final tabColor = active ? p.accent : inactiveColor;
     return Expanded(
       child: SpringPressable(
-        pressedScale: 0.92,
+        pressedScale: 0.96,
         child: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () {
@@ -270,7 +271,7 @@ class _TabItem extends StatelessWidget {
             decoration: const BoxDecoration(color: CupertinoColors.transparent),
             child: Center(
               child: Transform.translate(
-                offset: const Offset(0, 3),
+                offset: const Offset(0, 2),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4),
                   child: Column(
@@ -278,23 +279,16 @@ class _TabItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       if (tab == AppTab.foods)
-                        _MealTabGlyph(color: tabColor, size: active ? 27 : 25)
+                        _MealTabGlyph(color: tabColor, size: active ? 25 : 23)
                       else
-                        Icon(icon, size: active ? 25 : 23, color: tabColor),
-                      const SizedBox(height: 3),
+                        Icon(icon, size: active ? 23 : 21, color: tabColor),
+                      const SizedBox(height: 2),
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
                           label,
                           maxLines: 1,
-                          style: TextStyle(
-                            color: tabColor,
-                            fontSize: 11.5,
-                            fontWeight: active
-                                ? FontWeight.w800
-                                : FontWeight.w600,
-                            letterSpacing: 0,
-                          ),
+                          style: MealText.navLabel(tabColor, active: active),
                         ),
                       ),
                     ],
@@ -323,7 +317,7 @@ class _ProTabItem extends StatelessWidget {
     final proColor = state.isPro ? p.accent : labelColor;
     return Expanded(
       child: SpringPressable(
-        pressedScale: 0.92,
+        pressedScale: 0.96,
         child: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () {
@@ -334,7 +328,7 @@ class _ProTabItem extends StatelessWidget {
             height: double.infinity,
             child: Center(
               child: Transform.translate(
-                offset: const Offset(0, 3),
+                offset: const Offset(0, 2),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4),
                   child: Column(
@@ -344,7 +338,7 @@ class _ProTabItem extends StatelessWidget {
                       Stack(
                         clipBehavior: Clip.none,
                         children: [
-                          const MealWeightMark(size: 27, radius: 9),
+                          const MealWeightMark(size: 25, radius: 8),
                           Positioned(
                             right: -4,
                             top: -4,
@@ -371,18 +365,16 @@ class _ProTabItem extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 3),
+                      const SizedBox(height: 2),
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
                           'Pro',
                           maxLines: 1,
-                          style: TextStyle(
-                            color: proColor,
-                            fontSize: 11.5,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0,
-                          ),
+                          style: MealText.navLabel(
+                            proColor,
+                            active: false,
+                          ).copyWith(fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
@@ -431,78 +423,33 @@ class _MealTabGlyphPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     final rim = Rect.fromLTWH(
-      size.width * 0.16,
-      size.height * 0.56,
-      size.width * 0.68,
-      size.height * 0.13,
+      size.width * 0.10,
+      size.height * 0.37,
+      size.width * 0.80,
+      size.height * 0.18,
     );
+    canvas.drawOval(rim, fill);
     canvas.drawOval(rim, stroke);
     final bowlPath = Path()
-      ..moveTo(size.width * 0.16, size.height * 0.61)
+      ..moveTo(size.width * 0.10, size.height * 0.46)
       ..quadraticBezierTo(
         size.width * 0.50,
-        size.height * 0.94,
-        size.width * 0.84,
-        size.height * 0.61,
+        size.height * 0.88,
+        size.width * 0.90,
+        size.height * 0.46,
       );
     canvas.drawPath(bowlPath, stroke);
     canvas.drawPath(
       Path()
-        ..moveTo(size.width * 0.22, size.height * 0.64)
+        ..moveTo(size.width * 0.14, size.height * 0.49)
         ..quadraticBezierTo(
           size.width * 0.50,
-          size.height * 0.81,
-          size.width * 0.78,
-          size.height * 0.64,
-        )
-        ..lineTo(size.width * 0.74, size.height * 0.71)
-        ..quadraticBezierTo(
-          size.width * 0.50,
-          size.height * 0.86,
-          size.width * 0.26,
-          size.height * 0.71,
+          size.height * 0.82,
+          size.width * 0.86,
+          size.height * 0.49,
         )
         ..close(),
       fill,
-    );
-
-    final forkX = size.width * 0.25;
-    canvas.drawLine(
-      Offset(forkX, size.height * 0.18),
-      Offset(forkX, size.height * 0.56),
-      stroke,
-    );
-    for (final dx in [-0.075, 0.0, 0.075]) {
-      canvas.drawLine(
-        Offset(forkX + size.width * dx, size.height * 0.14),
-        Offset(forkX + size.width * dx, size.height * 0.30),
-        stroke,
-      );
-    }
-
-    canvas.drawOval(
-      Rect.fromCenter(
-        center: Offset(size.width * 0.50, size.height * 0.22),
-        width: size.width * 0.16,
-        height: size.height * 0.22,
-      ),
-      stroke,
-    );
-    canvas.drawLine(
-      Offset(size.width * 0.50, size.height * 0.34),
-      Offset(size.width * 0.50, size.height * 0.58),
-      stroke,
-    );
-
-    canvas.drawLine(
-      Offset(size.width * 0.76, size.height * 0.16),
-      Offset(size.width * 0.66, size.height * 0.56),
-      stroke,
-    );
-    canvas.drawLine(
-      Offset(size.width * 0.80, size.height * 0.18),
-      Offset(size.width * 0.72, size.height * 0.45),
-      stroke,
     );
   }
 

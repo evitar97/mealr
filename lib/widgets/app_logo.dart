@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import '../app/app_state.dart';
+import '../theme/app_typography.dart';
 import 'mealweight_mark.dart';
 
 class AppLogo extends StatelessWidget {
@@ -20,24 +21,16 @@ class AppLogo extends StatelessWidget {
           children: [
             Text(
               'Mealr',
-              style: TextStyle(
-                color: p.text,
-                fontSize: 29,
-                height: 1,
-                fontWeight: FontWeight.w700,
-                letterSpacing: -0.6,
-              ),
+              style: MealText.largeTitle(
+                p.text,
+              ).copyWith(height: 1, letterSpacing: 0),
             ),
             const SizedBox(height: 3),
             Text(
               'Plan. Prep. Eat.',
-              style: TextStyle(
-                color: p.muted,
-                fontSize: 11,
-                height: 1,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.1,
-              ),
+              style: MealText.section(
+                p.muted,
+              ).copyWith(height: 1, letterSpacing: 1.05),
             ),
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
+import '../../theme/app_typography.dart';
 import '../../utils/calculators.dart';
 import '../food/food_list_screen.dart';
 import '../../widgets/glass_surface.dart';
@@ -192,21 +193,14 @@ class _Header extends StatelessWidget {
         const SizedBox(height: 14),
         Text(
           'Mealr',
-          style: TextStyle(
-            color: p.text,
-            fontSize: 32,
-            fontWeight: FontWeight.w600,
-            letterSpacing: -1.1,
-          ),
+          style: MealText.largeTitle(
+            p.text,
+          ).copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 5),
         Text(
           tx(context, 'Tervezz, főzz, kövess okosabban'),
-          style: TextStyle(
-            color: p.muted,
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
-          ),
+          style: MealText.cardTitle(p.muted),
         ),
       ],
     );
@@ -452,24 +446,12 @@ class _HeroCard extends StatelessWidget {
           const SizedBox(height: 18),
           Text(
             title,
-            style: TextStyle(
-              color: p.text,
-              fontSize: 25,
-              height: 1.14,
-              fontWeight: FontWeight.w600,
-              letterSpacing: -0.6,
-            ),
+            style: MealText.largeTitle(
+              p.text,
+            ).copyWith(fontSize: 25, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 14),
-          Text(
-            text,
-            style: TextStyle(
-              color: p.muted,
-              fontSize: 17,
-              height: 1.48,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          Text(text, style: MealText.cardTitle(p.muted).copyWith(height: 1.44)),
         ],
       ),
     );
@@ -655,8 +637,9 @@ class _OnboardNumberInputState extends State<_OnboardNumberInput> {
               decoration: const BoxDecoration(),
               style: TextStyle(
                 color: p.accent,
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
+                fontFamily: MealText.family,
+                fontSize: 19,
+                fontWeight: FontWeight.w600,
               ),
               onTap: () => controller.selection = TextSelection(
                 baseOffset: 0,
@@ -674,14 +657,7 @@ class _OnboardNumberInputState extends State<_OnboardNumberInput> {
           const SizedBox(width: 6),
           SizedBox(
             width: 28,
-            child: Text(
-              widget.suffix,
-              style: TextStyle(
-                color: p.muted,
-                fontSize: 13,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+            child: Text(widget.suffix, style: MealText.callout(p.muted)),
           ),
         ],
       ),

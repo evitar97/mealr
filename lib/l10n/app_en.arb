@@ -752,7 +752,7 @@
   "@m0187": {
     "description": "Source text: Előre haladó nap"
   },
-  "m0188": "Save a food first to plan Meal Prep.",
+  "m0188": "Save a food first, then you can build a Meal Prep plan.",
   "@m0188": {
     "description": "Source text: Először ments el egy ételt a meal prep tervezéshez."
   },
@@ -1240,7 +1240,7 @@
   "@m0309": {
     "description": "Source text: Ingyenes alapok"
   },
-  "m0310": "In free mode, you can save 1 Meal Prep plan. More plans require Pro.",
+  "m0310": "Free includes 1 saved Meal Prep plan. Upgrade to save more.",
   "@m0310": {
     "description": "Source text: Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges."
   },
@@ -1784,19 +1784,19 @@
   "@m0445": {
     "description": "Source text: Medium"
   },
-  "m0446": "You do not have a saved shopping list yet.",
+  "m0446": "Shopping lists you create will appear here.",
   "@m0446": {
     "description": "Source text: Még nincs elmentett bevásárlólistád."
   },
-  "m0447": "You do not have a saved Meal Prep plan yet.",
+  "m0447": "Saved Meal Prep plans will appear here.",
   "@m0447": {
     "description": "Source text: Még nincs elmentett meal prep terved."
   },
-  "m0448": "No main dishes added yet.",
+  "m0448": "Your main dishes will appear here.",
   "@m0448": {
     "description": "Source text: Még nincs főétel hozzáadva."
   },
-  "m0449": "No side dishes added yet.",
+  "m0449": "Your sides will appear here.",
   "@m0449": {
     "description": "Source text: Még nincs köret hozzáadva."
   },
@@ -1996,7 +1996,7 @@
   "@m0498": {
     "description": "Source text: Nincs mentett étel"
   },
-  "m0499": "No results.",
+  "m0499": "No recipes match this search.",
   "@m0499": {
     "description": "Source text: Nincs találat."
   },

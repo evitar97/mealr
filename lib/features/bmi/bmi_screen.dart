@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import '../../app/app_layout.dart';
 import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
+import '../../theme/app_typography.dart';
 import '../../utils/calculators.dart';
-import '../../widgets/glass_surface.dart';
+import '../../widgets/app_components.dart';
 import '../../widgets/spring_pressable.dart';
 
 class BmiScreen extends StatelessWidget {
@@ -88,43 +89,30 @@ class _BmiResultCard extends StatelessWidget {
         children: [
           Text(
             tx(context, 'TESTTÖMEG INDEX (BMI)'),
-            style: TextStyle(
-              color: p.muted,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 2.2,
-            ),
+            style: MealText.section(p.muted).copyWith(letterSpacing: 1.8),
           ),
           const SizedBox(height: 12),
           Text(
             result.value.toStringAsFixed(1),
             style: TextStyle(
               color: categoryColor,
-              fontSize: 50,
+              fontSize: 44,
               height: 0.95,
               fontWeight: FontWeight.w600,
-              letterSpacing: -2,
+              letterSpacing: -1.4,
             ),
           ),
           const SizedBox(height: 8),
           Text(
             '${_categoryPrefix(result.category)} ${txBmiCategory(context, result.category)}',
-            style: TextStyle(
-              color: categoryColor,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              letterSpacing: -0.4,
-            ),
+            style: MealText.title(
+              categoryColor,
+            ).copyWith(fontWeight: FontWeight.w600, letterSpacing: 0),
           ),
           const SizedBox(height: 8),
           Text(
             tx(context, _categoryDescription(result.category)),
-            style: TextStyle(
-              color: p.muted,
-              fontSize: 17,
-              height: 1.45,
-              fontWeight: FontWeight.w600,
-            ),
+            style: MealText.cardTitle(p.muted).copyWith(height: 1.38),
           ),
           const SizedBox(height: 22),
           Padding(
@@ -402,7 +390,7 @@ class _SliderCardState extends State<_SliderCard> {
                     decoration: const BoxDecoration(),
                     style: TextStyle(
                       color: p.accent,
-                      fontSize: 23,
+                      fontSize: 21,
                       height: 1,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.8,
@@ -481,7 +469,7 @@ class _StepperButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return SpringPressable(
-      pressedScale: 0.90,
+      pressedScale: 0.96,
       child: CupertinoButton(
         minimumSize: const Size(32, 32),
         padding: EdgeInsets.zero,
@@ -554,15 +542,6 @@ class _BmiPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
-    return GlassSurface(
-      width: double.infinity,
-      padding: padding,
-      radius: 24,
-      tint: p.card,
-      opacity: 0.88,
-      borderColor: p.border.withValues(alpha: 0.60),
-      child: child,
-    );
+    return AppPanel(padding: padding, child: child);
   }
 }

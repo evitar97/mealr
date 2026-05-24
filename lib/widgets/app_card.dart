@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import '../app/app_state.dart';
+import '../theme/app_typography.dart';
 import 'glass_surface.dart';
 
 class AppCard extends StatelessWidget {
@@ -23,9 +24,9 @@ class AppCard extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.only(bottom: 12),
       padding: padding,
-      radius: 18,
+      radius: 16,
       tint: color ?? p.card,
-      borderColor: p.border.withValues(alpha: state.isDark ? 0.62 : 0.32),
+      borderColor: p.border.withValues(alpha: state.isDark ? 0.58 : 0.30),
       child: child,
     );
   }
@@ -44,13 +45,10 @@ class SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(4, 10, 4, 7),
       child: Text(
         label.toUpperCase(),
-        style: TextStyle(
-          color: state.isDark
-              ? Color.alphaBlend(p.accent.withValues(alpha: 0.68), p.muted)
+        style: MealText.section(
+          state.isDark
+              ? Color.alphaBlend(p.accent.withValues(alpha: 0.62), p.muted)
               : p.accentDim,
-          fontSize: 12,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 1.9,
         ),
       ),
     );

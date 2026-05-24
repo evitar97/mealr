@@ -1,46 +1,1505 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
-
+  <base href="./">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mealr helps you plan meals, calculate nutrition targets, track weight, browse recipes, and build smarter shopping lists.">
+  <meta name="theme-color" content="#0d1f15">
 
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="mealweight_flutter">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mealr">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>mealweight_flutter</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="manifest" href="manifest.json">
+
+  <title>Mealr - Meal planning, macros, and progress in one app</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #102016;
+      --muted: #557365;
+      --soft: #eef7f0;
+      --surface: #ffffff;
+      --line: #cfe3d6;
+      --spinach: #246a42;
+      --mint: #88c399;
+      --tomato: #e56b52;
+      --sun: #e0ad34;
+      --berry: #c74f75;
+      --sky: #3f8ecf;
+      --dark: #0d1f15;
+      --radius: 8px;
+      --shadow: 0 24px 70px rgba(12, 42, 24, .16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f6faf6;
+      color: var(--ink);
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      content: "";
+      background:
+        linear-gradient(rgba(36, 106, 66, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 106, 66, .06) 1px, transparent 1px),
+        linear-gradient(120deg, #f7fbf7 0%, #eef7f0 42%, #fff8ea 100%);
+      background-size: 38px 38px, 38px 38px, auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      padding: 14px clamp(16px, 4vw, 56px);
+      background: rgba(247, 251, 247, .76);
+      border-bottom: 1px solid rgba(207, 227, 214, .74);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.06rem;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      box-shadow: 0 10px 22px rgba(36, 106, 66, .18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 3vw, 30px);
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -7px;
+      height: 2px;
+      content: "";
+      background: var(--spinach);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .22s ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .pill-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid rgba(16, 32, 22, .11);
+      border-radius: 999px;
+      background: var(--dark);
+      color: #f7fff8;
+      font-weight: 800;
+      box-shadow: 0 16px 34px rgba(13, 31, 21, .18);
+      transition: transform .22s ease, box-shadow .22s ease;
+      white-space: nowrap;
+    }
+
+    .pill-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 42px rgba(13, 31, 21, .22);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 118px 18px 76px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-scene {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .meal-track {
+      position: absolute;
+      left: 50%;
+      top: 51%;
+      width: min(980px, 120vw);
+      aspect-ratio: 1;
+      border: 1px solid rgba(36, 106, 66, .13);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(-8deg);
+      animation: slow-spin 38s linear infinite;
+    }
+
+    .meal-track:nth-child(2) {
+      width: min(720px, 104vw);
+      animation-duration: 28s;
+      animation-direction: reverse;
+      border-color: rgba(229, 107, 82, .16);
+    }
+
+    .ingredient {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: clamp(58px, 7vw, 86px);
+      height: clamp(58px, 7vw, 86px);
+      border: 1px solid rgba(16, 32, 22, .1);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 18px 40px rgba(31, 78, 48, .14);
+      font-size: clamp(1.65rem, 3vw, 2.45rem);
+      backdrop-filter: blur(10px);
+    }
+
+    .ingredient:nth-child(1) { top: -32px; left: 46%; }
+    .ingredient:nth-child(2) { top: 18%; right: 1%; }
+    .ingredient:nth-child(3) { bottom: 10%; right: 7%; }
+    .ingredient:nth-child(4) { bottom: -20px; left: 35%; }
+    .ingredient:nth-child(5) { top: 27%; left: -20px; }
+    .ingredient:nth-child(6) { top: 8%; left: 14%; }
+
+    .hero-panel {
+      width: min(1080px, 100%);
+      text-align: center;
+      transform: translateY(18px);
+      opacity: 0;
+      animation: rise-in .85s .12s ease forwards;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 13px;
+      border: 1px solid rgba(36, 106, 66, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .72);
+      color: var(--spinach);
+      font-weight: 800;
+      font-size: .82rem;
+      backdrop-filter: blur(14px);
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--tomato);
+      box-shadow: 0 0 0 0 rgba(229, 107, 82, .32);
+      animation: pulse 1.8s ease-out infinite;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 22px auto 16px;
+      color: var(--ink);
+      font-size: clamp(3rem, 8vw, 7.4rem);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: #3f5f4e;
+      font-size: clamp(1.05rem, 2.2vw, 1.36rem);
+      line-height: 1.65;
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 42px;
+    }
+
+    .ghost-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid rgba(36, 106, 66, .22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .68);
+      color: var(--spinach);
+      font-weight: 800;
+      backdrop-filter: blur(12px);
+      transition: transform .22s ease, background .22s ease;
+    }
+
+    .ghost-button:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+    }
+
+    .hero-logo {
+      width: clamp(82px, 10vw, 122px);
+      height: clamp(82px, 10vw, 122px);
+      margin: 0 auto 18px;
+      padding: 10px;
+      border: 1px solid rgba(36, 106, 66, .14);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 22px 50px rgba(23, 82, 45, .13);
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+    }
+
+    .phone-wrap {
+      position: relative;
+      width: min(366px, 88vw);
+      margin: 0 auto;
+      perspective: 1200px;
+    }
+
+    .phone {
+      position: relative;
+      padding: 11px;
+      border: 1px solid rgba(15, 49, 27, .22);
+      border-radius: 46px;
+      background: linear-gradient(145deg, #101110, #2d342f);
+      box-shadow: 0 34px 100px rgba(18, 56, 31, .26);
+      transform: rotateX(6deg) rotateY(-10deg);
+      animation: phone-float 7s ease-in-out infinite;
+    }
+
+    .phone-screen {
+      overflow: hidden;
+      min-height: 720px;
+      border-radius: 35px;
+      background: #f6fbf7;
+      border: 1px solid rgba(255, 255, 255, .28);
+    }
+
+    .phone-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 26px 12px;
+      color: #07140b;
+      font-size: .82rem;
+      font-weight: 900;
+      background: #fff;
+    }
+
+    .dynamic-island {
+      width: 100px;
+      height: 32px;
+      border-radius: 999px;
+      background: #000;
+    }
+
+    .phone-icons {
+      color: #111;
+      font-size: .72rem;
+      letter-spacing: 1px;
+    }
+
+    .app-top {
+      padding: 22px 18px 16px;
+      background: linear-gradient(180deg, #f3faf5, #fbfffc);
+      color: #0d2414;
+    }
+
+    .app-top-row,
+    .app-stat-row,
+    .mini-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .greeting {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .sun-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: #c79a31;
+      font-size: 2rem;
+    }
+
+    .greeting h2 {
+      margin: 0;
+      font-size: 1.72rem;
+      line-height: 1.05;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .greeting p {
+      margin: 5px 0 0;
+      color: #5a7e61;
+      font-size: .96rem;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .limit-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .limit-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 52px;
+      padding: 0 15px;
+      border: 1px solid #d7eadc;
+      border-radius: 16px;
+      background: #fff;
+      color: #102016;
+      font-size: .98rem;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(36, 106, 66, .05);
+    }
+
+    .limit-pill span {
+      color: #5a7e61;
+    }
+
+    .screen-body {
+      padding: 8px 18px 0;
+    }
+
+    .phone-section {
+      margin-top: 18px;
+    }
+
+    .phone-section-title {
+      margin: 0 0 13px;
+      color: #237347;
+      font-size: .86rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .empty-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      color: #85a58d;
+      font-weight: 850;
+    }
+
+    .empty-row .empty-icon {
+      color: #7ca189;
+      font-size: 1.05rem;
+    }
+
+    .empty-row .mini-action {
+      margin-left: auto;
+    }
+
+    .mini-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: #fff;
+      color: #237347;
+      font-size: .82rem;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(36, 106, 66, .07);
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .app-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      border-radius: 22px;
+      background: #287645;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .app-action span {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .18);
+    }
+
+    .locked-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      margin-top: 10px;
+      border: 1px solid #d9e1dc;
+      border-radius: 20px;
+      background: #f2f3f2;
+      color: #7aa085;
+      font-weight: 900;
+    }
+
+    .recipe-grid,
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .app-card-mini {
+      display: grid;
+      place-items: center;
+      min-height: 78px;
+      padding: 8px 5px;
+      border: 1px solid #edf2ef;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(36, 106, 66, .045);
+      text-align: center;
+      color: #102016;
+      font-weight: 900;
+    }
+
+    .app-card-mini span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--tone);
+      font-size: 1.45rem;
+    }
+
+    .plan-card {
+      min-height: 82px;
+    }
+
+    .plan-card b {
+      color: #287645;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .plan-card small {
+      display: block;
+      margin-top: 2px;
+      color: #789d82;
+      font-size: .72rem;
+      line-height: 1.12;
+    }
+
+    .mini-nav {
+      margin-top: 20px;
+      padding: 9px 14px 12px;
+      border-top: 1px solid #e1ebe5;
+      background: #fff;
+    }
+
+    .mini-nav {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+    }
+
+    .mini-tab {
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      color: #7d837f;
+      font-size: .73rem;
+      font-weight: 850;
+    }
+
+    .mini-tab .tab-icon {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 30px;
+      color: inherit;
+      font-size: 1.18rem;
+    }
+
+    .mini-tab.active {
+      color: #287645;
+    }
+
+    .mini-tab.pro .tab-icon {
+      border: 1px solid #d7eadc;
+      border-radius: 11px;
+      background: #f7fbf8;
+    }
+
+    .mini-tab.pro img {
+      width: 22px;
+      height: 22px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .section {
+      padding: 96px clamp(18px, 5vw, 70px);
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--tomato);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: .8rem;
+    }
+
+    .section-title {
+      max-width: 780px;
+      margin: 0 0 20px;
+      font-size: clamp(2rem, 5vw, 4.4rem);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      max-width: 760px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.7;
+      font-weight: 650;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 255px;
+      padding: 22px;
+      border: 1px solid rgba(16, 32, 22, .11);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 18px 50px rgba(31, 78, 48, .08);
+      transform: translateY(22px);
+      opacity: 0;
+      transition: transform .7s ease, opacity .7s ease, box-shadow .22s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .feature-card.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 24px 64px rgba(31, 78, 48, .13);
+    }
+
+    .icon-box {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 1.35rem;
+      background: var(--accent);
+      box-shadow: 0 14px 30px color-mix(in srgb, var(--accent) 32%, transparent);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      letter-spacing: 0;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 620;
+    }
+
+    .card-stat {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      color: rgba(16, 32, 22, .09);
+      font-size: 3.2rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .dark-band {
+      background:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px),
+        #0d1f15;
+      background-size: 34px 34px;
+      color: #f2fff3;
+    }
+
+    .dark-band .section-copy,
+    .dark-band .muted {
+      color: #b1c7b9;
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: clamp(24px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .timeline-num {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #f3c86b;
+      color: #172315;
+      font-weight: 900;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 5px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #b1c7b9;
+      line-height: 1.55;
+      font-weight: 620;
+    }
+
+    .calc-panel {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .08);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .2);
+    }
+
+    .result {
+      padding: 20px;
+      border-radius: var(--radius);
+      background: #f2fff4;
+      color: var(--ink);
+    }
+
+    .result small {
+      color: var(--spinach);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: .72rem;
+    }
+
+    .result strong {
+      display: block;
+      margin-top: 5px;
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: .9;
+    }
+
+    .slider-line {
+      display: grid;
+      grid-template-columns: 104px 1fr 50px;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .08);
+      color: #dcefe1;
+      font-weight: 800;
+    }
+
+    .track {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .14);
+    }
+
+    .track span {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c);
+      animation: grow 1.8s ease both;
+    }
+
+    .recipes-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .recipe-pill {
+      min-height: 134px;
+      padding: 18px;
+      border: 1px solid rgba(16, 32, 22, .1);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(31, 78, 48, .08);
+    }
+
+    .recipe-pill span {
+      font-size: 2rem;
+    }
+
+    .recipe-pill b,
+    .recipe-pill small {
+      display: block;
+    }
+
+    .recipe-pill b {
+      margin-top: 14px;
+    }
+
+    .recipe-pill small {
+      margin-top: 5px;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .split-band {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .compare {
+      padding: 24px;
+      border: 1px solid rgba(16, 32, 22, .11);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+    }
+
+    .compare.pro {
+      background: #102016;
+      color: #f2fff4;
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    .compare h3 {
+      margin: 0 0 18px;
+      font-size: 1.45rem;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 720;
+      line-height: 1.5;
+    }
+
+    .pro .check-list li {
+      color: #c6dccb;
+    }
+
+    .check-list li::before {
+      flex: 0 0 auto;
+      content: "✓";
+      color: var(--spinach);
+      font-weight: 900;
+    }
+
+    .pro .check-list li::before {
+      color: #f3c86b;
+    }
+
+    .theme-strip {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .theme {
+      min-height: 118px;
+      padding: 12px;
+      border: 1px solid rgba(16, 32, 22, .11);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .swatches span {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--s);
+    }
+
+    .theme b,
+    .theme small {
+      display: block;
+    }
+
+    .theme small {
+      color: var(--muted);
+      font-weight: 750;
+      margin-top: 4px;
+    }
+
+    .cta {
+      text-align: center;
+      padding-bottom: 120px;
+    }
+
+    .cta-box {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: clamp(34px, 7vw, 76px) clamp(20px, 6vw, 70px);
+      border: 1px solid rgba(16, 32, 22, .11);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .88), rgba(255, 251, 238, .9)),
+        radial-gradient(circle at 30% 20%, rgba(136, 195, 153, .25), transparent 36%);
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      margin: 0 auto 14px;
+      max-width: 740px;
+      font-size: clamp(2.2rem, 6vw, 5.2rem);
+      line-height: .95;
+      letter-spacing: 0;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      font-weight: 650;
+    }
+
+    .cta-logo {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 22px;
+      border-radius: 22px;
+      box-shadow: 0 18px 42px rgba(36, 106, 66, .16);
+      object-fit: cover;
+    }
+
+    .reveal {
+      transform: translateY(24px);
+      opacity: 0;
+      transition: transform .75s ease, opacity .75s ease;
+    }
+
+    .reveal.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @keyframes slow-spin {
+      to { transform: translate(-50%, -50%) rotate(352deg); }
+    }
+
+    @keyframes rise-in {
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes phone-float {
+      0%, 100% { transform: rotateX(6deg) rotateY(-10deg) translateY(0); }
+      50% { transform: rotateX(4deg) rotateY(-4deg) translateY(-12px); }
+    }
+
+    @keyframes pulse {
+      to { box-shadow: 0 0 0 12px rgba(229, 107, 82, 0); }
+    }
+
+    @keyframes grow {
+      from { transform: scaleX(.18); transform-origin: left; }
+      to { transform: scaleX(1); transform-origin: left; }
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 104px;
+      }
+
+      .feature-grid,
+      .recipes-row,
+      .theme-strip,
+      .showcase,
+      .split-band {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-screen {
+        min-height: 700px;
+      }
+
+      .section {
+        padding-top: 76px;
+        padding-bottom: 76px;
+      }
+    }
+
+    @media (min-width: 881px) and (max-width: 1080px) {
+      .feature-grid,
+      .recipes-row,
+      .theme-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .site-header {
+        padding-inline: 12px;
+      }
+
+      .brand span {
+        font-size: .96rem;
+      }
+
+      .pill-button,
+      .ghost-button {
+        width: 100%;
+      }
+
+      .hero-actions {
+        width: min(330px, 100%);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .phone {
+        transform: none;
+      }
+
+      .slider-line {
+        grid-template-columns: 78px 1fr 42px;
+        font-size: .82rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Mealr home">
+        <img src="icons/Icon-192.png" alt="">
+        <span>Mealr</span>
+      </a>
+      <div class="nav-links" aria-label="Page sections">
+        <a href="#features">Features</a>
+        <a href="#calculators">Calculators</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#pro">Pro</a>
+      </div>
+      <a class="pill-button" href="#features">Explore</a>
+    </nav>
+  </header>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
-  <script src="flutter_bootstrap.js" async></script>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-scene" aria-hidden="true">
+        <div class="meal-track">
+          <span class="ingredient">🥗</span>
+          <span class="ingredient">🍳</span>
+          <span class="ingredient">🥑</span>
+          <span class="ingredient">🍓</span>
+          <span class="ingredient">🥕</span>
+          <span class="ingredient">🍋</span>
+        </div>
+        <div class="meal-track">
+          <span class="ingredient">🍲</span>
+          <span class="ingredient">🥣</span>
+          <span class="ingredient">🍯</span>
+          <span class="ingredient">🌯</span>
+          <span class="ingredient">🥒</span>
+          <span class="ingredient">🍎</span>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="hero-logo" aria-hidden="true">
+          <img src="icons/Icon-512.png" alt="">
+        </div>
+        <span class="eyebrow"><span class="pulse-dot"></span> Meal planning made simple</span>
+        <h1 id="hero-title">Mealr</h1>
+        <p class="hero-copy">
+          A nutrition companion for meal prep, recipes, calorie targets, BMI checks, weight progress, shopping lists, themes, and multilingual planning.
+        </p>
+        <div class="hero-actions">
+          <a class="pill-button" href="#features">See every feature</a>
+          <a class="ghost-button" href="#pro">View Pro extras</a>
+        </div>
+
+        <div class="phone-wrap" aria-label="Mealr app preview">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-status">
+                <span>8:19</span>
+                <span class="dynamic-island"></span>
+                <span class="phone-icons">•••• WiFi ▰</span>
+              </div>
+              <div class="app-top">
+                <div class="greeting">
+                  <span class="sun-icon">☼</span>
+                  <div>
+                    <h2>Good morning</h2>
+                    <p>Make the first choice an easy one.</p>
+                  </div>
+                </div>
+                <div class="limit-row">
+                  <div class="limit-pill">Main dish <span>0/1</span></div>
+                  <div class="limit-pill">Side <span>0/1</span></div>
+                </div>
+              </div>
+              <div class="screen-body">
+                <div class="phone-section">
+                  <h3 class="phone-section-title">Main dishes</h3>
+                  <div class="empty-row">
+                    <span class="empty-icon">▱</span>
+                    <span>No main dishes added yet.</span>
+                    <span class="mini-action">New food</span>
+                  </div>
+                </div>
+                <div class="phone-section">
+                  <h3 class="phone-section-title">Sides</h3>
+                  <div class="empty-row">
+                    <span class="empty-icon">▱</span>
+                    <span>No side dishes added yet.</span>
+                    <span class="mini-action">New food</span>
+                  </div>
+                </div>
+
+                <div class="action-row">
+                  <div class="app-action"><span>＋</span> New food</div>
+                  <div class="app-action"><span>▣</span> Meal Prep+</div>
+                </div>
+                <div class="locked-action">▢ Shopping+</div>
+
+                <div class="phone-section">
+                  <h3 class="phone-section-title">Recipes</h3>
+                  <div class="recipe-grid">
+                    <div class="app-card-mini" style="--tone:#9a6846"><span>☕</span>Breakfast</div>
+                    <div class="app-card-mini" style="--tone:#4f8b62"><span>◉</span>Lunch</div>
+                    <div class="app-card-mini" style="--tone:#c7a040"><span>☾</span>Dinner</div>
+                    <div class="app-card-mini" style="--tone:#c65f68"><span>♧</span>Snack</div>
+                  </div>
+                </div>
+
+                <div class="phone-section">
+                  <h3 class="phone-section-title">Meal plans</h3>
+                  <div class="plan-grid">
+                    <div class="app-card-mini plan-card"><b>1500</b><small>kcal<br>Pro</small></div>
+                    <div class="app-card-mini plan-card"><b>2000</b><small>kcal<br>Pro</small></div>
+                    <div class="app-card-mini plan-card"><b>2500</b><small>kcal<br>Pro</small></div>
+                    <div class="app-card-mini plan-card"><b>3000</b><small>kcal<br>Pro</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mini-nav" aria-hidden="true">
+                <span class="mini-tab active"><span class="tab-icon">♨</span>Meals</span>
+                <span class="mini-tab"><span class="tab-icon">♨</span>Calories</span>
+                <span class="mini-tab"><span class="tab-icon">▥</span>BMI</span>
+                <span class="mini-tab"><span class="tab-icon">♙</span>Profile</span>
+                <span class="mini-tab pro"><span class="tab-icon"><img src="icons/Icon-192.png" alt=""></span>Pro</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-inner">
+        <p class="section-kicker">Complete feature map</p>
+        <h2 class="section-title">Everything your food routine needs, without feeling clinical.</h2>
+        <p class="section-copy">
+          Mealr combines practical tracking with a soft visual system: main dishes, sides, recipes, prep plans, body metrics, saved preferences, and settings all live in one focused flow.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card" style="--accent: #246a42">
+            <span class="icon-box">🍽</span>
+            <h3>Main dishes and sides</h3>
+            <p>Add meals by category, adjust served weight, keep notes, and make portion decisions quickly.</p>
+            <span class="card-stat">01</span>
+          </article>
+          <article class="feature-card" style="--accent: #e56b52">
+            <span class="icon-box">📦</span>
+            <h3>Meal Prep+</h3>
+            <p>Build prep plans around meals and recipes so the week is organized before hunger starts negotiating.</p>
+            <span class="card-stat">02</span>
+          </article>
+          <article class="feature-card" style="--accent: #3f8ecf">
+            <span class="icon-box">🛒</span>
+            <h3>Shopping lists</h3>
+            <p>Turn planning into a Pro shopping workflow with list-ready ingredients and fewer forgotten staples.</p>
+            <span class="card-stat">03</span>
+          </article>
+          <article class="feature-card" style="--accent: #c74f75">
+            <span class="icon-box">📈</span>
+            <h3>Weight progress</h3>
+            <p>Track entries, compare 7, 30, and 60 day ranges, and watch trend changes without noisy dashboards.</p>
+            <span class="card-stat">04</span>
+          </article>
+          <article class="feature-card" style="--accent: #e0ad34">
+            <span class="icon-box">🎨</span>
+            <h3>Themes and modes</h3>
+            <p>Switch between light, dark, and themed palettes like Spinach, Toast, Candy, Dew, Cream, and Burgur.</p>
+            <span class="card-stat">05</span>
+          </article>
+          <article class="feature-card" style="--accent: #7b6dd6">
+            <span class="icon-box">🌍</span>
+            <h3>Four languages</h3>
+            <p>Use Mealr in English, Hungarian, German, or Spanish, with system language support when you want it automatic.</p>
+            <span class="card-stat">06</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-band" id="calculators">
+      <div class="section-inner showcase">
+        <div>
+          <p class="section-kicker">Calculators</p>
+          <h2 class="section-title">Daily targets and body signals in the same rhythm as your meals.</h2>
+          <p class="section-copy">
+            The calorie calculator estimates BMR, maintenance, fat-loss, and gain targets from age, height, weight, gender, and activity. BMI adds a fast category check and ideal-weight range.
+          </p>
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="timeline-num">1</span>
+              <div>
+                <h3>Set your inputs</h3>
+                <p>Adjust age, height, weight, gender, and activity with fast app-native controls.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-num">2</span>
+              <div>
+                <h3>Read the target</h3>
+                <p>See maintenance calories plus suggested loss and gain ranges at a glance.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-num">3</span>
+              <div>
+                <h3>Save to profile</h3>
+                <p>Keep the result close to your weight tracker and daily planning context.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="calc-panel reveal">
+          <div class="result">
+            <small>Daily maintenance calories</small>
+            <strong><span class="count" data-target="2350">0</span></strong>
+            <span>kcal / day</span>
+          </div>
+          <div class="slider-line">
+            <span>Weight</span>
+            <div class="track"><span style="--w: 62%; --c: #88c399"></span></div>
+            <span>78kg</span>
+          </div>
+          <div class="slider-line">
+            <span>Height</span>
+            <div class="track"><span style="--w: 72%; --c: #3f8ecf"></span></div>
+            <span>182</span>
+          </div>
+          <div class="slider-line">
+            <span>Activity</span>
+            <div class="track"><span style="--w: 55%; --c: #e0ad34"></span></div>
+            <span>1.55</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="recipes">
+      <div class="section-inner">
+        <p class="section-kicker">Recipes and plans</p>
+        <h2 class="section-title">Breakfast, lunch, dinner, and snacks are already waiting.</h2>
+        <p class="section-copy">
+          Recipe collections include prep time, servings, calories, ingredients, steps, allergens, and favorite support, giving planning more structure than a loose notes app.
+        </p>
+        <div class="recipes-row">
+          <article class="recipe-pill reveal">
+            <span>🥣</span>
+            <b>Breakfast</b>
+            <small>Oats, wraps, bowls, smoothies</small>
+          </article>
+          <article class="recipe-pill reveal">
+            <span>🥗</span>
+            <b>Lunch</b>
+            <small>Balanced plates and prep staples</small>
+          </article>
+          <article class="recipe-pill reveal">
+            <span>🍲</span>
+            <b>Dinner</b>
+            <small>Warm meals with serving controls</small>
+          </article>
+          <article class="recipe-pill reveal">
+            <span>🍓</span>
+            <b>Snacks</b>
+            <small>Quick bites with calorie context</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pro">
+      <div class="section-inner">
+        <p class="section-kicker">Free and Pro</p>
+        <h2 class="section-title">Start focused. Upgrade when planning gets serious.</h2>
+        <p class="section-copy">
+          The free experience keeps core planning accessible, while Mealr Pro opens richer meal-prep capacity, shopping features, and premium personalization.
+        </p>
+
+        <div class="split-band">
+          <article class="compare reveal">
+            <h3>Free version</h3>
+            <ul class="check-list">
+              <li>Core food tracking with main dishes and sides</li>
+              <li>BMI and calorie calculators</li>
+              <li>Profile data, saved preferences, and onboarding</li>
+              <li>Spinach theme included</li>
+            </ul>
+          </article>
+          <article class="compare pro reveal">
+            <h3>Mealr Pro</h3>
+            <ul class="check-list">
+              <li>Shopping List+ for ingredient planning</li>
+              <li>Expanded meal prep workflows</li>
+              <li>Premium themes like Toast, Cream, Candy, Burgur, and Dew</li>
+              <li>Pro status and expiry shown directly in profile</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="theme-strip" aria-label="Mealr themes">
+          <article class="theme">
+            <div class="swatches"><span style="--s:#286840"></span><span style="--s:#f3faf5"></span><span style="--s:#0b2011"></span></div>
+            <b>Spinach</b><small>Free</small>
+          </article>
+          <article class="theme">
+            <div class="swatches"><span style="--s:#a45121"></span><span style="--s:#fff7ef"></span><span style="--s:#271812"></span></div>
+            <b>Toast</b><small>Pro</small>
+          </article>
+          <article class="theme">
+            <div class="swatches"><span style="--s:#303033"></span><span style="--s:#f7f6f3"></span><span style="--s:#007a62"></span></div>
+            <b>Cream</b><small>Pro</small>
+          </article>
+          <article class="theme">
+            <div class="swatches"><span style="--s:#a97816"></span><span style="--s:#fff9ec"></span><span style="--s:#261e0d"></span></div>
+            <b>Burgur</b><small>Pro</small>
+          </article>
+          <article class="theme">
+            <div class="swatches"><span style="--s:#c93f68"></span><span style="--s:#fff5f8"></span><span style="--s:#2a101a"></span></div>
+            <b>Candy</b><small>Pro</small>
+          </article>
+          <article class="theme">
+            <div class="swatches"><span style="--s:#1a60a8"></span><span style="--s:#f4f9fe"></span><span style="--s:#0a1828"></span></div>
+            <b>Dew</b><small>Pro</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="cta-box reveal">
+        <img class="cta-logo" src="icons/Icon-512.png" alt="Mealr logo">
+        <p class="section-kicker">Ready for the app</p>
+        <h2>One place for meals, metrics, and momentum.</h2>
+        <p>
+          Mealr brings food choices, recipes, goals, progress, preferences, and Pro planning together in a visual system that stays friendly while doing the real work.
+        </p>
+        <a class="pill-button" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const revealables = document.querySelectorAll(".reveal, .feature-card");
+    const counts = new WeakSet();
+
+    function animateCount(node) {
+      if (counts.has(node)) return;
+      counts.add(node);
+      const target = Number(node.dataset.target || 0);
+      const duration = 1200;
+      const start = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        node.textContent = Math.round(target * eased).toLocaleString("en-US");
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        entry.target.querySelectorAll?.(".count").forEach(animateCount);
+      });
+    }, { threshold: 0.16 });
+
+    revealables.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index % 6, 5) * 70}ms`;
+      observer.observe(item);
+    });
+
+    document.querySelectorAll(".count").forEach((item) => {
+      const parent = item.closest(".hero-panel");
+      if (parent) animateCount(item);
+    });
+  </script>
 </body>
 </html>

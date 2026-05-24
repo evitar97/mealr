@@ -593,7 +593,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get m0187 => 'Prep-Ahead Day';
 
   @override
-  String get m0188 => 'Save a food first to plan Meal Prep.';
+  String get m0188 => 'Save a food first, then you can build a Meal Prep plan.';
 
   @override
   String get m0189 => 'before cooking';
@@ -968,7 +968,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get m0310 =>
-      'In free mode, you can save 1 Meal Prep plan. More plans require Pro.';
+      'Free includes 1 saved Meal Prep plan. Upgrade to save more.';
 
   @override
   String get m0311 =>
@@ -1394,16 +1394,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get m0445 => 'Medium';
 
   @override
-  String get m0446 => 'You do not have a saved shopping list yet.';
+  String get m0446 => 'Shopping lists you create will appear here.';
 
   @override
-  String get m0447 => 'You do not have a saved Meal Prep plan yet.';
+  String get m0447 => 'Saved Meal Prep plans will appear here.';
 
   @override
-  String get m0448 => 'No main dishes added yet.';
+  String get m0448 => 'Your main dishes will appear here.';
 
   @override
-  String get m0449 => 'No side dishes added yet.';
+  String get m0449 => 'Your sides will appear here.';
 
   @override
   String get m0450 => 'Note';
@@ -1556,7 +1556,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get m0498 => 'No saved food';
 
   @override
-  String get m0499 => 'No results.';
+  String get m0499 => 'No recipes match this search.';
 
   @override
   String get m0500 => 'No change compared with starting weight';

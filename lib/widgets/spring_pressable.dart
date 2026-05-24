@@ -6,7 +6,7 @@ class SpringPressable extends StatefulWidget {
     required this.child,
     this.enabled = true,
     this.haptics = true,
-    this.pressedScale = 0.96,
+    this.pressedScale = 0.975,
     super.key,
   });
 
@@ -30,8 +30,8 @@ class _SpringPressableState extends State<SpringPressable> {
       onPointerCancel: widget.enabled ? (_) => _setPressed(false) : null,
       child: AnimatedScale(
         scale: pressed ? widget.pressedScale : 1,
-        duration: Duration(milliseconds: pressed ? 70 : 180),
-        curve: pressed ? Curves.easeOutCubic : Curves.easeOutBack,
+        duration: Duration(milliseconds: pressed ? 65 : 150),
+        curve: pressed ? Curves.easeOutCubic : Curves.easeOutCubic,
         child: widget.child,
       ),
     );

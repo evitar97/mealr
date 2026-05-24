@@ -752,7 +752,7 @@
   "@m0187": {
     "description": "Source text: Előre haladó nap"
   },
-  "m0188": "Guarda primero una comida para planificar meal prep.",
+  "m0188": "Guarda primero una comida y luego podrás crear un plan de meal prep.",
   "@m0188": {
     "description": "Source text: Először ments el egy ételt a meal prep tervezéshez."
   },
@@ -1240,7 +1240,7 @@
   "@m0309": {
     "description": "Source text: Ingyenes alapok"
   },
-  "m0310": "En el modo gratis puedes guardar 1 plan de meal prep. Para más planes necesitas Pro.",
+  "m0310": "El plan gratis incluye 1 plan de meal prep guardado. Mejora a Pro para guardar más.",
   "@m0310": {
     "description": "Source text: Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges."
   },
@@ -1784,19 +1784,19 @@
   "@m0445": {
     "description": "Source text: Medium"
   },
-  "m0446": "Aún no tienes una lista de compra guardada.",
+  "m0446": "Las listas de compra que crees aparecerán aquí.",
   "@m0446": {
     "description": "Source text: Még nincs elmentett bevásárlólistád."
   },
-  "m0447": "Aún no tienes un plan de meal prep guardado.",
+  "m0447": "Tus planes de meal prep guardados aparecerán aquí.",
   "@m0447": {
     "description": "Source text: Még nincs elmentett meal prep terved."
   },
-  "m0448": "Aún no has añadido platos principales.",
+  "m0448": "Tus platos principales aparecerán aquí.",
   "@m0448": {
     "description": "Source text: Még nincs főétel hozzáadva."
   },
-  "m0449": "Aún no has añadido guarniciones.",
+  "m0449": "Tus guarniciones aparecerán aquí.",
   "@m0449": {
     "description": "Source text: Még nincs köret hozzáadva."
   },
@@ -1996,7 +1996,7 @@
   "@m0498": {
     "description": "Source text: Nincs mentett étel"
   },
-  "m0499": "Sin resultados.",
+  "m0499": "No hay recetas para esta búsqueda.",
   "@m0499": {
     "description": "Source text: Nincs találat."
   },

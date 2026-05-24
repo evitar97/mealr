@@ -1237,7 +1237,7 @@ abstract class AppLocalizations {
   /// Source text: Először ments el egy ételt a meal prep tervezéshez.
   ///
   /// In en, this message translates to:
-  /// **'Save a food first to plan Meal Prep.'**
+  /// **'Save a food first, then you can build a Meal Prep plan.'**
   String get m0188;
 
   /// Source text: előtt
@@ -1969,7 +1969,7 @@ abstract class AppLocalizations {
   /// Source text: Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.
   ///
   /// In en, this message translates to:
-  /// **'In free mode, you can save 1 Meal Prep plan. More plans require Pro.'**
+  /// **'Free includes 1 saved Meal Prep plan. Upgrade to save more.'**
   String get m0310;
 
   /// Source text: Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.
@@ -2786,25 +2786,25 @@ abstract class AppLocalizations {
   /// Source text: Még nincs elmentett bevásárlólistád.
   ///
   /// In en, this message translates to:
-  /// **'You do not have a saved shopping list yet.'**
+  /// **'Shopping lists you create will appear here.'**
   String get m0446;
 
   /// Source text: Még nincs elmentett meal prep terved.
   ///
   /// In en, this message translates to:
-  /// **'You do not have a saved Meal Prep plan yet.'**
+  /// **'Saved Meal Prep plans will appear here.'**
   String get m0447;
 
   /// Source text: Még nincs főétel hozzáadva.
   ///
   /// In en, this message translates to:
-  /// **'No main dishes added yet.'**
+  /// **'Your main dishes will appear here.'**
   String get m0448;
 
   /// Source text: Még nincs köret hozzáadva.
   ///
   /// In en, this message translates to:
-  /// **'No side dishes added yet.'**
+  /// **'Your sides will appear here.'**
   String get m0449;
 
   /// Source text: Megjegyzés
@@ -3104,7 +3104,7 @@ abstract class AppLocalizations {
   /// Source text: Nincs találat.
   ///
   /// In en, this message translates to:
-  /// **'No results.'**
+  /// **'No recipes match this search.'**
   String get m0499;
 
   /// Source text: Nincs változás a kezdő súlyhoz képest

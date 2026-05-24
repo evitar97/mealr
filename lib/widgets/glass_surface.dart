@@ -39,14 +39,14 @@ class GlassSurface extends StatelessWidget {
     final fillOpacity = opacity ?? 1;
     final fill = (tint ?? p.card).withValues(alpha: fillOpacity);
     final stroke =
-        borderColor ?? p.border.withValues(alpha: state.isDark ? 0.62 : 0.30);
+        borderColor ?? p.border.withValues(alpha: state.isDark ? 0.48 : 0.22);
 
     final surface = Container(
       padding: padding,
       decoration: BoxDecoration(
         color: fill,
         borderRadius: BorderRadius.circular(radius),
-        border: Border.all(color: stroke, width: 1.15),
+        border: Border.all(color: stroke),
       ),
       child: child,
     );
@@ -63,10 +63,10 @@ class GlassSurface extends StatelessWidget {
                 BoxShadow(
                   color: const Color(
                     0xFF000000,
-                  ).withValues(alpha: state.isDark ? 0.10 : 0.035),
-                  blurRadius: 7,
-                  spreadRadius: -8,
-                  offset: const Offset(0, 5),
+                  ).withValues(alpha: state.isDark ? 0.08 : 0.025),
+                  blurRadius: 5,
+                  spreadRadius: -7,
+                  offset: const Offset(0, 3),
                 ),
               ]
             : null,

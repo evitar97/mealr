@@ -596,7 +596,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get m0187 => 'Día preparado por adelantado';
 
   @override
-  String get m0188 => 'Guarda primero una comida para planificar meal prep.';
+  String get m0188 =>
+      'Guarda primero una comida y luego podrás crear un plan de meal prep.';
 
   @override
   String get m0189 => 'antes de cocinar';
@@ -972,7 +973,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get m0310 =>
-      'En el modo gratis puedes guardar 1 plan de meal prep. Para más planes necesitas Pro.';
+      'El plan gratis incluye 1 plan de meal prep guardado. Mejora a Pro para guardar más.';
 
   @override
   String get m0311 =>
@@ -1395,16 +1396,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get m0445 => 'Media';
 
   @override
-  String get m0446 => 'Aún no tienes una lista de compra guardada.';
+  String get m0446 => 'Las listas de compra que crees aparecerán aquí.';
 
   @override
-  String get m0447 => 'Aún no tienes un plan de meal prep guardado.';
+  String get m0447 => 'Tus planes de meal prep guardados aparecerán aquí.';
 
   @override
-  String get m0448 => 'Aún no has añadido platos principales.';
+  String get m0448 => 'Tus platos principales aparecerán aquí.';
 
   @override
-  String get m0449 => 'Aún no has añadido guarniciones.';
+  String get m0449 => 'Tus guarniciones aparecerán aquí.';
 
   @override
   String get m0450 => 'Nota';
@@ -1557,7 +1558,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get m0498 => 'Sin comida guardada';
 
   @override
-  String get m0499 => 'Sin resultados.';
+  String get m0499 => 'No hay recetas para esta búsqueda.';
 
   @override
   String get m0500 => 'Sin cambios respecto al peso inicial';

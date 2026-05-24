@@ -752,7 +752,7 @@
   "@m0187": {
     "description": "Source text: Előre haladó nap"
   },
-  "m0188": "Először ments el egy ételt a meal prep tervezéshez.",
+  "m0188": "Először ments el egy ételt, utána építhetsz Meal Prep tervet.",
   "@m0188": {
     "description": "Source text: Először ments el egy ételt a meal prep tervezéshez."
   },
@@ -1240,7 +1240,7 @@
   "@m0309": {
     "description": "Source text: Ingyenes alapok"
   },
-  "m0310": "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.",
+  "m0310": "Az ingyenes csomag 1 mentett Meal Prep tervet tartalmaz. Több tervhez válts Pro-ra.",
   "@m0310": {
     "description": "Source text: Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges."
   },
@@ -1784,19 +1784,19 @@
   "@m0445": {
     "description": "Source text: Medium"
   },
-  "m0446": "Még nincs elmentett bevásárlólistád.",
+  "m0446": "Az elkészített bevásárlólistáid itt jelennek meg.",
   "@m0446": {
     "description": "Source text: Még nincs elmentett bevásárlólistád."
   },
-  "m0447": "Még nincs elmentett meal prep terved.",
+  "m0447": "A mentett Meal Prep terveid itt jelennek meg.",
   "@m0447": {
     "description": "Source text: Még nincs elmentett meal prep terved."
   },
-  "m0448": "Még nincs főétel hozzáadva.",
+  "m0448": "A főételeid itt fognak megjelenni.",
   "@m0448": {
     "description": "Source text: Még nincs főétel hozzáadva."
   },
-  "m0449": "Még nincs köret hozzáadva.",
+  "m0449": "A köreteid itt fognak megjelenni.",
   "@m0449": {
     "description": "Source text: Még nincs köret hozzáadva."
   },
@@ -1996,7 +1996,7 @@
   "@m0498": {
     "description": "Source text: Nincs mentett étel"
   },
-  "m0499": "Nincs találat.",
+  "m0499": "Nincs recept ehhez a kereséshez.",
   "@m0499": {
     "description": "Source text: Nincs találat."
   },
