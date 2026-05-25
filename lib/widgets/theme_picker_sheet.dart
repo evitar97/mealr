@@ -7,6 +7,7 @@ import '../models/theme_option.dart';
 import '../theme/app_typography.dart';
 import '../theme/mealweight_theme.dart';
 import 'app_sheet.dart';
+import 'spring_pressable.dart';
 
 void showThemePickerSheet(BuildContext context) {
   showCupertinoModalPopup<void>(
@@ -39,7 +40,8 @@ class ThemePickerSheet extends StatelessWidget {
           if (theme.id == id) theme,
     ];
     return AppSheetFrame(
-      padding: const EdgeInsets.fromLTRB(18, 18, 18, 24),
+      padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+      scrollable: false,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,94 +50,35 @@ class ThemePickerSheet extends StatelessWidget {
             tx(context, 'Téma választása'),
             style: MealText.sheetTitle(p.text),
           ),
-          const SizedBox(height: 12),
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 1.95,
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              for (final theme in orderedThemes)
-                Builder(
-                  builder: (context) {
-                    final selected = theme.id == state.theme.id;
-                    final unlocked = state.isPro || theme.isFree;
-                    return CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        if (unlocked) {
-                          state.selectTheme(theme);
-                          Navigator.pop(context);
-                          return;
-                        }
-                        Navigator.pop(context);
-                        showProPaywallSheet(hostContext);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: theme.dark.card,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: selected ? theme.dark.accent : p.border,
-                            width: 2,
-                          ),
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 30,
-                                  height: 30,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    color: theme.dark.accent.withValues(
-                                      alpha: 0.16,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                      color: theme.dark.accent.withValues(
-                                        alpha: 0.72,
-                                      ),
-                                    ),
-                                  ),
-                                  child: _ThemeGlyph(
-                                    id: theme.id,
-                                    color: theme.dark.accent,
-                                    size: 21,
-                                  ),
-                                ),
-                                const SizedBox(width: 8),
-                                Expanded(
-                                  child: Text(
-                                    theme.name,
-                                    style: MealText.bodyStrong(theme.dark.text),
-                                  ),
-                                ),
-                                Icon(
-                                  selected
-                                      ? CupertinoIcons.check_mark_circled
-                                      : unlocked
-                                      ? CupertinoIcons.circle
-                                      : CupertinoIcons.lock,
-                                  size: 16,
-                                  color: theme.dark.accent,
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 8),
-                            _ThemeMiniPreview(theme: theme),
-                          ],
-                        ),
-                      ),
-                    );
+          const SizedBox(height: 14),
+          SizedBox(
+            height: 108,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: orderedThemes.length,
+              separatorBuilder: (_, _) => const SizedBox(width: 10),
+              itemBuilder: (context, index) {
+                final theme = orderedThemes[index];
+                final selected = theme.id == state.theme.id;
+                final unlocked = state.isPro || theme.isFree;
+                return _ThemeTile(
+                  theme: theme,
+                  selected: selected,
+                  unlocked: unlocked,
+                  darkMode: state.isDark,
+                  onPressed: () {
+                    if (unlocked) {
+                      state.selectTheme(theme);
+                      Navigator.pop(context);
+                      return;
+                    }
+                    Navigator.pop(context);
+                    showProPaywallSheet(hostContext);
                   },
-                ),
-            ],
+                );
+              },
+            ),
           ),
         ],
       ),
@@ -143,25 +86,79 @@ class ThemePickerSheet extends StatelessWidget {
   }
 }
 
-class _ThemeMiniPreview extends StatelessWidget {
-  const _ThemeMiniPreview({required this.theme});
+class _ThemeTile extends StatelessWidget {
+  const _ThemeTile({
+    required this.theme,
+    required this.selected,
+    required this.unlocked,
+    required this.darkMode,
+    required this.onPressed,
+  });
 
   final ThemeOption theme;
+  final bool selected;
+  final bool unlocked;
+  final bool darkMode;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(999),
-      child: SizedBox(
-        height: 7,
-        child: Row(
-          children: [
-            Expanded(child: ColoredBox(color: theme.light.bg)),
-            Expanded(child: ColoredBox(color: theme.light.card)),
-            Expanded(child: ColoredBox(color: theme.light.accent)),
-            Expanded(child: ColoredBox(color: theme.dark.bg)),
-            Expanded(child: ColoredBox(color: theme.dark.accent)),
-          ],
+    final p = AppScope.of(context).palette;
+    final sample = darkMode ? theme.dark : theme.light;
+    final statusColor = sample.accent;
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: onPressed,
+      child: SpringPressable(
+        child: Container(
+          width: 96,
+          padding: const EdgeInsets.fromLTRB(8, 10, 8, 9),
+          decoration: BoxDecoration(
+            color: selected
+                ? Color.alphaBlend(
+                    sample.accent.withValues(alpha: darkMode ? 0.09 : 0.06),
+                    p.card,
+                  )
+                : p.card,
+            borderRadius: BorderRadius.circular(17),
+            border: Border.all(
+              color: selected
+                  ? sample.accent.withValues(alpha: 0.74)
+                  : p.border.withValues(alpha: darkMode ? 0.58 : 0.30),
+              width: selected ? 1.4 : 1,
+            ),
+          ),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: Icon(
+                  selected
+                      ? CupertinoIcons.check_mark_circled_solid
+                      : unlocked
+                      ? CupertinoIcons.circle
+                      : CupertinoIcons.lock,
+                  color: statusColor.withValues(alpha: unlocked ? 1 : 0.8),
+                  size: 14,
+                ),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _ThemeGlyph(id: theme.id, color: sample.accent, size: 31),
+                  const SizedBox(height: 7),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      theme.name,
+                      maxLines: 1,
+                      style: MealText.bodyStrong(p.text).copyWith(fontSize: 13),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -236,6 +236,7 @@ class _HowToCard extends StatelessWidget {
                 text: TextSpan(
                   style: TextStyle(
                     color: p.muted,
+                    fontFamily: MealText.family,
                     fontSize: 17,
                     height: 1.55,
                     fontWeight: FontWeight.w600,

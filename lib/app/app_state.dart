@@ -72,6 +72,7 @@ class AppState extends ChangeNotifier {
   );
   AppLanguage language = AppLanguage.system;
   bool showOnboarding = true;
+  bool startupComplete = false;
   bool isPro = false;
   DateTime? proExpiresAt;
   double bmiWeight = 78;
@@ -142,6 +143,15 @@ class AppState extends ChangeNotifier {
       changed = true;
     }
     if (changed) notifyListeners();
+  }
+
+  Future<void> prepareForLaunch() async {
+    await Future.wait([
+      loadSavedPreferences(),
+      Future<void>.delayed(const Duration(milliseconds: 620)),
+    ]);
+    startupComplete = true;
+    super.notifyListeners();
   }
 
   void _saveSnapshot() {
@@ -980,15 +990,15 @@ class AppState extends ChangeNotifier {
 }
 
 extension AppChromeColors on AppState {
+  Color get headerSurface => palette.bg;
+
   Color get chromeSurface =>
-      isDark ? const Color(0xFF101211) : CupertinoColors.white;
+      isDark ? const Color(0xFF090D0B) : CupertinoColors.white;
 
   Color get chromeBorder =>
-      isDark ? palette.border.withValues(alpha: 0.46) : const Color(0xFFE4E9E5);
+      isDark ? palette.border.withValues(alpha: 0.76) : const Color(0xFFE4E9E5);
 
-  Color get primaryActionSurface => isDark
-      ? Color.alphaBlend(palette.accent.withValues(alpha: 0.86), palette.card)
-      : palette.accent;
+  Color get primaryActionSurface => palette.accent;
 }
 
 class AppScope extends InheritedNotifier<AppState> {

@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
@@ -19,6 +21,7 @@ class OnboardingOverlay extends StatefulWidget {
 class _OnboardingOverlayState extends State<OnboardingOverlay> {
   final controller = PageController();
   int page = 0;
+  bool showEntryGate = true;
 
   @override
   void dispose() {
@@ -40,143 +43,204 @@ class _OnboardingOverlayState extends State<OnboardingOverlay> {
     final isLast = page == pages.length - 1;
 
     return Positioned.fill(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              p.bg,
-              Color.alphaBlend(p.accent.withValues(alpha: 0.06), p.bg),
-              p.bg,
-            ],
-          ),
-        ),
-        child: SafeArea(
-          top: true,
-          bottom: false,
-          child: Column(
-            children: [
-              const SizedBox(height: 8),
-              const _Header(),
-              const SizedBox(height: 14),
-              Expanded(
-                child: PageView(
-                  controller: controller,
-                  onPageChanged: (value) => setState(() => page = value),
-                  children: pages,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(24, 10, 24, bottomInset + 10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    _PageDots(count: pages.length, active: page),
-                    const SizedBox(height: 14),
-                    if (isLast)
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: CupertinoButton(
-                              color: p.accent,
-                              borderRadius: BorderRadius.circular(22),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 13,
-                                horizontal: 10,
-                              ),
-                              onPressed: () {
-                                showProPaywallSheet(context);
-                              },
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      tx(context, 'Próbáld ki ingyen 7 napig'),
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                        color: p.buttonText,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                        letterSpacing: -0.2,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 2),
-                                  Text(
-                                    tx(
-                                      context,
-                                      'Éves csomag −50% kedvezménnyel',
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: p.buttonText.withValues(
-                                        alpha: 0.82,
-                                      ),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: CupertinoButton(
-                              color: p.card,
-                              borderRadius: BorderRadius.circular(22),
-                              padding: const EdgeInsets.symmetric(vertical: 18),
-                              onPressed: state.finishOnboarding,
-                              child: FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text(
-                                  tx(context, 'Kezdés ingyenesen'),
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                    color: p.muted,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    else
-                      SizedBox(
-                        width: double.infinity,
-                        child: CupertinoButton(
-                          color: p.accent,
-                          borderRadius: BorderRadius.circular(26),
-                          padding: const EdgeInsets.symmetric(vertical: 17),
-                          onPressed: () => controller.nextPage(
-                            duration: const Duration(milliseconds: 280),
-                            curve: Curves.easeOutCubic,
-                          ),
-                          child: Text(
-                            tx(context, 'Tovább'),
-                            style: TextStyle(
-                              color: p.buttonText,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: -0.3,
-                            ),
-                          ),
-                        ),
-                      ),
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    p.bg,
+                    Color.alphaBlend(p.accent.withValues(alpha: 0.06), p.bg),
+                    p.bg,
                   ],
                 ),
               ),
-            ],
+              child: SafeArea(
+                top: true,
+                bottom: false,
+                child: Column(
+                  children: [
+                    const SizedBox(height: 8),
+                    const _Header(),
+                    const SizedBox(height: 14),
+                    Expanded(
+                      child: PageView(
+                        controller: controller,
+                        onPageChanged: (value) => setState(() => page = value),
+                        children: pages,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        24,
+                        10,
+                        24,
+                        bottomInset + 10,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          _PageDots(count: pages.length, active: page),
+                          const SizedBox(height: 14),
+                          _OnboardingActions(
+                            isLast: isLast,
+                            onNext: () => controller.nextPage(
+                              duration: const Duration(milliseconds: 280),
+                              curve: Curves.easeOutCubic,
+                            ),
+                            onTryPro: () => showProPaywallSheet(context),
+                            onStartFree: state.finishOnboarding,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          if (showEntryGate)
+            _OnboardingEntryGate(
+              onStart: () => setState(() => showEntryGate = false),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _OnboardingEntryGate extends StatelessWidget {
+  const _OnboardingEntryGate({required this.onStart});
+
+  final VoidCallback onStart;
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final p = state.palette;
+    return Positioned.fill(
+      child: ClipRect(
+        child: BackdropFilter(
+          filter: ui.ImageFilter.blur(sigmaX: 18, sigmaY: 18),
+          child: ColoredBox(
+            color: p.bg.withValues(alpha: state.isDark ? 0.64 : 0.52),
+            child: SafeArea(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const MealWeightMark(size: 112, radius: 30),
+                    const SizedBox(height: 18),
+                    Text(
+                      'Mealr',
+                      style: MealText.largeTitle(
+                        p.text,
+                      ).copyWith(fontSize: 34, fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(height: 40),
+                    SizedBox(
+                      width: 224,
+                      child: CupertinoButton(
+                        color: p.accent,
+                        borderRadius: BorderRadius.circular(24),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        onPressed: onStart,
+                        child: Text(
+                          tx(context, 'Indulhat'),
+                          style: MealText.button(p.buttonText),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _OnboardingActions extends StatelessWidget {
+  const _OnboardingActions({
+    required this.isLast,
+    required this.onNext,
+    required this.onTryPro,
+    required this.onStartFree,
+  });
+
+  final bool isLast;
+  final VoidCallback onNext;
+  final VoidCallback onTryPro;
+  final VoidCallback onStartFree;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    if (!isLast) {
+      return SizedBox(
+        width: double.infinity,
+        child: CupertinoButton(
+          color: p.accent,
+          borderRadius: BorderRadius.circular(24),
+          padding: const EdgeInsets.symmetric(vertical: 15),
+          onPressed: onNext,
+          child: Text(
+            tx(context, 'Tovább'),
+            style: MealText.button(p.buttonText),
+          ),
+        ),
+      );
+    }
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: CupertinoButton(
+            color: p.accent,
+            borderRadius: BorderRadius.circular(22),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+            onPressed: onTryPro,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  tx(context, 'Próbáld ki ingyen 7 napig'),
+                  maxLines: 1,
+                  style: MealText.button(p.buttonText),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  tx(context, 'Éves csomag −50% kedvezménnyel'),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: MealText.captionStrong(
+                    p.buttonText.withValues(alpha: 0.82),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        SizedBox(
+          width: double.infinity,
+          child: CupertinoButton(
+            color: p.card,
+            borderRadius: BorderRadius.circular(22),
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            onPressed: onStartFree,
+            child: Text(
+              tx(context, 'Kezdés ingyenesen'),
+              style: MealText.button(p.accent),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -872,6 +936,7 @@ class _Step extends StatelessWidget {
               text: TextSpan(
                 style: TextStyle(
                   color: p.muted,
+                  fontFamily: MealText.family,
                   fontSize: 16,
                   height: 1.43,
                   fontWeight: FontWeight.w600,

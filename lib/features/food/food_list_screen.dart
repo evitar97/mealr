@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 
 import '../../app/app_layout.dart';
 import '../../app/app_state.dart';
@@ -21,8 +20,7 @@ import 'recipe_library.dart';
 
 final _greetingMottoSeed = DateTime.now().microsecondsSinceEpoch;
 
-const _homeStripItemWidth = 88.0;
-const _homeStripItemGap = 10.0;
+const _homeStripItemGap = 8.0;
 
 void _showAddFoodSheet(
   BuildContext context, {
@@ -57,25 +55,21 @@ class FoodListScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(
         16,
-        10,
+        16,
         16,
         AppLayout.screenBottomPadding,
       ),
       children: [
         const _MealGreeting(),
-        const SizedBox(height: 13),
-        if (!state.isPro) ...[
-          _FreeLimitStrip(
-            mainCount: mainFoods.length,
-            sideCount: sideFoods.length,
-          ),
-          const SizedBox(height: 12),
-        ],
-        SectionLabel(tx(context, 'Főételek')),
+        const SizedBox(height: 22),
+        _FoodSectionHeader(
+          label: tx(context, 'Főételek'),
+          freeCount: state.isPro ? null : mainFoods.length.clamp(0, 1),
+        ),
         if (mainFoods.isEmpty)
           _EmptyFoodMessage(
             tx(context, 'Még nincs főétel hozzáadva.'),
-            actionLabel: tx(context, 'Új étel'),
+            actionLabel: tx(context, 'Hozzáadás'),
             onAction: () => _showAddFoodSheet(
               context,
               initialCategory: FoodCategory.main,
@@ -83,11 +77,14 @@ class FoodListScreen extends StatelessWidget {
             ),
           ),
         for (final food in mainFoods) FoodTile(food: food),
-        SectionLabel(tx(context, 'Köretek')),
+        _FoodSectionHeader(
+          label: tx(context, 'Köretek'),
+          freeCount: state.isPro ? null : sideFoods.length.clamp(0, 1),
+        ),
         if (sideFoods.isEmpty)
           _EmptyFoodMessage(
             tx(context, 'Még nincs köret hozzáadva.'),
-            actionLabel: tx(context, 'Új étel'),
+            actionLabel: tx(context, 'Hozzáadás'),
             onAction: () => _showAddFoodSheet(
               context,
               initialCategory: FoodCategory.side,
@@ -95,7 +92,7 @@ class FoodListScreen extends StatelessWidget {
             ),
           ),
         for (final food in sideFoods) FoodTile(food: food),
-        const SizedBox(height: 6),
+        const SizedBox(height: 11),
         Row(
           children: [
             Expanded(
@@ -121,7 +118,7 @@ class FoodListScreen extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         _ActionPillButton(
           icon: state.isPro
               ? CupertinoIcons.cart_badge_plus
@@ -136,10 +133,24 @@ class FoodListScreen extends StatelessWidget {
                 )
               : () => showProPaywallSheet(context),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 12),
+        const _HomeDiscoveryBlock(),
+      ],
+    );
+  }
+}
+
+class _HomeDiscoveryBlock extends StatelessWidget {
+  const _HomeDiscoveryBlock();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
         SectionLabel(tx(context, 'Receptek')),
         const _RecipeCategoryStrip(),
-        const SizedBox(height: 10),
+        const SizedBox(height: 12),
         SectionLabel(tx(context, 'Étrendek')),
         const _DietPlanStrip(),
       ],
@@ -200,14 +211,14 @@ class _RecipeCategoryStrip extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 92,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        itemCount: categories.length,
-        separatorBuilder: (_, _) => const SizedBox(width: _homeStripItemGap),
-        itemBuilder: (context, index) =>
-            _RecipeCategoryPill(category: categories[index]),
+      height: 82,
+      child: Row(
+        children: [
+          for (var index = 0; index < categories.length; index++) ...[
+            if (index > 0) const SizedBox(width: _homeStripItemGap),
+            Expanded(child: _RecipeCategoryPill(category: categories[index])),
+          ],
+        ],
       ),
     );
   }
@@ -242,8 +253,8 @@ class _RecipeCategoryPill extends StatelessWidget {
       child: SpringPressable(
         enabled: category.onPressed != null,
         child: Container(
-          width: _homeStripItemWidth,
-          padding: const EdgeInsets.fromLTRB(10, 11, 10, 10),
+          width: double.infinity,
+          padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
           decoration: BoxDecoration(
             color: p.card,
             borderRadius: BorderRadius.circular(17),
@@ -255,8 +266,8 @@ class _RecipeCategoryPill extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 32,
-                height: 32,
+                width: 29,
+                height: 29,
                 child: CustomPaint(
                   painter: _RecipeCategoryIconPainter(
                     icon: category.icon,
@@ -264,13 +275,13 @@ class _RecipeCategoryPill extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 4),
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
                   category.label,
                   maxLines: 1,
-                  style: MealText.bodyStrong(p.text).copyWith(fontSize: 14),
+                  style: MealText.bodyStrong(p.text).copyWith(fontSize: 13),
                 ),
               ),
             ],
@@ -314,9 +325,9 @@ class _RecipeCategoryIconPainter extends CustomPainter {
       case _RecipeCategoryIcon.lunch:
         _paintPlate(canvas, size, stroke, fill);
       case _RecipeCategoryIcon.dinner:
-        _paintMoon(canvas, size, stroke, fill);
+        _paintCloche(canvas, size, stroke, fill);
       case _RecipeCategoryIcon.snack:
-        _paintBerry(canvas, size, stroke, fill);
+        _paintChips(canvas, size, stroke, fill);
     }
   }
 
@@ -397,80 +408,85 @@ class _RecipeCategoryIconPainter extends CustomPainter {
     );
   }
 
-  void _paintMoon(Canvas canvas, Size size, Paint stroke, Paint fill) {
-    final moon = Path()
-      ..moveTo(size.width * 0.62, size.height * 0.18)
+  void _paintCloche(Canvas canvas, Size size, Paint stroke, Paint fill) {
+    final dome = Path()
+      ..moveTo(size.width * 0.17, size.height * 0.66)
       ..cubicTo(
-        size.width * 0.36,
-        size.height * 0.30,
+        size.width * 0.20,
+        size.height * 0.41,
         size.width * 0.34,
-        size.height * 0.70,
-        size.width * 0.64,
-        size.height * 0.82,
+        size.height * 0.30,
+        size.width * 0.50,
+        size.height * 0.30,
       )
       ..cubicTo(
-        size.width * 0.44,
-        size.height * 0.88,
-        size.width * 0.18,
-        size.height * 0.70,
-        size.width * 0.18,
-        size.height * 0.48,
+        size.width * 0.66,
+        size.height * 0.30,
+        size.width * 0.80,
+        size.height * 0.41,
+        size.width * 0.83,
+        size.height * 0.66,
       )
-      ..cubicTo(
-        size.width * 0.18,
-        size.height * 0.26,
-        size.width * 0.42,
-        size.height * 0.10,
-        size.width * 0.62,
-        size.height * 0.18,
-      );
-    canvas.drawPath(moon, fill);
-    canvas.drawPath(moon, stroke);
+      ..close();
+    canvas.drawPath(dome, fill);
+    canvas.drawPath(dome, stroke);
+    canvas.drawLine(
+      Offset(size.width * 0.12, size.height * 0.68),
+      Offset(size.width * 0.88, size.height * 0.68),
+      stroke,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.23, size.height * 0.76),
+      Offset(size.width * 0.77, size.height * 0.76),
+      stroke,
+    );
+    canvas.drawArc(
+      Rect.fromLTWH(
+        size.width * 0.43,
+        size.height * 0.19,
+        size.width * 0.14,
+        size.height * 0.13,
+      ),
+      3.14,
+      3.14,
+      false,
+      stroke,
+    );
   }
 
-  void _paintBerry(Canvas canvas, Size size, Paint stroke, Paint fill) {
-    final berry = Path()
-      ..moveTo(size.width * 0.50, size.height * 0.27)
-      ..cubicTo(
+  void _paintChips(Canvas canvas, Size size, Paint stroke, Paint fill) {
+    final bag = Path()
+      ..moveTo(size.width * 0.27, size.height * 0.17)
+      ..lineTo(size.width * 0.73, size.height * 0.17)
+      ..lineTo(size.width * 0.78, size.height * 0.76)
+      ..quadraticBezierTo(
+        size.width * 0.50,
+        size.height * 0.84,
         size.width * 0.22,
-        size.height * 0.30,
-        size.width * 0.20,
-        size.height * 0.72,
-        size.width * 0.50,
-        size.height * 0.86,
+        size.height * 0.76,
       )
-      ..cubicTo(
-        size.width * 0.80,
-        size.height * 0.72,
-        size.width * 0.78,
-        size.height * 0.30,
-        size.width * 0.50,
-        size.height * 0.27,
-      );
-    canvas.drawPath(berry, fill);
-    canvas.drawPath(berry, stroke);
-
-    for (final seed in [
-      const Offset(0.40, 0.48),
-      const Offset(0.56, 0.48),
-      const Offset(0.48, 0.62),
-      const Offset(0.60, 0.68),
-    ]) {
-      canvas.drawCircle(
-        Offset(size.width * seed.dx, size.height * seed.dy),
-        size.width * 0.025,
-        Paint()..color = color,
-      );
-    }
-
-    final leaf = Path()
-      ..moveTo(size.width * 0.50, size.height * 0.28)
-      ..lineTo(size.width * 0.34, size.height * 0.16)
-      ..moveTo(size.width * 0.50, size.height * 0.28)
-      ..lineTo(size.width * 0.66, size.height * 0.16)
-      ..moveTo(size.width * 0.50, size.height * 0.28)
-      ..lineTo(size.width * 0.50, size.height * 0.12);
-    canvas.drawPath(leaf, stroke);
+      ..close();
+    canvas.drawPath(bag, fill);
+    canvas.drawPath(bag, stroke);
+    canvas.drawLine(
+      Offset(size.width * 0.28, size.height * 0.27),
+      Offset(size.width * 0.72, size.height * 0.27),
+      stroke,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.25, size.height * 0.69),
+      Offset(size.width * 0.75, size.height * 0.69),
+      stroke,
+    );
+    canvas.drawOval(
+      Rect.fromLTWH(
+        size.width * 0.37,
+        size.height * 0.38,
+        size.width * 0.27,
+        size.height * 0.20,
+      ),
+      stroke,
+    );
   }
 
   @override
@@ -533,13 +549,14 @@ class _DietPlanStrip extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 98,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        itemCount: plans.length,
-        separatorBuilder: (_, _) => const SizedBox(width: _homeStripItemGap),
-        itemBuilder: (context, index) => _DietPlanPill(option: plans[index]),
+      height: 84,
+      child: Row(
+        children: [
+          for (var index = 0; index < plans.length; index++) ...[
+            if (index > 0) const SizedBox(width: _homeStripItemGap),
+            Expanded(child: _DietPlanPill(option: plans[index])),
+          ],
+        ],
       ),
     );
   }
@@ -574,8 +591,8 @@ class _DietPlanPill extends StatelessWidget {
       child: SpringPressable(
         enabled: enabled,
         child: Container(
-          width: _homeStripItemWidth,
-          padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+          width: double.infinity,
+          padding: const EdgeInsets.fromLTRB(6, 6, 6, 6),
           decoration: BoxDecoration(
             color: p.card,
             borderRadius: BorderRadius.circular(17),
@@ -592,7 +609,7 @@ class _DietPlanPill extends StatelessWidget {
                 '${option.calories}',
                 style: MealText.sheetTitle(
                   enabled ? p.accent : p.text,
-                ).copyWith(fontSize: 21, letterSpacing: -0.2),
+                ).copyWith(fontSize: 19, letterSpacing: -0.2),
               ),
               const SizedBox(height: 1),
               Text('kcal', style: MealText.captionStrong(p.muted)),
@@ -635,7 +652,7 @@ class _EmptyFoodMessage extends StatelessWidget {
     final emptyColor = p.muted.withValues(alpha: state.isDark ? 0.82 : 0.76);
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(2, 4, 4, 20),
+      padding: const EdgeInsets.fromLTRB(2, 6, 4, 30),
       child: Row(
         children: [
           if (icon != null) ...[
@@ -1520,8 +1537,8 @@ class DietPlanTypeScreen extends StatelessWidget {
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
         transitionBetweenRoutes: false,
-        backgroundColor: state.chromeSurface,
-        border: Border(bottom: BorderSide(color: state.chromeBorder)),
+        backgroundColor: state.headerSurface,
+        border: null,
         leading: const _WarmBackButton(),
         middle: Text('$calories kcal'),
       ),
@@ -2001,8 +2018,8 @@ class _DietPlanListScreen extends StatelessWidget {
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
         transitionBetweenRoutes: false,
-        backgroundColor: state.chromeSurface,
-        border: Border(bottom: BorderSide(color: state.chromeBorder)),
+        backgroundColor: state.headerSurface,
+        border: null,
         leading: const _WarmBackButton(),
         middle: Text(title),
       ),
@@ -2208,7 +2225,7 @@ class _MacroBreakdownBar extends StatelessWidget {
             _MacroLabel(label: 'F', value: '${fatGrams}g', color: fatColor),
             const Spacer(),
             Text(
-              'macro split',
+              tx(context, 'Makrók megoszlása'),
               style: TextStyle(
                 color: p.muted.withValues(alpha: state.isDark ? 0.82 : 0.72),
                 fontSize: 11,
@@ -2288,8 +2305,8 @@ class DietPlanDetailScreen extends StatelessWidget {
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
         transitionBetweenRoutes: false,
-        backgroundColor: state.chromeSurface,
-        border: Border(bottom: BorderSide(color: state.chromeBorder)),
+        backgroundColor: state.headerSurface,
+        border: null,
         leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Étrend')),
       ),
@@ -2486,6 +2503,7 @@ class _DietPlanShoppingListSheetState extends State<DietPlanShoppingListSheet> {
     final items = _dietPlanShoppingItems(widget.plan);
     return AppSheetFrame(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      avoidKeyboard: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -2652,38 +2670,38 @@ class _FoodSubpageScaffold extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     return CupertinoPageScaffold(
-      backgroundColor: state.chromeSurface,
-      child: SafeArea(
-        bottom: false,
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: const [0, 0.34, 0.72, 1],
-                    colors: [
-                      Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.025 : 0.02),
-                        p.bg,
-                      ),
-                      Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.025 : 0.08),
-                        p.bg,
-                      ),
-                      Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.015 : 0.04),
-                        p.bg,
-                      ),
+      backgroundColor: state.headerSurface,
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0, 0.34, 0.72, 1],
+                  colors: [
+                    Color.alphaBlend(
+                      p.accent.withValues(alpha: state.isDark ? 0.025 : 0.02),
                       p.bg,
-                    ],
-                  ),
+                    ),
+                    Color.alphaBlend(
+                      p.card.withValues(alpha: state.isDark ? 0.025 : 0.08),
+                      p.bg,
+                    ),
+                    Color.alphaBlend(
+                      p.card.withValues(alpha: state.isDark ? 0.015 : 0.04),
+                      p.bg,
+                    ),
+                    p.bg,
+                  ],
                 ),
               ),
             ),
-            ListView(
+          ),
+          SafeArea(
+            bottom: false,
+            child: ListView(
               padding: const EdgeInsets.fromLTRB(
                 16,
                 10,
@@ -2692,8 +2710,8 @@ class _FoodSubpageScaffold extends StatelessWidget {
               ),
               children: children,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -3108,9 +3126,8 @@ class _RecipeTile extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: 42,
-                    height: 42,
-                    alignment: Alignment.center,
+                    width: recipe.imageAsset == null ? 42 : 52,
+                    height: recipe.imageAsset == null ? 42 : 52,
                     decoration: BoxDecoration(
                       color: p.bg.withValues(alpha: 0.72),
                       borderRadius: BorderRadius.circular(12),
@@ -3118,10 +3135,19 @@ class _RecipeTile extends StatelessWidget {
                         color: p.border.withValues(alpha: 0.70),
                       ),
                     ),
-                    child: Text(
-                      recipe.emoji,
-                      style: const TextStyle(fontSize: 22),
-                    ),
+                    clipBehavior: Clip.antiAlias,
+                    alignment: Alignment.center,
+                    child: recipe.imageAsset == null
+                        ? Text(
+                            recipe.emoji,
+                            style: const TextStyle(fontSize: 22),
+                          )
+                        : Image.asset(
+                            recipe.imageAsset!,
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
@@ -3215,7 +3241,6 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
     final isFavorite = state.isFavoriteRecipe(recipe.id);
     final totalCalories = recipe.caloriesPerServing * servings;
     final softSurface = p.bg.withValues(alpha: state.isDark ? 0.58 : 0.72);
-    final softBorder = p.border.withValues(alpha: state.isDark ? 0.52 : 0.30);
     return _FoodSubpageScaffold(
       children: [
         AppCard(
@@ -3276,41 +3301,36 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Column(
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: softSurface,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: softBorder),
-                        ),
-                        child: Text(
-                          recipe.emoji,
-                          style: const TextStyle(fontSize: 22),
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      CupertinoButton(
-                        minimumSize: const Size(32, 32),
-                        padding: EdgeInsets.zero,
-                        color: softSurface,
-                        borderRadius: BorderRadius.circular(11),
-                        onPressed: () => state.toggleFavoriteRecipe(recipe.id),
-                        child: Icon(
-                          isFavorite
-                              ? CupertinoIcons.star_fill
-                              : CupertinoIcons.star,
-                          color: isFavorite ? p.accent : p.muted,
-                          size: 18,
-                        ),
-                      ),
-                    ],
+                  CupertinoButton(
+                    minimumSize: const Size(32, 32),
+                    padding: EdgeInsets.zero,
+                    color: softSurface,
+                    borderRadius: BorderRadius.circular(11),
+                    onPressed: () => state.toggleFavoriteRecipe(recipe.id),
+                    child: Icon(
+                      isFavorite
+                          ? CupertinoIcons.star_fill
+                          : CupertinoIcons.star,
+                      color: isFavorite ? p.accent : p.muted,
+                      size: 18,
+                    ),
                   ),
                 ],
               ),
+              if (recipe.imageAsset != null) ...[
+                const SizedBox(height: 11),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(14),
+                  child: AspectRatio(
+                    aspectRatio: 2.15,
+                    child: Image.asset(
+                      recipe.imageAsset!,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
               const SizedBox(height: 11),
               _RecipeServingsStepper(
                 value: servings,
@@ -3433,7 +3453,6 @@ class DietRecipeDetailScreen extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     final softSurface = p.bg.withValues(alpha: state.isDark ? 0.58 : 0.72);
-    final softBorder = p.border.withValues(alpha: state.isDark ? 0.52 : 0.30);
     final scale =
         meal.calories / recipe.caloriesPerServing / recipe.baseServings;
     final servingEquivalent = meal.calories / recipe.caloriesPerServing;
@@ -3483,21 +3502,6 @@ class DietRecipeDetailScreen extends StatelessWidget {
                           style: MealText.caption(p.muted),
                         ),
                       ],
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Container(
-                    width: 40,
-                    height: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: softSurface,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: softBorder),
-                    ),
-                    child: Text(
-                      recipe.emoji,
-                      style: const TextStyle(fontSize: 22),
                     ),
                   ),
                 ],
@@ -3586,6 +3590,7 @@ class _RecipeShoppingListSheetState extends State<RecipeShoppingListSheet> {
     final items = _recipeShoppingItems(context, widget.recipe, widget.servings);
     return AppSheetFrame(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      avoidKeyboard: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -3874,7 +3879,7 @@ class _RecipeIngredientRow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 1),
             child: Text(
-              '${_formatIngredientAmount(amount, ingredient.unit)} ${ingredient.unit}',
+              '${_formatIngredientAmount(amount, ingredient.unit)} ${tx(context, ingredient.unit)}',
               style: MealText.bodyStrong(p.accent),
             ),
           ),
@@ -4398,7 +4403,7 @@ List<ShoppingListItem> _recipeShoppingItems(
       .map(
         (ingredient) => ShoppingListItem(
           name:
-              '${tx(context, ingredient.name)} - ${_formatIngredientAmount(ingredient.amount * scale, ingredient.unit)} ${ingredient.unit}',
+              '${tx(context, ingredient.name)} - ${_formatIngredientAmount(ingredient.amount * scale, ingredient.unit)} ${tx(context, ingredient.unit)}',
         ),
       )
       .toList();
@@ -4432,19 +4437,17 @@ void showProPaywallSheet(BuildContext context) {
         onTap: () => Navigator.maybePop(context),
         child: SafeArea(
           top: false,
-          bottom: false,
+          minimum: const EdgeInsets.only(bottom: 8),
           child: Align(
             alignment: Alignment.bottomCenter,
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () {},
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: MediaQuery.sizeOf(context).height * 0.82,
-                ),
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
-                  child: const ProUpsellCard(),
+              child: SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.82,
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(10, 8, 10, 0),
+                  child: ProUpsellCard(),
                 ),
               ),
             ),
@@ -4494,84 +4497,35 @@ class _ActionPillButton extends StatelessWidget {
   }
 }
 
-class _FreeLimitStrip extends StatelessWidget {
-  const _FreeLimitStrip({required this.mainCount, required this.sideCount});
-
-  final int mainCount;
-  final int sideCount;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: _LimitMeter(
-            label: tx(context, 'Főétel'),
-            value: mainCount.clamp(0, 1),
-          ),
-        ),
-        const SizedBox(width: 10),
-        Expanded(
-          child: _LimitMeter(
-            label: tx(context, 'Köret'),
-            value: sideCount.clamp(0, 1),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _LimitMeter extends StatelessWidget {
-  const _LimitMeter({required this.label, required this.value});
+class _FoodSectionHeader extends StatelessWidget {
+  const _FoodSectionHeader({required this.label, this.freeCount});
 
   final String label;
-  final int value;
+  final int? freeCount;
 
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    final filled = value >= 1;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      decoration: BoxDecoration(
-        color: p.card,
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: (filled ? p.accent : p.border).withValues(alpha: 0.56),
-        ),
-      ),
+    final filled = (freeCount ?? 0) >= 1;
+    final labelColor = state.isDark
+        ? Color.alphaBlend(p.accent.withValues(alpha: 0.62), p.muted)
+        : p.accentDim;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 10, 4, 7),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          if (filled) ...[
-            Icon(
-              CupertinoIcons.checkmark_circle_fill,
-              color: p.accent,
-              size: 16,
+          Text(label.toUpperCase(), style: MealText.section(labelColor)),
+          if (freeCount != null) ...[
+            const SizedBox(width: 9),
+            Text(
+              '${freeCount!}/1',
+              style: MealText.section(
+                filled ? p.accent : p.muted,
+              ).copyWith(letterSpacing: 0, fontSize: 11.5),
             ),
-            const SizedBox(width: 7),
           ],
-          Expanded(
-            child: Text(
-              label,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: p.text,
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          Text(
-            '$value/1',
-            style: TextStyle(
-              color: filled ? p.accent : p.muted,
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
         ],
       ),
     );
@@ -4699,7 +4653,6 @@ class _FoodTileState extends State<FoodTile> {
       ),
       confirmDismiss: (direction) async {
         FocusManager.instance.primaryFocus?.unfocus();
-        HapticFeedback.mediumImpact();
         if (direction == DismissDirection.startToEnd) {
           _openMealPrepFromFood(context, state);
         } else {
@@ -5109,8 +5062,8 @@ class ShoppingListScreen extends StatelessWidget {
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
         transitionBetweenRoutes: false,
-        backgroundColor: state.chromeSurface,
-        border: Border(bottom: BorderSide(color: state.chromeBorder)),
+        backgroundColor: state.headerSurface,
+        border: null,
         leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Bevásárlás+')),
       ),
@@ -5348,154 +5301,139 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final p = state.palette;
-    return Container(
-      color: CupertinoColors.transparent,
-      child: SafeArea(
-        top: false,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: GlassSurface(
-            width: double.infinity,
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
-            radius: 22,
-            tint: p.card,
-            opacity: 1,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 590),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return AppKeyboardSheetPosition(
+      child: GlassSurface(
+        width: double.infinity,
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
+        radius: 22,
+        tint: p.card,
+        opacity: 1,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 590),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _SheetHeader(
+                  icon: CupertinoIcons.cart_badge_plus,
+                  title: tx(
+                    context,
+                    widget.list == null
+                        ? 'Új bevásárlólista'
+                        : 'Bevásárlólista szerkesztése',
+                  ),
+                  subtitle: tx(context, 'Nevezd el és add hozzá a tételeket'),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  tx(context, 'Lista neve'),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                _Input(
+                  controller: nameController,
+                  placeholder: tx(context, 'Pl. Hétvégi főzés'),
+                  onChanged: () => setState(() {}),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  tx(context, 'Hozzávalók'),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                for (final row in itemRows)
+                  _DraftShoppingItemRow(
+                    row: row,
+                    onChanged: () => setState(() {}),
+                    onRemove: () => _removeItemRow(row),
+                  ),
+                CupertinoButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: _addItemRow,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(CupertinoIcons.plus_circle_fill, color: p.accent),
+                      const SizedBox(width: 7),
+                      Text(
+                        tx(context, 'Tétel hozzáadása'),
+                        style: TextStyle(
+                          color: p.accent,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 14),
+                Row(
                   children: [
-                    _SheetHeader(
-                      icon: CupertinoIcons.cart_badge_plus,
-                      title: tx(
-                        context,
-                        widget.list == null
-                            ? 'Új bevásárlólista'
-                            : 'Bevásárlólista szerkesztése',
-                      ),
-                      subtitle: tx(
-                        context,
-                        'Nevezd el és add hozzá a tételeket',
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      tx(context, 'Lista neve'),
-                      style: TextStyle(
-                        color: p.text,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    _Input(
-                      controller: nameController,
-                      placeholder: tx(context, 'Pl. Hétvégi főzés'),
-                      onChanged: () => setState(() {}),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      tx(context, 'Hozzávalók'),
-                      style: TextStyle(
-                        color: p.text,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    for (final row in itemRows)
-                      _DraftShoppingItemRow(
-                        row: row,
-                        onChanged: () => setState(() {}),
-                        onRemove: () => _removeItemRow(row),
-                      ),
-                    CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: _addItemRow,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            CupertinoIcons.plus_circle_fill,
-                            color: p.accent,
-                          ),
-                          const SizedBox(width: 7),
-                          Text(
-                            tx(context, 'Tétel hozzáadása'),
-                            style: TextStyle(
-                              color: p.accent,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 14),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CupertinoButton(
-                            color: p.bg,
-                            borderRadius: BorderRadius.circular(14),
-                            onPressed: () => Navigator.pop(context),
-                            child: Text(
-                              tx(context, 'Mégse'),
-                              style: TextStyle(color: p.muted),
-                            ),
-                          ),
+                    Expanded(
+                      child: CupertinoButton(
+                        color: p.bg,
+                        borderRadius: BorderRadius.circular(14),
+                        onPressed: () => Navigator.pop(context),
+                        child: Text(
+                          tx(context, 'Mégse'),
+                          style: TextStyle(color: p.muted),
                         ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          flex: 2,
-                          child: CupertinoButton(
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      flex: 2,
+                      child: CupertinoButton(
+                        color: canSave ? p.accent : _disabledActionFill(state),
+                        borderRadius: BorderRadius.circular(14),
+                        onPressed: canSave
+                            ? () {
+                                final items = [
+                                  for (final row in itemRows)
+                                    ShoppingListItem(
+                                      name: row.controller.text,
+                                      checked: row.checked,
+                                    ),
+                                ];
+                                final list = widget.list;
+                                if (list == null) {
+                                  state.addShoppingList(
+                                    name: nameController.text,
+                                    items: items,
+                                  );
+                                } else {
+                                  state.updateShoppingList(
+                                    id: list.id,
+                                    name: nameController.text,
+                                    items: items,
+                                  );
+                                }
+                                Navigator.pop(context);
+                              }
+                            : null,
+                        child: Text(
+                          tx(context, 'Mentés'),
+                          style: TextStyle(
                             color: canSave
-                                ? p.accent
-                                : _disabledActionFill(state),
-                            borderRadius: BorderRadius.circular(14),
-                            onPressed: canSave
-                                ? () {
-                                    final items = [
-                                      for (final row in itemRows)
-                                        ShoppingListItem(
-                                          name: row.controller.text,
-                                          checked: row.checked,
-                                        ),
-                                    ];
-                                    final list = widget.list;
-                                    if (list == null) {
-                                      state.addShoppingList(
-                                        name: nameController.text,
-                                        items: items,
-                                      );
-                                    } else {
-                                      state.updateShoppingList(
-                                        id: list.id,
-                                        name: nameController.text,
-                                        items: items,
-                                      );
-                                    }
-                                    Navigator.pop(context);
-                                  }
-                                : null,
-                            child: Text(
-                              tx(context, 'Mentés'),
-                              style: TextStyle(
-                                color: canSave
-                                    ? p.buttonText
-                                    : _disabledActionText(state),
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
+                                ? p.buttonText
+                                : _disabledActionText(state),
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
           ),
         ),
@@ -5806,8 +5744,8 @@ class MealPrepScreen extends StatelessWidget {
       backgroundColor: p.bg,
       navigationBar: CupertinoNavigationBar(
         transitionBetweenRoutes: false,
-        backgroundColor: state.chromeSurface,
-        border: Border(bottom: BorderSide(color: state.chromeBorder)),
+        backgroundColor: state.headerSurface,
+        border: null,
         leading: const _WarmBackButton(),
         middle: Text(tx(context, 'Meal Prep+')),
       ),
@@ -6109,269 +6047,259 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
         ? 0.0
         : sideTotalCooked / sideFood.cookedWeight;
 
-    return Container(
-      color: CupertinoColors.transparent,
-      child: SafeArea(
-        top: false,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: GlassSurface(
-            width: double.infinity,
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.fromLTRB(14, 13, 14, 15),
-            radius: 22,
-            tint: p.card,
-            opacity: 1,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 610),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return AppKeyboardSheetPosition(
+      child: GlassSurface(
+        width: double.infinity,
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.fromLTRB(14, 13, 14, 15),
+        radius: 22,
+        tint: p.card,
+        opacity: 1,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 610),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _SheetHeader(
+                  icon: CupertinoIcons.archivebox,
+                  title: tx(
+                    context,
+                    widget.plan == null
+                        ? 'Új meal prep terv'
+                        : 'Meal prep terv szerkesztése',
+                  ),
+                  subtitle: tx(
+                    context,
+                    'Válassz főételt, köretet és adagold dobozokra',
+                  ),
+                ),
+                const SizedBox(height: 8),
+                _Input(
+                  controller: nameController,
+                  placeholder: tx(context, 'Terv neve'),
+                  onChanged: () => setState(() {}),
+                ),
+                const SizedBox(height: 7),
+                Row(
                   children: [
-                    _SheetHeader(
-                      icon: CupertinoIcons.archivebox,
-                      title: tx(
-                        context,
-                        widget.plan == null
-                            ? 'Új meal prep terv'
-                            : 'Meal prep terv szerkesztése',
-                      ),
-                      subtitle: tx(
-                        context,
-                        'Válassz főételt, köretet és adagold dobozokra',
-                      ),
+                    _MealPrepModeButton(
+                      label: tx(context, 'Teljes mennyiség elosztása'),
+                      active: mode == MealPrepMode.divideTotal,
+                      onTap: () =>
+                          setState(() => mode = MealPrepMode.divideTotal),
                     ),
-                    const SizedBox(height: 8),
-                    _Input(
-                      controller: nameController,
-                      placeholder: tx(context, 'Terv neve'),
-                      onChanged: () => setState(() {}),
-                    ),
-                    const SizedBox(height: 7),
-                    Row(
-                      children: [
-                        _MealPrepModeButton(
-                          label: tx(context, 'Teljes mennyiség elosztása'),
-                          active: mode == MealPrepMode.divideTotal,
-                          onTap: () =>
-                              setState(() => mode = MealPrepMode.divideTotal),
-                        ),
-                        const SizedBox(width: 8),
-                        _MealPrepModeButton(
-                          label: tx(context, 'Fix adagméret'),
-                          active: mode == MealPrepMode.fixedPortion,
-                          onTap: () =>
-                              setState(() => mode = MealPrepMode.fixedPortion),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      mode == MealPrepMode.divideTotal
-                          ? tx(
-                              context,
-                              'Az app a mentett kész mennyiséget osztja el az adagok között.',
-                            )
-                          : tx(
-                              context,
-                              'Te adod meg, hány gramm kerüljön egy adagba.',
-                            ),
-                      style: TextStyle(
-                        color: p.muted,
-                        fontSize: 12,
-                        height: 1.3,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(height: 7),
-                    Text(
-                      tx(context, 'Főétel'),
-                      style: TextStyle(
-                        color: p.text,
-                        fontSize: 13.5,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    _MealPrepFoodPicker(
-                      foods: mainFoods.isEmpty ? state.foods : mainFoods,
-                      selected: selectedFood,
-                      onSelected: (food) => setState(() => selectedFood = food),
-                    ),
-                    const SizedBox(height: 7),
-                    Text(
-                      tx(context, 'Köret hozzáadása'),
-                      style: TextStyle(
-                        color: p.text,
-                        fontSize: 13.5,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    _MealPrepFoodPicker(
-                      foods: sideFoods,
-                      selected: selectedSideFood,
-                      optionalLabel: tx(context, 'Nincs köret'),
-                      onSelected: (food) =>
-                          setState(() => selectedSideFood = food),
-                      onClear: () => setState(() => selectedSideFood = null),
-                    ),
-                    if (mode == MealPrepMode.divideTotal)
-                      _Input(
-                        controller: portionsController,
-                        placeholder: tx(context, 'Adagok'),
-                        numericTitle: tx(context, 'Adagok'),
-                        onChanged: () => setState(() {}),
-                      )
-                    else ...[
-                      Row(
-                        children: [
-                          Expanded(
-                            child: _Input(
-                              controller: portionsController,
-                              placeholder: tx(context, 'Adagok'),
-                              numericTitle: tx(context, 'Adagok'),
-                              onChanged: () => setState(() {}),
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: _Input(
-                              controller: portionWeightController,
-                              placeholder: tx(context, 'Főétel g / adag'),
-                              numericTitle: tx(context, 'Főétel g / adag'),
-                              onChanged: () => setState(() {}),
-                            ),
-                          ),
-                        ],
-                      ),
-                      if (selectedSideFood != null)
-                        _Input(
-                          controller: sidePortionWeightController,
-                          placeholder: tx(context, 'Köret g / adag'),
-                          numericTitle: tx(context, 'Köret g / adag'),
-                          onChanged: () => setState(() {}),
-                        ),
-                    ],
-                    _Input(
-                      controller: noteController,
-                      placeholder: tx(context, 'Megjegyzés'),
-                      onChanged: () => setState(() {}),
-                    ),
-                    const SizedBox(height: 4),
-                    AppCard(
-                      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
-                      color: p.resultBg,
-                      child: Column(
-                        children: [
-                          _MealPrepResultRow(
-                            label: tx(context, 'Főétel adag / doboz'),
-                            value: grams(mainPortionWeight),
-                          ),
-                          _MealPrepResultRow(
-                            label: tx(context, 'Szükséges kész főétel'),
-                            value: grams(totalCooked),
-                          ),
-                          _MealPrepResultRow(
-                            label: tx(context, 'Szükséges nyers főétel'),
-                            value: grams(totalRaw),
-                          ),
-                          _MealPrepResultRow(
-                            label: tx(context, 'Főétel recept szorzó'),
-                            value: '${multiplier.toStringAsFixed(2)}x',
-                          ),
-                          if (sideFood != null) ...[
-                            _MealPrepResultRow(
-                              label: tx(context, 'Köret adag / doboz'),
-                              value: grams(effectiveSidePortionWeight),
-                            ),
-                            _MealPrepResultRow(
-                              label: tx(context, 'Szükséges kész köret'),
-                              value: grams(sideTotalCooked),
-                            ),
-                            _MealPrepResultRow(
-                              label: tx(context, 'Szükséges nyers köret'),
-                              value: grams(sideTotalRaw),
-                            ),
-                            _MealPrepResultRow(
-                              label: tx(context, 'Köret recept szorzó'),
-                              value: '${sideMultiplier.toStringAsFixed(2)}x',
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CupertinoButton(
-                            color: p.bg,
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            borderRadius: BorderRadius.circular(12),
-                            onPressed: () => Navigator.pop(context),
-                            child: Text(
-                              tx(context, 'Mégse'),
-                              style: TextStyle(color: p.muted),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          flex: 2,
-                          child: CupertinoButton(
-                            color: canSave
-                                ? p.accent
-                                : _disabledActionFill(state),
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            borderRadius: BorderRadius.circular(12),
-                            onPressed: canSave
-                                ? () {
-                                    if (widget.plan == null) {
-                                      state.addMealPrepPlan(
-                                        name: nameController.text,
-                                        food: selectedFood!,
-                                        sideFood: selectedSideFood,
-                                        mode: mode,
-                                        portionCount: portionCount,
-                                        portionWeight: mainPortionWeight,
-                                        sidePortionWeight:
-                                            effectiveSidePortionWeight,
-                                        note: noteController.text,
-                                      );
-                                    } else {
-                                      state.updateMealPrepPlan(
-                                        id: widget.plan!.id,
-                                        name: nameController.text,
-                                        food: selectedFood!,
-                                        sideFood: selectedSideFood,
-                                        mode: mode,
-                                        portionCount: portionCount,
-                                        portionWeight: mainPortionWeight,
-                                        sidePortionWeight:
-                                            effectiveSidePortionWeight,
-                                        note: noteController.text,
-                                      );
-                                    }
-                                    Navigator.pop(context);
-                                  }
-                                : null,
-                            child: Text(
-                              tx(context, 'Mentés'),
-                              style: TextStyle(
-                                color: canSave
-                                    ? p.buttonText
-                                    : _disabledActionText(state),
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                    const SizedBox(width: 8),
+                    _MealPrepModeButton(
+                      label: tx(context, 'Fix adagméret'),
+                      active: mode == MealPrepMode.fixedPortion,
+                      onTap: () =>
+                          setState(() => mode = MealPrepMode.fixedPortion),
                     ),
                   ],
                 ),
-              ),
+                const SizedBox(height: 5),
+                Text(
+                  mode == MealPrepMode.divideTotal
+                      ? tx(
+                          context,
+                          'Az app a mentett kész mennyiséget osztja el az adagok között.',
+                        )
+                      : tx(
+                          context,
+                          'Te adod meg, hány gramm kerüljön egy adagba.',
+                        ),
+                  style: TextStyle(
+                    color: p.muted,
+                    fontSize: 12,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 7),
+                Text(
+                  tx(context, 'Főétel'),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                _MealPrepFoodPicker(
+                  foods: mainFoods.isEmpty ? state.foods : mainFoods,
+                  selected: selectedFood,
+                  onSelected: (food) => setState(() => selectedFood = food),
+                ),
+                const SizedBox(height: 7),
+                Text(
+                  tx(context, 'Köret hozzáadása'),
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                _MealPrepFoodPicker(
+                  foods: sideFoods,
+                  selected: selectedSideFood,
+                  optionalLabel: tx(context, 'Nincs köret'),
+                  onSelected: (food) => setState(() => selectedSideFood = food),
+                  onClear: () => setState(() => selectedSideFood = null),
+                ),
+                if (mode == MealPrepMode.divideTotal)
+                  _Input(
+                    controller: portionsController,
+                    placeholder: tx(context, 'Adagok'),
+                    numericTitle: tx(context, 'Adagok'),
+                    onChanged: () => setState(() {}),
+                  )
+                else ...[
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _Input(
+                          controller: portionsController,
+                          placeholder: tx(context, 'Adagok'),
+                          numericTitle: tx(context, 'Adagok'),
+                          onChanged: () => setState(() {}),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: _Input(
+                          controller: portionWeightController,
+                          placeholder: tx(context, 'Főétel g / adag'),
+                          numericTitle: tx(context, 'Főétel g / adag'),
+                          onChanged: () => setState(() {}),
+                        ),
+                      ),
+                    ],
+                  ),
+                  if (selectedSideFood != null)
+                    _Input(
+                      controller: sidePortionWeightController,
+                      placeholder: tx(context, 'Köret g / adag'),
+                      numericTitle: tx(context, 'Köret g / adag'),
+                      onChanged: () => setState(() {}),
+                    ),
+                ],
+                _Input(
+                  controller: noteController,
+                  placeholder: tx(context, 'Megjegyzés'),
+                  onChanged: () => setState(() {}),
+                ),
+                const SizedBox(height: 4),
+                AppCard(
+                  padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+                  color: p.resultBg,
+                  child: Column(
+                    children: [
+                      _MealPrepResultRow(
+                        label: tx(context, 'Főétel adag / doboz'),
+                        value: grams(mainPortionWeight),
+                      ),
+                      _MealPrepResultRow(
+                        label: tx(context, 'Szükséges kész főétel'),
+                        value: grams(totalCooked),
+                      ),
+                      _MealPrepResultRow(
+                        label: tx(context, 'Szükséges nyers főétel'),
+                        value: grams(totalRaw),
+                      ),
+                      _MealPrepResultRow(
+                        label: tx(context, 'Főétel recept szorzó'),
+                        value: '${multiplier.toStringAsFixed(2)}x',
+                      ),
+                      if (sideFood != null) ...[
+                        _MealPrepResultRow(
+                          label: tx(context, 'Köret adag / doboz'),
+                          value: grams(effectiveSidePortionWeight),
+                        ),
+                        _MealPrepResultRow(
+                          label: tx(context, 'Szükséges kész köret'),
+                          value: grams(sideTotalCooked),
+                        ),
+                        _MealPrepResultRow(
+                          label: tx(context, 'Szükséges nyers köret'),
+                          value: grams(sideTotalRaw),
+                        ),
+                        _MealPrepResultRow(
+                          label: tx(context, 'Köret recept szorzó'),
+                          value: '${sideMultiplier.toStringAsFixed(2)}x',
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CupertinoButton(
+                        color: p.bg,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        borderRadius: BorderRadius.circular(12),
+                        onPressed: () => Navigator.pop(context),
+                        child: Text(
+                          tx(context, 'Mégse'),
+                          style: TextStyle(color: p.muted),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      flex: 2,
+                      child: CupertinoButton(
+                        color: canSave ? p.accent : _disabledActionFill(state),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        borderRadius: BorderRadius.circular(12),
+                        onPressed: canSave
+                            ? () {
+                                if (widget.plan == null) {
+                                  state.addMealPrepPlan(
+                                    name: nameController.text,
+                                    food: selectedFood!,
+                                    sideFood: selectedSideFood,
+                                    mode: mode,
+                                    portionCount: portionCount,
+                                    portionWeight: mainPortionWeight,
+                                    sidePortionWeight:
+                                        effectiveSidePortionWeight,
+                                    note: noteController.text,
+                                  );
+                                } else {
+                                  state.updateMealPrepPlan(
+                                    id: widget.plan!.id,
+                                    name: nameController.text,
+                                    food: selectedFood!,
+                                    sideFood: selectedSideFood,
+                                    mode: mode,
+                                    portionCount: portionCount,
+                                    portionWeight: mainPortionWeight,
+                                    sidePortionWeight:
+                                        effectiveSidePortionWeight,
+                                    note: noteController.text,
+                                  );
+                                }
+                                Navigator.pop(context);
+                              }
+                            : null,
+                        child: Text(
+                          tx(context, 'Mentés'),
+                          style: TextStyle(
+                            color: canSave
+                                ? p.buttonText
+                                : _disabledActionText(state),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
@@ -6915,6 +6843,7 @@ class _AddFoodSheetState extends State<AddFoodSheet> {
     return AppSheetFrame(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
       scrollable: false,
+      avoidKeyboard: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -7125,96 +7054,110 @@ class ProUpsellCard extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return GlassSurface(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(14, 13, 14, 14),
+      padding: EdgeInsets.zero,
       radius: 22,
       tint: p.card,
       opacity: 1,
       borderColor: p.border.withValues(alpha: 0.42),
       child: Column(
         children: [
-          Row(
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                alignment: Alignment.center,
-                child: const MealWeightMark(size: 40, radius: 12),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      tx(context, 'Mealr Pro'),
-                      style: TextStyle(
-                        color: p.text,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: -0.6,
-                      ),
-                    ),
-                    Text(
-                      tx(context, 'Korlátlan mentés és extra funkciók'),
-                      style: TextStyle(
-                        color: p.muted,
-                        fontSize: 12.5,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 13, 14, 10),
+            child: Row(
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  alignment: Alignment.center,
+                  child: const MealWeightMark(size: 40, radius: 12),
                 ),
-              ),
-              const SizedBox(width: 10),
-              CupertinoButton(
-                minimumSize: const Size(32, 32),
-                padding: EdgeInsets.zero,
-                color: p.bg,
-                borderRadius: BorderRadius.circular(16),
-                onPressed: () => Navigator.maybePop(context),
-                child: Icon(CupertinoIcons.xmark, color: p.muted, size: 15),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          _PaywallFeatureSections(),
-          const SizedBox(height: 10),
-          _PricingCard(),
-          const SizedBox(height: 12),
-          SizedBox(
-            width: double.infinity,
-            child: CupertinoButton(
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              color: AppScope.of(context).primaryActionSurface,
-              borderRadius: BorderRadius.circular(14),
-              onPressed: () {},
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  tx(context, 'Próbáld ki ingyen 7 napig'),
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: p.buttonText,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: -0.3,
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tx(context, 'Mealr Pro'),
+                        style: TextStyle(
+                          color: p.text,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: -0.6,
+                        ),
+                      ),
+                      Text(
+                        tx(context, 'Korlátlan mentés és extra funkciók'),
+                        style: TextStyle(
+                          color: p.muted,
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
+                const SizedBox(width: 10),
+                CupertinoButton(
+                  minimumSize: const Size(32, 32),
+                  padding: EdgeInsets.zero,
+                  color: p.bg,
+                  borderRadius: BorderRadius.circular(16),
+                  onPressed: () => Navigator.maybePop(context),
+                  child: Icon(CupertinoIcons.xmark, color: p.muted, size: 15),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 10),
-          Text(
-            tx(
-              context,
-              'Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható',
-            ),
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: p.muted,
-              fontSize: 11.5,
-              height: 1.35,
-              fontWeight: FontWeight.w500,
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(14, 2, 14, 20),
+              child: Column(
+                children: [
+                  _PaywallFeatureSections(),
+                  const SizedBox(height: 10),
+                  _PricingCard(),
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: double.infinity,
+                    child: CupertinoButton(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 12,
+                      ),
+                      color: AppScope.of(context).primaryActionSurface,
+                      borderRadius: BorderRadius.circular(14),
+                      onPressed: () {},
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          tx(context, 'Próbáld ki ingyen 7 napig'),
+                          maxLines: 1,
+                          style: TextStyle(
+                            color: p.buttonText,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: -0.3,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    tx(
+                      context,
+                      'Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható',
+                    ),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: p.muted,
+                      fontSize: 11.5,
+                      height: 1.35,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -7322,7 +7265,7 @@ class _PaywallFeatureGroup extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(11, 10, 11, 6),
+      padding: const EdgeInsets.fromLTRB(12, 11, 12, 7),
       decoration: BoxDecoration(
         color: p.card,
         borderRadius: BorderRadius.circular(14),
@@ -7339,7 +7282,7 @@ class _PaywallFeatureGroup extends StatelessWidget {
             title,
             style: TextStyle(
               color: accent ? p.accent : p.text,
-              fontSize: 13.5,
+              fontSize: 15,
               fontWeight: FontWeight.w600,
               letterSpacing: -0.2,
             ),
@@ -7349,11 +7292,11 @@ class _PaywallFeatureGroup extends StatelessWidget {
             subtitle,
             style: TextStyle(
               color: p.muted,
-              fontSize: 12,
+              fontSize: 13,
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 7),
+          const SizedBox(height: 9),
           for (final feature in features) _PaywallFeatureRow(feature: feature),
         ],
       ),
@@ -7378,20 +7321,20 @@ class _PaywallFeatureRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
+      padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
           Container(
-            width: 22,
-            height: 22,
+            width: 25,
+            height: 25,
             decoration: BoxDecoration(
               color: p.resultBg.withValues(alpha: 0.78),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: p.border.withValues(alpha: 0.34)),
             ),
-            child: Icon(feature.icon, color: p.accent, size: 12),
+            child: Icon(feature.icon, color: p.accent, size: 14),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 11),
           Expanded(
             child: Text(
               feature.title,
@@ -7399,8 +7342,8 @@ class _PaywallFeatureRow extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: p.text,
-                fontSize: 12,
-                height: 1.2,
+                fontSize: 14,
+                height: 1.22,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -7418,7 +7361,7 @@ class _PaywallFeatureRow extends StatelessWidget {
                 feature.limit!,
                 style: TextStyle(
                   color: p.accent,
-                  fontSize: 11,
+                  fontSize: 12.5,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -7549,6 +7492,7 @@ class _PricingRow extends StatelessWidget {
             text: TextSpan(
               style: TextStyle(
                 color: p.muted,
+                fontFamily: MealText.family,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),

@@ -24,6 +24,7 @@ class Recipe {
     required this.steps,
     required this.allergens,
     required this.prepTimeMinutes,
+    this.imageAsset,
     this.proteinGrams,
     this.carbsGrams,
     this.fatGrams,
@@ -41,6 +42,7 @@ class Recipe {
   final List<String> steps;
   final List<String> allergens;
   final int prepTimeMinutes;
+  final String? imageAsset;
   final int? proteinGrams;
   final int? carbsGrams;
   final int? fatGrams;

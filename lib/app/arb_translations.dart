@@ -209,6 +209,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Csicseriborsó": "Chickpeas",
     "Csicseriborsó curry rizzsel": "Chickpea curry with rice",
     "Csicseriborsós ropogós doboz": "Crunchy chickpea box",
+    "csipet": "pinch",
     "Csirkemell": "Chicken breast",
     "Csirkés kuszkuszos doboz": "Chicken couscous box",
     "Csirkés pita tál": "Chicken pita bowl",
@@ -390,6 +391,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
         "This makes calorie tracking more accurate, and Meal Prep portions stop being guesswork.",
     "Indítsd tudatosan a reggelt.": "Fuel the morning with intention.",
+    "Indulhat": "Start",
     "Ingyenes": "Free",
     "Ingyenes alapok": "Free basics",
     "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
@@ -548,6 +550,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Magasság (cm)": "Height (cm)",
     "Make the first choice an easy one.": "Make the first choice an easy one.",
     "Make the next meal easy.": "Make the next meal easy.",
+    "Makrók megoszlása": "Macro split",
     "Mandula": "Almonds",
     "Maradj feltöltve és fókuszban.": "Stay fueled and focused.",
     "Marhahúsos bulgur serpenyő": "Beef bulgur skillet",
@@ -890,6 +893,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tzatziki": "Tzatziki",
     "Uborka": "Cucumber",
     "ÜDV A MEALR-BEN": "WELCOME TO MEALR",
+    "Új": "New",
     "Új bevásárlólista": "New shopping list",
     "Új étel": "New food",
     "Új étel hozzáadása": "Add new food",
@@ -989,7 +993,7 @@ const arbTranslations = <String, Map<String, String>>{
         "A kuszkuszt forró vízzel párold meg.",
     "A lazacot sózd, borsozd, majd süsd készre.":
         "A lazacot sózd, borsozd, majd süsd készre.",
-    "A little prep goes a long way.": "A little prep goes a long way.",
+    "A little prep goes a long way.": "Egy kis előkészület sokat számít.",
     "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
         "A marhahúst pirítsd le, majd add hozzá a zöldségeket.",
     "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
@@ -1022,7 +1026,7 @@ const arbTranslations = <String, Map<String, String>>{
     "A sertésszüzet fűszerezd és süsd szeletekre.":
         "A sertésszüzet fűszerezd és süsd szeletekre.",
     "A steady plate keeps the day steady.":
-        "A steady plate keeps the day steady.",
+        "Egy kiegyensúlyozott tányér egyensúlyban tartja a napot.",
     "a száraz, nyers hozzávalók össztömege főzés előtt":
         "a száraz, nyers hozzávalók össztömege főzés előtt",
     "A szójagranulátumot áztasd be, majd pirítsd le.":
@@ -1079,7 +1083,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Adj előnyt az estédnek.": "Adj előnyt az estédnek.",
     "Adj hozzá legalább két súlyt a diagramhoz.":
         "Adj hozzá legalább két súlyt a diagramhoz.",
-    "Advanced": "Advanced",
+    "Advanced": "Haladó",
     "Aktív előfizetés · ": "Aktív előfizetés · ",
     "Aktív nap": "Aktív nap",
     "Alap nap": "Alap nap",
@@ -1129,19 +1133,21 @@ const arbTranslations = <String, Map<String, String>>{
     "BMI\nkalkulátor": "BMI\nkalkulátor",
     "Bogyós gyümölcs": "Bogyós gyümölcs",
     "Brokkoli": "Brokkoli",
-    "Build today one meal at a time.": "Build today one meal at a time.",
+    "Build today one meal at a time.":
+        "Építsd fel a mai napot étkezésről étkezésre.",
     "Bulgur": "Bulgur",
     "Burgonya": "Burgonya",
     "Chia mag": "Chia mag",
     "Chili fűszer": "Chili fűszer",
     "Chilis pulykával töltött paprika": "Chilis pulykával töltött paprika",
     "Citromlé": "Citromlé",
-    "Close the day with care.": "Close the day with care.",
+    "Close the day with care.": "Zárd a napot tudatosan.",
     "Cottage cheese": "Cottage cheese",
     "Cottage cheese zöldségtál": "Cottage cheese zöldségtál",
     "Csicseriborsó": "Csicseriborsó",
     "Csicseriborsó curry rizzsel": "Csicseriborsó curry rizzsel",
     "Csicseriborsós ropogós doboz": "Csicseriborsós ropogós doboz",
+    "csipet": "csipet",
     "Csirkemell": "Csirkemell",
     "Csirkés kuszkuszos doboz": "Csirkés kuszkuszos doboz",
     "Csirkés pita tál": "Csirkés pita tál",
@@ -1163,7 +1169,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Dobozok": "Dobozok",
     "Dobozolós nap": "Dobozolós nap",
     "Dobozolt lendület nap": "Dobozolt lendület nap",
-    "Easy": "Easy",
+    "Easy": "Könnyű",
     "Ebéd": "Ebéd",
     "Eddigi fogyás": "Eddigi fogyás",
     "Eddigi változás": "Eddigi változás",
@@ -1191,7 +1197,8 @@ const arbTranslations = <String, Map<String, String>>{
         "Először ments el egy ételt, utána építhetsz Meal Prep tervet.",
     "előtt": "előtt",
     "Emelkedő": "Emelkedő",
-    "End the day full, not rushed.": "End the day full, not rushed.",
+    "End the day full, not rushed.":
+        "Zárd a napot jóllakottan, kapkodás nélkül.",
     "Enyhén aktív (heti 1–3x)": "Enyhén aktív (heti 1–3x)",
     "Eper": "Eper",
     "Építsd fel a mai napot étkezésről étkezésre.":
@@ -1256,7 +1263,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Friss nap": "Friss nap",
     "Friss zöld nap": "Friss zöld nap",
     "Friss zöldség": "Friss zöldség",
-    "Fuel the morning with intention.": "Fuel the morning with intention.",
+    "Fuel the morning with intention.": "Indítsd a reggelt tudatosan.",
     "FUNKCIÓ": "FUNKCIÓ",
     "Füstölt lazac": "Füstölt lazac",
     "Fűszerkeverék": "Fűszerkeverék",
@@ -1265,15 +1272,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Garnélás cottage saláta": "Garnélás cottage saláta",
     "Garnélás quinoa bowl": "Garnélás quinoa bowl",
     "Garnélás rizstészta wok": "Garnélás rizstészta wok",
-    "Give your evening a head start.": "Give your evening a head start.",
+    "Give your evening a head start.": "Készítsd elő könnyebbre az estédet.",
     "glutén": "glutén",
     "Gluténmentes": "Gluténmentes",
     "Glutént tartalmazó alapanyagok nélkül":
         "Glutént tartalmazó alapanyagok nélkül",
-    "Good afternoon": "Good afternoon",
-    "Good day": "Good day",
-    "Good evening": "Good evening",
-    "Good morning": "Good morning",
+    "Good afternoon": "Jó délutánt",
+    "Good day": "Szép napot",
+    "Good evening": "Jó estét",
+    "Good morning": "Jó reggelt",
     "Görög csirkés tányér": "Görög csirkés tányér",
     "Görög joghurt": "Görög joghurt",
     "Görög joghurtos granola pohár": "Görög joghurtos granola pohár",
@@ -1324,6 +1331,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
         "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.",
     "Indítsd tudatosan a reggelt.": "Indítsd tudatosan a reggelt.",
+    "Indulhat": "Kezdés",
     "Ingyenes": "Ingyenes",
     "Ingyenes alapok": "Ingyenes alapok",
     "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
@@ -1358,8 +1366,8 @@ const arbTranslations = <String, Map<String, String>>{
     "kcal / nap": "kcal / nap",
     "Kedvencek": "Kedvencek",
     "Keep the afternoon light and useful.":
-        "Keep the afternoon light and useful.",
-    "Keep your meals on track.": "Keep your meals on track.",
+        "Legyen könnyű és hasznos a délutánod.",
+    "Keep your meals on track.": "Tartsd kézben az étkezéseidet.",
     "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.":
         "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.",
     "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.":
@@ -1483,8 +1491,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Magas fehérje": "Magas fehérje",
     "Magasság": "Magasság",
     "Magasság (cm)": "Magasság (cm)",
-    "Make the first choice an easy one.": "Make the first choice an easy one.",
-    "Make the next meal easy.": "Make the next meal easy.",
+    "Make the first choice an easy one.": "Legyen egyszerű az első döntés.",
+    "Make the next meal easy.": "Tedd egyszerűvé a következő étkezést.",
+    "Makrók megoszlása": "Makrók megoszlása",
     "Mandula": "Mandula",
     "Maradj feltöltve és fókuszban.": "Maradj feltöltve és fókuszban.",
     "Marhahúsos bulgur serpenyő": "Marhahúsos bulgur serpenyő",
@@ -1497,7 +1506,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Meal preppelés": "Meal preppelés",
     "Mealr Pro": "Mealr Pro",
     "Mediterrán pulykás bulgur": "Mediterrán pulykás bulgur",
-    "Medium": "Medium",
+    "Medium": "Közepes",
     "Még nincs elmentett bevásárlólistád.":
         "Az elkészített bevásárlólistáid itt jelennek meg.",
     "Még nincs elmentett meal prep terved.":
@@ -1610,10 +1619,11 @@ const arbTranslations = <String, Map<String, String>>{
     "perc": "perc",
     "Pirítsd meg a kenyeret.": "Pirítsd meg a kenyeret.",
     "Pl. Hétvégi főzés": "Pl. Hétvégi főzés",
-    "Plan a calm, strong day.": "Plan a calm, strong day.",
+    "Plan a calm, strong day.": "Tervezz nyugodt, erős napot.",
     "Pörgős nap": "Pörgős nap",
     "Praktikus nap": "Praktikus nap",
-    "Prep what makes later easier.": "Prep what makes later easier.",
+    "Prep what makes later easier.":
+        "Készítsd elő, ami később megkönnyíti a dolgod.",
     "Pro": "Pro",
     "Pro mód teszt": "Pro mód teszt",
     "Pro statisztika": "Pro statisztika",
@@ -1665,13 +1675,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Sertésszűz": "Sertésszűz",
     "Sertésszűz kuszkusszal": "Sertésszűz kuszkusszal",
     "Sertésszűz kuszkusz salátával": "Sertésszűz kuszkusz salátával",
-    "Set up dinner before the rush.": "Set up dinner before the rush.",
+    "Set up dinner before the rush.":
+        "Készítsd elő a vacsorát a rohanás előtt.",
     "Shakshuka reggeli tál": "Shakshuka reggeli tál",
     "Sietős lendület nap": "Sietős lendület nap",
     "Sietős nap": "Sietős nap",
     "Skyr vagy görög joghurt": "Skyr vagy görög joghurt",
-    "Slow down, eat well, rest easy.": "Slow down, eat well, rest easy.",
-    "Small choices, solid momentum.": "Small choices, solid momentum.",
+    "Slow down, eat well, rest easy.": "Lassíts, egyél jól, pihenj nyugodtan.",
+    "Small choices, solid momentum.": "Apró döntések, stabil lendület.",
     "Só, bors": "Só, bors",
     "Sonkás sajtos omlett": "Sonkás sajtos omlett",
     "Sonkás tojásos abonett tál": "Sonkás tojásos abonett tál",
@@ -1685,8 +1696,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Sportos nap": "Sportos nap",
     "Stabil erő nap": "Stabil erő nap",
     "Stagnál": "Stagnál",
-    "Start simple, stay steady.": "Start simple, stay steady.",
-    "Stay fueled and focused.": "Stay fueled and focused.",
+    "Start simple, stay steady.": "Kezdj egyszerűen, maradj következetes.",
+    "Stay fueled and focused.": "Maradj energikus és fókuszált.",
     "Sült csirkemell": "Sült csirkemell",
     "Sült hal zöldségágyon": "Sült hal zöldségágyon",
     "Súly": "Súly",
@@ -1807,7 +1818,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tömegnövelés": "Tömegnövelés",
     "Tömegnöveléshez: ": "Tömegnöveléshez: ",
     "Tomorrow starts with tonight’s prep.":
-        "Tomorrow starts with tonight’s prep.",
+        "A holnap a ma esti előkészülettel kezdődik.",
     "Tonhal": "Tonhal",
     "Tonhalas babos burgonyasaláta": "Tonhalas babos burgonyasaláta",
     "Tonhalas kukoricás tésztasaláta": "Tonhalas kukoricás tésztasaláta",
@@ -1828,6 +1839,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tzatziki": "Tzatziki",
     "Uborka": "Uborka",
     "ÜDV A MEALR-BEN": "ÜDV A MEALR-BEN",
+    "Új": "Új",
     "Új bevásárlólista": "Új bevásárlólista",
     "Új étel": "Új étel",
     "Új étel hozzáadása": "Új étel hozzáadása",
@@ -1854,7 +1866,7 @@ const arbTranslations = <String, Map<String, String>>{
         "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n",
     "Vörösbab": "Vörösbab",
     "Wok zöldség": "Wok zöldség",
-    "Wrap up with something nourishing.": "Wrap up with something nourishing.",
+    "Wrap up with something nourishing.": "Zárd a napot valami táplálóval.",
     "Zabpehely": "Zabpehely",
     "Zabpehelyliszt": "Zabpehelyliszt",
     "Zárd a napot jóllakottan, nem rohanva.":
@@ -2082,6 +2094,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Csicseriborsó": "Kichererbsen",
     "Csicseriborsó curry rizzsel": "Kichererbsencurry mit Reis",
     "Csicseriborsós ropogós doboz": "Knusprige Kichererbsen-Box",
+    "csipet": "Prise",
     "Csirkemell": "Hähnchenbrust",
     "Csirkés kuszkuszos doboz": "Hähnchen-Couscous-Box",
     "Csirkés pita tál": "Hähnchen-Pita-Bowl",
@@ -2264,6 +2277,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
         "So trackst du Kalorien genauer, und Meal-Prep-Portionen sind kein Ratespiel mehr.",
     "Indítsd tudatosan a reggelt.": "Starte bewusst in den Morgen.",
+    "Indulhat": "Start",
     "Ingyenes": "Kostenlos",
     "Ingyenes alapok": "Kostenlose Grundlagen",
     "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
@@ -2428,6 +2442,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Make the first choice an easy one.":
         "Mach die erste Entscheidung einfach.",
     "Make the next meal easy.": "Mach die nächste Mahlzeit einfach.",
+    "Makrók megoszlása": "Makroverteilung",
     "Mandula": "Mandeln",
     "Maradj feltöltve és fókuszban.": "Bleib versorgt und fokussiert.",
     "Marhahúsos bulgur serpenyő": "Rindfleisch-Bulgur-Pfanne",
@@ -2772,6 +2787,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tzatziki": "Tzatziki",
     "Uborka": "Gurke",
     "ÜDV A MEALR-BEN": "WILLKOMMEN BEI MEALR",
+    "Új": "Neu",
     "Új bevásárlólista": "Neue Einkaufsliste",
     "Új étel": "Neues Essen",
     "Új étel hozzáadása": "Neues Essen hinzufügen",
@@ -3026,6 +3042,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Csicseriborsó": "Garbanzos",
     "Csicseriborsó curry rizzsel": "Curry de garbanzos con arroz",
     "Csicseriborsós ropogós doboz": "Caja crujiente de garbanzos",
+    "csipet": "pizca",
     "Csirkemell": "Pechuga de pollo",
     "Csirkés kuszkuszos doboz": "Caja de pollo con cuscús",
     "Csirkés pita tál": "Bowl de pita con pollo",
@@ -3209,6 +3226,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
         "Así registras calorías con más precisión y las porciones de meal prep dejan de ser una suposición.",
     "Indítsd tudatosan a reggelt.": "Empieza la mañana con intención.",
+    "Indulhat": "Empezar",
     "Ingyenes": "Gratis",
     "Ingyenes alapok": "Funciones gratis",
     "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
@@ -3373,6 +3391,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Make the first choice an easy one.":
         "Haz que la primera elección sea fácil.",
     "Make the next meal easy.": "Haz que la próxima comida sea fácil.",
+    "Makrók megoszlása": "Distribución de macros",
     "Mandula": "Almendras",
     "Maradj feltöltve és fókuszban.": "Mantente con energía y enfoque.",
     "Marhahúsos bulgur serpenyő": "Sartén de ternera con bulgur",
@@ -3723,6 +3742,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tzatziki": "Tzatziki",
     "Uborka": "Pepino",
     "ÜDV A MEALR-BEN": "BIENVENIDO A MEALR",
+    "Új": "Nuevo",
     "Új bevásárlólista": "Nueva lista de compra",
     "Új étel": "Nuevo alimento",
     "Új étel hozzáadása": "Añadir nuevo alimento",

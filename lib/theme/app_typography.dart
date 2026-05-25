@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class MealText {
-  static const family = '.SF Pro Text';
+  static const family = 'Nunito Sans';
 
   static TextStyle largeTitle(Color color) => TextStyle(
     color: color,

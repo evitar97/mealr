@@ -1,18 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 
 class SpringPressable extends StatefulWidget {
   const SpringPressable({
     required this.child,
     this.enabled = true,
-    this.haptics = true,
     this.pressedScale = 0.975,
     super.key,
   });
 
   final Widget child;
   final bool enabled;
-  final bool haptics;
   final double pressedScale;
 
   @override
@@ -43,7 +40,6 @@ class _SpringPressableState extends State<SpringPressable> {
   }
 
   void _press() {
-    if (widget.haptics) HapticFeedback.selectionClick();
     _setPressed(true);
   }
 }

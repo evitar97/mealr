@@ -152,7 +152,7 @@
   "@m0037": {
     "description": "Source text: A lazacot sózd, borsozd, majd süsd készre."
   },
-  "m0038": "A little prep goes a long way.",
+  "m0038": "Egy kis előkészület sokat számít.",
   "@m0038": {
     "description": "Source text: A little prep goes a long way."
   },
@@ -224,7 +224,7 @@
   "@m0055": {
     "description": "Source text: A sertésszüzet fűszerezd és süsd szeletekre."
   },
-  "m0056": "A steady plate keeps the day steady.",
+  "m0056": "Egy kiegyensúlyozott tányér egyensúlyban tartja a napot.",
   "@m0056": {
     "description": "Source text: A steady plate keeps the day steady."
   },
@@ -368,7 +368,7 @@
   "@m0091": {
     "description": "Source text: Adj hozzá legalább két súlyt a diagramhoz."
   },
-  "m0092": "Advanced",
+  "m0092": "Haladó",
   "@m0092": {
     "description": "Source text: Advanced"
   },
@@ -532,7 +532,7 @@
   "@m0132": {
     "description": "Source text: Brokkoli"
   },
-  "m0133": "Build today one meal at a time.",
+  "m0133": "Építsd fel a mai napot étkezésről étkezésre.",
   "@m0133": {
     "description": "Source text: Build today one meal at a time."
   },
@@ -560,7 +560,7 @@
   "@m0139": {
     "description": "Source text: Citromlé"
   },
-  "m0140": "Close the day with care.",
+  "m0140": "Zárd a napot tudatosan.",
   "@m0140": {
     "description": "Source text: Close the day with care."
   },
@@ -584,2500 +584,2516 @@
   "@m0145": {
     "description": "Source text: Csicseriborsós ropogós doboz"
   },
-  "m0146": "Csirkemell",
+  "m0146": "csipet",
   "@m0146": {
+    "description": "Source text: csipet"
+  },
+  "m0147": "Csirkemell",
+  "@m0147": {
     "description": "Source text: Csirkemell"
   },
-  "m0147": "Csirkés kuszkuszos doboz",
-  "@m0147": {
+  "m0148": "Csirkés kuszkuszos doboz",
+  "@m0148": {
     "description": "Source text: Csirkés kuszkuszos doboz"
   },
-  "m0148": "Csirkés pita tál",
-  "@m0148": {
+  "m0149": "Csirkés pita tál",
+  "@m0149": {
     "description": "Source text: Csirkés pita tál"
   },
-  "m0149": "Csirkés rizses fit bowl",
-  "@m0149": {
+  "m0150": "Csirkés rizses fit bowl",
+  "@m0150": {
     "description": "Source text: Csirkés rizses fit bowl"
   },
-  "m0150": "Csirkés rizses fit bowl kisebb adagban",
-  "@m0150": {
+  "m0151": "Csirkés rizses fit bowl kisebb adagban",
+  "@m0151": {
     "description": "Source text: Csirkés rizses fit bowl kisebb adagban"
   },
-  "m0151": "Csirkés rizstészta leveses tál",
-  "@m0151": {
+  "m0152": "Csirkés rizstészta leveses tál",
+  "@m0152": {
     "description": "Source text: Csirkés rizstészta leveses tál"
   },
-  "m0152": "csökkenhet vagy növekedhet",
-  "@m0152": {
+  "m0153": "csökkenhet vagy növekedhet",
+  "@m0153": {
     "description": "Source text: csökkenhet vagy növekedhet"
   },
-  "m0153": "Csökkenő",
-  "@m0153": {
+  "m0154": "Csökkenő",
+  "@m0154": {
     "description": "Source text: Csökkenő"
   },
-  "m0154": "Cukkini",
-  "@m0154": {
+  "m0155": "Cukkini",
+  "@m0155": {
     "description": "Source text: Cukkini"
   },
-  "m0155": "Cukkinispagettivel tálald.",
-  "@m0155": {
+  "m0156": "Cukkinispagettivel tálald.",
+  "@m0156": {
     "description": "Source text: Cukkinispagettivel tálald."
   },
-  "m0156": "Curry fűszer",
-  "@m0156": {
+  "m0157": "Curry fűszer",
+  "@m0157": {
     "description": "Source text: Curry fűszer"
   },
-  "m0157": "Darált csirkemell",
-  "@m0157": {
+  "m0158": "Darált csirkemell",
+  "@m0158": {
     "description": "Source text: Darált csirkemell"
   },
-  "m0158": "Darált dió",
-  "@m0158": {
+  "m0159": "Darált dió",
+  "@m0159": {
     "description": "Source text: Darált dió"
   },
-  "m0159": "Darált pulykahús",
-  "@m0159": {
+  "m0160": "Darált pulykahús",
+  "@m0160": {
     "description": "Source text: Darált pulykahús"
   },
-  "m0160": "db",
-  "@m0160": {
+  "m0161": "db",
+  "@m0161": {
     "description": "Source text: db"
   },
-  "m0161": "Dió vagy mandula",
-  "@m0161": {
+  "m0162": "Dió vagy mandula",
+  "@m0162": {
     "description": "Source text: Dió vagy mandula"
   },
-  "m0162": "diófélék",
-  "@m0162": {
+  "m0163": "diófélék",
+  "@m0163": {
     "description": "Source text: diófélék"
   },
-  "m0163": "Dobozok",
-  "@m0163": {
+  "m0164": "Dobozok",
+  "@m0164": {
     "description": "Source text: Dobozok"
   },
-  "m0164": "Dobozolós nap",
-  "@m0164": {
+  "m0165": "Dobozolós nap",
+  "@m0165": {
     "description": "Source text: Dobozolós nap"
   },
-  "m0165": "Dobozolt lendület nap",
-  "@m0165": {
+  "m0166": "Dobozolt lendület nap",
+  "@m0166": {
     "description": "Source text: Dobozolt lendület nap"
   },
-  "m0166": "Easy",
-  "@m0166": {
+  "m0167": "Könnyű",
+  "@m0167": {
     "description": "Source text: Easy"
   },
-  "m0167": "Ebéd",
-  "@m0167": {
+  "m0168": "Ebéd",
+  "@m0168": {
     "description": "Source text: Ebéd"
   },
-  "m0168": "Eddigi fogyás",
-  "@m0168": {
+  "m0169": "Eddigi fogyás",
+  "@m0169": {
     "description": "Source text: Eddigi fogyás"
   },
-  "m0169": "Eddigi változás",
-  "@m0169": {
+  "m0170": "Eddigi változás",
+  "@m0170": {
     "description": "Source text: Eddigi változás"
   },
-  "m0170": "Edzéshez és jobb teltségérzethez",
-  "@m0170": {
+  "m0171": "Edzéshez és jobb teltségérzethez",
+  "@m0171": {
     "description": "Source text: Edzéshez és jobb teltségérzethez"
   },
-  "m0171": "Egy adag nyers egyenértéke",
-  "@m0171": {
+  "m0172": "Egy adag nyers egyenértéke",
+  "@m0172": {
     "description": "Source text: Egy adag nyers egyenértéke"
   },
-  "m0172": "Egy kiegyensúlyozott tányér stabilan tartja a napot.",
-  "@m0172": {
+  "m0173": "Egy kiegyensúlyozott tányér stabilan tartja a napot.",
+  "@m0173": {
     "description": "Source text: Egy kiegyensúlyozott tányér stabilan tartja a napot."
   },
-  "m0173": "Egy kis előkészítés sokat számít.",
-  "@m0173": {
+  "m0174": "Egy kis előkészítés sokat számít.",
+  "@m0174": {
     "description": "Source text: Egy kis előkészítés sokat számít."
   },
-  "m0174": "Egyszerű lendület nap",
-  "@m0174": {
+  "m0175": "Egyszerű lendület nap",
+  "@m0175": {
     "description": "Source text: Egyszerű lendület nap"
   },
-  "m0175": "Egyszerű nap",
-  "@m0175": {
+  "m0176": "Egyszerű nap",
+  "@m0176": {
     "description": "Source text: Egyszerű nap"
   },
-  "m0176": "Egyszerű tempó nap",
-  "@m0176": {
+  "m0177": "Egyszerű tempó nap",
+  "@m0177": {
     "description": "Source text: Egyszerű tempó nap"
   },
-  "m0177": "Egyszerűbb, olcsóbb alapanyagokkal",
-  "@m0177": {
+  "m0178": "Egyszerűbb, olcsóbb alapanyagokkal",
+  "@m0178": {
     "description": "Source text: Egyszerűbb, olcsóbb alapanyagokkal"
   },
-  "m0178": "Életkor",
-  "@m0178": {
+  "m0179": "Életkor",
+  "@m0179": {
     "description": "Source text: Életkor"
   },
-  "m0179": "Elkészítés",
-  "@m0179": {
+  "m0180": "Elkészítés",
+  "@m0180": {
     "description": "Source text: Elkészítés"
   },
-  "m0180": "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.",
-  "@m0180": {
+  "m0181": "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.",
+  "@m0181": {
     "description": "Source text: Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba."
   },
-  "m0181": "Elmentett listák",
-  "@m0181": {
+  "m0182": "Elmentett listák",
+  "@m0182": {
     "description": "Source text: Elmentett listák"
   },
-  "m0182": "Elmentett meal prep tervek",
-  "@m0182": {
+  "m0183": "Elmentett meal prep tervek",
+  "@m0183": {
     "description": "Source text: Elmentett meal prep tervek"
   },
-  "m0183": "Előfizetés",
-  "@m0183": {
+  "m0184": "Előfizetés",
+  "@m0184": {
     "description": "Source text: Előfizetés"
   },
-  "m0184": "Előkészített nap",
-  "@m0184": {
+  "m0185": "Előkészített nap",
+  "@m0185": {
     "description": "Source text: Előkészített nap"
   },
-  "m0185": "Előre dobozolható napi menü",
-  "@m0185": {
+  "m0186": "Előre dobozolható napi menü",
+  "@m0186": {
     "description": "Source text: Előre dobozolható napi menü"
   },
-  "m0186": "Előre főzős nap",
-  "@m0186": {
+  "m0187": "Előre főzős nap",
+  "@m0187": {
     "description": "Source text: Előre főzős nap"
   },
-  "m0187": "Előre haladó nap",
-  "@m0187": {
+  "m0188": "Előre haladó nap",
+  "@m0188": {
     "description": "Source text: Előre haladó nap"
   },
-  "m0188": "Először ments el egy ételt, utána építhetsz Meal Prep tervet.",
-  "@m0188": {
+  "m0189": "Először ments el egy ételt, utána építhetsz Meal Prep tervet.",
+  "@m0189": {
     "description": "Source text: Először ments el egy ételt a meal prep tervezéshez."
   },
-  "m0189": "előtt",
-  "@m0189": {
+  "m0190": "előtt",
+  "@m0190": {
     "description": "Source text: előtt"
   },
-  "m0190": "Emelkedő",
-  "@m0190": {
+  "m0191": "Emelkedő",
+  "@m0191": {
     "description": "Source text: Emelkedő"
   },
-  "m0191": "End the day full, not rushed.",
-  "@m0191": {
+  "m0192": "Zárd a napot jóllakottan, kapkodás nélkül.",
+  "@m0192": {
     "description": "Source text: End the day full, not rushed."
   },
-  "m0192": "Enyhén aktív (heti 1–3x)",
-  "@m0192": {
+  "m0193": "Enyhén aktív (heti 1–3x)",
+  "@m0193": {
     "description": "Source text: Enyhén aktív (heti 1–3x)"
   },
-  "m0193": "Eper",
-  "@m0193": {
+  "m0194": "Eper",
+  "@m0194": {
     "description": "Source text: Eper"
   },
-  "m0194": "Építsd fel a mai napot étkezésről étkezésre.",
-  "@m0194": {
+  "m0195": "Építsd fel a mai napot étkezésről étkezésre.",
+  "@m0195": {
     "description": "Source text: Építsd fel a mai napot étkezésről étkezésre."
   },
-  "m0195": "Erő plusz nap",
-  "@m0195": {
+  "m0196": "Erő plusz nap",
+  "@m0196": {
     "description": "Source text: Erő plusz nap"
   },
-  "m0196": "Erős nap",
-  "@m0196": {
+  "m0197": "Erős nap",
+  "@m0197": {
     "description": "Source text: Erős nap"
   },
-  "m0197": "Erősen aktív (heti 6–7x)",
-  "@m0197": {
+  "m0198": "Erősen aktív (heti 6–7x)",
+  "@m0198": {
     "description": "Source text: Erősen aktív (heti 6–7x)"
   },
-  "m0198": "Értem, kezdjük el! →",
-  "@m0198": {
+  "m0199": "Értem, kezdjük el! →",
+  "@m0199": {
     "description": "Source text: Értem, kezdjük el! →"
   },
-  "m0199": "Étel megosztás",
-  "@m0199": {
+  "m0200": "Étel megosztás",
+  "@m0200": {
     "description": "Source text: Étel megosztás"
   },
-  "m0200": "Étel neve",
-  "@m0200": {
+  "m0201": "Étel neve",
+  "@m0201": {
     "description": "Source text: Étel neve"
   },
-  "m0201": "Étel szerkesztése",
-  "@m0201": {
+  "m0202": "Étel szerkesztése",
+  "@m0202": {
     "description": "Source text: Étel szerkesztése"
   },
-  "m0202": "Ételek",
-  "@m0202": {
+  "m0203": "Ételek",
+  "@m0203": {
     "description": "Source text: Ételek"
   },
-  "m0203": "étkezés",
-  "@m0203": {
+  "m0204": "étkezés",
+  "@m0204": {
     "description": "Source text: étkezés"
   },
-  "m0204": "Étrend",
-  "@m0204": {
+  "m0205": "Étrend",
+  "@m0205": {
     "description": "Source text: Étrend"
   },
-  "m0205": "Étrend típus",
-  "@m0205": {
+  "m0206": "Étrend típus",
+  "@m0206": {
     "description": "Source text: Étrend típus"
   },
-  "m0206": "Étrend típusok",
-  "@m0206": {
+  "m0207": "Étrend típusok",
+  "@m0207": {
     "description": "Source text: Étrend típusok"
   },
-  "m0207": "étrendek",
-  "@m0207": {
+  "m0208": "étrendek",
+  "@m0208": {
     "description": "Source text: étrendek"
   },
-  "m0208": "Étrendek",
-  "@m0208": {
+  "m0209": "Étrendek",
+  "@m0209": {
     "description": "Source text: Étrendek"
   },
-  "m0209": "év",
-  "@m0209": {
+  "m0210": "év",
+  "@m0210": {
     "description": "Source text: év"
   },
-  "m0210": "Éves csomag −50% kedvezménnyel",
-  "@m0210": {
+  "m0211": "Éves csomag −50% kedvezménnyel",
+  "@m0211": {
     "description": "Source text: Éves csomag −50% kedvezménnyel"
   },
-  "m0211": "Éves előfizetés",
-  "@m0211": {
+  "m0212": "Éves előfizetés",
+  "@m0212": {
     "description": "Source text: Éves előfizetés"
   },
-  "m0212": "Extrém aktív",
-  "@m0212": {
+  "m0213": "Extrém aktív",
+  "@m0213": {
     "description": "Source text: Extrém aktív"
   },
-  "m0213": "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.",
-  "@m0213": {
+  "m0214": "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.",
+  "@m0214": {
     "description": "Source text: Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait."
   },
-  "m0214": "Fahéj",
-  "@m0214": {
+  "m0215": "Fahéj",
+  "@m0215": {
     "description": "Source text: Fahéj"
   },
-  "m0215": "Fehér halfilé",
-  "@m0215": {
+  "m0216": "Fehér halfilé",
+  "@m0216": {
     "description": "Source text: Fehér halfilé"
   },
-  "m0216": "Fehérje fókusz nap",
-  "@m0216": {
+  "m0217": "Fehérje fókusz nap",
+  "@m0217": {
     "description": "Source text: Fehérje fókusz nap"
   },
-  "m0217": "Fehérjepor",
-  "@m0217": {
+  "m0218": "Fehérjepor",
+  "@m0218": {
     "description": "Source text: Fehérjepor"
   },
-  "m0218": "Fehérjés puding",
-  "@m0218": {
+  "m0219": "Fehérjés puding",
+  "@m0219": {
     "description": "Source text: Fehérjés puding"
   },
-  "m0219": "Fehérjés puding fél adag gyümölccsel",
-  "@m0219": {
+  "m0220": "Fehérjés puding fél adag gyümölccsel",
+  "@m0220": {
     "description": "Source text: Fehérjés puding fél adag gyümölccsel"
   },
-  "m0220": "Férfi",
-  "@m0220": {
+  "m0221": "Férfi",
+  "@m0221": {
     "description": "Source text: Férfi"
   },
-  "m0221": "Feta sajt",
-  "@m0221": {
+  "m0222": "Feta sajt",
+  "@m0222": {
     "description": "Source text: Feta sajt"
   },
-  "m0222": "Fetás bulgur reggeli tál",
-  "@m0222": {
+  "m0223": "Fetás bulgur reggeli tál",
+  "@m0223": {
     "description": "Source text: Fetás bulgur reggeli tál"
   },
-  "m0223": "Fetás paradicsomos abonett",
-  "@m0223": {
+  "m0224": "Fetás paradicsomos abonett",
+  "@m0224": {
     "description": "Source text: Fetás paradicsomos abonett"
   },
-  "m0224": "Fit lendület nap",
-  "@m0224": {
+  "m0225": "Fit lendület nap",
+  "@m0225": {
     "description": "Source text: Fit lendület nap"
   },
-  "m0225": "Fitt nap",
-  "@m0225": {
+  "m0226": "Fitt nap",
+  "@m0226": {
     "description": "Source text: Fitt nap"
   },
-  "m0226": "Fix adagméret",
-  "@m0226": {
+  "m0227": "Fix adagméret",
+  "@m0227": {
     "description": "Source text: Fix adagméret"
   },
-  "m0227": "Főétel",
-  "@m0227": {
+  "m0228": "Főétel",
+  "@m0228": {
     "description": "Source text: Főétel"
   },
-  "m0228": "Főétel adag / doboz",
-  "@m0228": {
+  "m0229": "Főétel adag / doboz",
+  "@m0229": {
     "description": "Source text: Főétel adag / doboz"
   },
-  "m0229": "Főétel g / adag",
-  "@m0229": {
+  "m0230": "Főétel g / adag",
+  "@m0230": {
     "description": "Source text: Főétel g / adag"
   },
-  "m0230": "Főétel mentés",
-  "@m0230": {
+  "m0231": "Főétel mentés",
+  "@m0231": {
     "description": "Source text: Főétel mentés"
   },
-  "m0231": "Főétel recept szorzó",
-  "@m0231": {
+  "m0232": "Főétel recept szorzó",
+  "@m0232": {
     "description": "Source text: Főétel recept szorzó"
   },
-  "m0232": "Főételek",
-  "@m0232": {
+  "m0233": "Főételek",
+  "@m0233": {
     "description": "Source text: Főételek"
   },
-  "m0233": "Fogyás statisztika",
-  "@m0233": {
+  "m0234": "Fogyás statisztika",
+  "@m0234": {
     "description": "Source text: Fogyás statisztika"
   },
-  "m0234": "Fogyáshoz",
-  "@m0234": {
+  "m0235": "Fogyáshoz",
+  "@m0235": {
     "description": "Source text: Fogyáshoz"
   },
-  "m0235": "Fogyáshoz: ",
-  "@m0235": {
+  "m0236": "Fogyáshoz: ",
+  "@m0236": {
     "description": "Source text: Fogyáshoz: "
   },
-  "m0236": "földimogyoró",
-  "@m0236": {
+  "m0237": "földimogyoró",
+  "@m0237": {
     "description": "Source text: földimogyoró"
   },
-  "m0237": "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.",
-  "@m0237": {
+  "m0238": "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.",
+  "@m0238": {
     "description": "Source text: Forgasd össze a zöldségekkel, tésztával és szójaszósszal."
   },
-  "m0238": "Formázz falatokat és hűtsd 20 percig.",
-  "@m0238": {
+  "m0239": "Formázz falatokat és hűtsd 20 percig.",
+  "@m0239": {
     "description": "Source text: Formázz falatokat és hűtsd 20 percig."
   },
-  "m0239": "Főtt lencse",
-  "@m0239": {
+  "m0240": "Főtt lencse",
+  "@m0240": {
     "description": "Source text: Főtt lencse"
   },
-  "m0240": "Főtt rizs",
-  "@m0240": {
+  "m0241": "Főtt rizs",
+  "@m0241": {
     "description": "Source text: Főtt rizs"
   },
-  "m0241": "Főtt tojás avokádóval",
-  "@m0241": {
+  "m0242": "Főtt tojás avokádóval",
+  "@m0242": {
     "description": "Source text: Főtt tojás avokádóval"
   },
-  "m0242": "Főzd össze sűrű raguvá.",
-  "@m0242": {
+  "m0243": "Főzd össze sűrű raguvá.",
+  "@m0243": {
     "description": "Source text: Főzd össze sűrű raguvá."
   },
-  "m0243": "Főzés során az étel ",
-  "@m0243": {
+  "m0244": "Főzés során az étel ",
+  "@m0244": {
     "description": "Source text: Főzés során az étel "
   },
-  "m0244": "Főzés során az étel tömege ",
-  "@m0244": {
+  "m0245": "Főzés során az étel tömege ",
+  "@m0245": {
     "description": "Source text: Főzés során az étel tömege "
   },
-  "m0245": "főzés után mérd le az egész elkészült ételt, például 760 g.",
-  "@m0245": {
+  "m0246": "főzés után mérd le az egész elkészült ételt, például 760 g.",
+  "@m0246": {
     "description": "Source text: főzés után mérd le az egész elkészült ételt, például 760 g."
   },
-  "m0246": "Friss mentes nap",
-  "@m0246": {
+  "m0247": "Friss mentes nap",
+  "@m0247": {
     "description": "Source text: Friss mentes nap"
   },
-  "m0247": "Friss nap",
-  "@m0247": {
+  "m0248": "Friss nap",
+  "@m0248": {
     "description": "Source text: Friss nap"
   },
-  "m0248": "Friss zöld nap",
-  "@m0248": {
+  "m0249": "Friss zöld nap",
+  "@m0249": {
     "description": "Source text: Friss zöld nap"
   },
-  "m0249": "Friss zöldség",
-  "@m0249": {
+  "m0250": "Friss zöldség",
+  "@m0250": {
     "description": "Source text: Friss zöldség"
   },
-  "m0250": "Fuel the morning with intention.",
-  "@m0250": {
+  "m0251": "Indítsd a reggelt tudatosan.",
+  "@m0251": {
     "description": "Source text: Fuel the morning with intention."
   },
-  "m0251": "FUNKCIÓ",
-  "@m0251": {
+  "m0252": "FUNKCIÓ",
+  "@m0252": {
     "description": "Source text: FUNKCIÓ"
   },
-  "m0252": "Füstölt lazac",
-  "@m0252": {
+  "m0253": "Füstölt lazac",
+  "@m0253": {
     "description": "Source text: Füstölt lazac"
   },
-  "m0253": "Fűszerkeverék",
-  "@m0253": {
+  "m0254": "Fűszerkeverék",
+  "@m0254": {
     "description": "Source text: Fűszerkeverék"
   },
-  "m0254": "g / adag",
-  "@m0254": {
+  "m0255": "g / adag",
+  "@m0255": {
     "description": "Source text: g / adag"
   },
-  "m0255": "Garnéla",
-  "@m0255": {
+  "m0256": "Garnéla",
+  "@m0256": {
     "description": "Source text: Garnéla"
   },
-  "m0256": "Garnélás cottage saláta",
-  "@m0256": {
+  "m0257": "Garnélás cottage saláta",
+  "@m0257": {
     "description": "Source text: Garnélás cottage saláta"
   },
-  "m0257": "Garnélás quinoa bowl",
-  "@m0257": {
+  "m0258": "Garnélás quinoa bowl",
+  "@m0258": {
     "description": "Source text: Garnélás quinoa bowl"
   },
-  "m0258": "Garnélás rizstészta wok",
-  "@m0258": {
+  "m0259": "Garnélás rizstészta wok",
+  "@m0259": {
     "description": "Source text: Garnélás rizstészta wok"
   },
-  "m0259": "Give your evening a head start.",
-  "@m0259": {
+  "m0260": "Készítsd elő könnyebbre az estédet.",
+  "@m0260": {
     "description": "Source text: Give your evening a head start."
   },
-  "m0260": "glutén",
-  "@m0260": {
+  "m0261": "glutén",
+  "@m0261": {
     "description": "Source text: glutén"
   },
-  "m0261": "Gluténmentes",
-  "@m0261": {
+  "m0262": "Gluténmentes",
+  "@m0262": {
     "description": "Source text: Gluténmentes"
   },
-  "m0262": "Glutént tartalmazó alapanyagok nélkül",
-  "@m0262": {
+  "m0263": "Glutént tartalmazó alapanyagok nélkül",
+  "@m0263": {
     "description": "Source text: Glutént tartalmazó alapanyagok nélkül"
   },
-  "m0263": "Good afternoon",
-  "@m0263": {
+  "m0264": "Jó délutánt",
+  "@m0264": {
     "description": "Source text: Good afternoon"
   },
-  "m0264": "Good day",
-  "@m0264": {
+  "m0265": "Szép napot",
+  "@m0265": {
     "description": "Source text: Good day"
   },
-  "m0265": "Good evening",
-  "@m0265": {
+  "m0266": "Jó estét",
+  "@m0266": {
     "description": "Source text: Good evening"
   },
-  "m0266": "Good morning",
-  "@m0266": {
+  "m0267": "Jó reggelt",
+  "@m0267": {
     "description": "Source text: Good morning"
   },
-  "m0267": "Görög csirkés tányér",
-  "@m0267": {
+  "m0268": "Görög csirkés tányér",
+  "@m0268": {
     "description": "Source text: Görög csirkés tányér"
   },
-  "m0268": "Görög joghurt",
-  "@m0268": {
+  "m0269": "Görög joghurt",
+  "@m0269": {
     "description": "Source text: Görög joghurt"
   },
-  "m0269": "Görög joghurtos granola pohár",
-  "@m0269": {
+  "m0270": "Görög joghurtos granola pohár",
+  "@m0270": {
     "description": "Source text: Görög joghurtos granola pohár"
   },
-  "m0270": "Görög joghurtos granola pohár gluténmentes granolával",
-  "@m0270": {
+  "m0271": "Görög joghurtos granola pohár gluténmentes granolával",
+  "@m0271": {
     "description": "Source text: Görög joghurtos granola pohár gluténmentes granolával"
   },
-  "m0271": "Görög lazacos quinoa tál",
-  "@m0271": {
+  "m0272": "Görög lazacos quinoa tál",
+  "@m0272": {
     "description": "Source text: Görög lazacos quinoa tál"
   },
-  "m0272": "Granola",
-  "@m0272": {
+  "m0273": "Granola",
+  "@m0273": {
     "description": "Source text: Granola"
   },
-  "m0273": "Gyors",
-  "@m0273": {
+  "m0274": "Gyors",
+  "@m0274": {
     "description": "Source text: Gyors"
   },
-  "m0274": "Gyors fókusz nap",
-  "@m0274": {
+  "m0275": "Gyors fókusz nap",
+  "@m0275": {
     "description": "Source text: Gyors fókusz nap"
   },
-  "m0275": "Gyors rutin nap",
-  "@m0275": {
+  "m0276": "Gyors rutin nap",
+  "@m0276": {
     "description": "Source text: Gyors rutin nap"
   },
-  "m0276": "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.",
-  "@m0276": {
+  "m0277": "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.",
+  "@m0277": {
     "description": "Source text: ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg."
   },
-  "m0277": "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.",
-  "@m0277": {
+  "m0278": "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.",
+  "@m0278": {
     "description": "Source text: Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét."
   },
-  "m0278": "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ",
-  "@m0278": {
+  "m0279": "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ",
+  "@m0279": {
     "description": "Source text: Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a "
   },
-  "m0279": "Ha megfőzted vagy megsütötted az ételt, mérd le az ",
-  "@m0279": {
+  "m0280": "Ha megfőzted vagy megsütötted az ételt, mérd le az ",
+  "@m0280": {
     "description": "Source text: Ha megfőzted vagy megsütötted az ételt, mérd le az "
   },
-  "m0280": "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.",
-  "@m0280": {
+  "m0281": "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.",
+  "@m0281": {
     "description": "Source text: Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot."
   },
-  "m0281": "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.",
-  "@m0281": {
+  "m0282": "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.",
+  "@m0282": {
     "description": "Source text: Hagyd állni 5 percig, hogy a zab felvegye a nedvességet."
   },
-  "m0282": "Hajtsd félbe és frissen tálald.",
-  "@m0282": {
+  "m0283": "Hajtsd félbe és frissen tálald.",
+  "@m0283": {
     "description": "Source text: Hajtsd félbe és frissen tálald."
   },
-  "m0283": "hal",
-  "@m0283": {
+  "m0284": "hal",
+  "@m0284": {
     "description": "Source text: hal"
   },
-  "m0284": "Hamarosan",
-  "@m0284": {
+  "m0285": "Hamarosan",
+  "@m0285": {
     "description": "Source text: Hamarosan"
   },
-  "m0285": "Havi előfizetés",
-  "@m0285": {
+  "m0286": "Havi előfizetés",
+  "@m0286": {
     "description": "Source text: Havi előfizetés"
   },
-  "m0286": "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.",
-  "@m0286": {
+  "m0287": "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.",
+  "@m0287": {
     "description": "Source text: Helyezd rá a halfilét, fűszerezd és locsold meg olajjal."
   },
-  "m0287": "hét",
-  "@m0287": {
+  "m0288": "hét",
+  "@m0288": {
     "description": "Source text: hét"
   },
-  "m0288": "Heti átlag",
-  "@m0288": {
+  "m0289": "Heti átlag",
+  "@m0289": {
     "description": "Source text: Heti átlag"
   },
-  "m0289": "Heti doboz nap",
-  "@m0289": {
+  "m0290": "Heti doboz nap",
+  "@m0290": {
     "description": "Source text: Heti doboz nap"
   },
-  "m0290": "Heti ritmus nap",
-  "@m0290": {
+  "m0291": "Heti ritmus nap",
+  "@m0291": {
     "description": "Source text: Heti ritmus nap"
   },
-  "m0291": "Heti táplálkozási pillanatkép",
-  "@m0291": {
+  "m0292": "Heti táplálkozási pillanatkép",
+  "@m0292": {
     "description": "Source text: Heti táplálkozási pillanatkép"
   },
-  "m0292": "HOGYAN HASZNÁLD?",
-  "@m0292": {
+  "m0293": "HOGYAN HASZNÁLD?",
+  "@m0293": {
     "description": "Source text: HOGYAN HASZNÁLD?"
   },
-  "m0293": "Hogyan működik?",
-  "@m0293": {
+  "m0294": "Hogyan működik?",
+  "@m0294": {
     "description": "Source text: Hogyan működik?"
   },
-  "m0294": "HOGYAN SEGÍT A MEALR?",
-  "@m0294": {
+  "m0295": "HOGYAN SEGÍT A MEALR?",
+  "@m0295": {
     "description": "Source text: HOGYAN SEGÍT A MEALR?"
   },
-  "m0295": "Hozzáadás",
-  "@m0295": {
+  "m0296": "Hozzáadás",
+  "@m0296": {
     "description": "Source text: Hozzáadás"
   },
-  "m0296": "Hozzáadva",
-  "@m0296": {
+  "m0297": "Hozzáadva",
+  "@m0297": {
     "description": "Source text: Hozzáadva"
   },
-  "m0297": "Hozzávaló",
-  "@m0297": {
+  "m0298": "Hozzávaló",
+  "@m0298": {
     "description": "Source text: Hozzávaló"
   },
-  "m0298": "Hozzávalók",
-  "@m0298": {
+  "m0299": "Hozzávalók",
+  "@m0299": {
     "description": "Source text: Hozzávalók"
   },
-  "m0299": "Hummusz",
-  "@m0299": {
+  "m0300": "Hummusz",
+  "@m0300": {
     "description": "Source text: Hummusz"
   },
-  "m0300": "Hummuszos rizsszelet torony",
-  "@m0300": {
+  "m0301": "Hummuszos rizsszelet torony",
+  "@m0301": {
     "description": "Source text: Hummuszos rizsszelet torony"
   },
-  "m0301": "Hummuszos tojásos pita",
-  "@m0301": {
+  "m0302": "Hummuszos tojásos pita",
+  "@m0302": {
     "description": "Source text: Hummuszos tojásos pita"
   },
-  "m0302": "Hummuszos zöldségdoboz",
-  "@m0302": {
+  "m0303": "Hummuszos zöldségdoboz",
+  "@m0303": {
     "description": "Source text: Hummuszos zöldségdoboz"
   },
-  "m0303": "Húsmentes lendület nap",
-  "@m0303": {
+  "m0304": "Húsmentes lendület nap",
+  "@m0304": {
     "description": "Source text: Húsmentes lendület nap"
   },
-  "m0304": "Húsmentes napi étrend",
-  "@m0304": {
+  "m0305": "Húsmentes napi étrend",
+  "@m0305": {
     "description": "Source text: Húsmentes napi étrend"
   },
-  "m0305": "Ideális testsúly",
-  "@m0305": {
+  "m0306": "Ideális testsúly",
+  "@m0306": {
     "description": "Source text: Ideális testsúly"
   },
-  "m0306": "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.",
-  "@m0306": {
+  "m0307": "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.",
+  "@m0307": {
     "description": "Source text: Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás."
   },
-  "m0307": "Indítsd tudatosan a reggelt.",
-  "@m0307": {
+  "m0308": "Indítsd tudatosan a reggelt.",
+  "@m0308": {
     "description": "Source text: Indítsd tudatosan a reggelt."
   },
-  "m0308": "Ingyenes",
-  "@m0308": {
+  "m0309": "Kezdés",
+  "@m0309": {
+    "description": "Source text: Indulhat"
+  },
+  "m0310": "Ingyenes",
+  "@m0310": {
     "description": "Source text: Ingyenes"
   },
-  "m0309": "Ingyenes alapok",
-  "@m0309": {
+  "m0311": "Ingyenes alapok",
+  "@m0311": {
     "description": "Source text: Ingyenes alapok"
   },
-  "m0310": "Az ingyenes csomag 1 mentett Meal Prep tervet tartalmaz. Több tervhez válts Pro-ra.",
-  "@m0310": {
+  "m0312": "Az ingyenes csomag 1 mentett Meal Prep tervet tartalmaz. Több tervhez válts Pro-ra.",
+  "@m0312": {
     "description": "Source text: Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges."
   },
-  "m0311": "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.",
-  "@m0311": {
+  "m0313": "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.",
+  "@m0313": {
     "description": "Source text: Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd."
   },
-  "m0312": "Írj receptet, tippet vagy emlékeztetőt...",
-  "@m0312": {
+  "m0314": "Írj receptet, tippet vagy emlékeztetőt...",
+  "@m0314": {
     "description": "Source text: Írj receptet, tippet vagy emlékeztetőt..."
   },
-  "m0313": "Ízlés szerint sózd, borsozd.",
-  "@m0313": {
+  "m0315": "Ízlés szerint sózd, borsozd.",
+  "@m0315": {
     "description": "Source text: Ízlés szerint sózd, borsozd."
   },
-  "m0314": "Izmos nap",
-  "@m0314": {
+  "m0316": "Izmos nap",
+  "@m0316": {
     "description": "Source text: Izmos nap"
   },
-  "m0315": "Jegyzet",
-  "@m0315": {
+  "m0317": "Jegyzet",
+  "@m0317": {
     "description": "Source text: Jegyzet"
   },
-  "m0316": "Jó délutánt",
-  "@m0316": {
+  "m0318": "Jó délutánt",
+  "@m0318": {
     "description": "Source text: Jó délutánt"
   },
-  "m0317": "Jó estét",
-  "@m0317": {
+  "m0319": "Jó estét",
+  "@m0319": {
     "description": "Source text: Jó estét"
   },
-  "m0318": "Jó reggelt",
-  "@m0318": {
+  "m0320": "Jó reggelt",
+  "@m0320": {
     "description": "Source text: Jó reggelt"
   },
-  "m0319": "Joghurt",
-  "@m0319": {
+  "m0321": "Joghurt",
+  "@m0321": {
     "description": "Source text: Joghurt"
   },
-  "m0320": "Joghurtos öntet",
-  "@m0320": {
+  "m0322": "Joghurtos öntet",
+  "@m0322": {
     "description": "Source text: Joghurtos öntet"
   },
-  "m0321": "Joghurtos szósz",
-  "@m0321": {
+  "m0323": "Joghurtos szósz",
+  "@m0323": {
     "description": "Source text: Joghurtos szósz"
   },
-  "m0322": "Juharszirup",
-  "@m0322": {
+  "m0324": "Juharszirup",
+  "@m0324": {
     "description": "Source text: Juharszirup"
   },
-  "m0323": "Kakaópor",
-  "@m0323": {
+  "m0325": "Kakaópor",
+  "@m0325": {
     "description": "Source text: Kakaópor"
   },
-  "m0324": "Kakaós chia zabpohár",
-  "@m0324": {
+  "m0326": "Kakaós chia zabpohár",
+  "@m0326": {
     "description": "Source text: Kakaós chia zabpohár"
   },
-  "m0325": "Kakaós skyr ropogóssal",
-  "@m0325": {
+  "m0327": "Kakaós skyr ropogóssal",
+  "@m0327": {
     "description": "Source text: Kakaós skyr ropogóssal"
   },
-  "m0326": "Kaliforniai paprika",
-  "@m0326": {
+  "m0328": "Kaliforniai paprika",
+  "@m0328": {
     "description": "Source text: Kaliforniai paprika"
   },
-  "m0327": "Kalkulátorból beállítva",
-  "@m0327": {
+  "m0329": "Kalkulátorból beállítva",
+  "@m0329": {
     "description": "Source text: Kalkulátorból beállítva"
   },
-  "m0328": "Kalória",
-  "@m0328": {
+  "m0330": "Kalória",
+  "@m0330": {
     "description": "Source text: Kalória"
   },
-  "m0329": "Kalória\nkalkulátor",
-  "@m0329": {
+  "m0331": "Kalória\nkalkulátor",
+  "@m0331": {
     "description": "Source text: Kalória\nkalkulátor"
   },
-  "m0330": "Kalória cél",
-  "@m0330": {
+  "m0332": "Kalória cél",
+  "@m0332": {
     "description": "Source text: Kalória cél"
   },
-  "m0331": "Kalória kalkulátor",
-  "@m0331": {
+  "m0333": "Kalória kalkulátor",
+  "@m0333": {
     "description": "Source text: Kalória kalkulátor"
   },
-  "m0332": "Kanalazd kekszekre, uborkával tálald.",
-  "@m0332": {
+  "m0334": "Kanalazd kekszekre, uborkával tálald.",
+  "@m0334": {
     "description": "Source text: Kanalazd kekszekre, uborkával tálald."
   },
-  "m0333": "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.",
-  "@m0333": {
+  "m0335": "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.",
+  "@m0335": {
     "description": "Source text: Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal."
   },
-  "m0334": "kcal / nap",
-  "@m0334": {
+  "m0336": "kcal / nap",
+  "@m0336": {
     "description": "Source text: kcal / nap"
   },
-  "m0335": "Kedvencek",
-  "@m0335": {
+  "m0337": "Kedvencek",
+  "@m0337": {
     "description": "Source text: Kedvencek"
   },
-  "m0336": "Keep the afternoon light and useful.",
-  "@m0336": {
+  "m0338": "Legyen könnyű és hasznos a délutánod.",
+  "@m0338": {
     "description": "Source text: Keep the afternoon light and useful."
   },
-  "m0337": "Keep your meals on track.",
-  "@m0337": {
+  "m0339": "Tartsd kézben az étkezéseidet.",
+  "@m0339": {
     "description": "Source text: Keep your meals on track."
   },
-  "m0338": "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.",
-  "@m0338": {
+  "m0340": "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.",
+  "@m0340": {
     "description": "Source text: Kend meg krémsajttal, majd tedd rá a lazacot és uborkát."
   },
-  "m0339": "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.",
-  "@m0339": {
+  "m0341": "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.",
+  "@m0341": {
     "description": "Source text: Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal."
   },
-  "m0340": "Képlet: ",
-  "@m0340": {
+  "m0342": "Képlet: ",
+  "@m0342": {
     "description": "Source text: Képlet: "
   },
-  "m0341": "Keresés receptek között",
-  "@m0341": {
+  "m0343": "Keresés receptek között",
+  "@m0343": {
     "description": "Source text: Keresés receptek között"
   },
-  "m0342": "Kert nap",
-  "@m0342": {
+  "m0344": "Kert nap",
+  "@m0344": {
     "description": "Source text: Kert nap"
   },
-  "m0343": "Kész doboz nap",
-  "@m0343": {
+  "m0345": "Kész doboz nap",
+  "@m0345": {
     "description": "Source text: Kész doboz nap"
   },
-  "m0344": "Kész étel",
-  "@m0344": {
+  "m0346": "Kész étel",
+  "@m0346": {
     "description": "Source text: Kész étel"
   },
-  "m0345": "Kész étel súlya",
-  "@m0345": {
+  "m0347": "Kész étel súlya",
+  "@m0347": {
     "description": "Source text: Kész étel súlya"
   },
-  "m0346": "Kész g",
-  "@m0346": {
+  "m0348": "Kész g",
+  "@m0348": {
     "description": "Source text: Kész g"
   },
-  "m0347": "Kész súly",
-  "@m0347": {
+  "m0349": "Kész súly",
+  "@m0349": {
     "description": "Source text: Kész súly"
   },
-  "m0348": "Készíts lágy rántottát a tojásból.",
-  "@m0348": {
+  "m0350": "Készíts lágy rántottát a tojásból.",
+  "@m0350": {
     "description": "Source text: Készíts lágy rántottát a tojásból."
   },
-  "m0349": "Készítsd elő, ami később könnyít.",
-  "@m0349": {
+  "m0351": "Készítsd elő, ami később könnyít.",
+  "@m0351": {
     "description": "Source text: Készítsd elő, ami később könnyít."
   },
-  "m0350": "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.",
-  "@m0350": {
+  "m0352": "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.",
+  "@m0352": {
     "description": "Source text: Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni."
   },
-  "m0351": "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.",
-  "@m0351": {
+  "m0353": "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.",
+  "@m0353": {
     "description": "Source text: Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze."
   },
-  "m0352": "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.",
-  "@m0352": {
+  "m0354": "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.",
+  "@m0354": {
     "description": "Source text: Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni."
   },
-  "m0353": "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.",
-  "@m0353": {
+  "m0355": "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.",
+  "@m0355": {
     "description": "Source text: Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá."
   },
-  "m0354": "Keverd hozzá a zabot, kakaót és juharszirupot.",
-  "@m0354": {
+  "m0356": "Keverd hozzá a zabot, kakaót és juharszirupot.",
+  "@m0356": {
     "description": "Source text: Keverd hozzá a zabot, kakaót és juharszirupot."
   },
-  "m0355": "Keverd hozzá a zabot, kakaót és mogyoróvajat.",
-  "@m0355": {
+  "m0357": "Keverd hozzá a zabot, kakaót és mogyoróvajat.",
+  "@m0357": {
     "description": "Source text: Keverd hozzá a zabot, kakaót és mogyoróvajat."
   },
-  "m0356": "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.",
-  "@m0356": {
+  "m0358": "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.",
+  "@m0358": {
     "description": "Source text: Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával."
   },
-  "m0357": "Keverd össze a joghurtot a fehérjeporral.",
-  "@m0357": {
+  "m0359": "Keverd össze a joghurtot a fehérjeporral.",
+  "@m0359": {
     "description": "Source text: Keverd össze a joghurtot a fehérjeporral."
   },
-  "m0358": "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.",
-  "@m0358": {
+  "m0360": "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.",
+  "@m0360": {
     "description": "Source text: Keverd össze a kifőtt tésztával, és adagold sajttal megszórva."
   },
-  "m0359": "Keverd össze a lencsével és morzsolt fetával.",
-  "@m0359": {
+  "m0361": "Keverd össze a lencsével és morzsolt fetával.",
+  "@m0361": {
     "description": "Source text: Keverd össze a lencsével és morzsolt fetával."
   },
-  "m0360": "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.",
-  "@m0360": {
+  "m0362": "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.",
+  "@m0362": {
     "description": "Source text: Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel."
   },
-  "m0361": "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.",
-  "@m0361": {
+  "m0363": "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.",
+  "@m0363": {
     "description": "Source text: Keverd össze a zabot, joghurtot, folyadékot és fahéjat."
   },
-  "m0362": "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.",
-  "@m0362": {
+  "m0364": "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.",
+  "@m0364": {
     "description": "Source text: Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport."
   },
-  "m0363": "Keverd össze spenóttal és paradicsommal.",
-  "@m0363": {
+  "m0365": "Keverd össze spenóttal és paradicsommal.",
+  "@m0365": {
     "description": "Source text: Keverd össze spenóttal és paradicsommal."
   },
-  "m0364": "Keverd össze tonhallal, kukoricával és joghurttal.",
-  "@m0364": {
+  "m0366": "Keverd össze tonhallal, kukoricával és joghurttal.",
+  "@m0366": {
     "description": "Source text: Keverd össze tonhallal, kukoricával és joghurttal."
   },
-  "m0365": "Keverd simára a hozzávalókat.",
-  "@m0365": {
+  "m0367": "Keverd simára a hozzávalókat.",
+  "@m0367": {
     "description": "Source text: Keverd simára a hozzávalókat."
   },
-  "m0366": "Keverd simára a joghurtot fehérjeporral és kakaóval.",
-  "@m0366": {
+  "m0368": "Keverd simára a joghurtot fehérjeporral és kakaóval.",
+  "@m0368": {
     "description": "Source text: Keverd simára a joghurtot fehérjeporral és kakaóval."
   },
-  "m0367": "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.",
-  "@m0367": {
+  "m0369": "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.",
+  "@m0369": {
     "description": "Source text: Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára."
   },
-  "m0368": "Kevés citromlével frissítsd, majd azonnal tálald.",
-  "@m0368": {
+  "m0370": "Kevés citromlével frissítsd, majd azonnal tálald.",
+  "@m0370": {
     "description": "Source text: Kevés citromlével frissítsd, majd azonnal tálald."
   },
-  "m0369": "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.",
-  "@m0369": {
+  "m0371": "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.",
+  "@m0371": {
     "description": "Source text: Kevés olajon párold át őket, majd öntsd rá a felvert tojást."
   },
-  "m0370": "Kevesebb mutatása",
-  "@m0370": {
+  "m0372": "Kevesebb mutatása",
+  "@m0372": {
     "description": "Source text: Kevesebb mutatása"
   },
-  "m0371": "Kezdés ingyenesen",
-  "@m0371": {
+  "m0373": "Kezdés ingyenesen",
+  "@m0373": {
     "description": "Source text: Kezdés ingyenesen"
   },
-  "m0372": "Kezdj egyszerűen, maradj következetes.",
-  "@m0372": {
+  "m0374": "Kezdj egyszerűen, maradj következetes.",
+  "@m0374": {
     "description": "Source text: Kezdj egyszerűen, maradj következetes."
   },
-  "m0373": "Kezdjük egyszerűen.",
-  "@m0373": {
+  "m0375": "Kezdjük egyszerűen.",
+  "@m0375": {
     "description": "Source text: Kezdjük egyszerűen."
   },
-  "m0374": "Kiadós alap nap",
-  "@m0374": {
+  "m0376": "Kiadós alap nap",
+  "@m0376": {
     "description": "Source text: Kiadós alap nap"
   },
-  "m0375": "Kihagyás",
-  "@m0375": {
+  "m0377": "Kihagyás",
+  "@m0377": {
     "description": "Source text: Kihagyás"
   },
-  "m0376": "Kímélő nap",
-  "@m0376": {
+  "m0378": "Kímélő nap",
+  "@m0378": {
     "description": "Source text: Kímélő nap"
   },
-  "m0377": "Kimért adag",
-  "@m0377": {
+  "m0379": "Kimért adag",
+  "@m0379": {
     "description": "Source text: Kimért adag"
   },
-  "m0378": "Kimért g",
-  "@m0378": {
+  "m0380": "Kimért g",
+  "@m0380": {
     "description": "Source text: Kimért g"
   },
-  "m0379": "Kipipált tételek törlése",
-  "@m0379": {
+  "m0381": "Kipipált tételek törlése",
+  "@m0381": {
     "description": "Source text: Kipipált tételek törlése"
   },
-  "m0380": "Kis döntések, stabil lendület.",
-  "@m0380": {
+  "m0382": "Kis döntések, stabil lendület.",
+  "@m0382": {
     "description": "Source text: Kis döntések, stabil lendület."
   },
-  "m0381": "Koktélparadicsom",
-  "@m0381": {
+  "m0383": "Koktélparadicsom",
+  "@m0383": {
     "description": "Source text: Koktélparadicsom"
   },
-  "m0382": "Kókusztej",
-  "@m0382": {
+  "m0384": "Kókusztej",
+  "@m0384": {
     "description": "Source text: Kókusztej"
   },
-  "m0383": "Könnyed nap",
-  "@m0383": {
+  "m0385": "Könnyed nap",
+  "@m0385": {
     "description": "Source text: Könnyed nap"
   },
-  "m0384": "Könnyű babos chili",
-  "@m0384": {
+  "m0386": "Könnyű babos chili",
+  "@m0386": {
     "description": "Source text: Könnyű babos chili"
   },
-  "m0385": "Könnyű csirkés saláta",
-  "@m0385": {
+  "m0387": "Könnyű csirkés saláta",
+  "@m0387": {
     "description": "Source text: Könnyű csirkés saláta"
   },
-  "m0386": "Könnyű nap",
-  "@m0386": {
+  "m0388": "Könnyű nap",
+  "@m0388": {
     "description": "Source text: Könnyű nap"
   },
-  "m0387": "Köret",
-  "@m0387": {
+  "m0389": "Köret",
+  "@m0389": {
     "description": "Source text: Köret"
   },
-  "m0388": "Köret adag / doboz",
-  "@m0388": {
+  "m0390": "Köret adag / doboz",
+  "@m0390": {
     "description": "Source text: Köret adag / doboz"
   },
-  "m0389": "Köret g / adag",
-  "@m0389": {
+  "m0391": "Köret g / adag",
+  "@m0391": {
     "description": "Source text: Köret g / adag"
   },
-  "m0390": "Köret hozzáadása",
-  "@m0390": {
+  "m0392": "Köret hozzáadása",
+  "@m0392": {
     "description": "Source text: Köret hozzáadása"
   },
-  "m0391": "Köret külön vezetve",
-  "@m0391": {
+  "m0393": "Köret külön vezetve",
+  "@m0393": {
     "description": "Source text: Köret külön vezetve"
   },
-  "m0392": "Köret mentés",
-  "@m0392": {
+  "m0394": "Köret mentés",
+  "@m0394": {
     "description": "Source text: Köret mentés"
   },
-  "m0393": "Köret nyers egyenértéke",
-  "@m0393": {
+  "m0395": "Köret nyers egyenértéke",
+  "@m0395": {
     "description": "Source text: Köret nyers egyenértéke"
   },
-  "m0394": "Köret recept szorzó",
-  "@m0394": {
+  "m0396": "Köret recept szorzó",
+  "@m0396": {
     "description": "Source text: Köret recept szorzó"
   },
-  "m0395": "Köretek",
-  "@m0395": {
+  "m0397": "Köretek",
+  "@m0397": {
     "description": "Source text: Köretek"
   },
-  "m0396": "Korlátlan",
-  "@m0396": {
+  "m0398": "Korlátlan",
+  "@m0398": {
     "description": "Source text: Korlátlan"
   },
-  "m0397": "Korlátlan étel és meal prep mentés",
-  "@m0397": {
+  "m0399": "Korlátlan étel és meal prep mentés",
+  "@m0399": {
     "description": "Source text: Korlátlan étel és meal prep mentés"
   },
-  "m0398": "Korlátlan mentés és extra funkciók",
-  "@m0398": {
+  "m0400": "Korlátlan mentés és extra funkciók",
+  "@m0400": {
     "description": "Source text: Korlátlan mentés és extra funkciók"
   },
-  "m0399": "Közepesen aktív (heti 3–5x)",
-  "@m0399": {
+  "m0401": "Közepesen aktív (heti 3–5x)",
+  "@m0401": {
     "description": "Source text: Közepesen aktív (heti 3–5x)"
   },
-  "m0400": "Krémsajt",
-  "@m0400": {
+  "m0402": "Krémsajt",
+  "@m0402": {
     "description": "Source text: Krémsajt"
   },
-  "m0401": "Kukorica",
-  "@m0401": {
+  "m0403": "Kukorica",
+  "@m0403": {
     "description": "Source text: Kukorica"
   },
-  "m0402": "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.",
-  "@m0402": {
+  "m0404": "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.",
+  "@m0404": {
     "description": "Source text: Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki."
   },
-  "m0403": "Kuszkusz",
-  "@m0403": {
+  "m0405": "Kuszkusz",
+  "@m0405": {
     "description": "Source text: Kuszkusz"
   },
-  "m0404": "Lassíts, egyél jól, pihenj könnyen.",
-  "@m0404": {
+  "m0406": "Lassíts, egyél jól, pihenj könnyen.",
+  "@m0406": {
     "description": "Source text: Lassíts, egyél jól, pihenj könnyen."
   },
-  "m0405": "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.",
-  "@m0405": {
+  "m0407": "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.",
+  "@m0407": {
     "description": "Source text: Lassú tűzön süsd készre, amíg a közepe is megszilárdul."
   },
-  "m0406": "Laza mentes nap",
-  "@m0406": {
+  "m0408": "Laza mentes nap",
+  "@m0408": {
     "description": "Source text: Laza mentes nap"
   },
-  "m0407": "Lazacfilé",
-  "@m0407": {
+  "m0409": "Lazacfilé",
+  "@m0409": {
     "description": "Source text: Lazacfilé"
   },
-  "m0408": "Lazacos burgonyás ebéd",
-  "@m0408": {
+  "m0410": "Lazacos burgonyás ebéd",
+  "@m0410": {
     "description": "Source text: Lazacos burgonyás ebéd"
   },
-  "m0409": "Lazacos krémsajtos bagel",
-  "@m0409": {
+  "m0411": "Lazacos krémsajtos bagel",
+  "@m0411": {
     "description": "Source text: Lazacos krémsajtos bagel"
   },
-  "m0410": "Lazacos spenótos omlett tányér",
-  "@m0410": {
+  "m0412": "Lazacos spenótos omlett tányér",
+  "@m0412": {
     "description": "Source text: Lazacos spenótos omlett tányér"
   },
-  "m0411": "Lazacos uborkás falatok",
-  "@m0411": {
+  "m0413": "Lazacos uborkás falatok",
+  "@m0413": {
     "description": "Source text: Lazacos uborkás falatok"
   },
-  "m0412": "Lazacos zöldbabos vacsora",
-  "@m0412": {
+  "m0414": "Lazacos zöldbabos vacsora",
+  "@m0414": {
     "description": "Source text: Lazacos zöldbabos vacsora"
   },
-  "m0413": "Legalacsonyabb",
-  "@m0413": {
+  "m0415": "Legalacsonyabb",
+  "@m0415": {
     "description": "Source text: Legalacsonyabb"
   },
-  "m0414": "Legyen a délután könnyű és hasznos.",
-  "@m0414": {
+  "m0416": "Legyen a délután könnyű és hasznos.",
+  "@m0416": {
     "description": "Source text: Legyen a délután könnyű és hasznos."
   },
-  "m0415": "Legyen az első döntés könnyű.",
-  "@m0415": {
+  "m0417": "Legyen az első döntés könnyű.",
+  "@m0417": {
     "description": "Source text: Legyen az első döntés könnyű."
   },
-  "m0416": "Legyen egyszerű a következő étkezés.",
-  "@m0416": {
+  "m0418": "Legyen egyszerű a következő étkezés.",
+  "@m0418": {
     "description": "Source text: Legyen egyszerű a következő étkezés."
   },
-  "m0417": "Lejár: ",
-  "@m0417": {
+  "m0419": "Lejár: ",
+  "@m0419": {
     "description": "Source text: Lejár: "
   },
-  "m0418": "Lencsés feta saláta",
-  "@m0418": {
+  "m0420": "Lencsés feta saláta",
+  "@m0420": {
     "description": "Source text: Lencsés feta saláta"
   },
-  "m0419": "Lencsés zöldséges rizses egytál",
-  "@m0419": {
+  "m0421": "Lencsés zöldséges rizses egytál",
+  "@m0421": {
     "description": "Source text: Lencsés zöldséges rizses egytál"
   },
-  "m0420": "Light sajt",
-  "@m0420": {
+  "m0422": "Light sajt",
+  "@m0422": {
     "description": "Source text: Light sajt"
   },
-  "m0421": "Lilahagyma",
-  "@m0421": {
+  "m0423": "Lilahagyma",
+  "@m0423": {
     "description": "Source text: Lilahagyma"
   },
-  "m0422": "Lista",
-  "@m0422": {
+  "m0424": "Lista",
+  "@m0424": {
     "description": "Source text: Lista"
   },
-  "m0423": "Lista neve",
-  "@m0423": {
+  "m0425": "Lista neve",
+  "@m0425": {
     "description": "Source text: Lista neve"
   },
-  "m0424": "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.",
-  "@m0424": {
+  "m0426": "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.",
+  "@m0426": {
     "description": "Source text: Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával."
   },
-  "m0425": "Locsold meg kevés mézzel, majd szórd meg mandulával.",
-  "@m0425": {
+  "m0427": "Locsold meg kevés mézzel, majd szórd meg mandulával.",
+  "@m0427": {
     "description": "Source text: Locsold meg kevés mézzel, majd szórd meg mandulával."
   },
-  "m0426": "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.",
-  "@m0426": {
+  "m0428": "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.",
+  "@m0428": {
     "description": "Source text: Locsold meg olívaolajjal, majd hűtve vagy frissen tálald."
   },
-  "m0427": "Ma",
-  "@m0427": {
+  "m0429": "Ma",
+  "@m0429": {
     "description": "Source text: Ma"
   },
-  "m0428": "Magas fehérje",
-  "@m0428": {
+  "m0430": "Magas fehérje",
+  "@m0430": {
     "description": "Source text: Magas fehérje"
   },
-  "m0429": "Magasság",
-  "@m0429": {
+  "m0431": "Magasság",
+  "@m0431": {
     "description": "Source text: Magasság"
   },
-  "m0430": "Magasság (cm)",
-  "@m0430": {
+  "m0432": "Magasság (cm)",
+  "@m0432": {
     "description": "Source text: Magasság (cm)"
   },
-  "m0431": "Make the first choice an easy one.",
-  "@m0431": {
+  "m0433": "Legyen egyszerű az első döntés.",
+  "@m0433": {
     "description": "Source text: Make the first choice an easy one."
   },
-  "m0432": "Make the next meal easy.",
-  "@m0432": {
+  "m0434": "Tedd egyszerűvé a következő étkezést.",
+  "@m0434": {
     "description": "Source text: Make the next meal easy."
   },
-  "m0433": "Mandula",
-  "@m0433": {
+  "m0435": "Makrók megoszlása",
+  "@m0435": {
+    "description": "Source text: Makrók megoszlása"
+  },
+  "m0436": "Mandula",
+  "@m0436": {
     "description": "Source text: Mandula"
   },
-  "m0434": "Maradj feltöltve és fókuszban.",
-  "@m0434": {
+  "m0437": "Maradj feltöltve és fókuszban.",
+  "@m0437": {
     "description": "Source text: Maradj feltöltve és fókuszban."
   },
-  "m0435": "Marhahúsos bulgur serpenyő",
-  "@m0435": {
+  "m0438": "Marhahúsos bulgur serpenyő",
+  "@m0438": {
     "description": "Source text: Marhahúsos bulgur serpenyő"
   },
-  "m0436": "Marhahúsos pita ebéd",
-  "@m0436": {
+  "m0439": "Marhahúsos pita ebéd",
+  "@m0439": {
     "description": "Source text: Marhahúsos pita ebéd"
   },
-  "m0437": "Marhás cukkinis rizs",
-  "@m0437": {
+  "m0440": "Marhás cukkinis rizs",
+  "@m0440": {
     "description": "Source text: Marhás cukkinis rizs"
   },
-  "m0438": "Meal prep alapú",
-  "@m0438": {
+  "m0441": "Meal prep alapú",
+  "@m0441": {
     "description": "Source text: Meal prep alapú"
   },
-  "m0439": "Meal prep terv szerkesztése",
-  "@m0439": {
+  "m0442": "Meal prep terv szerkesztése",
+  "@m0442": {
     "description": "Source text: Meal prep terv szerkesztése"
   },
-  "m0440": "Meal Prep tervező",
-  "@m0440": {
+  "m0443": "Meal Prep tervező",
+  "@m0443": {
     "description": "Source text: Meal Prep tervező"
   },
-  "m0441": "Meal Prep+",
-  "@m0441": {
+  "m0444": "Meal Prep+",
+  "@m0444": {
     "description": "Source text: Meal Prep+"
   },
-  "m0442": "Meal preppelés",
-  "@m0442": {
+  "m0445": "Meal preppelés",
+  "@m0445": {
     "description": "Source text: Meal preppelés"
   },
-  "m0443": "Mealr Pro",
-  "@m0443": {
+  "m0446": "Mealr Pro",
+  "@m0446": {
     "description": "Source text: Mealr Pro"
   },
-  "m0444": "Mediterrán pulykás bulgur",
-  "@m0444": {
+  "m0447": "Mediterrán pulykás bulgur",
+  "@m0447": {
     "description": "Source text: Mediterrán pulykás bulgur"
   },
-  "m0445": "Medium",
-  "@m0445": {
+  "m0448": "Közepes",
+  "@m0448": {
     "description": "Source text: Medium"
   },
-  "m0446": "Az elkészített bevásárlólistáid itt jelennek meg.",
-  "@m0446": {
+  "m0449": "Az elkészített bevásárlólistáid itt jelennek meg.",
+  "@m0449": {
     "description": "Source text: Még nincs elmentett bevásárlólistád."
   },
-  "m0447": "A mentett Meal Prep terveid itt jelennek meg.",
-  "@m0447": {
+  "m0450": "A mentett Meal Prep terveid itt jelennek meg.",
+  "@m0450": {
     "description": "Source text: Még nincs elmentett meal prep terved."
   },
-  "m0448": "A főételeid itt fognak megjelenni.",
-  "@m0448": {
+  "m0451": "A főételeid itt fognak megjelenni.",
+  "@m0451": {
     "description": "Source text: Még nincs főétel hozzáadva."
   },
-  "m0449": "A köreteid itt fognak megjelenni.",
-  "@m0449": {
+  "m0452": "A köreteid itt fognak megjelenni.",
+  "@m0452": {
     "description": "Source text: Még nincs köret hozzáadva."
   },
-  "m0450": "Megjegyzés",
-  "@m0450": {
+  "m0453": "Megjegyzés",
+  "@m0453": {
     "description": "Source text: Megjegyzés"
   },
-  "m0451": "Megjelenés",
-  "@m0451": {
+  "m0454": "Megjelenés",
+  "@m0454": {
     "description": "Source text: Megjelenés"
   },
-  "m0452": "Megjelenés módja",
-  "@m0452": {
+  "m0455": "Megjelenés módja",
+  "@m0455": {
     "description": "Source text: Megjelenés módja"
   },
-  "m0453": "Meglévő listához adás",
-  "@m0453": {
+  "m0456": "Meglévő listához adás",
+  "@m0456": {
     "description": "Source text: Meglévő listához adás"
   },
-  "m0454": "Megosztás",
-  "@m0454": {
+  "m0457": "Megosztás",
+  "@m0457": {
     "description": "Source text: Megosztás"
   },
-  "m0455": "Mégse",
-  "@m0455": {
+  "m0458": "Mégse",
+  "@m0458": {
     "description": "Source text: Mégse"
   },
-  "m0456": "Meleg banános zabfalatok",
-  "@m0456": {
+  "m0459": "Meleg banános zabfalatok",
+  "@m0459": {
     "description": "Source text: Meleg banános zabfalatok"
   },
-  "m0457": "Meleg lencsés feta tányér",
-  "@m0457": {
+  "m0460": "Meleg lencsés feta tányér",
+  "@m0460": {
     "description": "Source text: Meleg lencsés feta tányér"
   },
-  "m0458": "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.",
-  "@m0458": {
+  "m0461": "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.",
+  "@m0461": {
     "description": "Source text: Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget."
   },
-  "m0459": "Mentés",
-  "@m0459": {
+  "m0462": "Mentés",
+  "@m0462": {
     "description": "Source text: Mentés"
   },
-  "m0460": "Mentes lendület nap",
-  "@m0460": {
+  "m0463": "Mentes lendület nap",
+  "@m0463": {
     "description": "Source text: Mentes lendület nap"
   },
-  "m0461": "Mentés profilba · a Kalória cél frissítése",
-  "@m0461": {
+  "m0464": "Mentés profilba · a Kalória cél frissítése",
+  "@m0464": {
     "description": "Source text: Mentés profilba · a Kalória cél frissítése"
   },
-  "m0462": "Mentés új listaként",
-  "@m0462": {
+  "m0465": "Mentés új listaként",
+  "@m0465": {
     "description": "Source text: Mentés új listaként"
   },
-  "m0463": "Mentett étel",
-  "@m0463": {
+  "m0466": "Mentett étel",
+  "@m0466": {
     "description": "Source text: Mentett étel"
   },
-  "m0464": "Mentve",
-  "@m0464": {
+  "m0467": "Mentve",
+  "@m0467": {
     "description": "Source text: Mentve"
   },
-  "m0465": "Mentve a profilba · legközelebb automatikusan kitöltve",
-  "@m0465": {
+  "m0468": "Mentve a profilba · legközelebb automatikusan kitöltve",
+  "@m0468": {
     "description": "Source text: Mentve a profilba · legközelebb automatikusan kitöltve"
   },
-  "m0466": "Mentve a profilba.",
-  "@m0466": {
+  "m0469": "Mentve a profilba.",
+  "@m0469": {
     "description": "Source text: Mentve a profilba."
   },
-  "m0467": "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.",
-  "@m0467": {
+  "m0470": "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.",
+  "@m0470": {
     "description": "Source text: mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g."
   },
-  "m0468": "Méz",
-  "@m0468": {
+  "m0471": "Méz",
+  "@m0471": {
     "description": "Source text: Méz"
   },
-  "m0469": "MI A PROBLÉMA?",
-  "@m0469": {
+  "m0472": "MI A PROBLÉMA?",
+  "@m0472": {
     "description": "Source text: MI A PROBLÉMA?"
   },
-  "m0470": "MIÉRT HASZNOS?",
-  "@m0470": {
+  "m0473": "MIÉRT HASZNOS?",
+  "@m0473": {
     "description": "Source text: MIÉRT HASZNOS?"
   },
-  "m0471": "Mind",
-  "@m0471": {
+  "m0474": "Mind",
+  "@m0474": {
     "description": "Source text: Mind"
   },
-  "m0472": "MINDEN EGYBEN",
-  "@m0472": {
+  "m0475": "MINDEN EGYBEN",
+  "@m0475": {
     "description": "Source text: MINDEN EGYBEN"
   },
-  "m0473": "Minden hozzávalót tegyél turmixgépbe.",
-  "@m0473": {
+  "m0476": "Minden hozzávalót tegyél turmixgépbe.",
+  "@m0476": {
     "description": "Source text: Minden hozzávalót tegyél turmixgépbe."
   },
-  "m0474": "Mini burgonyás tzatziki doboz",
-  "@m0474": {
+  "m0477": "Mini burgonyás tzatziki doboz",
+  "@m0477": {
     "description": "Source text: Mini burgonyás tzatziki doboz"
   },
-  "m0475": "Mini csirkés wrap",
-  "@m0475": {
+  "m0478": "Mini csirkés wrap",
+  "@m0478": {
     "description": "Source text: Mini csirkés wrap"
   },
-  "m0476": "Mini tortilla",
-  "@m0476": {
+  "m0479": "Mini tortilla",
+  "@m0479": {
     "description": "Source text: Mini tortilla"
   },
-  "m0477": "Mogyoróvaj",
-  "@m0477": {
+  "m0480": "Mogyoróvaj",
+  "@m0480": {
     "description": "Source text: Mogyoróvaj"
   },
-  "m0478": "Morzsold rá a fetát, és frissen tálald.",
-  "@m0478": {
+  "m0481": "Morzsold rá a fetát, és frissen tálald.",
+  "@m0481": {
     "description": "Source text: Morzsold rá a fetát, és frissen tálald."
   },
-  "m0479": "Morzsold rá a fetát, és tálald a zöldséges bulgurral.",
-  "@m0479": {
+  "m0482": "Morzsold rá a fetát, és tálald a zöldséges bulgurral.",
+  "@m0482": {
     "description": "Source text: Morzsold rá a fetát, és tálald a zöldséges bulgurral."
   },
-  "m0480": "mustár",
-  "@m0480": {
+  "m0483": "mustár",
+  "@m0483": {
     "description": "Source text: mustár"
   },
-  "m0481": "Mustár",
-  "@m0481": {
+  "m0484": "Mustár",
+  "@m0484": {
     "description": "Source text: Mustár"
   },
-  "m0482": "Mustáros sertésszűz burgonyával",
-  "@m0482": {
+  "m0485": "Mustáros sertésszűz burgonyával",
+  "@m0485": {
     "description": "Source text: Mustáros sertésszűz burgonyával"
   },
-  "m0483": "nap",
-  "@m0483": {
+  "m0486": "nap",
+  "@m0486": {
     "description": "Source text: nap"
   },
-  "m0484": "Napi aktivitás",
-  "@m0484": {
+  "m0487": "Napi aktivitás",
+  "@m0487": {
     "description": "Source text: Napi aktivitás"
   },
-  "m0485": "Napi bontás",
-  "@m0485": {
+  "m0488": "Napi bontás",
+  "@m0488": {
     "description": "Source text: Napi bontás"
   },
-  "m0486": "NAPI SZINTENTARTÓ KALÓRIA",
-  "@m0486": {
+  "m0489": "NAPI SZINTENTARTÓ KALÓRIA",
+  "@m0489": {
     "description": "Source text: NAPI SZINTENTARTÓ KALÓRIA"
   },
-  "m0487": "Nasi",
-  "@m0487": {
+  "m0490": "Nasi",
+  "@m0490": {
     "description": "Source text: Nasi"
   },
-  "m0488": "Nehézség",
-  "@m0488": {
+  "m0491": "Nehézség",
+  "@m0491": {
     "description": "Source text: Nehézség"
   },
-  "m0489": "Nem",
-  "@m0489": {
+  "m0492": "Nem",
+  "@m0492": {
     "description": "Source text: Nem"
   },
-  "m0490": "nem a kalóriájából.",
-  "@m0490": {
+  "m0493": "nem a kalóriájából.",
+  "@m0493": {
     "description": "Source text: nem a kalóriájából."
   },
-  "m0491": "Nem csak mérlegelés: egy app a kajás rutinodhoz.",
-  "@m0491": {
+  "m0494": "Nem csak mérlegelés: egy app a kajás rutinodhoz.",
+  "@m0494": {
     "description": "Source text: Nem csak mérlegelés: egy app a kajás rutinodhoz."
   },
-  "m0492": "nem változik a kalóriája.",
-  "@m0492": {
+  "m0495": "nem változik a kalóriája.",
+  "@m0495": {
     "description": "Source text: nem változik a kalóriája."
   },
-  "m0493": "Nevezd el és add hozzá a tételeket",
-  "@m0493": {
+  "m0496": "Nevezd el és add hozzá a tételeket",
+  "@m0496": {
     "description": "Source text: Nevezd el és add hozzá a tételeket"
   },
-  "m0494": "Névjegy",
-  "@m0494": {
+  "m0497": "Névjegy",
+  "@m0497": {
     "description": "Source text: Névjegy"
   },
-  "m0495": "Nincs aktív előfizetés",
-  "@m0495": {
+  "m0498": "Nincs aktív előfizetés",
+  "@m0498": {
     "description": "Source text: Nincs aktív előfizetés"
   },
-  "m0496": "nincs kiemelt allergén",
-  "@m0496": {
+  "m0499": "nincs kiemelt allergén",
+  "@m0499": {
     "description": "Source text: nincs kiemelt allergén"
   },
-  "m0497": "Nincs köret",
-  "@m0497": {
+  "m0500": "Nincs köret",
+  "@m0500": {
     "description": "Source text: Nincs köret"
   },
-  "m0498": "Nincs mentett étel",
-  "@m0498": {
+  "m0501": "Nincs mentett étel",
+  "@m0501": {
     "description": "Source text: Nincs mentett étel"
   },
-  "m0499": "Nincs recept ehhez a kereséshez.",
-  "@m0499": {
+  "m0502": "Nincs recept ehhez a kereséshez.",
+  "@m0502": {
     "description": "Source text: Nincs találat."
   },
-  "m0500": "Nincs változás a kezdő súlyhoz képest",
-  "@m0500": {
+  "m0503": "Nincs változás a kezdő súlyhoz képest",
+  "@m0503": {
     "description": "Source text: Nincs változás a kezdő súlyhoz képest"
   },
-  "m0501": "Nő",
-  "@m0501": {
+  "m0504": "Nő",
+  "@m0504": {
     "description": "Source text: Nő"
   },
-  "m0502": "Normál",
-  "@m0502": {
+  "m0505": "Normál",
+  "@m0505": {
     "description": "Source text: Normál"
   },
-  "m0503": "Normál receptek",
-  "@m0503": {
+  "m0506": "Normál receptek",
+  "@m0506": {
     "description": "Source text: Normál receptek"
   },
-  "m0504": "Normál súly",
-  "@m0504": {
+  "m0507": "Normál súly",
+  "@m0507": {
     "description": "Source text: Normál súly"
   },
-  "m0505": "Növényi nap",
-  "@m0505": {
+  "m0508": "Növényi nap",
+  "@m0508": {
     "description": "Source text: Növényi nap"
   },
-  "m0506": "Növényi ritmus nap",
-  "@m0506": {
+  "m0509": "Növényi ritmus nap",
+  "@m0509": {
     "description": "Source text: Növényi ritmus nap"
   },
-  "m0507": "Nyelv",
-  "@m0507": {
+  "m0510": "Nyelv",
+  "@m0510": {
     "description": "Source text: Nyelv"
   },
-  "m0508": "Nyelv, téma, mód és verzió",
-  "@m0508": {
+  "m0511": "Nyelv, téma, mód és verzió",
+  "@m0511": {
     "description": "Source text: Nyelv, téma, mód és verzió"
   },
-  "m0509": "nyers ÷ kész × kimért =\nnyers egyenérték\n",
-  "@m0509": {
+  "m0512": "nyers ÷ kész × kimért =\nnyers egyenérték\n",
+  "@m0512": {
     "description": "Source text: nyers ÷ kész × kimért =\nnyers egyenérték\n"
   },
-  "m0510": "Nyers adag",
-  "@m0510": {
+  "m0513": "Nyers adag",
+  "@m0513": {
     "description": "Source text: Nyers adag"
   },
-  "m0511": "Nyers egyenérték",
-  "@m0511": {
+  "m0514": "Nyers egyenérték",
+  "@m0514": {
     "description": "Source text: Nyers egyenérték"
   },
-  "m0512": "nyers egyenértéket",
-  "@m0512": {
+  "m0515": "nyers egyenértéket",
+  "@m0515": {
     "description": "Source text: nyers egyenértéket"
   },
-  "m0513": "nyers egyenértéket.",
-  "@m0513": {
+  "m0516": "nyers egyenértéket.",
+  "@m0516": {
     "description": "Source text: nyers egyenértéket."
   },
-  "m0514": "Nyers g",
-  "@m0514": {
+  "m0517": "Nyers g",
+  "@m0517": {
     "description": "Source text: Nyers g"
   },
-  "m0515": "Nyers súly kalkulátor",
-  "@m0515": {
+  "m0518": "Nyers súly kalkulátor",
+  "@m0518": {
     "description": "Source text: Nyers súly kalkulátor"
   },
-  "m0516": "nyersen",
-  "@m0516": {
+  "m0519": "nyersen",
+  "@m0519": {
     "description": "Source text: nyersen"
   },
-  "m0517": "Nyisd meg újra a bevezetőt",
-  "@m0517": {
+  "m0520": "Nyisd meg újra a bevezetőt",
+  "@m0520": {
     "description": "Source text: Nyisd meg újra a bevezetőt"
   },
-  "m0518": "Nyugodt energia nap",
-  "@m0518": {
+  "m0521": "Nyugodt energia nap",
+  "@m0521": {
     "description": "Source text: Nyugodt energia nap"
   },
-  "m0519": "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.",
-  "@m0519": {
+  "m0522": "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.",
+  "@m0522": {
     "description": "Source text: Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz."
   },
-  "m0520": "Obezitás",
-  "@m0520": {
+  "m0523": "Obezitás",
+  "@m0523": {
     "description": "Source text: Obezitás"
   },
-  "m0521": "Okos kosár nap",
-  "@m0521": {
+  "m0524": "Okos kosár nap",
+  "@m0524": {
     "description": "Source text: Okos kosár nap"
   },
-  "m0522": "Okos nap",
-  "@m0522": {
+  "m0525": "Okos nap",
+  "@m0525": {
     "description": "Source text: Okos nap"
   },
-  "m0523": "Olcsó okos nap",
-  "@m0523": {
+  "m0526": "Olcsó okos nap",
+  "@m0526": {
     "description": "Source text: Olcsó okos nap"
   },
-  "m0524": "Olívaolaj",
-  "@m0524": {
+  "m0527": "Olívaolaj",
+  "@m0527": {
     "description": "Source text: Olívaolaj"
   },
-  "m0525": "Onboarding újraindítása",
-  "@m0525": {
+  "m0528": "Onboarding újraindítása",
+  "@m0528": {
     "description": "Source text: Onboarding újraindítása"
   },
-  "m0526": "Összes",
-  "@m0526": {
+  "m0529": "Összes",
+  "@m0529": {
     "description": "Source text: Összes"
   },
-  "m0527": "Összes kalória",
-  "@m0527": {
+  "m0530": "Összes kalória",
+  "@m0530": {
     "description": "Source text: Összes kalória"
   },
-  "m0528": "össztömeget",
-  "@m0528": {
+  "m0531": "össztömeget",
+  "@m0531": {
     "description": "Source text: össztömeget"
   },
-  "m0529": "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.",
-  "@m0529": {
+  "m0532": "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.",
+  "@m0532": {
     "description": "Source text: Oszd dobozokra a kuszkuszt, csirkét és brokkolit."
   },
-  "m0530": "Oszd dobozokra a rizst, csirkét és brokkolit.",
-  "@m0530": {
+  "m0533": "Oszd dobozokra a rizst, csirkét és brokkolit.",
+  "@m0533": {
     "description": "Source text: Oszd dobozokra a rizst, csirkét és brokkolit."
   },
-  "m0531": "Overnight oats előre bekészítve",
-  "@m0531": {
+  "m0534": "Overnight oats előre bekészítve",
+  "@m0534": {
     "description": "Source text: Overnight oats előre bekészítve"
   },
-  "m0532": "Paprika",
-  "@m0532": {
+  "m0535": "Paprika",
+  "@m0535": {
     "description": "Source text: Paprika"
   },
-  "m0533": "Paradicsom",
-  "@m0533": {
+  "m0536": "Paradicsom",
+  "@m0536": {
     "description": "Source text: Paradicsom"
   },
-  "m0534": "Paradicsompüré",
-  "@m0534": {
+  "m0537": "Paradicsompüré",
+  "@m0537": {
     "description": "Source text: Paradicsompüré"
   },
-  "m0535": "Paradicsomszósszal és sajttal süsd készre.",
-  "@m0535": {
+  "m0538": "Paradicsomszósszal és sajttal süsd készre.",
+  "@m0538": {
     "description": "Source text: Paradicsomszósszal és sajttal süsd készre."
   },
-  "m0536": "Paradicsomszósz",
-  "@m0536": {
+  "m0539": "Paradicsomszósz",
+  "@m0539": {
     "description": "Source text: Paradicsomszósz"
   },
-  "m0537": "Pénztárca plusz nap",
-  "@m0537": {
+  "m0540": "Pénztárca plusz nap",
+  "@m0540": {
     "description": "Source text: Pénztárca plusz nap"
   },
-  "m0538": "Pénztárcabarát",
-  "@m0538": {
+  "m0541": "Pénztárcabarát",
+  "@m0541": {
     "description": "Source text: Pénztárcabarát"
   },
-  "m0539": "perc",
-  "@m0539": {
+  "m0542": "perc",
+  "@m0542": {
     "description": "Source text: perc"
   },
-  "m0540": "Pirítsd meg a kenyeret.",
-  "@m0540": {
+  "m0543": "Pirítsd meg a kenyeret.",
+  "@m0543": {
     "description": "Source text: Pirítsd meg a kenyeret."
   },
-  "m0541": "Pl. Hétvégi főzés",
-  "@m0541": {
+  "m0544": "Pl. Hétvégi főzés",
+  "@m0544": {
     "description": "Source text: Pl. Hétvégi főzés"
   },
-  "m0542": "Plan a calm, strong day.",
-  "@m0542": {
+  "m0545": "Tervezz nyugodt, erős napot.",
+  "@m0545": {
     "description": "Source text: Plan a calm, strong day."
   },
-  "m0543": "Pörgős nap",
-  "@m0543": {
+  "m0546": "Pörgős nap",
+  "@m0546": {
     "description": "Source text: Pörgős nap"
   },
-  "m0544": "Praktikus nap",
-  "@m0544": {
+  "m0547": "Praktikus nap",
+  "@m0547": {
     "description": "Source text: Praktikus nap"
   },
-  "m0545": "Prep what makes later easier.",
-  "@m0545": {
+  "m0548": "Készítsd elő, ami később megkönnyíti a dolgod.",
+  "@m0548": {
     "description": "Source text: Prep what makes later easier."
   },
-  "m0546": "Pro",
-  "@m0546": {
+  "m0549": "Pro",
+  "@m0549": {
     "description": "Source text: Pro"
   },
-  "m0547": "Pro mód teszt",
-  "@m0547": {
+  "m0550": "Pro mód teszt",
+  "@m0550": {
     "description": "Source text: Pro mód teszt"
   },
-  "m0548": "Pro statisztika",
-  "@m0548": {
+  "m0551": "Pro statisztika",
+  "@m0551": {
     "description": "Source text: Pro statisztika"
   },
-  "m0549": "Pro-val feloldható extrák",
-  "@m0549": {
+  "m0552": "Pro-val feloldható extrák",
+  "@m0552": {
     "description": "Source text: Pro-val feloldható extrák"
   },
-  "m0550": "Próbáld ki ingyen 7 napig",
-  "@m0550": {
+  "m0553": "Próbáld ki ingyen 7 napig",
+  "@m0553": {
     "description": "Source text: Próbáld ki ingyen 7 napig"
   },
-  "m0551": "Profil",
-  "@m0551": {
+  "m0554": "Profil",
+  "@m0554": {
     "description": "Source text: Profil"
   },
-  "m0552": "Progresszió törlése",
-  "@m0552": {
+  "m0555": "Progresszió törlése",
+  "@m0555": {
     "description": "Source text: Progresszió törlése"
   },
-  "m0553": "Protein joghurt pohár",
-  "@m0553": {
+  "m0556": "Protein joghurt pohár",
+  "@m0556": {
     "description": "Source text: Protein joghurt pohár"
   },
-  "m0554": "Protein zabkása bogyós gyümölccsel",
-  "@m0554": {
+  "m0557": "Protein zabkása bogyós gyümölccsel",
+  "@m0557": {
     "description": "Source text: Protein zabkása bogyós gyümölccsel"
   },
-  "m0555": "Pulykagolyók cukkinispagettivel",
-  "@m0555": {
+  "m0558": "Pulykagolyók cukkinispagettivel",
+  "@m0558": {
     "description": "Source text: Pulykagolyók cukkinispagettivel"
   },
-  "m0556": "Pulykamell sonka",
-  "@m0556": {
+  "m0559": "Pulykamell sonka",
+  "@m0559": {
     "description": "Source text: Pulykamell sonka"
   },
-  "m0557": "Pulykás bolognai tészta",
-  "@m0557": {
+  "m0560": "Pulykás bolognai tészta",
+  "@m0560": {
     "description": "Source text: Pulykás bolognai tészta"
   },
-  "m0558": "Pulykás bolognai tészta light adagban",
-  "@m0558": {
+  "m0561": "Pulykás bolognai tészta light adagban",
+  "@m0561": {
     "description": "Source text: Pulykás bolognai tészta light adagban"
   },
-  "m0559": "Pulykás cottage reggeli doboz",
-  "@m0559": {
+  "m0562": "Pulykás cottage reggeli doboz",
+  "@m0562": {
     "description": "Source text: Pulykás cottage reggeli doboz"
   },
-  "m0560": "Pulykás sajtos tekercsek",
-  "@m0560": {
+  "m0563": "Pulykás sajtos tekercsek",
+  "@m0563": {
     "description": "Source text: Pulykás sajtos tekercsek"
   },
-  "m0561": "Pulykás tojásos wrap",
-  "@m0561": {
+  "m0564": "Pulykás tojásos wrap",
+  "@m0564": {
     "description": "Source text: Pulykás tojásos wrap"
   },
-  "m0562": "Pulykasonka",
-  "@m0562": {
+  "m0565": "Pulykasonka",
+  "@m0565": {
     "description": "Source text: Pulykasonka"
   },
-  "m0563": "Pulykával töltött cukkini",
-  "@m0563": {
+  "m0566": "Pulykával töltött cukkini",
+  "@m0566": {
     "description": "Source text: Pulykával töltött cukkini"
   },
-  "m0564": "Quinoa",
-  "@m0564": {
+  "m0567": "Quinoa",
+  "@m0567": {
     "description": "Source text: Quinoa"
   },
-  "m0565": "Quinoás bogyós snack pohár",
-  "@m0565": {
+  "m0568": "Quinoás bogyós snack pohár",
+  "@m0568": {
     "description": "Source text: Quinoás bogyós snack pohár"
   },
-  "m0566": "Quinoás joghurtos reggeli",
-  "@m0566": {
+  "m0569": "Quinoás joghurtos reggeli",
+  "@m0569": {
     "description": "Source text: Quinoás joghurtos reggeli"
   },
-  "m0567": "rákfélék",
-  "@m0567": {
+  "m0570": "rákfélék",
+  "@m0570": {
     "description": "Source text: rákfélék"
   },
-  "m0568": "Recept",
-  "@m0568": {
+  "m0571": "Recept",
+  "@m0571": {
     "description": "Source text: Recept"
   },
-  "m0569": "Recept szorzó",
-  "@m0569": {
+  "m0572": "Recept szorzó",
+  "@m0572": {
     "description": "Source text: Recept szorzó"
   },
-  "m0570": "Receptek",
-  "@m0570": {
+  "m0573": "Receptek",
+  "@m0573": {
     "description": "Source text: Receptek"
   },
-  "m0571": "Reggeli",
-  "@m0571": {
+  "m0574": "Reggeli",
+  "@m0574": {
     "description": "Source text: Reggeli"
   },
-  "m0572": "Rendezett doboz nap",
-  "@m0572": {
+  "m0575": "Rendezett doboz nap",
+  "@m0575": {
     "description": "Source text: Rendezett doboz nap"
   },
-  "m0573": "Rendszer",
-  "@m0573": {
+  "m0576": "Rendszer",
+  "@m0576": {
     "description": "Source text: Rendszer"
   },
-  "m0574": "Rendszeres használathoz",
-  "@m0574": {
+  "m0577": "Rendszeres használathoz",
+  "@m0577": {
     "description": "Source text: Rendszeres használathoz"
   },
-  "m0575": "Répa",
-  "@m0575": {
+  "m0578": "Répa",
+  "@m0578": {
     "description": "Source text: Répa"
   },
-  "m0576": "Reszeld vagy kockázd bele az almát.",
-  "@m0576": {
+  "m0579": "Reszeld vagy kockázd bele az almát.",
+  "@m0579": {
     "description": "Source text: Reszeld vagy kockázd bele az almát."
   },
-  "m0577": "Reszelt sajt",
-  "@m0577": {
+  "m0580": "Reszelt sajt",
+  "@m0580": {
     "description": "Source text: Reszelt sajt"
   },
-  "m0578": "Részletek",
-  "@m0578": {
+  "m0581": "Részletek",
+  "@m0581": {
     "description": "Source text: Részletek"
   },
-  "m0579": "Rétegezd rá a granolát és a szeletelt banánt.",
-  "@m0579": {
+  "m0582": "Rétegezd rá a granolát és a szeletelt banánt.",
+  "@m0582": {
     "description": "Source text: Rétegezd rá a granolát és a szeletelt banánt."
   },
-  "m0580": "Rizs",
-  "@m0580": {
+  "m0583": "Rizs",
+  "@m0583": {
     "description": "Source text: Rizs"
   },
-  "m0581": "Rizsszelet",
-  "@m0581": {
+  "m0584": "Rizsszelet",
+  "@m0584": {
     "description": "Source text: Rizsszelet"
   },
-  "m0582": "Rizsszelet cottage cheese-zel",
-  "@m0582": {
+  "m0585": "Rizsszelet cottage cheese-zel",
+  "@m0585": {
     "description": "Source text: Rizsszelet cottage cheese-zel"
   },
-  "m0583": "Rizstészta",
-  "@m0583": {
+  "m0586": "Rizstészta",
+  "@m0586": {
     "description": "Source text: Rizstészta"
   },
-  "m0584": "Rögzített súlyok",
-  "@m0584": {
+  "m0587": "Rögzített súlyok",
+  "@m0587": {
     "description": "Source text: Rögzített súlyok"
   },
-  "m0585": "Rövid elkészítési idejű ételekkel",
-  "@m0585": {
+  "m0588": "Rövid elkészítési idejű ételekkel",
+  "@m0588": {
     "description": "Source text: Rövid elkészítési idejű ételekkel"
   },
-  "m0586": "Rövid konyha nap",
-  "@m0586": {
+  "m0589": "Rövid konyha nap",
+  "@m0589": {
     "description": "Source text: Rövid konyha nap"
   },
-  "m0587": "Saláta",
-  "@m0587": {
+  "m0590": "Saláta",
+  "@m0590": {
     "description": "Source text: Saláta"
   },
-  "m0588": "Saláta mix",
-  "@m0588": {
+  "m0591": "Saláta mix",
+  "@m0591": {
     "description": "Source text: Saláta mix"
   },
-  "m0589": "Serpenyőben süsd össze sonkával, sajttal és spenóttal.",
-  "@m0589": {
+  "m0592": "Serpenyőben süsd össze sonkával, sajttal és spenóttal.",
+  "@m0592": {
     "description": "Source text: Serpenyőben süsd össze sonkával, sajttal és spenóttal."
   },
-  "m0590": "Sertésszűz",
-  "@m0590": {
+  "m0593": "Sertésszűz",
+  "@m0593": {
     "description": "Source text: Sertésszűz"
   },
-  "m0591": "Sertésszűz kuszkusszal",
-  "@m0591": {
+  "m0594": "Sertésszűz kuszkusszal",
+  "@m0594": {
     "description": "Source text: Sertésszűz kuszkusszal"
   },
-  "m0592": "Sertésszűz kuszkusz salátával",
-  "@m0592": {
+  "m0595": "Sertésszűz kuszkusz salátával",
+  "@m0595": {
     "description": "Source text: Sertésszűz kuszkusz salátával"
   },
-  "m0593": "Set up dinner before the rush.",
-  "@m0593": {
+  "m0596": "Készítsd elő a vacsorát a rohanás előtt.",
+  "@m0596": {
     "description": "Source text: Set up dinner before the rush."
   },
-  "m0594": "Shakshuka reggeli tál",
-  "@m0594": {
+  "m0597": "Shakshuka reggeli tál",
+  "@m0597": {
     "description": "Source text: Shakshuka reggeli tál"
   },
-  "m0595": "Sietős lendület nap",
-  "@m0595": {
+  "m0598": "Sietős lendület nap",
+  "@m0598": {
     "description": "Source text: Sietős lendület nap"
   },
-  "m0596": "Sietős nap",
-  "@m0596": {
+  "m0599": "Sietős nap",
+  "@m0599": {
     "description": "Source text: Sietős nap"
   },
-  "m0597": "Skyr vagy görög joghurt",
-  "@m0597": {
+  "m0600": "Skyr vagy görög joghurt",
+  "@m0600": {
     "description": "Source text: Skyr vagy görög joghurt"
   },
-  "m0598": "Slow down, eat well, rest easy.",
-  "@m0598": {
+  "m0601": "Lassíts, egyél jól, pihenj nyugodtan.",
+  "@m0601": {
     "description": "Source text: Slow down, eat well, rest easy."
   },
-  "m0599": "Small choices, solid momentum.",
-  "@m0599": {
+  "m0602": "Apró döntések, stabil lendület.",
+  "@m0602": {
     "description": "Source text: Small choices, solid momentum."
   },
-  "m0600": "Só, bors",
-  "@m0600": {
+  "m0603": "Só, bors",
+  "@m0603": {
     "description": "Source text: Só, bors"
   },
-  "m0601": "Sonkás sajtos omlett",
-  "@m0601": {
+  "m0604": "Sonkás sajtos omlett",
+  "@m0604": {
     "description": "Source text: Sonkás sajtos omlett"
   },
-  "m0602": "Sonkás tojásos abonett tál",
-  "@m0602": {
+  "m0605": "Sonkás tojásos abonett tál",
+  "@m0605": {
     "description": "Source text: Sonkás tojásos abonett tál"
   },
-  "m0603": "Sós cottage cheese tál",
-  "@m0603": {
+  "m0606": "Sós cottage cheese tál",
+  "@m0606": {
     "description": "Source text: Sós cottage cheese tál"
   },
-  "m0604": "Sötét",
-  "@m0604": {
+  "m0607": "Sötét",
+  "@m0607": {
     "description": "Source text: Sötét"
   },
-  "m0605": "Sötét mód",
-  "@m0605": {
+  "m0608": "Sötét mód",
+  "@m0608": {
     "description": "Source text: Sötét mód"
   },
-  "m0606": "Sovány",
-  "@m0606": {
+  "m0609": "Sovány",
+  "@m0609": {
     "description": "Source text: Sovány"
   },
-  "m0607": "Sovány marhahús",
-  "@m0607": {
+  "m0610": "Sovány marhahús",
+  "@m0610": {
     "description": "Source text: Sovány marhahús"
   },
-  "m0608": "Spenót",
-  "@m0608": {
+  "m0611": "Spenót",
+  "@m0611": {
     "description": "Source text: Spenót"
   },
-  "m0609": "Spenótos kókuszos csicseriborsó",
-  "@m0609": {
+  "m0612": "Spenótos kókuszos csicseriborsó",
+  "@m0612": {
     "description": "Source text: Spenótos kókuszos csicseriborsó"
   },
-  "m0610": "Sportos nap",
-  "@m0610": {
+  "m0613": "Sportos nap",
+  "@m0613": {
     "description": "Source text: Sportos nap"
   },
-  "m0611": "Stabil erő nap",
-  "@m0611": {
+  "m0614": "Stabil erő nap",
+  "@m0614": {
     "description": "Source text: Stabil erő nap"
   },
-  "m0612": "Stagnál",
-  "@m0612": {
+  "m0615": "Stagnál",
+  "@m0615": {
     "description": "Source text: Stagnál"
   },
-  "m0613": "Start simple, stay steady.",
-  "@m0613": {
+  "m0616": "Kezdj egyszerűen, maradj következetes.",
+  "@m0616": {
     "description": "Source text: Start simple, stay steady."
   },
-  "m0614": "Stay fueled and focused.",
-  "@m0614": {
+  "m0617": "Maradj energikus és fókuszált.",
+  "@m0617": {
     "description": "Source text: Stay fueled and focused."
   },
-  "m0615": "Sült csirkemell",
-  "@m0615": {
+  "m0618": "Sült csirkemell",
+  "@m0618": {
     "description": "Source text: Sült csirkemell"
   },
-  "m0616": "Sült hal zöldségágyon",
-  "@m0616": {
+  "m0619": "Sült hal zöldségágyon",
+  "@m0619": {
     "description": "Source text: Sült hal zöldségágyon"
   },
-  "m0617": "Súly",
-  "@m0617": {
+  "m0620": "Súly",
+  "@m0620": {
     "description": "Source text: Súly"
   },
-  "m0618": "Súly (kg)",
-  "@m0618": {
+  "m0621": "Súly (kg)",
+  "@m0621": {
     "description": "Source text: Súly (kg)"
   },
-  "m0619": "Súly követés",
-  "@m0619": {
+  "m0622": "Súly követés",
+  "@m0622": {
     "description": "Source text: Súly követés"
   },
-  "m0620": "Súly progresszió",
-  "@m0620": {
+  "m0623": "Súly progresszió",
+  "@m0623": {
     "description": "Source text: Súly progresszió"
   },
-  "m0621": "Súly szerkesztése",
-  "@m0621": {
+  "m0624": "Súly szerkesztése",
+  "@m0624": {
     "description": "Source text: Súly szerkesztése"
   },
-  "m0622": "Súlykövetés",
-  "@m0622": {
+  "m0625": "Súlykövetés",
+  "@m0625": {
     "description": "Source text: Súlykövetés"
   },
-  "m0623": "Súlykövetés diagram",
-  "@m0623": {
+  "m0626": "Súlykövetés diagram",
+  "@m0626": {
     "description": "Source text: Súlykövetés diagram"
   },
-  "m0624": "Súlynapló szerkesztés",
-  "@m0624": {
+  "m0627": "Súlynapló szerkesztés",
+  "@m0627": {
     "description": "Source text: Súlynapló szerkesztés"
   },
-  "m0625": "Süsd készre, amíg a hal omlós lesz.",
-  "@m0625": {
+  "m0628": "Süsd készre, amíg a hal omlós lesz.",
+  "@m0628": {
     "description": "Source text: Süsd készre, amíg a hal omlós lesz."
   },
-  "m0626": "Süsd vagy párold készre paradicsomszószban.",
-  "@m0626": {
+  "m0629": "Süsd vagy párold készre paradicsomszószban.",
+  "@m0629": {
     "description": "Source text: Süsd vagy párold készre paradicsomszószban."
   },
-  "m0627": "Sütőpor",
-  "@m0627": {
+  "m0630": "Sütőpor",
+  "@m0630": {
     "description": "Source text: Sütőpor"
   },
-  "m0628": "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.",
-  "@m0628": {
+  "m0631": "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.",
+  "@m0631": {
     "description": "Source text: Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján."
   },
-  "m0629": "Személyes adatok",
-  "@m0629": {
+  "m0632": "Személyes adatok",
+  "@m0632": {
     "description": "Source text: Személyes adatok"
   },
-  "m0630": "SZEMÉLYES ALAPOK",
-  "@m0630": {
+  "m0633": "SZEMÉLYES ALAPOK",
+  "@m0633": {
     "description": "Source text: SZEMÉLYES ALAPOK"
   },
-  "m0631": "Szép napot",
-  "@m0631": {
+  "m0634": "Szép napot",
+  "@m0634": {
     "description": "Source text: Szép napot"
   },
-  "m0632": "Szerkesztés",
-  "@m0632": {
+  "m0635": "Szerkesztés",
+  "@m0635": {
     "description": "Source text: Szerkesztés"
   },
-  "m0633": "szezám",
-  "@m0633": {
+  "m0636": "szezám",
+  "@m0636": {
     "description": "Source text: szezám"
   },
-  "m0634": "Szezámmag",
-  "@m0634": {
+  "m0637": "Szezámmag",
+  "@m0637": {
     "description": "Source text: Szezámmag"
   },
-  "m0635": "szója",
-  "@m0635": {
+  "m0638": "szója",
+  "@m0638": {
     "description": "Source text: szója"
   },
-  "m0636": "Szójagranulátum",
-  "@m0636": {
+  "m0639": "Szójagranulátum",
+  "@m0639": {
     "description": "Source text: Szójagranulátum"
   },
-  "m0637": "Szójaszósszal ízesítsd, majd süsd össze.",
-  "@m0637": {
+  "m0640": "Szójaszósszal ízesítsd, majd süsd össze.",
+  "@m0640": {
     "description": "Source text: Szójaszósszal ízesítsd, majd süsd össze."
   },
-  "m0638": "Szójaszósz",
-  "@m0638": {
+  "m0641": "Szójaszósz",
+  "@m0641": {
     "description": "Source text: Szójaszósz"
   },
-  "m0639": "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.",
-  "@m0639": {
+  "m0642": "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.",
+  "@m0642": {
     "description": "Source text: Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd."
   },
-  "m0640": "Szükséges kész étel",
-  "@m0640": {
+  "m0643": "Szükséges kész étel",
+  "@m0643": {
     "description": "Source text: Szükséges kész étel"
   },
-  "m0641": "Szükséges kész főétel",
-  "@m0641": {
+  "m0644": "Szükséges kész főétel",
+  "@m0644": {
     "description": "Source text: Szükséges kész főétel"
   },
-  "m0642": "Szükséges kész köret",
-  "@m0642": {
+  "m0645": "Szükséges kész köret",
+  "@m0645": {
     "description": "Source text: Szükséges kész köret"
   },
-  "m0643": "Szükséges nyers alapanyag",
-  "@m0643": {
+  "m0646": "Szükséges nyers alapanyag",
+  "@m0646": {
     "description": "Source text: Szükséges nyers alapanyag"
   },
-  "m0644": "Szükséges nyers főétel",
-  "@m0644": {
+  "m0647": "Szükséges nyers főétel",
+  "@m0647": {
     "description": "Source text: Szükséges nyers főétel"
   },
-  "m0645": "Szükséges nyers köret",
-  "@m0645": {
+  "m0648": "Szükséges nyers köret",
+  "@m0648": {
     "description": "Source text: Szükséges nyers köret"
   },
-  "m0646": "Takarékos nap",
-  "@m0646": {
+  "m0649": "Takarékos nap",
+  "@m0649": {
     "description": "Source text: Takarékos nap"
   },
-  "m0647": "Tálald a curry alapot rizzsel.",
-  "@m0647": {
+  "m0650": "Tálald a curry alapot rizzsel.",
+  "@m0650": {
     "description": "Source text: Tálald a curry alapot rizzsel."
   },
-  "m0648": "Tálald bogyós gyümölccsel és chia maggal.",
-  "@m0648": {
+  "m0651": "Tálald bogyós gyümölccsel és chia maggal.",
+  "@m0651": {
     "description": "Source text: Tálald bogyós gyümölccsel és chia maggal."
   },
-  "m0649": "Tálald bogyós gyümölccsel.",
-  "@m0649": {
+  "m0652": "Tálald bogyós gyümölccsel.",
+  "@m0652": {
     "description": "Source text: Tálald bogyós gyümölccsel."
   },
-  "m0650": "Tálald cottage cheese-zel, abonettel és tökmaggal.",
-  "@m0650": {
+  "m0653": "Tálald cottage cheese-zel, abonettel és tökmaggal.",
+  "@m0653": {
     "description": "Source text: Tálald cottage cheese-zel, abonettel és tökmaggal."
   },
-  "m0651": "Tálald fetával és tzatzikivel.",
-  "@m0651": {
+  "m0654": "Tálald fetával és tzatzikivel.",
+  "@m0654": {
     "description": "Source text: Tálald fetával és tzatzikivel."
   },
-  "m0652": "Tálald gyümölccsel.",
-  "@m0652": {
+  "m0655": "Tálald gyümölccsel.",
+  "@m0655": {
     "description": "Source text: Tálald gyümölccsel."
   },
-  "m0653": "Tálald pitával, salátával és joghurtos szósszal.",
-  "@m0653": {
+  "m0656": "Tálald pitával, salátával és joghurtos szósszal.",
+  "@m0656": {
     "description": "Source text: Tálald pitával, salátával és joghurtos szósszal."
   },
-  "m0654": "Tálald salátával és joghurtos öntettel.",
-  "@m0654": {
+  "m0657": "Tálald salátával és joghurtos öntettel.",
+  "@m0657": {
     "description": "Source text: Tálald salátával és joghurtos öntettel."
   },
-  "m0655": "Tálald zöldbabbal és kevés mustáros szósszal.",
-  "@m0655": {
+  "m0658": "Tálald zöldbabbal és kevés mustáros szósszal.",
+  "@m0658": {
     "description": "Source text: Tálald zöldbabbal és kevés mustáros szósszal."
   },
-  "m0656": "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.",
-  "@m0656": {
+  "m0659": "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.",
+  "@m0659": {
     "description": "Source text: Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak."
   },
-  "m0657": "Tartsd kézben az étkezéseidet.",
-  "@m0657": {
+  "m0660": "Tartsd kézben az étkezéseidet.",
+  "@m0660": {
     "description": "Source text: Tartsd kézben az étkezéseidet."
   },
-  "m0658": "Te adod meg, hány gramm kerüljön egy adagba.",
-  "@m0658": {
+  "m0661": "Te adod meg, hány gramm kerüljön egy adagba.",
+  "@m0661": {
     "description": "Source text: Te adod meg, hány gramm kerüljön egy adagba."
   },
-  "m0659": "Tedd dobozba hummusszal együtt.",
-  "@m0659": {
+  "m0662": "Tedd dobozba hummusszal együtt.",
+  "@m0662": {
     "description": "Source text: Tedd dobozba hummusszal együtt."
   },
-  "m0660": "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.",
-  "@m0660": {
+  "m0663": "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.",
+  "@m0663": {
     "description": "Source text: Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd."
   },
-  "m0661": "Tedd rá a csirkét és az öntetet.",
-  "@m0661": {
+  "m0664": "Tedd rá a csirkét és az öntetet.",
+  "@m0664": {
     "description": "Source text: Tedd rá a csirkét és az öntetet."
   },
-  "m0662": "Tedd rá a gyümölcsöt, mézet és diót.",
-  "@m0662": {
+  "m0665": "Tedd rá a gyümölcsöt, mézet és diót.",
+  "@m0665": {
     "description": "Source text: Tedd rá a gyümölcsöt, mézet és diót."
   },
-  "m0663": "Tedd rá a paradicsomot és szórd meg tökmaggal.",
-  "@m0663": {
+  "m0666": "Tedd rá a paradicsomot és szórd meg tökmaggal.",
+  "@m0666": {
     "description": "Source text: Tedd rá a paradicsomot és szórd meg tökmaggal."
   },
-  "m0664": "Tedd rá a tojást és frissen tálald.",
-  "@m0664": {
+  "m0667": "Tedd rá a tojást és frissen tálald.",
+  "@m0667": {
     "description": "Source text: Tedd rá a tojást és frissen tálald."
   },
-  "m0665": "Tedd rá az epret és a mandulát.",
-  "@m0665": {
+  "m0668": "Tedd rá az epret és a mandulát.",
+  "@m0668": {
     "description": "Source text: Tedd rá az epret és a mandulát."
   },
-  "m0666": "Tegnap",
-  "@m0666": {
+  "m0669": "Tegnap",
+  "@m0669": {
     "description": "Source text: Tegnap"
   },
-  "m0667": "Tej",
-  "@m0667": {
+  "m0670": "Tej",
+  "@m0670": {
     "description": "Source text: Tej"
   },
-  "m0668": "Tej vagy növényi ital",
-  "@m0668": {
+  "m0671": "Tej vagy növényi ital",
+  "@m0671": {
     "description": "Source text: Tej vagy növényi ital"
   },
-  "m0669": "tejfehérje",
-  "@m0669": {
+  "m0672": "tejfehérje",
+  "@m0672": {
     "description": "Source text: tejfehérje"
   },
-  "m0670": "Tekerd fel és vágd félbe.",
-  "@m0670": {
+  "m0673": "Tekerd fel és vágd félbe.",
+  "@m0673": {
     "description": "Source text: Tekerd fel és vágd félbe."
   },
-  "m0671": "Teljes kiőrlésű abonett",
-  "@m0671": {
+  "m0674": "Teljes kiőrlésű abonett",
+  "@m0674": {
     "description": "Source text: Teljes kiőrlésű abonett"
   },
-  "m0672": "Teljes kiőrlésű keksz",
-  "@m0672": {
+  "m0675": "Teljes kiőrlésű keksz",
+  "@m0675": {
     "description": "Source text: Teljes kiőrlésű keksz"
   },
-  "m0673": "Teljes kiőrlésű kenyér",
-  "@m0673": {
+  "m0676": "Teljes kiőrlésű kenyér",
+  "@m0676": {
     "description": "Source text: Teljes kiőrlésű kenyér"
   },
-  "m0674": "Teljes kiőrlésű pita",
-  "@m0674": {
+  "m0677": "Teljes kiőrlésű pita",
+  "@m0677": {
     "description": "Source text: Teljes kiőrlésű pita"
   },
-  "m0675": "Teljes kiőrlésű tészta",
-  "@m0675": {
+  "m0678": "Teljes kiőrlésű tészta",
+  "@m0678": {
     "description": "Source text: Teljes kiőrlésű tészta"
   },
-  "m0676": "Teljes kiőrlésű tortilla",
-  "@m0676": {
+  "m0679": "Teljes kiőrlésű tortilla",
+  "@m0679": {
     "description": "Source text: Teljes kiőrlésű tortilla"
   },
-  "m0677": "Teljes mennyiség elosztása",
-  "@m0677": {
+  "m0680": "Teljes mennyiség elosztása",
+  "@m0680": {
     "description": "Source text: Teljes mennyiség elosztása"
   },
-  "m0678": "Teljesítmény nap",
-  "@m0678": {
+  "m0681": "Teljesítmény nap",
+  "@m0681": {
     "description": "Source text: Teljesítmény nap"
   },
-  "m0679": "Téma",
-  "@m0679": {
+  "m0682": "Téma",
+  "@m0682": {
     "description": "Source text: Téma"
   },
-  "m0680": "Téma választása",
-  "@m0680": {
+  "m0683": "Téma választása",
+  "@m0683": {
     "description": "Source text: Téma választása"
   },
-  "m0681": "Témák (6 db)",
-  "@m0681": {
+  "m0684": "Témák (6 db)",
+  "@m0684": {
     "description": "Source text: Témák (6 db)"
   },
-  "m0682": "Tempós nap",
-  "@m0682": {
+  "m0685": "Tempós nap",
+  "@m0685": {
     "description": "Source text: Tempós nap"
   },
-  "m0683": "Tempós tál nap",
-  "@m0683": {
+  "m0686": "Tempós tál nap",
+  "@m0686": {
     "description": "Source text: Tempós tál nap"
   },
-  "m0684": "Terv neve",
-  "@m0684": {
+  "m0687": "Terv neve",
+  "@m0687": {
     "description": "Source text: Terv neve"
   },
-  "m0685": "Tervezd meg a vacsorát még a rohanás előtt.",
-  "@m0685": {
+  "m0688": "Tervezd meg a vacsorát még a rohanás előtt.",
+  "@m0688": {
     "description": "Source text: Tervezd meg a vacsorát még a rohanás előtt."
   },
-  "m0686": "Tervezett nap",
-  "@m0686": {
+  "m0689": "Tervezett nap",
+  "@m0689": {
     "description": "Source text: Tervezett nap"
   },
-  "m0687": "Tervezz egy nyugodt, erős napot.",
-  "@m0687": {
+  "m0690": "Tervezz egy nyugodt, erős napot.",
+  "@m0690": {
     "description": "Source text: Tervezz egy nyugodt, erős napot."
   },
-  "m0688": "Tervezz, főzz, kövess okosabban",
-  "@m0688": {
+  "m0691": "Tervezz, főzz, kövess okosabban",
+  "@m0691": {
     "description": "Source text: Tervezz, főzz, kövess okosabban"
   },
-  "m0689": "TESTTÖMEG INDEX (BMI)",
-  "@m0689": {
+  "m0692": "TESTTÖMEG INDEX (BMI)",
+  "@m0692": {
     "description": "Source text: TESTTÖMEG INDEX (BMI)"
   },
-  "m0690": "Tészta",
-  "@m0690": {
+  "m0693": "Tészta",
+  "@m0693": {
     "description": "Source text: Tészta"
   },
-  "m0691": "tétel",
-  "@m0691": {
+  "m0694": "tétel",
+  "@m0694": {
     "description": "Source text: tétel"
   },
-  "m0692": "Tétel hozzáadása",
-  "@m0692": {
+  "m0695": "Tétel hozzáadása",
+  "@m0695": {
     "description": "Source text: Tétel hozzáadása"
   },
-  "m0693": "téves értéket kapsz.",
-  "@m0693": {
+  "m0696": "téves értéket kapsz.",
+  "@m0696": {
     "description": "Source text: téves értéket kapsz."
   },
-  "m0694": "Tiszta energia nap",
-  "@m0694": {
+  "m0697": "Tiszta energia nap",
+  "@m0697": {
     "description": "Source text: Tiszta energia nap"
   },
-  "m0695": "Tiszta nap",
-  "@m0695": {
+  "m0698": "Tiszta nap",
+  "@m0698": {
     "description": "Source text: Tiszta nap"
   },
-  "m0696": "Tiszta ritmus nap",
-  "@m0696": {
+  "m0699": "Tiszta ritmus nap",
+  "@m0699": {
     "description": "Source text: Tiszta ritmus nap"
   },
-  "m0697": "Több mentés, bevásárlólisták, súlykövetés extrák",
-  "@m0697": {
+  "m0700": "Több mentés, bevásárlólisták, súlykövetés extrák",
+  "@m0700": {
     "description": "Source text: Több mentés, bevásárlólisták, súlykövetés extrák"
   },
-  "m0698": "Tofu",
-  "@m0698": {
+  "m0701": "Tofu",
+  "@m0701": {
     "description": "Source text: Tofu"
   },
-  "m0699": "Tofus csicseriborsó curry",
-  "@m0699": {
+  "m0702": "Tofus csicseriborsó curry",
+  "@m0702": {
     "description": "Source text: Tofus csicseriborsó curry"
   },
-  "m0700": "Tofus quinoás vacsoratál",
-  "@m0700": {
+  "m0703": "Tofus quinoás vacsoratál",
+  "@m0703": {
     "description": "Source text: Tofus quinoás vacsoratál"
   },
-  "m0701": "Tofus zöldséges noodle box",
-  "@m0701": {
+  "m0704": "Tofus zöldséges noodle box",
+  "@m0704": {
     "description": "Source text: Tofus zöldséges noodle box"
   },
-  "m0702": "tojás",
-  "@m0702": {
+  "m0705": "tojás",
+  "@m0705": {
     "description": "Source text: tojás"
   },
-  "m0703": "Tojás",
-  "@m0703": {
+  "m0706": "Tojás",
+  "@m0706": {
     "description": "Source text: Tojás"
   },
-  "m0704": "Tojásos avokádós pirítós",
-  "@m0704": {
+  "m0707": "Tojásos avokádós pirítós",
+  "@m0707": {
     "description": "Source text: Tojásos avokádós pirítós"
   },
-  "m0705": "Tojásos rizses reggeli serpenyő",
-  "@m0705": {
+  "m0708": "Tojásos rizses reggeli serpenyő",
+  "@m0708": {
     "description": "Source text: Tojásos rizses reggeli serpenyő"
   },
-  "m0706": "Tojásos zöldséges rizs",
-  "@m0706": {
+  "m0709": "Tojásos zöldséges rizs",
+  "@m0709": {
     "description": "Source text: Tojásos zöldséges rizs"
   },
-  "m0707": "Tökmag",
-  "@m0707": {
+  "m0710": "Tökmag",
+  "@m0710": {
     "description": "Source text: Tökmag"
   },
-  "m0708": "Töltött paprika light módra",
-  "@m0708": {
+  "m0711": "Töltött paprika light módra",
+  "@m0711": {
     "description": "Source text: Töltött paprika light módra"
   },
-  "m0709": "Töltsd meg csirkével és salátával.",
-  "@m0709": {
+  "m0712": "Töltsd meg csirkével és salátával.",
+  "@m0712": {
     "description": "Source text: Töltsd meg csirkével és salátával."
   },
-  "m0710": "Töltsd meg húsos-rizses keverékkel.",
-  "@m0710": {
+  "m0713": "Töltsd meg húsos-rizses keverékkel.",
+  "@m0713": {
     "description": "Source text: Töltsd meg húsos-rizses keverékkel."
   },
-  "m0711": "Töltsd meg pulykás-babos keverékkel.",
-  "@m0711": {
+  "m0714": "Töltsd meg pulykás-babos keverékkel.",
+  "@m0714": {
     "description": "Source text: Töltsd meg pulykás-babos keverékkel."
   },
-  "m0712": "Tömegnövelés",
-  "@m0712": {
+  "m0715": "Tömegnövelés",
+  "@m0715": {
     "description": "Source text: Tömegnövelés"
   },
-  "m0713": "Tömegnöveléshez: ",
-  "@m0713": {
+  "m0716": "Tömegnöveléshez: ",
+  "@m0716": {
     "description": "Source text: Tömegnöveléshez: "
   },
-  "m0714": "Tomorrow starts with tonight’s prep.",
-  "@m0714": {
+  "m0717": "A holnap a ma esti előkészülettel kezdődik.",
+  "@m0717": {
     "description": "Source text: Tomorrow starts with tonight’s prep."
   },
-  "m0715": "Tonhal",
-  "@m0715": {
+  "m0718": "Tonhal",
+  "@m0718": {
     "description": "Source text: Tonhal"
   },
-  "m0716": "Tonhalas babos burgonyasaláta",
-  "@m0716": {
+  "m0719": "Tonhalas babos burgonyasaláta",
+  "@m0719": {
     "description": "Source text: Tonhalas babos burgonyasaláta"
   },
-  "m0717": "Tonhalas kukoricás tésztasaláta",
-  "@m0717": {
+  "m0720": "Tonhalas kukoricás tésztasaláta",
+  "@m0720": {
     "description": "Source text: Tonhalas kukoricás tésztasaláta"
   },
-  "m0718": "Tonhalas reggeli pirítós",
-  "@m0718": {
+  "m0721": "Tonhalas reggeli pirítós",
+  "@m0721": {
     "description": "Source text: Tonhalas reggeli pirítós"
   },
-  "m0719": "Tonhalas ropogós falatok",
-  "@m0719": {
+  "m0722": "Tonhalas ropogós falatok",
+  "@m0722": {
     "description": "Source text: Tonhalas ropogós falatok"
   },
-  "m0720": "Törlés",
-  "@m0720": {
+  "m0723": "Törlés",
+  "@m0723": {
     "description": "Source text: Törlés"
   },
-  "m0721": "Tovább",
-  "@m0721": {
+  "m0724": "Tovább",
+  "@m0724": {
     "description": "Source text: Tovább"
   },
-  "m0722": "További rögzítések",
-  "@m0722": {
+  "m0725": "További rögzítések",
+  "@m0725": {
     "description": "Source text: További rögzítések"
   },
-  "m0723": "Trend",
-  "@m0723": {
+  "m0726": "Trend",
+  "@m0726": {
     "description": "Source text: Trend"
   },
-  "m0724": "Túlsúly",
-  "@m0724": {
+  "m0727": "Túlsúly",
+  "@m0727": {
     "description": "Source text: Túlsúly"
   },
-  "m0725": "Túlsúlyos",
-  "@m0725": {
+  "m0728": "Túlsúlyos",
+  "@m0728": {
     "description": "Source text: Túlsúlyos"
   },
-  "m0726": "Turmixold krémesre 30-60 másodperc alatt.",
-  "@m0726": {
+  "m0729": "Turmixold krémesre 30-60 másodperc alatt.",
+  "@m0729": {
     "description": "Source text: Turmixold krémesre 30-60 másodperc alatt."
   },
-  "m0727": "Túró",
-  "@m0727": {
+  "m0730": "Túró",
+  "@m0730": {
     "description": "Source text: Túró"
   },
-  "m0728": "Túrós bogyós tál",
-  "@m0728": {
+  "m0731": "Túrós bogyós tál",
+  "@m0731": {
     "description": "Source text: Túrós bogyós tál"
   },
-  "m0729": "Túrós zabpalacsinta",
-  "@m0729": {
+  "m0732": "Túrós zabpalacsinta",
+  "@m0732": {
     "description": "Source text: Túrós zabpalacsinta"
   },
-  "m0730": "Túrós zabpalacsinta előre sütve",
-  "@m0730": {
+  "m0733": "Túrós zabpalacsinta előre sütve",
+  "@m0733": {
     "description": "Source text: Túrós zabpalacsinta előre sütve"
   },
-  "m0731": "Tzatziki",
-  "@m0731": {
+  "m0734": "Tzatziki",
+  "@m0734": {
     "description": "Source text: Tzatziki"
   },
-  "m0732": "Uborka",
-  "@m0732": {
+  "m0735": "Uborka",
+  "@m0735": {
     "description": "Source text: Uborka"
   },
-  "m0733": "ÜDV A MEALR-BEN",
-  "@m0733": {
+  "m0736": "ÜDV A MEALR-BEN",
+  "@m0736": {
     "description": "Source text: ÜDV A MEALR-BEN"
   },
-  "m0734": "Új bevásárlólista",
-  "@m0734": {
+  "m0737": "Új",
+  "@m0737": {
+    "description": "Source text: Új"
+  },
+  "m0738": "Új bevásárlólista",
+  "@m0738": {
     "description": "Source text: Új bevásárlólista"
   },
-  "m0735": "Új étel",
-  "@m0735": {
+  "m0739": "Új étel",
+  "@m0739": {
     "description": "Source text: Új étel"
   },
-  "m0736": "Új étel hozzáadása",
-  "@m0736": {
+  "m0740": "Új étel hozzáadása",
+  "@m0740": {
     "description": "Source text: Új étel hozzáadása"
   },
-  "m0737": "Új lista neve",
-  "@m0737": {
+  "m0741": "Új lista neve",
+  "@m0741": {
     "description": "Source text: Új lista neve"
   },
-  "m0738": "Új meal prep terv",
-  "@m0738": {
+  "m0742": "Új meal prep terv",
+  "@m0742": {
     "description": "Source text: Új meal prep terv"
   },
-  "m0739": "Ülő életmód",
-  "@m0739": {
+  "m0743": "Ülő életmód",
+  "@m0743": {
     "description": "Source text: Ülő életmód"
   },
-  "m0740": "Vacsora",
-  "@m0740": {
+  "m0744": "Vacsora",
+  "@m0744": {
     "description": "Source text: Vacsora"
   },
-  "m0741": "Vágd félbe és pirítsd meg a bagelt.",
-  "@m0741": {
+  "m0745": "Vágd félbe és pirítsd meg a bagelt.",
+  "@m0745": {
     "description": "Source text: Vágd félbe és pirítsd meg a bagelt."
   },
-  "m0742": "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.",
-  "@m0742": {
+  "m0746": "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.",
+  "@m0746": {
     "description": "Source text: Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket."
   },
-  "m0743": "Válassz ételt és adagold dobozokra",
-  "@m0743": {
+  "m0747": "Válassz ételt és adagold dobozokra",
+  "@m0747": {
     "description": "Source text: Válassz ételt és adagold dobozokra"
   },
-  "m0744": "Válassz étrend típust",
-  "@m0744": {
+  "m0748": "Válassz étrend típust",
+  "@m0748": {
     "description": "Source text: Válassz étrend típust"
   },
-  "m0745": "Válassz főételt, köretet és adagold dobozokra",
-  "@m0745": {
+  "m0749": "Válassz főételt, köretet és adagold dobozokra",
+  "@m0749": {
     "description": "Source text: Válassz főételt, köretet és adagold dobozokra"
   },
-  "m0746": "Vegán",
-  "@m0746": {
+  "m0750": "Vegán",
+  "@m0750": {
     "description": "Source text: Vegán"
   },
-  "m0747": "Vegetáriánus",
-  "@m0747": {
+  "m0751": "Vegetáriánus",
+  "@m0751": {
     "description": "Source text: Vegetáriánus"
   },
-  "m0748": "Veggie erő nap",
-  "@m0748": {
+  "m0752": "Veggie erő nap",
+  "@m0752": {
     "description": "Source text: Veggie erő nap"
   },
-  "m0749": "Verzió 1.0.0",
-  "@m0749": {
+  "m0753": "Verzió 1.0.0",
+  "@m0753": {
     "description": "Source text: Verzió 1.0.0"
   },
-  "m0750": "veszít a tömegéből",
-  "@m0750": {
+  "m0754": "veszít a tömegéből",
+  "@m0754": {
     "description": "Source text: veszít a tömegéből"
   },
-  "m0751": "Világos",
-  "@m0751": {
+  "m0755": "Világos",
+  "@m0755": {
     "description": "Source text: Világos"
   },
-  "m0752": "Villám nap",
-  "@m0752": {
+  "m0756": "Villám nap",
+  "@m0756": {
     "description": "Source text: Villám nap"
   },
-  "m0753": "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n",
-  "@m0753": {
+  "m0757": "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n",
+  "@m0757": {
     "description": "Source text: vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n"
   },
-  "m0754": "Vörösbab",
-  "@m0754": {
+  "m0758": "Vörösbab",
+  "@m0758": {
     "description": "Source text: Vörösbab"
   },
-  "m0755": "Wok zöldség",
-  "@m0755": {
-    "description": "Source text: Wok zöldség"
-  },
-  "m0756": "Wrap up with something nourishing.",
-  "@m0756": {
-    "description": "Source text: Wrap up with something nourishing."
-  },
-  "m0757": "Zabpehely",
-  "@m0757": {
-    "description": "Source text: Zabpehely"
-  },
-  "m0758": "Zabpehelyliszt",
-  "@m0758": {
-    "description": "Source text: Zabpehelyliszt"
-  },
-  "m0759": "Zárd a napot jóllakottan, nem rohanva.",
+  "m0759": "Wok zöldség",
   "@m0759": {
-    "description": "Source text: Zárd a napot jóllakottan, nem rohanva."
+    "description": "Source text: Wok zöldség"
   },
   "m0760": "Zárd a napot valami táplálóval.",
   "@m0760": {
+    "description": "Source text: Wrap up with something nourishing."
+  },
+  "m0761": "Zabpehely",
+  "@m0761": {
+    "description": "Source text: Zabpehely"
+  },
+  "m0762": "Zabpehelyliszt",
+  "@m0762": {
+    "description": "Source text: Zabpehelyliszt"
+  },
+  "m0763": "Zárd a napot jóllakottan, nem rohanva.",
+  "@m0763": {
+    "description": "Source text: Zárd a napot jóllakottan, nem rohanva."
+  },
+  "m0764": "Zárd a napot valami táplálóval.",
+  "@m0764": {
     "description": "Source text: Zárd a napot valami táplálóval."
   },
-  "m0761": "Zárd gondoskodással a napot.",
-  "@m0761": {
+  "m0765": "Zárd gondoskodással a napot.",
+  "@m0765": {
     "description": "Source text: Zárd gondoskodással a napot."
   },
-  "m0762": "Zöld fókusz nap",
-  "@m0762": {
+  "m0766": "Zöld fókusz nap",
+  "@m0766": {
     "description": "Source text: Zöld fókusz nap"
   },
-  "m0763": "Zöld lendület nap",
-  "@m0763": {
+  "m0767": "Zöld lendület nap",
+  "@m0767": {
     "description": "Source text: Zöld lendület nap"
   },
-  "m0764": "Zöld nap",
-  "@m0764": {
+  "m0768": "Zöld nap",
+  "@m0768": {
     "description": "Source text: Zöld nap"
   },
-  "m0765": "Zöldbab",
-  "@m0765": {
+  "m0769": "Zöldbab",
+  "@m0769": {
     "description": "Source text: Zöldbab"
   },
-  "m0766": "Zöldborsó",
-  "@m0766": {
+  "m0770": "Zöldborsó",
+  "@m0770": {
     "description": "Source text: Zöldborsó"
   },
-  "m0767": "Zöldsaláta",
-  "@m0767": {
+  "m0771": "Zöldsaláta",
+  "@m0771": {
     "description": "Source text: Zöldsaláta"
   },
-  "m0768": "Zöldséges omlett",
-  "@m0768": {
+  "m0772": "Zöldséges omlett",
+  "@m0772": {
     "description": "Source text: Zöldséges omlett"
   },
-  "m0769": "Zsemlemorzsa",
-  "@m0769": {
+  "m0773": "Zsemlemorzsa",
+  "@m0773": {
     "description": "Source text: Zsemlemorzsa"
   }
 }

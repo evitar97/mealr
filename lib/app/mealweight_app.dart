@@ -30,7 +30,7 @@ class _MealWeightAppState extends State<MealWeightApp>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    state.loadSavedPreferences();
+    state.prepareForLaunch();
   }
 
   @override
@@ -67,7 +67,7 @@ class _MealWeightAppState extends State<MealWeightApp>
               brightness: state.isDark ? Brightness.dark : Brightness.light,
               primaryColor: p.accent,
               scaffoldBackgroundColor: p.bg,
-              barBackgroundColor: state.chromeSurface,
+              barBackgroundColor: state.headerSurface,
               textTheme: CupertinoTextThemeData(
                 textStyle: TextStyle(
                   color: p.text,
@@ -95,48 +95,113 @@ class MealWeightShell extends StatelessWidget {
     final state = AppScope.of(context);
     final p = state.palette;
     return CupertinoPageScaffold(
-      backgroundColor: state.chromeSurface,
-      child: SafeArea(
-        bottom: false,
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: const [0, 0.34, 0.72, 1],
-                    colors: [
-                      Color.alphaBlend(
-                        p.accent.withValues(alpha: state.isDark ? 0.025 : 0.02),
-                        p.bg,
-                      ),
-                      Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.025 : 0.08),
-                        p.bg,
-                      ),
-                      Color.alphaBlend(
-                        p.card.withValues(alpha: state.isDark ? 0.015 : 0.04),
-                        p.bg,
-                      ),
+      backgroundColor: state.headerSurface,
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0, 0.34, 0.72, 1],
+                  colors: [
+                    Color.alphaBlend(
+                      p.accent.withValues(alpha: state.isDark ? 0.025 : 0.02),
                       p.bg,
-                    ],
-                  ),
+                    ),
+                    Color.alphaBlend(
+                      p.card.withValues(alpha: state.isDark ? 0.025 : 0.08),
+                      p.bg,
+                    ),
+                    Color.alphaBlend(
+                      p.card.withValues(alpha: state.isDark ? 0.015 : 0.04),
+                      p.bg,
+                    ),
+                    p.bg,
+                  ],
                 ),
               ),
             ),
-            Column(
-              children: [Expanded(child: _CurrentScreen(tab: state.tab))],
+          ),
+          SafeArea(
+            bottom: false,
+            child: Stack(
+              children: [
+                Column(
+                  children: [Expanded(child: _CurrentScreen(tab: state.tab))],
+                ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: _BottomTabs(state: state),
+                ),
+              ],
             ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: _BottomTabs(state: state),
+          ),
+          if (state.showOnboarding) const OnboardingOverlay(),
+          if (!state.startupComplete) const _StartupSplash(),
+        ],
+      ),
+    );
+  }
+}
+
+class _StartupSplash extends StatefulWidget {
+  const _StartupSplash();
+
+  @override
+  State<_StartupSplash> createState() => _StartupSplashState();
+}
+
+class _StartupSplashState extends State<_StartupSplash>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController controller;
+  late final Animation<double> scale;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: const Duration(milliseconds: 590),
+      vsync: this,
+    );
+    scale = Tween<double>(
+      begin: 0.82,
+      end: 1,
+    ).animate(CurvedAnimation(parent: controller, curve: Curves.elasticOut));
+    controller.forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final dark = state.isDark;
+    return Positioned.fill(
+      child: ColoredBox(
+        color: dark ? const Color(0xFF090D0B) : const Color(0xFFFFFAF4),
+        child: Center(
+          child: ScaleTransition(
+            scale: scale,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(28),
+              child: Image.asset(
+                dark
+                    ? 'assets/brand/mealr_dark.png'
+                    : 'assets/brand/mealr_light.png',
+                width: 116,
+                height: 116,
+                fit: BoxFit.cover,
+              ),
             ),
-            if (state.showOnboarding) const OnboardingOverlay(),
-          ],
+          ),
         ),
       ),
     );
@@ -279,9 +344,9 @@ class _TabItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       if (tab == AppTab.foods)
-                        _MealTabGlyph(color: tabColor, size: active ? 25 : 23)
+                        _MealTabGlyph(color: tabColor, size: 23)
                       else
-                        Icon(icon, size: active ? 23 : 21, color: tabColor),
+                        Icon(icon, size: 21, color: tabColor),
                       const SizedBox(height: 2),
                       FittedBox(
                         fit: BoxFit.scaleDown,
@@ -417,40 +482,68 @@ class _MealTabGlyphPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round
-      ..strokeWidth = size.width * 0.085;
+      ..strokeWidth = size.width * 0.078;
     final fill = Paint()
       ..color = color.withValues(alpha: 0.14)
       ..style = PaintingStyle.fill;
 
+    canvas.drawPath(
+      Path()
+        ..moveTo(size.width * 0.38, size.height * 0.30)
+        ..cubicTo(
+          size.width * 0.30,
+          size.height * 0.22,
+          size.width * 0.44,
+          size.height * 0.16,
+          size.width * 0.37,
+          size.height * 0.08,
+        ),
+      stroke,
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(size.width * 0.61, size.height * 0.30)
+        ..cubicTo(
+          size.width * 0.53,
+          size.height * 0.22,
+          size.width * 0.67,
+          size.height * 0.16,
+          size.width * 0.60,
+          size.height * 0.08,
+        ),
+      stroke,
+    );
+
     final rim = Rect.fromLTWH(
-      size.width * 0.10,
-      size.height * 0.37,
-      size.width * 0.80,
-      size.height * 0.18,
+      size.width * 0.09,
+      size.height * 0.39,
+      size.width * 0.82,
+      size.height * 0.17,
     );
     canvas.drawOval(rim, fill);
     canvas.drawOval(rim, stroke);
-    final bowlPath = Path()
-      ..moveTo(size.width * 0.10, size.height * 0.46)
-      ..quadraticBezierTo(
+
+    final bowl = Path()
+      ..moveTo(size.width * 0.10, size.height * 0.48)
+      ..cubicTo(
+        size.width * 0.14,
+        size.height * 0.76,
+        size.width * 0.31,
+        size.height * 0.91,
         size.width * 0.50,
-        size.height * 0.88,
+        size.height * 0.91,
+      )
+      ..cubicTo(
+        size.width * 0.69,
+        size.height * 0.91,
+        size.width * 0.86,
+        size.height * 0.76,
         size.width * 0.90,
-        size.height * 0.46,
-      );
-    canvas.drawPath(bowlPath, stroke);
-    canvas.drawPath(
-      Path()
-        ..moveTo(size.width * 0.14, size.height * 0.49)
-        ..quadraticBezierTo(
-          size.width * 0.50,
-          size.height * 0.82,
-          size.width * 0.86,
-          size.height * 0.49,
-        )
-        ..close(),
-      fill,
-    );
+        size.height * 0.48,
+      )
+      ..close();
+    canvas.drawPath(bowl, fill);
+    canvas.drawPath(bowl, stroke);
   }
 
   @override

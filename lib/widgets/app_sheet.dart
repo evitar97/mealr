@@ -10,6 +10,7 @@ class AppSheetFrame extends StatelessWidget {
     this.margin = const EdgeInsets.fromLTRB(10, 0, 10, 8),
     this.maxHeightPadding = 20,
     this.scrollable = true,
+    this.avoidKeyboard = false,
     super.key,
   });
 
@@ -18,6 +19,7 @@ class AppSheetFrame extends StatelessWidget {
   final EdgeInsets margin;
   final double maxHeightPadding;
   final bool scrollable;
+  final bool avoidKeyboard;
 
   @override
   Widget build(BuildContext context) {
@@ -28,38 +30,79 @@ class AppSheetFrame extends StatelessWidget {
       onTap: () => Navigator.maybePop(context),
       child: SafeArea(
         top: false,
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final sheet = GestureDetector(
+        child: AnimatedPadding(
+          duration: const Duration(milliseconds: 210),
+          curve: Curves.easeOutCubic,
+          padding: EdgeInsets.only(
+            bottom: avoidKeyboard ? MediaQuery.viewInsetsOf(context).bottom : 0,
+          ),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final sheet = GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () {},
+                child: GlassSurface(
+                  width: double.infinity,
+                  constraints: BoxConstraints(
+                    maxHeight: constraints.maxHeight - maxHeightPadding,
+                  ),
+                  margin: margin,
+                  padding: padding,
+                  radius: 22,
+                  tint: p.card,
+                  opacity: 1,
+                  borderColor: p.border.withValues(
+                    alpha: state.isDark ? 0.50 : 0.24,
+                  ),
+                  child: child,
+                ),
+              );
+
+              return Align(
+                alignment: avoidKeyboard
+                    ? Alignment.center
+                    : Alignment.bottomCenter,
+                child: scrollable
+                    ? SingleChildScrollView(
+                        padding: EdgeInsets.only(top: maxHeightPadding / 2),
+                        child: sheet,
+                      )
+                    : sheet,
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AppKeyboardSheetPosition extends StatelessWidget {
+  const AppKeyboardSheetPosition({required this.child, super.key});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => Navigator.maybePop(context),
+      child: SafeArea(
+        top: false,
+        child: AnimatedPadding(
+          duration: const Duration(milliseconds: 210),
+          curve: Curves.easeOutCubic,
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.viewInsetsOf(context).bottom,
+          ),
+          child: Align(
+            alignment: const Alignment(0, -0.06),
+            child: GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () {},
-              child: GlassSurface(
-                width: double.infinity,
-                constraints: BoxConstraints(
-                  maxHeight: constraints.maxHeight - maxHeightPadding,
-                ),
-                margin: margin,
-                padding: padding,
-                radius: 22,
-                tint: p.card,
-                opacity: 1,
-                borderColor: p.border.withValues(
-                  alpha: state.isDark ? 0.50 : 0.24,
-                ),
-                child: child,
-              ),
-            );
-
-            return Align(
-              alignment: Alignment.bottomCenter,
-              child: scrollable
-                  ? SingleChildScrollView(
-                      padding: EdgeInsets.only(top: maxHeightPadding / 2),
-                      child: sheet,
-                    )
-                  : sheet,
-            );
-          },
+              child: child,
+            ),
+          ),
         ),
       ),
     );

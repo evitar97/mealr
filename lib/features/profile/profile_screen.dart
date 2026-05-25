@@ -872,6 +872,7 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
     final p = state.palette;
     return AppSheetFrame(
       scrollable: false,
+      avoidKeyboard: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1074,6 +1075,7 @@ class _WeightChartPainter extends CustomPainter {
         text: text,
         style: TextStyle(
           color: color,
+          fontFamily: MealText.family,
           fontSize: 10,
           fontWeight: FontWeight.w600,
         ),
