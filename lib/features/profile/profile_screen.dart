@@ -8,6 +8,8 @@ import '../../app/app_strings.dart';
 import '../../models/theme_option.dart';
 import '../../models/weight_entry.dart';
 import '../../theme/app_typography.dart';
+import '../../utils/app_haptics.dart';
+import '../../utils/calculators.dart';
 import '../../widgets/app_card.dart';
 import '../../widgets/app_components.dart';
 import '../../widgets/app_sheet.dart';
@@ -207,60 +209,74 @@ class _WeightTrackerCardState extends State<_WeightTrackerCard> {
     final stats = state.weightStats;
     final history = state.weightEntries.reversed.take(expandedHistory ? 8 : 3);
     final canExpand = state.weightEntries.length > 3;
+    final rangeChange = switch (state.weightChartRange) {
+      WeightChartRange.days7 => stats?.sevenDayChange,
+      WeightChartRange.days30 => stats?.thirtyDayChange,
+      WeightChartRange.days60 => stats?.totalChange,
+    };
+    final bmi = calculateBmi(
+      weightKg: state.profileWeight,
+      heightCm: state.profileHeight,
+      gender: state.bmiGender,
+    );
+    final guidanceTarget = state.profileWeight > bmi.idealMax
+        ? bmi.idealMax
+        : state.profileWeight < bmi.idealMin
+        ? bmi.idealMin
+        : null;
     return AppCard(
-      padding: const EdgeInsets.fromLTRB(14, 14, 14, 16),
+      padding: const EdgeInsets.fromLTRB(18, 16, 18, 17),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+            tx(context, 'Súly progresszió').toUpperCase(),
+            style: MealText.section(p.muted),
+          ),
+          const SizedBox(height: 9),
+          Text(
+            _weightProgressHeadline(context, rangeChange),
+            style: MealText.title(p.text).copyWith(fontSize: 22),
+          ),
+          const SizedBox(height: 7),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Expanded(
-                child: Text(
-                  tx(context, 'Súly progresszió'),
-                  style: MealText.cardTitle(p.text),
-                ),
-              ),
               Text(
-                '${state.profileWeight.toStringAsFixed(1)} kg',
-                style: MealText.cardTitle(p.accent),
+                state.profileWeight.toStringAsFixed(1),
+                style: MealText.largeTitle(
+                  p.text,
+                ).copyWith(fontSize: 31, height: 0.98),
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 5, bottom: 3),
+                child: Text('kg', style: MealText.cardTitle(p.muted)),
+              ),
+              const Spacer(),
+              if (rangeChange != null)
+                _WeightChangeSummary(
+                  days: state.weightChartRange.days,
+                  change: rangeChange,
+                ),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 18),
           _WeightRangeSelector(selected: state.weightChartRange),
-          const SizedBox(height: 14),
-          Container(
-            height: 170,
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 194,
             width: double.infinity,
-            padding: const EdgeInsets.fromLTRB(10, 12, 10, 10),
-            decoration: BoxDecoration(
-              color: p.bg.withValues(alpha: 0.62),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: p.border),
+            child: _InteractiveWeightChart(
+              entries: entries,
+              palette: p,
+              days: state.weightChartRange.days,
+              targetWeight: guidanceTarget,
             ),
-            child: entries.length < 2
-                ? Center(
-                    child: Text(
-                      tx(context, 'Adj hozzá legalább két súlyt a diagramhoz.'),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: p.muted,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  )
-                : CustomPaint(
-                    painter: _WeightChartPainter(
-                      entries: entries,
-                      palette: p,
-                      days: state.weightChartRange.days,
-                    ),
-                  ),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           if (state.isPro && stats != null) ...[
-            _WeightStatsGrid(stats: stats),
-            const SizedBox(height: 14),
+            _WeightInsights(stats: stats, entries: state.weightEntries.length),
+            const SizedBox(height: 22),
           ],
           _WeightInputRow(
             value: state.weightTrackerInput,
@@ -354,166 +370,129 @@ class _WeightTrackerCardState extends State<_WeightTrackerCard> {
   }
 }
 
-class _WeightStatsGrid extends StatelessWidget {
-  const _WeightStatsGrid({required this.stats});
+String _weightProgressHeadline(BuildContext context, double? change) {
+  if (change == null) return tx(context, 'A jelenlegi súlyod');
+  if (change.abs() < 0.05) return tx(context, 'Stabil ezen az időszakon');
+  return change < 0
+      ? tx(context, 'Csökkenő trend ebben az időszakban')
+      : tx(context, 'Emelkedő trend ebben az időszakban');
+}
 
-  final WeightStats stats;
+class _WeightChangeSummary extends StatelessWidget {
+  const _WeightChangeSummary({required this.days, required this.change});
+
+  final int days;
+  final double change;
 
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
-      decoration: BoxDecoration(
-        color: p.bg.withValues(alpha: 0.52),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: p.border),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(
-                CupertinoIcons.chart_bar_alt_fill,
-                color: p.accent,
-                size: 18,
-              ),
-              const SizedBox(width: 8),
-              Text(
-                tx(context, 'Pro statisztika'),
-                style: TextStyle(
-                  color: p.text,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              Expanded(
-                child: _WeightStatTile(
-                  label: tx(context, 'Összes'),
-                  value: _formatWeightChange(stats.totalChange),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: _WeightStatTile(
-                  label: tx(context, '7 nap'),
-                  value: _formatOptionalWeightChange(stats.sevenDayChange),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: _WeightStatTile(
-                  label: tx(context, '30 nap'),
-                  value: _formatOptionalWeightChange(stats.thirtyDayChange),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: _WeightStatTile(
-                  label: tx(context, 'Heti átlag'),
-                  value:
-                      '${_formatWeightChange(stats.weeklyAverage)}/${tx(context, 'hét')}',
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: _WeightStatTile(
-                  label: tx(context, 'Trend'),
-                  value: _trendLabel(context, stats.trend),
-                  emphasized: true,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: _WeightStatTile(
-                  label: tx(context, 'Legalacsonyabb'),
-                  value: '${stats.lowestWeight.toStringAsFixed(1)} kg',
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+    final rising = change > 0;
+    final icon = change == 0
+        ? CupertinoIcons.minus
+        : rising
+        ? CupertinoIcons.arrow_up_right
+        : CupertinoIcons.arrow_down_right;
+    final formatted = '${change > 0 ? '+' : ''}${change.toStringAsFixed(1)} kg';
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, color: p.accent, size: 14),
+            const SizedBox(width: 4),
+            Text(formatted, style: MealText.bodyStrong(p.accent)),
+          ],
+        ),
+        const SizedBox(height: 2),
+        Text('$days ${tx(context, 'nap')}', style: MealText.caption(p.muted)),
+      ],
     );
   }
+}
 
-  String _formatOptionalWeightChange(double? value) {
-    if (value == null) return '-';
-    return _formatWeightChange(value);
+class _WeightInsights extends StatelessWidget {
+  const _WeightInsights({required this.stats, required this.entries});
+
+  final WeightStats stats;
+  final int entries;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: _WeightInsightHero(
+                label: tx(context, 'Összes'),
+                value: _formatWeightChange(stats.totalChange),
+              ),
+            ),
+            Container(
+              height: 40,
+              width: 1,
+              margin: const EdgeInsets.symmetric(horizontal: 13),
+              color: p.border.withValues(alpha: 0.46),
+            ),
+            Expanded(
+              child: _WeightInsightHero(
+                label: tx(context, 'Heti átlag'),
+                value:
+                    '${_formatWeightChange(stats.weeklyAverage)}/${tx(context, 'hét')}',
+              ),
+            ),
+            Container(
+              height: 40,
+              width: 1,
+              margin: const EdgeInsets.symmetric(horizontal: 13),
+              color: p.border.withValues(alpha: 0.46),
+            ),
+            Expanded(
+              child: _WeightInsightHero(
+                label: tx(context, 'Mérések'),
+                value: entries.toString(),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 
   String _formatWeightChange(double value) {
     if (value == 0) return '0.0 kg';
     return '${value > 0 ? '+' : ''}${value.toStringAsFixed(1)} kg';
   }
-
-  String _trendLabel(BuildContext context, WeightTrend trend) =>
-      switch (trend) {
-        WeightTrend.down => tx(context, 'Csökkenő'),
-        WeightTrend.stable => tx(context, 'Stagnál'),
-        WeightTrend.up => tx(context, 'Emelkedő'),
-      };
 }
 
-class _WeightStatTile extends StatelessWidget {
-  const _WeightStatTile({
-    required this.label,
-    required this.value,
-    this.emphasized = false,
-  });
+class _WeightInsightHero extends StatelessWidget {
+  const _WeightInsightHero({required this.label, required this.value});
 
   final String label;
   final String value;
-  final bool emphasized;
 
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
-      decoration: BoxDecoration(
-        color: emphasized ? p.resultBg : p.card.withValues(alpha: 0.58),
-        borderRadius: BorderRadius.circular(11),
-        border: Border.all(
-          color: emphasized ? p.resultBorder : p.border.withValues(alpha: 0.7),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: Text(
+            value,
             maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: MealText.captionStrong(p.muted).copyWith(fontSize: 11),
+            style: MealText.title(p.text).copyWith(fontSize: 22),
           ),
-          const SizedBox(height: 3),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            alignment: Alignment.centerLeft,
-            child: Text(
-              value,
-              maxLines: 1,
-              style: MealText.button(emphasized ? p.accent : p.text),
-            ),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 3),
+        Text(label, style: MealText.caption(p.muted)),
+      ],
     );
   }
 }
@@ -526,20 +505,32 @@ class _WeightRangeSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
+    final p = state.palette;
     return Row(
       children: [
-        _RangeButton(range: WeightChartRange.days7, selected: selected),
-        const SizedBox(width: 8),
-        _RangeButton(
-          range: WeightChartRange.days30,
-          selected: selected,
-          locked: !state.isPro,
-        ),
-        const SizedBox(width: 8),
-        _RangeButton(
-          range: WeightChartRange.days60,
-          selected: selected,
-          locked: !state.isPro,
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              color: p.bg.withValues(alpha: 0.56),
+              borderRadius: BorderRadius.circular(13),
+            ),
+            child: Row(
+              children: [
+                _RangeButton(range: WeightChartRange.days7, selected: selected),
+                _RangeButton(
+                  range: WeightChartRange.days30,
+                  selected: selected,
+                  locked: !state.isPro,
+                ),
+                _RangeButton(
+                  range: WeightChartRange.days60,
+                  selected: selected,
+                  locked: !state.isPro,
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );
@@ -564,10 +555,12 @@ class _RangeButton extends StatelessWidget {
     final active = selected == range;
     return Expanded(
       child: CupertinoButton(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        color: active ? state.primaryActionSurface : p.bg,
-        borderRadius: BorderRadius.circular(12),
-        onPressed: () => state.selectWeightChartRange(range),
+        padding: const EdgeInsets.symmetric(vertical: 9),
+        color: active ? p.card : CupertinoColors.transparent,
+        borderRadius: BorderRadius.circular(10),
+        onPressed: withAppActionHaptic(
+          () => state.selectWeightChartRange(range),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -578,7 +571,7 @@ class _RangeButton extends StatelessWidget {
             Text(
               '${range.days} ${tx(context, 'nap')}',
               style: TextStyle(
-                color: active ? p.buttonText : p.muted,
+                color: active ? p.accent : p.muted,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -635,80 +628,84 @@ class _WeightInputRowState extends State<_WeightInputRow> {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            decoration: BoxDecoration(
-              color: p.bg.withValues(alpha: 0.62),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: p.border),
-            ),
-            child: Row(
-              children: [
-                _WeightStepButton(
-                  icon: CupertinoIcons.minus,
-                  onPressed: () => _step(-0.1),
-                ),
-                Expanded(
-                  child: CupertinoTextField(
-                    controller: controller,
-                    focusNode: focusNode,
-                    keyboardType: const TextInputType.numberWithOptions(
-                      decimal: true,
-                    ),
-                    textAlign: TextAlign.center,
-                    padding: EdgeInsets.zero,
-                    decoration: const BoxDecoration(),
-                    onTap: () => controller.selection = TextSelection(
-                      baseOffset: 0,
-                      extentOffset: controller.text.length,
-                    ),
-                    onChanged: (value) {
-                      final parsed = _parse(value);
-                      if (parsed != null) widget.onChanged(parsed);
-                    },
-                    onSubmitted: (_) {
-                      _commit();
-                      focusNode.unfocus();
-                    },
-                    style: TextStyle(
-                      color: p.accent,
-                      fontSize: 20,
-                      height: 1,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: -0.6,
-                    ),
-                  ),
-                ),
-                Text(
-                  'kg',
-                  style: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(width: 6),
-                _WeightStepButton(
-                  icon: CupertinoIcons.plus,
-                  onPressed: () => _step(0.1),
-                ),
-              ],
-            ),
-          ),
+        Text(
+          tx(context, 'Új mérés').toUpperCase(),
+          style: MealText.section(p.muted),
         ),
-        const SizedBox(width: 10),
-        CupertinoButton(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-          color: AppScope.of(context).primaryActionSurface,
-          borderRadius: BorderRadius.circular(16),
-          onPressed: () {
-            _commit();
-            widget.onAdd();
-            focusNode.unfocus();
-          },
-          child: Text(
-            tx(context, 'Hozzáadás'),
-            style: TextStyle(color: p.buttonText, fontWeight: FontWeight.w600),
-          ),
+        const SizedBox(height: 9),
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                height: 50,
+                padding: const EdgeInsets.symmetric(horizontal: 7),
+                decoration: BoxDecoration(
+                  color: p.bg.withValues(alpha: 0.58),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Row(
+                  children: [
+                    _WeightStepButton(
+                      icon: CupertinoIcons.minus,
+                      onPressed: () => _step(-0.1),
+                    ),
+                    Expanded(
+                      child: CupertinoTextField(
+                        controller: controller,
+                        focusNode: focusNode,
+                        keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true,
+                        ),
+                        textAlign: TextAlign.center,
+                        padding: EdgeInsets.zero,
+                        decoration: const BoxDecoration(),
+                        onTap: () => controller.selection = TextSelection(
+                          baseOffset: 0,
+                          extentOffset: controller.text.length,
+                        ),
+                        onChanged: (value) {
+                          final parsed = _parse(value);
+                          if (parsed != null) widget.onChanged(parsed);
+                        },
+                        onSubmitted: (_) {
+                          _commit();
+                          focusNode.unfocus();
+                        },
+                        style: MealText.title(p.text).copyWith(fontSize: 21),
+                      ),
+                    ),
+                    Text('kg', style: MealText.callout(p.muted)),
+                    const SizedBox(width: 4),
+                    _WeightStepButton(
+                      icon: CupertinoIcons.plus,
+                      onPressed: () => _step(0.1),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 9),
+            SizedBox(
+              height: 50,
+              child: CupertinoButton(
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                color: AppScope.of(context).primaryActionSurface,
+                borderRadius: BorderRadius.circular(14),
+                onPressed: withAppActionHaptic(() {
+                  _commit();
+                  widget.onAdd();
+                  focusNode.unfocus();
+                }),
+                child: Text(
+                  tx(context, 'Rögzítés'),
+                  style: MealText.bodyStrong(p.buttonText),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -749,11 +746,11 @@ class _WeightStepButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return CupertinoButton(
-      minimumSize: const Size(32, 32),
+      minimumSize: const Size(34, 34),
       padding: EdgeInsets.zero,
-      color: p.card.withValues(alpha: 0.72),
-      borderRadius: BorderRadius.circular(10),
-      onPressed: onPressed,
+      color: p.card.withValues(alpha: 0.62),
+      borderRadius: BorderRadius.circular(11),
+      onPressed: withAppActionHaptic(onPressed),
       child: Icon(icon, color: p.accent, size: 17),
     );
   }
@@ -931,10 +928,10 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
                 child: CupertinoButton(
                   color: p.deleteBg,
                   borderRadius: BorderRadius.circular(14),
-                  onPressed: () {
+                  onPressed: withAppActionHaptic(() {
                     state.deleteWeightEntry(widget.entry.id);
                     Navigator.pop(context);
-                  },
+                  }),
                   child: Text(
                     tx(context, 'Törlés'),
                     style: const TextStyle(
@@ -950,12 +947,12 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
                 child: CupertinoButton(
                   color: p.accent,
                   borderRadius: BorderRadius.circular(14),
-                  onPressed: () {
+                  onPressed: withAppActionHaptic(() {
                     final next = _currentValue();
                     if (next == null) return;
                     state.updateWeightEntry(widget.entry.id, next);
                     Navigator.pop(context);
-                  },
+                  }),
                   child: Text(
                     tx(context, 'Mentés'),
                     style: TextStyle(
@@ -985,111 +982,423 @@ class _EditWeightEntrySheetState extends State<_EditWeightEntrySheet> {
   }
 }
 
-class _WeightChartPainter extends CustomPainter {
-  const _WeightChartPainter({
+class _InteractiveWeightChart extends StatefulWidget {
+  const _InteractiveWeightChart({
     required this.entries,
     required this.palette,
     required this.days,
+    required this.targetWeight,
   });
 
   final List<WeightEntry> entries;
   final MealWeightPalette palette;
   final int days;
+  final double? targetWeight;
+
+  @override
+  State<_InteractiveWeightChart> createState() =>
+      _InteractiveWeightChartState();
+}
+
+class _InteractiveWeightChartState extends State<_InteractiveWeightChart> {
+  int? selectedIndex;
+
+  @override
+  void didUpdateWidget(covariant _InteractiveWeightChart oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (selectedIndex != null && selectedIndex! >= widget.entries.length) {
+      selectedIndex = null;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final sorted = [...widget.entries]
+      ..sort((a, b) => a.recordedAt.compareTo(b.recordedAt));
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final size = Size(constraints.maxWidth, constraints.maxHeight);
+        final geometry = _weightChartGeometry(
+          entries: sorted,
+          size: size,
+          days: widget.days,
+          targetWeight: widget.targetWeight,
+        );
+
+        void selectAt(Offset localPosition) {
+          if (geometry == null || geometry.points.isEmpty) return;
+          var closest = 0;
+          var distance = double.infinity;
+          for (var index = 0; index < geometry.points.length; index++) {
+            final nextDistance = (geometry.points[index].dx - localPosition.dx)
+                .abs();
+            if (nextDistance < distance) {
+              distance = nextDistance;
+              closest = index;
+            }
+          }
+          if (selectedIndex != closest) {
+            setState(() => selectedIndex = closest);
+          }
+        }
+
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTapDown: (details) => selectAt(details.localPosition),
+          onHorizontalDragStart: (details) => selectAt(details.localPosition),
+          onHorizontalDragUpdate: (details) => selectAt(details.localPosition),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              CustomPaint(
+                size: size,
+                painter: _WeightChartPainter(
+                  entries: sorted,
+                  palette: widget.palette,
+                  days: widget.days,
+                  targetWeight: widget.targetWeight,
+                  targetLabel: tx(context, 'Irányadó cél'),
+                  selectedIndex: selectedIndex,
+                ),
+              ),
+              if (sorted.length < 2)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(42, 36, 22, 4),
+                  child: Text(
+                    sorted.isEmpty
+                        ? tx(context, 'Kezdd az első súlyméréssel.')
+                        : tx(
+                            context,
+                            'Rögzíts még egy mérést a trend megjelenítéséhez.',
+                          ),
+                    textAlign: TextAlign.center,
+                    style: MealText.callout(
+                      widget.palette.muted,
+                    ).copyWith(fontWeight: FontWeight.w600),
+                  ),
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _WeightChartGeometry {
+  const _WeightChartGeometry({
+    required this.points,
+    required this.minWeight,
+    required this.maxWeight,
+    required this.padding,
+    required this.plotBottom,
+  });
+
+  final List<Offset> points;
+  final double minWeight;
+  final double maxWeight;
+  final EdgeInsets padding;
+  final double plotBottom;
+}
+
+_WeightChartGeometry? _weightChartGeometry({
+  required List<WeightEntry> entries,
+  required Size size,
+  required int days,
+  required double? targetWeight,
+}) {
+  if (entries.isEmpty) return null;
+  final weights = [...entries.map((entry) => entry.weight), ?targetWeight];
+  var minWeight = weights.reduce(math.min);
+  var maxWeight = weights.reduce(math.max);
+  final span = maxWeight - minWeight;
+  final margin = math.max(0.5, span * 0.18);
+  minWeight -= margin;
+  maxWeight += margin;
+
+  const padding = EdgeInsets.fromLTRB(34, 35, 9, 18);
+  final chartWidth = size.width - padding.left - padding.right;
+  final chartHeight = size.height - padding.top - padding.bottom;
+  final now = DateTime.now();
+  final start = now.subtract(Duration(days: days));
+  final recordedSpanMinutes = entries.last.recordedAt
+      .difference(entries.first.recordedAt)
+      .inMinutes
+      .abs();
+  final spreadRecentEntries = recordedSpanMinutes < 12 * 60;
+
+  Offset pointFor(WeightEntry entry, int index) {
+    final temporalRatio =
+        entry.recordedAt.difference(start).inMinutes /
+        math.max(1, now.difference(start).inMinutes);
+    final sequenceRatio = entries.length == 1
+        ? 1.0
+        : 0.34 + index / (entries.length - 1) * 0.66;
+    final xRatio = spreadRecentEntries ? sequenceRatio : temporalRatio;
+    final yRatio = (entry.weight - minWeight) / (maxWeight - minWeight);
+    return Offset(
+      padding.left + chartWidth * xRatio.clamp(0, 1),
+      padding.top + chartHeight * (1 - yRatio),
+    );
+  }
+
+  return _WeightChartGeometry(
+    points: [
+      for (var index = 0; index < entries.length; index++)
+        pointFor(entries[index], index),
+    ],
+    minWeight: minWeight,
+    maxWeight: maxWeight,
+    padding: padding,
+    plotBottom: padding.top + chartHeight,
+  );
+}
+
+class _WeightChartPainter extends CustomPainter {
+  const _WeightChartPainter({
+    required this.entries,
+    required this.palette,
+    required this.days,
+    required this.targetWeight,
+    required this.targetLabel,
+    required this.selectedIndex,
+  });
+
+  final List<WeightEntry> entries;
+  final MealWeightPalette palette;
+  final int days;
+  final double? targetWeight;
+  final String targetLabel;
+  final int? selectedIndex;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final sorted = [...entries]
-      ..sort((a, b) => a.recordedAt.compareTo(b.recordedAt));
-    final weights = sorted.map((entry) => entry.weight).toList();
-    var minWeight = weights.reduce(math.min);
-    var maxWeight = weights.reduce(math.max);
-    if (minWeight == maxWeight) {
-      minWeight -= 1;
-      maxWeight += 1;
-    }
-    final padding = const EdgeInsets.fromLTRB(28, 10, 10, 24);
-    final chartWidth = size.width - padding.left - padding.right;
-    final chartHeight = size.height - padding.top - padding.bottom;
-    final now = DateTime.now();
-    final start = now.subtract(Duration(days: days));
-
+    const emptyPadding = EdgeInsets.fromLTRB(34, 35, 9, 18);
+    final geometry = _weightChartGeometry(
+      entries: entries,
+      size: size,
+      days: days,
+      targetWeight: targetWeight,
+    );
+    final padding = geometry?.padding ?? emptyPadding;
+    final plotBottom = geometry?.plotBottom ?? size.height - padding.bottom;
     final gridPaint = Paint()
-      ..color = palette.border
+      ..color = palette.border.withValues(alpha: 0.28)
       ..strokeWidth = 1;
-    for (var i = 0; i <= 3; i++) {
-      final y = padding.top + chartHeight * i / 3;
+    for (final ratio in [0.34, 0.68]) {
+      final y = padding.top + (plotBottom - padding.top) * ratio;
       canvas.drawLine(
         Offset(padding.left, y),
         Offset(size.width - padding.right, y),
         gridPaint,
       );
     }
+    if (geometry == null) {
+      _drawDashedLine(
+        canvas,
+        Offset(padding.left, plotBottom - 30),
+        Offset(size.width - padding.right, plotBottom - 30),
+        Paint()
+          ..color = palette.border.withValues(alpha: 0.42)
+          ..strokeWidth = 1,
+      );
+      return;
+    }
 
-    Offset pointFor(WeightEntry entry) {
-      final xRatio =
-          entry.recordedAt.difference(start).inMinutes /
-          math.max(1, now.difference(start).inMinutes);
-      final yRatio = (entry.weight - minWeight) / (maxWeight - minWeight);
-      return Offset(
-        padding.left + chartWidth * xRatio.clamp(0, 1),
-        padding.top + chartHeight * (1 - yRatio),
+    double yForWeight(double weight) {
+      final yRatio =
+          (weight - geometry.minWeight) /
+          (geometry.maxWeight - geometry.minWeight);
+      return padding.top + (plotBottom - padding.top) * (1 - yRatio);
+    }
+
+    if (targetWeight != null) {
+      final targetY = yForWeight(targetWeight!);
+      _drawDashedLine(
+        canvas,
+        Offset(padding.left, targetY),
+        Offset(size.width - padding.right, targetY),
+        Paint()
+          ..color = palette.accent.withValues(alpha: 0.42)
+          ..strokeWidth = 1,
+      );
+      _drawText(
+        canvas,
+        '$targetLabel ${targetWeight!.toStringAsFixed(1)} kg',
+        Offset(padding.left + 4, targetY - 16),
+        palette.muted,
+        fontSize: 10,
       );
     }
 
-    final path = Path()
-      ..moveTo(pointFor(sorted.first).dx, pointFor(sorted.first).dy);
-    for (final entry in sorted.skip(1)) {
-      final point = pointFor(entry);
-      path.lineTo(point.dx, point.dy);
+    final points = geometry.points;
+    if (points.length >= 2) {
+      final path = _smoothPath(points);
+      final fillPath = Path.from(path)
+        ..lineTo(points.last.dx, plotBottom)
+        ..lineTo(points.first.dx, plotBottom)
+        ..close();
+      canvas.drawPath(
+        fillPath,
+        Paint()
+          ..shader =
+              LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  palette.accent.withValues(alpha: 0.12),
+                  palette.accent.withValues(alpha: 0.00),
+                ],
+              ).createShader(
+                Rect.fromLTRB(
+                  padding.left,
+                  padding.top,
+                  size.width - padding.right,
+                  plotBottom,
+                ),
+              ),
+      );
+      canvas.drawPath(
+        path,
+        Paint()
+          ..color = palette.accent
+          ..strokeWidth = 2.4
+          ..style = PaintingStyle.stroke
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round,
+      );
     }
-    final linePaint = Paint()
-      ..color = palette.accent
-      ..strokeWidth = 3
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round;
-    canvas.drawPath(path, linePaint);
 
-    final dotPaint = Paint()..color = palette.accent;
-    for (final entry in sorted) {
-      canvas.drawCircle(pointFor(entry), 4, dotPaint);
+    final latestPoint = points.last;
+    canvas.drawCircle(latestPoint, 4.5, Paint()..color = palette.accent);
+    if (selectedIndex != null && selectedIndex! < points.length) {
+      final selectedPoint = points[selectedIndex!];
+      _drawDashedLine(
+        canvas,
+        Offset(selectedPoint.dx, padding.top),
+        Offset(selectedPoint.dx, plotBottom),
+        Paint()
+          ..color = palette.accent.withValues(alpha: 0.28)
+          ..strokeWidth = 1,
+      );
+      canvas.drawCircle(selectedPoint, 7, Paint()..color = palette.card);
+      canvas.drawCircle(selectedPoint, 5, Paint()..color = palette.accent);
+      _drawTooltip(canvas, size, selectedPoint, entries[selectedIndex!]);
     }
 
     _drawText(
       canvas,
-      maxWeight.toStringAsFixed(1),
-      Offset(0, padding.top - 3),
+      geometry.maxWeight.toStringAsFixed(1),
+      Offset(0, padding.top - 4),
       palette.muted,
     );
     _drawText(
       canvas,
-      minWeight.toStringAsFixed(1),
-      Offset(0, padding.top + chartHeight - 8),
+      geometry.minWeight.toStringAsFixed(1),
+      Offset(0, plotBottom - 8),
       palette.muted,
     );
   }
 
-  void _drawText(Canvas canvas, String text, Offset offset, Color color) {
-    final painter = TextPainter(
+  Path _smoothPath(List<Offset> points) {
+    final path = Path()..moveTo(points.first.dx, points.first.dy);
+    for (var index = 0; index < points.length - 1; index++) {
+      final current = points[index];
+      final next = points[index + 1];
+      final middleX = (current.dx + next.dx) / 2;
+      path.cubicTo(middleX, current.dy, middleX, next.dy, next.dx, next.dy);
+    }
+    return path;
+  }
+
+  void _drawTooltip(
+    Canvas canvas,
+    Size size,
+    Offset selectedPoint,
+    WeightEntry entry,
+  ) {
+    final label =
+        '${entry.recordedAt.month.toString().padLeft(2, '0')}.'
+        '${entry.recordedAt.day.toString().padLeft(2, '0')}.  ·  '
+        '${entry.weight.toStringAsFixed(1)} kg';
+    final textPainter = _textPainter(
+      label,
+      palette.text,
+      fontSize: 11,
+      fontWeight: FontWeight.w600,
+    );
+    final width = textPainter.width + 20;
+    final left = (selectedPoint.dx - width / 2).clamp(
+      2.0,
+      size.width - width - 2,
+    );
+    final rect = RRect.fromRectAndRadius(
+      Rect.fromLTWH(left, 1, width, 28),
+      const Radius.circular(12),
+    );
+    canvas.drawRRect(rect, Paint()..color = palette.card);
+    canvas.drawRRect(
+      rect,
+      Paint()
+        ..color = palette.border.withValues(alpha: 0.55)
+        ..style = PaintingStyle.stroke,
+    );
+    textPainter.paint(canvas, Offset(left + 10, 8));
+  }
+
+  void _drawDashedLine(Canvas canvas, Offset start, Offset end, Paint paint) {
+    const dash = 4.0;
+    const gap = 4.0;
+    final distance = (end - start).distance;
+    final direction = (end - start) / distance;
+    for (var travelled = 0.0; travelled < distance; travelled += dash + gap) {
+      final segmentEnd = math.min(distance, travelled + dash);
+      canvas.drawLine(
+        start + direction * travelled,
+        start + direction * segmentEnd,
+        paint,
+      );
+    }
+  }
+
+  TextPainter _textPainter(
+    String text,
+    Color color, {
+    double fontSize = 10,
+    FontWeight fontWeight = FontWeight.w600,
+  }) {
+    return TextPainter(
       text: TextSpan(
         text: text,
         style: TextStyle(
           color: color,
           fontFamily: MealText.family,
-          fontSize: 10,
-          fontWeight: FontWeight.w600,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
         ),
       ),
       textDirection: TextDirection.ltr,
     )..layout();
-    painter.paint(canvas, offset);
+  }
+
+  void _drawText(
+    Canvas canvas,
+    String text,
+    Offset offset,
+    Color color, {
+    double fontSize = 10,
+  }) {
+    _textPainter(text, color, fontSize: fontSize).paint(canvas, offset);
   }
 
   @override
   bool shouldRepaint(covariant _WeightChartPainter oldDelegate) {
     return oldDelegate.entries != entries ||
         oldDelegate.palette != palette ||
-        oldDelegate.days != days;
+        oldDelegate.days != days ||
+        oldDelegate.targetWeight != targetWeight ||
+        oldDelegate.targetLabel != targetLabel ||
+        oldDelegate.selectedIndex != selectedIndex;
   }
 }
 
@@ -1205,10 +1514,10 @@ class _LanguageOption extends StatelessWidget {
     final p = state.palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: () {
+      onPressed: withAppActionHaptic(() {
         state.selectLanguage(language);
         Navigator.pop(context);
-      },
+      }),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 11),
         decoration: BoxDecoration(
@@ -1380,10 +1689,10 @@ class _BrightnessModeSheet extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 8),
               child: CupertinoButton(
                 padding: EdgeInsets.zero,
-                onPressed: () {
+                onPressed: withAppActionHaptic(() {
                   state.selectBrightnessMode(mode);
                   Navigator.pop(context);
-                },
+                }),
                 child: Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 13,

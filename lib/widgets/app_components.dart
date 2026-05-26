@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../app/app_state.dart';
 import '../theme/app_typography.dart';
+import '../utils/app_haptics.dart';
 import 'glass_surface.dart';
 import 'spring_pressable.dart';
 
@@ -47,7 +48,7 @@ class AppPrimaryPillButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           borderRadius: BorderRadius.circular(999),
           color: CupertinoColors.transparent,
-          onPressed: enabled ? onPressed : null,
+          onPressed: enabled ? withAppActionHaptic(onPressed) : null,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -124,7 +125,7 @@ class AppSecondaryPillButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
         color: p.bg.withValues(alpha: state.isDark ? 0.92 : 0.78),
         borderRadius: BorderRadius.circular(12),
-        onPressed: enabled ? onPressed : null,
+        onPressed: enabled ? withAppActionHaptic(onPressed) : null,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -245,21 +246,32 @@ class AppChoicePill extends StatelessWidget {
     final child = SpringPressable(
       enabled: enabled,
       pressedScale: 0.96,
-      child: CupertinoButton(
-        color: active ? state.primaryActionSurface : p.resultBg,
-        padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 13),
-        borderRadius: BorderRadius.circular(11),
-        onPressed: enabled ? onPressed : null,
-        child: Align(
-          alignment: Alignment.center,
-          child: Text(
-            label,
-            style: MealText.bodyStrong(
-              enabled
-                  ? active
-                        ? p.buttonText
-                        : p.muted
-                  : p.muted.withValues(alpha: 0.55),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: active ? state.primaryActionSurface : p.resultBg,
+          borderRadius: BorderRadius.circular(11),
+          border: Border.all(
+            color: active
+                ? CupertinoColors.transparent
+                : p.border.withValues(alpha: state.isDark ? 1 : 0.55),
+          ),
+        ),
+        child: CupertinoButton(
+          color: CupertinoColors.transparent,
+          padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 13),
+          borderRadius: BorderRadius.circular(11),
+          onPressed: enabled ? withAppActionHaptic(onPressed) : null,
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              label,
+              style: MealText.bodyStrong(
+                enabled
+                    ? active
+                          ? p.buttonText
+                          : p.muted
+                    : p.muted.withValues(alpha: 0.55),
+              ),
             ),
           ),
         ),
@@ -293,7 +305,7 @@ class AppListRow extends StatelessWidget {
     final p = state.palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: onTap,
+      onPressed: onTap == null ? null : withAppActionHaptic(onTap!),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
         decoration: BoxDecoration(

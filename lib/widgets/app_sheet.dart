@@ -54,7 +54,13 @@ class AppSheetFrame extends StatelessWidget {
                   borderColor: p.border.withValues(
                     alpha: state.isDark ? 0.50 : 0.24,
                   ),
-                  child: child,
+                  child: scrollable
+                      ? SingleChildScrollView(
+                          keyboardDismissBehavior:
+                              ScrollViewKeyboardDismissBehavior.onDrag,
+                          child: child,
+                        )
+                      : child,
                 ),
               );
 
@@ -62,12 +68,7 @@ class AppSheetFrame extends StatelessWidget {
                 alignment: avoidKeyboard
                     ? Alignment.center
                     : Alignment.bottomCenter,
-                child: scrollable
-                    ? SingleChildScrollView(
-                        padding: EdgeInsets.only(top: maxHeightPadding / 2),
-                        child: sheet,
-                      )
-                    : sheet,
+                child: sheet,
               );
             },
           ),
@@ -95,12 +96,21 @@ class AppKeyboardSheetPosition extends StatelessWidget {
           padding: EdgeInsets.only(
             bottom: MediaQuery.viewInsetsOf(context).bottom,
           ),
-          child: Align(
-            alignment: const Alignment(0, -0.06),
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {},
-              child: child,
+          child: LayoutBuilder(
+            builder: (context, constraints) => Align(
+              alignment: const Alignment(0, -0.06),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: (constraints.maxHeight - 20)
+                      .clamp(0, double.infinity)
+                      .toDouble(),
+                ),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {},
+                  child: child,
+                ),
+              ),
             ),
           ),
         ),

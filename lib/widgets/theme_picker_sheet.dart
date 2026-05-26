@@ -6,6 +6,7 @@ import '../features/food/food_list_screen.dart';
 import '../models/theme_option.dart';
 import '../theme/app_typography.dart';
 import '../theme/mealweight_theme.dart';
+import '../utils/app_haptics.dart';
 import 'app_sheet.dart';
 import 'spring_pressable.dart';
 
@@ -108,7 +109,7 @@ class _ThemeTile extends StatelessWidget {
     final statusColor = sample.accent;
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: SpringPressable(
         child: Container(
           width: 96,

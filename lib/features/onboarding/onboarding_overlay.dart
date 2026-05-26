@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
 import '../../theme/app_typography.dart';
+import '../../utils/app_haptics.dart';
 import '../../utils/calculators.dart';
 import '../food/food_list_screen.dart';
 import '../../widgets/glass_surface.dart';
@@ -147,7 +148,7 @@ class _OnboardingEntryGate extends StatelessWidget {
                         color: p.accent,
                         borderRadius: BorderRadius.circular(24),
                         padding: const EdgeInsets.symmetric(vertical: 15),
-                        onPressed: onStart,
+                        onPressed: withAppActionHaptic(onStart),
                         child: Text(
                           tx(context, 'Indulhat'),
                           style: MealText.button(p.buttonText),
@@ -188,7 +189,7 @@ class _OnboardingActions extends StatelessWidget {
           color: p.accent,
           borderRadius: BorderRadius.circular(24),
           padding: const EdgeInsets.symmetric(vertical: 15),
-          onPressed: onNext,
+          onPressed: withAppActionHaptic(onNext),
           child: Text(
             tx(context, 'Tovább'),
             style: MealText.button(p.buttonText),
@@ -204,7 +205,7 @@ class _OnboardingActions extends StatelessWidget {
             color: p.accent,
             borderRadius: BorderRadius.circular(22),
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-            onPressed: onTryPro,
+            onPressed: withAppActionHaptic(onTryPro),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -233,7 +234,7 @@ class _OnboardingActions extends StatelessWidget {
             color: p.card,
             borderRadius: BorderRadius.circular(22),
             padding: const EdgeInsets.symmetric(vertical: 14),
-            onPressed: onStartFree,
+            onPressed: withAppActionHaptic(onStartFree),
             child: Text(
               tx(context, 'Kezdés ingyenesen'),
               style: MealText.button(p.accent),
@@ -783,7 +784,7 @@ class _OnboardStepperButton extends StatelessWidget {
       minimumSize: const Size(34, 34),
       padding: EdgeInsets.zero,
       borderRadius: BorderRadius.circular(12),
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: Icon(icon, color: p.accent, size: 19),
     );
   }
@@ -846,7 +847,7 @@ class _GenderOption extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 11),
       color: active ? p.accent : CupertinoColors.transparent,
       borderRadius: BorderRadius.circular(14),
-      onPressed: onTap,
+      onPressed: withAppActionHaptic(onTap),
       child: Text(
         label,
         style: TextStyle(

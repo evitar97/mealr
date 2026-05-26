@@ -4,6 +4,7 @@ import '../../app/app_layout.dart';
 import '../../app/app_state.dart';
 import '../../app/app_strings.dart';
 import '../../theme/app_typography.dart';
+import '../../utils/app_haptics.dart';
 import '../../utils/calculators.dart';
 import '../../widgets/app_components.dart';
 import '../../widgets/spring_pressable.dart';
@@ -475,7 +476,7 @@ class _StepperButton extends StatelessWidget {
         padding: EdgeInsets.zero,
         color: p.card,
         borderRadius: BorderRadius.circular(10),
-        onPressed: onPressed,
+        onPressed: withAppActionHaptic(onPressed),
         child: Icon(icon, color: p.accent, size: 17),
       ),
     );
@@ -517,7 +518,7 @@ class _SaveStrip extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
               color: saved ? p.noteColor : p.accent,
               borderRadius: BorderRadius.circular(14),
-              onPressed: onSave,
+              onPressed: withAppActionHaptic(onSave),
               child: Text(
                 saved ? tx(context, 'Mentve') : tx(context, 'Mentés'),
                 style: TextStyle(

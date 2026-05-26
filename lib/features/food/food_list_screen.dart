@@ -9,6 +9,7 @@ import '../../models/recipe.dart';
 import '../../models/shopping_list.dart';
 import '../../services/share_service.dart';
 import '../../theme/app_typography.dart';
+import '../../utils/app_haptics.dart';
 import '../../utils/calculators.dart';
 import '../../widgets/app_card.dart';
 import '../../widgets/app_components.dart';
@@ -2348,14 +2349,18 @@ class DietPlanDetailScreen extends StatelessWidget {
                       color: p.accent,
                       borderRadius: BorderRadius.circular(12),
                       onPressed: AppScope.of(context).isPro
-                          ? () => showCupertinoModalPopup<void>(
-                              context: context,
-                              barrierDismissible: true,
-                              barrierColor: const Color(0x99000000),
-                              builder: (_) =>
-                                  DietPlanShoppingListSheet(plan: plan),
+                          ? withAppActionHaptic(
+                              () => showCupertinoModalPopup<void>(
+                                context: context,
+                                barrierDismissible: true,
+                                barrierColor: const Color(0x99000000),
+                                builder: (_) =>
+                                    DietPlanShoppingListSheet(plan: plan),
+                              ),
                             )
-                          : () => showProPaywallSheet(context),
+                          : withAppActionHaptic(
+                              () => showProPaywallSheet(context),
+                            ),
                       child: Text(
                         tx(context, 'Bevásárláshoz adás'),
                         style: TextStyle(
@@ -2551,13 +2556,13 @@ class _DietPlanShoppingListSheetState extends State<DietPlanShoppingListSheet> {
               padding: const EdgeInsets.symmetric(vertical: 13),
               onPressed: items.isEmpty
                   ? null
-                  : () {
+                  : withAppActionHaptic(() {
                       state.addShoppingList(
                         name: nameController.text,
                         items: items,
                       );
                       Navigator.pop(context);
-                    },
+                    }),
               child: Text(
                 tx(context, 'Mentés új listaként'),
                 style: MealText.button(p.buttonText),
@@ -3352,16 +3357,18 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                   color: p.accent,
                   borderRadius: BorderRadius.circular(12),
                   onPressed: state.isPro
-                      ? () => showCupertinoModalPopup<void>(
-                          context: context,
-                          barrierDismissible: true,
-                          barrierColor: const Color(0x99000000),
-                          builder: (_) => RecipeShoppingListSheet(
-                            recipe: recipe,
-                            servings: servings,
+                      ? withAppActionHaptic(
+                          () => showCupertinoModalPopup<void>(
+                            context: context,
+                            barrierDismissible: true,
+                            barrierColor: const Color(0x99000000),
+                            builder: (_) => RecipeShoppingListSheet(
+                              recipe: recipe,
+                              servings: servings,
+                            ),
                           ),
                         )
-                      : () => showProPaywallSheet(context),
+                      : withAppActionHaptic(() => showProPaywallSheet(context)),
                   child: Text(
                     tx(context, 'Bevásárláshoz adás'),
                     style: MealText.button(p.buttonText),
@@ -3640,10 +3647,10 @@ class _RecipeShoppingListSheetState extends State<RecipeShoppingListSheet> {
               color: p.accent,
               borderRadius: BorderRadius.circular(14),
               padding: const EdgeInsets.symmetric(vertical: 13),
-              onPressed: () {
+              onPressed: withAppActionHaptic(() {
                 state.addShoppingList(name: nameController.text, items: items);
                 Navigator.pop(context);
-              },
+              }),
               child: Text(
                 tx(context, 'Mentés új listaként'),
                 style: TextStyle(
@@ -3696,7 +3703,7 @@ class _RecipeShoppingTargetRow extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
@@ -3805,7 +3812,7 @@ class _RecipeStepButton extends StatelessWidget {
       padding: EdgeInsets.zero,
       color: p.card,
       borderRadius: BorderRadius.circular(10),
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: Icon(icon, color: p.accent, size: 16),
     );
   }
@@ -4432,6 +4439,7 @@ void showProPaywallSheet(BuildContext context) {
     barrierDismissible: true,
     barrierColor: const Color(0xCC000000),
     builder: (context) {
+      final isPro = AppScope.of(context).isPro;
       return GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => Navigator.maybePop(context),
@@ -4444,7 +4452,8 @@ void showProPaywallSheet(BuildContext context) {
               behavior: HitTestBehavior.opaque,
               onTap: () {},
               child: SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.82,
+                height:
+                    MediaQuery.sizeOf(context).height * (isPro ? 0.62 : 0.82),
                 child: const Padding(
                   padding: EdgeInsets.fromLTRB(10, 8, 10, 0),
                   child: ProUpsellCard(),
@@ -4964,14 +4973,15 @@ class _FoodActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return SpringPressable(
       pressedScale: 0.975,
       child: CupertinoButton(
         padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
         color: p.bg,
         borderRadius: BorderRadius.circular(10),
-        onPressed: onPressed,
+        onPressed: withAppActionHaptic(onPressed),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -5359,7 +5369,7 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
                   ),
                 CupertinoButton(
                   padding: EdgeInsets.zero,
-                  onPressed: _addItemRow,
+                  onPressed: withAppActionHaptic(_addItemRow),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -5396,7 +5406,7 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
                         color: canSave ? p.accent : _disabledActionFill(state),
                         borderRadius: BorderRadius.circular(14),
                         onPressed: canSave
-                            ? () {
+                            ? withAppActionHaptic(() {
                                 final items = [
                                   for (final row in itemRows)
                                     ShoppingListItem(
@@ -5418,7 +5428,7 @@ class _AddShoppingListSheetState extends State<AddShoppingListSheet> {
                                   );
                                 }
                                 Navigator.pop(context);
-                              }
+                              })
                             : null,
                         child: Text(
                           tx(context, 'Mentés'),
@@ -5623,7 +5633,7 @@ class _ShoppingCheckRow extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 10),
@@ -5666,7 +5676,7 @@ class _ShoppingCheckButton extends StatelessWidget {
     return CupertinoButton(
       minimumSize: const Size(30, 30),
       padding: EdgeInsets.zero,
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: Icon(
         checked
             ? CupertinoIcons.check_mark_circled_solid
@@ -5786,13 +5796,15 @@ class MealPrepScreen extends StatelessWidget {
                 onPressed: state.foods.isEmpty
                     ? null
                     : state.canAddMealPrepPlan
-                    ? () => showCupertinoModalPopup<void>(
-                        context: context,
-                        barrierDismissible: true,
-                        barrierColor: const Color(0x99000000),
-                        builder: (_) => const AddMealPrepSheet(),
+                    ? withAppActionHaptic(
+                        () => showCupertinoModalPopup<void>(
+                          context: context,
+                          barrierDismissible: true,
+                          barrierColor: const Color(0x99000000),
+                          builder: (_) => const AddMealPrepSheet(),
+                        ),
                       )
-                    : () => showProPaywallSheet(context),
+                    : withAppActionHaptic(() => showProPaywallSheet(context)),
                 child: Text(
                   tx(context, 'Új meal prep terv'),
                   style: TextStyle(
@@ -6256,7 +6268,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         borderRadius: BorderRadius.circular(12),
                         onPressed: canSave
-                            ? () {
+                            ? withAppActionHaptic(() {
                                 if (widget.plan == null) {
                                   state.addMealPrepPlan(
                                     name: nameController.text,
@@ -6284,7 +6296,7 @@ class _AddMealPrepSheetState extends State<AddMealPrepSheet> {
                                   );
                                 }
                                 Navigator.pop(context);
-                              }
+                              })
                             : null,
                         child: Text(
                           tx(context, 'Mentés'),
@@ -6385,7 +6397,7 @@ class _MealPrepModeButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
         color: active ? state.primaryActionSurface : p.bg,
         borderRadius: BorderRadius.circular(12),
-        onPressed: onTap,
+        onPressed: withAppActionHaptic(onTap),
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
@@ -6420,7 +6432,7 @@ class _MealPrepFoodOption extends StatelessWidget {
     final p = state.palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
         decoration: BoxDecoration(
@@ -6628,14 +6640,16 @@ class MealPrepDetailSheet extends StatelessWidget {
                         borderRadius: BorderRadius.circular(14),
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         onPressed: state.isPro
-                            ? () {
+                            ? withAppActionHaptic(() {
                                 state.addShoppingList(
                                   name: '${plan!.name} shopping',
                                   items: _mealPrepShoppingItems(context, plan),
                                 );
                                 Navigator.pop(context);
-                              }
-                            : () => showProPaywallSheet(context),
+                              })
+                            : withAppActionHaptic(
+                                () => showProPaywallSheet(context),
+                              ),
                         child: Text(
                           tx(context, 'Bevásárlólista mentése'),
                           style: TextStyle(
@@ -6718,7 +6732,7 @@ class _MealPrepBoxRow extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      onPressed: onPressed,
+      onPressed: withAppActionHaptic(onPressed),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -7051,7 +7065,8 @@ class ProUpsellCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = AppScope.of(context).palette;
+    final state = AppScope.of(context);
+    final p = state.palette;
     return GlassSurface(
       width: double.infinity,
       padding: EdgeInsets.zero,
@@ -7113,49 +7128,51 @@ class ProUpsellCard extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(14, 2, 14, 20),
               child: Column(
                 children: [
-                  _PaywallFeatureSections(),
-                  const SizedBox(height: 10),
-                  _PricingCard(),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    child: CupertinoButton(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 12,
-                        horizontal: 12,
-                      ),
-                      color: AppScope.of(context).primaryActionSurface,
-                      borderRadius: BorderRadius.circular(14),
-                      onPressed: () {},
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          tx(context, 'Próbáld ki ingyen 7 napig'),
-                          maxLines: 1,
-                          style: TextStyle(
-                            color: p.buttonText,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: -0.3,
+                  _PaywallFeatureSections(isPro: state.isPro),
+                  if (!state.isPro) ...[
+                    const SizedBox(height: 10),
+                    _PricingCard(),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
+                      child: CupertinoButton(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                          horizontal: 12,
+                        ),
+                        color: state.primaryActionSurface,
+                        borderRadius: BorderRadius.circular(14),
+                        onPressed: () {},
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            tx(context, 'Próbáld ki ingyen 7 napig'),
+                            maxLines: 1,
+                            style: TextStyle(
+                              color: p.buttonText,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: -0.3,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    tx(
-                      context,
-                      'Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható',
+                    const SizedBox(height: 10),
+                    Text(
+                      tx(
+                        context,
+                        'Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható',
+                      ),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: p.muted,
+                        fontSize: 11.5,
+                        height: 1.35,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: p.muted,
-                      fontSize: 11.5,
-                      height: 1.35,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  ],
                 ],
               ),
             ),
@@ -7167,8 +7184,56 @@ class ProUpsellCard extends StatelessWidget {
 }
 
 class _PaywallFeatureSections extends StatelessWidget {
+  const _PaywallFeatureSections({required this.isPro});
+
+  final bool isPro;
+
   @override
   Widget build(BuildContext context) {
+    final proFeatures = [
+      _PaywallFeature(
+        icon: CupertinoIcons.infinite,
+        title: tx(context, 'Korlátlan étel és meal prep mentés'),
+      ),
+      _PaywallFeature(
+        icon: CupertinoIcons.cart_badge_plus,
+        title: tx(context, 'Bevásárlás+ listák'),
+      ),
+      _PaywallFeature(
+        icon: CupertinoIcons.calendar,
+        title: tx(context, 'Étrendek'),
+      ),
+      _PaywallFeature(
+        icon: CupertinoIcons.chart_bar_alt_fill,
+        title: tx(context, 'Heti táplálkozási pillanatkép'),
+      ),
+      _PaywallFeature(
+        icon: CupertinoIcons.share,
+        title: tx(context, 'Étel megosztás'),
+      ),
+      _PaywallFeature(
+        icon: CupertinoIcons.chart_bar_alt_fill,
+        title: tx(context, '30/60 napos súlydiagram és statisztika'),
+      ),
+      _PaywallFeature(
+        icon: CupertinoIcons.pencil,
+        title: tx(context, 'Súlynapló szerkesztés'),
+      ),
+      _PaywallFeature(
+        icon: CupertinoIcons.paintbrush,
+        title: tx(context, 'Témák (6 db)'),
+      ),
+    ];
+
+    if (isPro) {
+      return _PaywallFeatureGroup(
+        title: tx(context, 'Korlátlan mentés és extra funkciók'),
+        subtitle: tx(context, 'Rendszeres használathoz'),
+        accent: true,
+        features: proFeatures,
+      );
+    }
+
     return Column(
       children: [
         _PaywallFeatureGroup(
@@ -7207,40 +7272,7 @@ class _PaywallFeatureSections extends StatelessWidget {
           title: tx(context, 'Pro-val feloldható extrák'),
           subtitle: tx(context, 'Rendszeres használathoz'),
           accent: true,
-          features: [
-            _PaywallFeature(
-              icon: CupertinoIcons.infinite,
-              title: tx(context, 'Korlátlan étel és meal prep mentés'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.cart_badge_plus,
-              title: tx(context, 'Bevásárlás+ listák'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.calendar,
-              title: tx(context, 'Étrendek'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.chart_bar_alt_fill,
-              title: tx(context, 'Heti táplálkozási pillanatkép'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.share,
-              title: tx(context, 'Étel megosztás'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.chart_bar_alt_fill,
-              title: tx(context, '30/60 napos súlydiagram és statisztika'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.pencil,
-              title: tx(context, 'Súlynapló szerkesztés'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.paintbrush,
-              title: tx(context, 'Témák (6 db)'),
-            ),
-          ],
+          features: proFeatures,
         ),
       ],
     );
