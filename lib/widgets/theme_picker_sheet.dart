@@ -150,7 +150,7 @@ class _ThemeTile extends StatelessWidget {
                   FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      theme.name,
+                      tx(context, theme.name),
                       maxLines: 1,
                       style: MealText.bodyStrong(p.text).copyWith(fontSize: 13),
                     ),

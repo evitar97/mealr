@@ -1295,7 +1295,7 @@ class _SettingsSheet extends StatelessWidget {
                 _ProfileRow(
                   icon: CupertinoIcons.paintbrush,
                   title: tx(context, 'Téma'),
-                  value: state.theme.name,
+                  value: tx(context, state.theme.name),
                   onTap: () => showThemePickerSheet(context),
                 ),
                 _ProfileRow(

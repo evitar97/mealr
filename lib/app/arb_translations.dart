@@ -3,149 +3,97 @@
 
 const arbTranslations = <String, Map<String, String>>{
   'en': <String, String>{
-    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ":
-        " - but not calories. If you enter cooked weight into your calorie tracker, ",
+    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ": " - but not calories. If you enter cooked weight into your calorie tracker, ",
     " – ezt mérd le és írd be.": " - measure this and enter it.",
     " és írd be ide.": " and enter it here.",
-    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.":
-        " If you enter cooked weight into your calorie tracker, you get an incorrect value.",
+    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.": " If you enter cooked weight into your calorie tracker, you get an incorrect value.",
     " Pro extrák lezárva": " · Pro extras locked",
     ", de ": ", but ",
     ", de ettől ": ", but this ",
     "/év": "/yr",
     "/hó": "/mo",
-    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
-        "→ Enter this number into your calorie tracker\n(e.g. MyFitnessPal, Cronometer, etc.)",
+    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)": "→ Enter this number into your calorie tracker\n(e.g. MyFitnessPal, Cronometer, etc.)",
     "= 1.00€/hó · legjobb ár": "= 1.00€/mo · best value",
     "1500 kcal étrendek": "1500 kcal meal plans",
     "30 nap": "30 days",
-    "30/60 napos súlydiagram és statisztika":
-        "30/60-day weight chart and statistics",
+    "30/60 napos súlydiagram és statisztika": "30/60-day weight chart and statistics",
     "7 nap": "7 days",
     "A banánt törd össze.": "Mash the banana.",
     "A BMI 18.5 alatt sovány tartomány.": "BMI below 18.5 is underweight.",
     "A BMI 25–29.9 között túlsúly.": "BMI between 25-29.9 is overweight.",
     "A BMI 30 felett obezitás tartomány.": "BMI above 30 is obesity range.",
-    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.":
-        "BMI is for guidance only. It does not account for muscle mass and is not a medical diagnosis.",
+    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.": "BMI is for guidance only. It does not account for muscle mass and is not a medical diagnosis.",
     "A brokkolit párold roppanósra.": "Steam the broccoli until crisp-tender.",
     "A bulgurt főzd meg.": "Cook the bulgur.",
-    "A burgonyát főzd vagy süsd puhára.":
-        "Boil or roast the potatoes until tender.",
-    "A cottage cheese-t kanalazd tálba.":
-        "Spoon the cottage cheese into a bowl.",
-    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.":
-        "Toss the chickpeas with the spice mix, then roast or pan-fry for 6-8 minutes.",
-    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.":
-        "Cook the chickpeas with tomato, coconut milk, and curry.",
-    "A csirkemellet süsd készre és szeleteld fel.":
-        "Cook the chicken breast and slice it.",
-    "A csirkét fűszerezd és süsd készre.":
-        "Season and cook the chicken through.",
-    "A főtt étel súlya változik, a kalória nem.":
-        "Cooked food weight changes, calories do not.",
-    "A garnélát kevés olajon pirítsd készre.":
-        "Cook the shrimp in a little oil.",
-    "A holnap a ma esti előkészítéssel indul.":
-        "Tomorrow starts with tonight’s prep.",
-    "A joghurtból készíts egyszerű öntetet.":
-        "Make a simple dressing from the yogurt.",
-    "A joghurtot kanalazd pohárba vagy tálba.":
-        "Spoon the yogurt into a glass or bowl.",
-    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.":
-        "The details you enter are saved straight to the BMI calculator, the Calorie menu, and your Profile, so you do not have to enter them again later.",
-    "A konkrét napi étrendeket a következő lépésben töltjük fel.":
-        "We will add the concrete daily meal plans in the next step.",
-    "A kuszkuszt forró vízzel párold meg.":
-        "Steam the couscous with hot water.",
-    "A lazacot sózd, borsozd, majd süsd készre.":
-        "Season the salmon with salt and pepper, then cook it through.",
+    "A burgonyát főzd vagy süsd puhára.": "Boil or roast the potatoes until tender.",
+    "A cottage cheese-t kanalazd tálba.": "Spoon the cottage cheese into a bowl.",
+    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.": "Toss the chickpeas with the spice mix, then roast or pan-fry for 6-8 minutes.",
+    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.": "Cook the chickpeas with tomato, coconut milk, and curry.",
+    "A csirkemellet süsd készre és szeleteld fel.": "Cook the chicken breast and slice it.",
+    "A csirkét fűszerezd és süsd készre.": "Season and cook the chicken through.",
+    "A főtt étel súlya változik, a kalória nem.": "Cooked food weight changes, calories do not.",
+    "A garnélát kevés olajon pirítsd készre.": "Cook the shrimp in a little oil.",
+    "A holnap a ma esti előkészítéssel indul.": "Tomorrow starts with tonight’s prep.",
+    "A joghurtból készíts egyszerű öntetet.": "Make a simple dressing from the yogurt.",
+    "A joghurtot kanalazd pohárba vagy tálba.": "Spoon the yogurt into a glass or bowl.",
+    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.": "The details you enter are saved straight to the BMI calculator, the Calorie menu, and your Profile, so you do not have to enter them again later.",
+    "A konkrét napi étrendeket a következő lépésben töltjük fel.": "We will add the concrete daily meal plans in the next step.",
+    "A kuszkuszt forró vízzel párold meg.": "Steam the couscous with hot water.",
+    "A lazacot sózd, borsozd, majd süsd készre.": "Season the salmon with salt and pepper, then cook it through.",
     "A little prep goes a long way.": "A little prep goes a long way.",
-    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
-        "Brown the beef, then add the vegetables.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "Mealr helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "Mealr saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "Mealr brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.",
-    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
-        "You can return to saved foods anytime - daily you only adjust the served amount.",
-    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
-        "Normal BMI range is 18.5-24.9. You are in a healthy range!",
-    "A paprikákat vágd félbe és magozd ki.":
-        "Cut the peppers in half and remove the seeds.",
+    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.": "Brown the beef, then add the vegetables.",
+    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.": "Mealr helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.",
+    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.": "Mealr saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.",
+    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.": "Mealr brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.",
+    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.": "You can return to saved foods anytime - daily you only adjust the served amount.",
+    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!": "Normal BMI range is 18.5-24.9. You are in a healthy range!",
+    "A paprikákat vágd félbe és magozd ki.": "Cut the peppers in half and remove the seeds.",
     "A pitát kend meg hummusszal.": "Spread the pita with hummus.",
-    "A pulykahúsból tojással és morzsával formázz golyókat.":
-        "Form balls from the turkey, egg, and breadcrumbs.",
-    "A pulykahúst kevés olajon pirítsd le.":
-        "Brown the turkey in a little oil.",
+    "A pulykahúsból tojással és morzsával formázz golyókat.": "Form balls from the turkey, egg, and breadcrumbs.",
+    "A pulykahúst kevés olajon pirítsd le.": "Brown the turkey in a little oil.",
     "A quinoát főzd meg.": "Cook the quinoa.",
-    "A rizsszeleteket kend meg cottage cheese-zel.":
-        "Spread the rice cakes with cottage cheese.",
-    "A rizsszeleteket kend meg hummusszal.":
-        "Spread the rice cakes with hummus.",
-    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.":
-        "Cook the rice, season the chicken breast, and cook it through.",
+    "A rizsszeleteket kend meg cottage cheese-zel.": "Spread the rice cakes with cottage cheese.",
+    "A rizsszeleteket kend meg hummusszal.": "Spread the rice cakes with hummus.",
+    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.": "Cook the rice, season the chicken breast, and cook it through.",
     "A rizst főzd meg.": "Cook the rice.",
-    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.":
-        "Soak or cook the rice noodles according to the package.",
-    "A sertésszüzet fűszerezd és süsd szeletekre.":
-        "Season the pork tenderloin and cook it in slices.",
-    "A steady plate keeps the day steady.":
-        "A steady plate keeps the day steady.",
-    "a száraz, nyers hozzávalók össztömege főzés előtt":
-        "the total dry, raw ingredient weight before cooking",
-    "A szójagranulátumot áztasd be, majd pirítsd le.":
-        "Soak the soy granules, then brown them.",
+    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.": "Soak or cook the rice noodles according to the package.",
+    "A sertésszüzet fűszerezd és süsd szeletekre.": "Season the pork tenderloin and cook it in slices.",
+    "A steady plate keeps the day steady.": "A steady plate keeps the day steady.",
+    "a száraz, nyers hozzávalók össztömege főzés előtt": "the total dry, raw ingredient weight before cooking",
+    "A szójagranulátumot áztasd be, majd pirítsd le.": "Soak the soy granules, then brown them.",
     "A tésztát főzd meg és hűtsd vissza.": "Cook the pasta and cool it down.",
     "A tofut kockázd fel és pirítsd meg.": "Dice and fry the tofu.",
     "A tojásokat főzd meg.": "Boil the eggs.",
-    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.":
-        "Prepare the eggs boiled, fried, or scrambled.",
+    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.": "Prepare the eggs boiled, fried, or scrambled.",
     "A tojásokat verd fel.": "Beat the eggs.",
-    "A tonhalat keverd össze citromlével, sóval és borssal.":
-        "Mix the tuna with lemon juice, salt, and pepper.",
+    "A tonhalat keverd össze citromlével, sóval és borssal.": "Mix the tuna with lemon juice, salt, and pepper.",
     "A tonhalat keverd össze joghurttal.": "Mix the tuna with yogurt.",
-    "A tortillát kend meg joghurtos szósszal.":
-        "Spread the tortilla with yogurt sauce.",
+    "A tortillát kend meg joghurtos szósszal.": "Spread the tortilla with yogurt sauce.",
     "A túrót keverd krémesre.": "Stir the curd cheese until creamy.",
-    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.":
-        "Warm the oats with the milk or plant drink.",
+    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.": "Warm the oats with the milk or plant drink.",
     "A zöldségeket pirítsd át.": "Sauté the vegetables.",
     "A zöldségeket rendezd tálba.": "Arrange the vegetables in a bowl.",
     "A zöldségeket terítsd tepsibe.": "Spread the vegetables on a baking tray.",
     "A zöldségeket vágd fel.": "Cut the vegetables.",
     "A zöldségeket vágd hasábokra.": "Cut the vegetables into sticks.",
-    "A zöldségeket vágd kisebb darabokra.":
-        "Cut the vegetables into smaller pieces.",
+    "A zöldségeket vágd kisebb darabokra.": "Cut the vegetables into smaller pieces.",
     "A zöldségeket vágd kockára.": "Dice the vegetables.",
     "adag": "portion",
     "Adagok": "Portions",
     "Adagok száma": "Number of servings",
-    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.":
-        "Add the beans, corn, tomato, and spices.",
-    "Add hozzá a babot, paradicsomszószt és fűszert.":
-        "Add the beans, tomato sauce, and spices.",
-    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.":
-        "Add the cooked rice and toss until heated through.",
-    "Add hozzá a hagymát, majd adagold dobozokba.":
-        "Add the onion, then portion into boxes.",
-    "Add hozzá a paradicsomszószt, majd főzd össze.":
-        "Add the tomato sauce, then simmer together.",
+    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.": "Add the beans, corn, tomato, and spices.",
+    "Add hozzá a babot, paradicsomszószt és fűszert.": "Add the beans, tomato sauce, and spices.",
+    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.": "Add the cooked rice and toss until heated through.",
+    "Add hozzá a hagymát, majd adagold dobozokba.": "Add the onion, then portion into boxes.",
+    "Add hozzá a paradicsomszószt, majd főzd össze.": "Add the tomato sauce, then simmer together.",
     "Add hozzá a rizst és a felvert tojást.": "Add the rice and beaten eggs.",
-    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.":
-        "Add the egg, roll it up, then serve cut in half.",
+    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.": "Add the egg, roll it up, then serve cut in half.",
     "Add meg az alapadataidat.": "Add your basic details.",
-    "Add mellé a feldarabolt zöldségeket és a kenyeret.":
-        "Add the chopped vegetables and bread on the side.",
-    "Add össze a száraz, nyers hozzávalókat főzés ":
-        "Add up the dry, raw ingredients ",
-    "adj 150–300 kcal-t a szintentartóhoz.\n\n":
-        "add 150-300 kcal to maintenance.\n\n",
+    "Add mellé a feldarabolt zöldségeket és a kenyeret.": "Add the chopped vegetables and bread on the side.",
+    "Add össze a száraz, nyers hozzávalókat főzés ": "Add up the dry, raw ingredients ",
+    "adj 150–300 kcal-t a szintentartóhoz.\n\n": "add 150-300 kcal to maintenance.\n\n",
     "Adj előnyt az estédnek.": "Give your evening a head start.",
-    "Adj hozzá legalább két súlyt a diagramhoz.":
-        "Add at least two weights to show the chart.",
+    "Adj hozzá legalább két súlyt a diagramhoz.": "Add at least two weights to show the chart.",
     "Advanced": "Advanced",
     "Aktív előfizetés · ": "Active subscription · ",
     "Aktív nap": "Active Day",
@@ -156,24 +104,17 @@ const arbTranslations = <String, Map<String, String>>{
     "Almás fahéjas overnight oats": "Apple cinnamon overnight oats",
     "Almás túrós sült zab": "Baked apple cottage oats",
     "Almaszeletek mogyoróvajjal": "Apple slices with peanut butter",
-    "amit a tányérra teszel → megkapod a ":
-        "what you put on your plate → you get the ",
+    "amit a tányérra teszel → megkapod a ": "what you put on your plate → you get the ",
     "Amit már most használhatsz": "Included in Free",
     "Avokádó": "Avocado",
     "Avokádós tonhalas tojásfalat": "Avocado tuna egg bite",
     "Az almát szeleteld fel.": "Slice the apple.",
-    "Az app a mentett kész mennyiséget osztja el az adagok között.":
-        "The app splits the saved cooked amount between portions.",
-    "Az avokádót szeleteld mellé, citromlével ízesítsd.":
-        "Slice the avocado beside it and season with lemon juice.",
-    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.":
-        "Mash the avocado with lemon juice, salt, and pepper, then spread it on the toast.",
-    "az étel össztömege főzés vagy sütés után":
-        "the total meal weight after cooking or baking",
-    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.":
-        "The meal plans are general guidance and do not replace a personalized plan created by a dietitian or doctor. If you have a medical condition, allergy, pregnancy, or a specific goal, ask a professional for help and use them at your own responsibility.",
-    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
-        "You are charged only after day 7 · Cancel anytime",
+    "Az app a mentett kész mennyiséget osztja el az adagok között.": "The app splits the saved cooked amount between portions.",
+    "Az avokádót szeleteld mellé, citromlével ízesítsd.": "Slice the avocado beside it and season with lemon juice.",
+    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.": "Mash the avocado with lemon juice, salt, and pepper, then spread it on the toast.",
+    "az étel össztömege főzés vagy sütés után": "the total meal weight after cooking or baking",
+    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.": "The meal plans are general guidance and do not replace a personalized plan created by a dietitian or doctor. If you have a medical condition, allergy, pregnancy, or a specific goal, ask a professional for help and use them at your own responsibility.",
+    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható": "You are charged only after day 7 · Cancel anytime",
     "Bagel": "Bagel",
     "Banán": "Banana",
     "Banános kakaós falatok": "Banana cocoa bites",
@@ -188,10 +129,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Edit shopping list",
     "Bevásárlólista törlése": "Delete shopping list",
     "Bezárás": "Close",
-    "Biztosan törlöd az összes rögzített súlyt?":
-        "Are you sure you want to delete all recorded weights?",
-    "Biztosan törlöd ezt a bevásárlólistát?":
-        "Are you sure you want to delete this shopping list?",
+    "Biztosan törlöd az összes rögzített súlyt?": "Are you sure you want to delete all recorded weights?",
+    "Biztosan törlöd ezt a bevásárlólistát?": "Are you sure you want to delete this shopping list?",
     "BMI": "BMI",
     "BMI\nkalkulátor": "BMI\ncalculator",
     "Bogyós gyümölcs": "Berries",
@@ -199,6 +138,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Build today one meal at a time.": "Build today one meal at a time.",
     "Bulgur": "Bulgur",
     "Burgonya": "Potato",
+    "Burgur": "Bulgur",
+    "Candy": "Candy",
     "Chia mag": "Chia seeds",
     "Chili fűszer": "Chili spice",
     "Chilis pulykával töltött paprika": "Chili turkey stuffed peppers",
@@ -206,6 +147,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Close the day with care.": "Close the day with care.",
     "Cottage cheese": "Cottage cheese",
     "Cottage cheese zöldségtál": "Cottage cheese vegetable plate",
+    "Cream": "Cream",
     "Csicseriborsó": "Chickpeas",
     "Csicseriborsó curry rizzsel": "Chickpea curry with rice",
     "Csicseriborsós ropogós doboz": "Crunchy chickpea box",
@@ -214,8 +156,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Csirkés kuszkuszos doboz": "Chicken couscous box",
     "Csirkés pita tál": "Chicken pita bowl",
     "Csirkés rizses fit bowl": "Chicken rice fit bowl",
-    "Csirkés rizses fit bowl kisebb adagban":
-        "Chicken rice fit bowl, smaller portion",
+    "Csirkés rizses fit bowl kisebb adagban": "Chicken rice fit bowl, smaller portion",
     "Csirkés rizstészta leveses tál": "Chicken rice noodle soup bowl",
     "csökkenhet vagy növekedhet": "can decrease or increase",
     "Csökkenő": "Decreasing",
@@ -226,6 +167,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Darált dió": "Ground walnuts",
     "Darált pulykahús": "Ground turkey",
     "db": "pcs",
+    "Dew": "Dew",
     "Dió vagy mandula": "Walnuts or almonds",
     "diófélék": "tree nuts",
     "Dobozok": "Boxes",
@@ -237,8 +179,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Eddigi változás": "Total change so far",
     "Edzéshez és jobb teltségérzethez": "For training and better satiety",
     "Egy adag nyers egyenértéke": "Raw equivalent per portion",
-    "Egy kiegyensúlyozott tányér stabilan tartja a napot.":
-        "A steady plate keeps the day steady.",
+    "Egy kiegyensúlyozott tányér stabilan tartja a napot.": "A steady plate keeps the day steady.",
     "Egy kis előkészítés sokat számít.": "A little prep goes a long way.",
     "Egyszerű lendület nap": "Simple Momentum Day",
     "Egyszerű nap": "Simple Day",
@@ -246,8 +187,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Egyszerűbb, olcsóbb alapanyagokkal": "With simpler, cheaper ingredients",
     "Életkor": "Age",
     "Elkészítés": "Preparation",
-    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.":
-        "Check your ideal weight and track changes. Saved to your profile.",
+    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.": "Check your ideal weight and track changes. Saved to your profile.",
     "Elmentett listák": "Saved lists",
     "Elmentett meal prep tervek": "Saved Meal Prep Plans",
     "Előfizetés": "Subscription",
@@ -255,15 +195,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Előre dobozolható napi menü": "Daily menu you can prep ahead",
     "Előre főzős nap": "Cook-Ahead Day",
     "Előre haladó nap": "Prep-Ahead Day",
-    "Először ments el egy ételt a meal prep tervezéshez.":
-        "Save a food first, then you can build a Meal Prep plan.",
+    "Először ments el egy ételt a meal prep tervezéshez.": "Save a food first, then you can build a Meal Prep plan.",
     "előtt": "before cooking",
     "Emelkedő": "Increasing",
     "End the day full, not rushed.": "End the day full, not rushed.",
     "Enyhén aktív (heti 1–3x)": "Lightly active (1-3x/week)",
     "Eper": "Strawberries",
-    "Építsd fel a mai napot étkezésről étkezésre.":
-        "Build today one meal at a time.",
+    "Építsd fel a mai napot étkezésről étkezésre.": "Build today one meal at a time.",
     "Erő plusz nap": "Strength Plus Day",
     "Erős nap": "Strong Day",
     "Erősen aktív (heti 6–7x)": "Very active (6-7x/week)",
@@ -282,8 +220,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Éves csomag −50% kedvezménnyel": "Yearly plan with −50% discount",
     "Éves előfizetés": "Yearly subscription",
     "Extrém aktív": "Extremely active",
-    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.":
-        "The app uses these to calculate your BMI, daily calorie target, and profile basics.",
+    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.": "The app uses these to calculate your BMI, daily calorie target, and profile basics.",
     "Fahéj": "Cinnamon",
     "Fehér halfilé": "White fish fillet",
     "Fehérje fókusz nap": "Protein Focus Day",
@@ -307,18 +244,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Fogyáshoz": "For fat loss",
     "Fogyáshoz: ": "For fat loss: ",
     "földimogyoró": "peanut",
-    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.":
-        "Toss with the vegetables, noodles, and soy sauce.",
-    "Formázz falatokat és hűtsd 20 percig.":
-        "Shape into bites and chill for 20 minutes.",
+    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.": "Toss with the vegetables, noodles, and soy sauce.",
+    "Formázz falatokat és hűtsd 20 percig.": "Shape into bites and chill for 20 minutes.",
     "Főtt lencse": "Cooked lentils",
     "Főtt rizs": "Cooked rice",
     "Főtt tojás avokádóval": "Boiled eggs with avocado",
     "Főzd össze sűrű raguvá.": "Cook into a thick stew.",
     "Főzés során az étel ": "During cooking, food ",
     "Főzés során az étel tömege ": "During cooking, food weight ",
-    "főzés után mérd le az egész elkészült ételt, például 760 g.":
-        "after cooking, weigh the finished meal, for example 760 g.",
+    "főzés után mérd le az egész elkészült ételt, például 760 g.": "after cooking, weigh the finished meal, for example 760 g.",
     "Friss mentes nap": "Fresh Free-From Day",
     "Friss nap": "Fresh Day",
     "Friss zöld nap": "Fresh Green Day",
@@ -335,8 +269,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Give your evening a head start.": "Give your evening a head start.",
     "glutén": "gluten",
     "Gluténmentes": "Gluten-free",
-    "Glutént tartalmazó alapanyagok nélkül":
-        "Without ingredients containing gluten",
+    "Glutént tartalmazó alapanyagok nélkül": "Without ingredients containing gluten",
     "Good afternoon": "Good afternoon",
     "Good day": "Good day",
     "Good evening": "Good evening",
@@ -344,31 +277,23 @@ const arbTranslations = <String, Map<String, String>>{
     "Görög csirkés tányér": "Greek chicken plate",
     "Görög joghurt": "Greek yogurt",
     "Görög joghurtos granola pohár": "Greek yogurt granola cup",
-    "Görög joghurtos granola pohár gluténmentes granolával":
-        "Greek yogurt granola cup with gluten-free granola",
+    "Görög joghurtos granola pohár gluténmentes granolával": "Greek yogurt granola cup with gluten-free granola",
     "Görög lazacos quinoa tál": "Greek salmon quinoa bowl",
     "Granola": "Granola",
     "Gyors": "Quick",
     "Gyors fókusz nap": "Quick Focus Day",
     "Gyors rutin nap": "Quick Routine Day",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "if 250 g goes into your container, Mealr calculates that it equals about 313 g of raw ingredients.",
-    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
-        "If you cook only rice, bulgur, or pasta as a side, it works the same way: raw rice 300 g, cooked rice 820 g, served portion 180 g. The app gives the raw rice equivalent.",
-    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
-        "When you want to eat, measure the portion on your plate and enter it - you get the ",
-    "Ha megfőzted vagy megsütötted az ételt, mérd le az ":
-        "After cooking or baking the meal, measure the ",
-    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.":
-        "For a thicker texture, add ice or use less liquid.",
-    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.":
-        "Let it rest for 5 minutes so the oats absorb the moisture.",
+    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.": "if 250 g goes into your container, Mealr calculates that it equals about 313 g of raw ingredients.",
+    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.": "If you cook only rice, bulgur, or pasta as a side, it works the same way: raw rice 300 g, cooked rice 820 g, served portion 180 g. The app gives the raw rice equivalent.",
+    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ": "When you want to eat, measure the portion on your plate and enter it - you get the ",
+    "Ha megfőzted vagy megsütötted az ételt, mérd le az ": "After cooking or baking the meal, measure the ",
+    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.": "For a thicker texture, add ice or use less liquid.",
+    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.": "Let it rest for 5 minutes so the oats absorb the moisture.",
     "Hajtsd félbe és frissen tálald.": "Fold in half and serve fresh.",
     "hal": "fish",
     "Hamarosan": "Soon",
     "Havi előfizetés": "Monthly subscription",
-    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.":
-        "Place the fish fillet on top, season, and drizzle with oil.",
+    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.": "Place the fish fillet on top, season, and drizzle with oil.",
     "hét": "week",
     "Heti átlag": "Weekly average",
     "Heti doboz nap": "Weekly Box Day",
@@ -388,18 +313,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Húsmentes lendület nap": "Meat-Free Momentum Day",
     "Húsmentes napi étrend": "Meat-free daily plan",
     "Ideális testsúly": "Ideal weight",
-    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
-        "This makes calorie tracking more accurate, and Meal Prep portions stop being guesswork.",
+    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.": "This makes calorie tracking more accurate, and Meal Prep portions stop being guesswork.",
     "Indítsd tudatosan a reggelt.": "Fuel the morning with intention.",
     "Indulhat": "Start",
     "Ingyenes": "Free",
     "Ingyenes alapok": "Free basics",
-    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
-        "Free includes 1 saved Meal Prep plan. Upgrade to save more.",
-    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.":
-        "Use as a guide for 2-4 weeks, then adjust based on actual progress.",
-    "Írj receptet, tippet vagy emlékeztetőt...":
-        "Write a recipe, tip, or reminder...",
+    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.": "Free includes 1 saved Meal Prep plan. Upgrade to save more.",
+    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.": "Use as a guide for 2-4 weeks, then adjust based on actual progress.",
+    "Írj receptet, tippet vagy emlékeztetőt...": "Write a recipe, tip, or reminder...",
     "Ízlés szerint sózd, borsozd.": "Season with salt and pepper to taste.",
     "Izmos nap": "Muscle Day",
     "Jegyzet": "Note",
@@ -419,19 +340,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Kalória\nkalkulátor": "Calorie\ncalculator",
     "Kalória cél": "Calorie goal",
     "Kalória kalkulátor": "Calorie calculator",
-    "Kanalazd kekszekre, uborkával tálald.":
-        "Spoon onto crackers and serve with cucumber.",
-    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.":
-        "Spoon the tzatziki alongside and serve with the quinoa-vegetable base.",
+    "Kanalazd kekszekre, uborkával tálald.": "Spoon onto crackers and serve with cucumber.",
+    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.": "Spoon the tzatziki alongside and serve with the quinoa-vegetable base.",
     "kcal / nap": "kcal / day",
     "Kedvencek": "Favorites",
-    "Keep the afternoon light and useful.":
-        "Keep the afternoon light and useful.",
+    "Keep the afternoon light and useful.": "Keep the afternoon light and useful.",
     "Keep your meals on track.": "Keep your meals on track.",
-    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.":
-        "Spread with cream cheese, then add salmon and cucumber.",
-    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.":
-        "Spread thinly with peanut butter and sprinkle with cinnamon.",
+    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.": "Spread with cream cheese, then add salmon and cucumber.",
+    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.": "Spread thinly with peanut butter and sprinkle with cinnamon.",
     "Képlet: ": "Formula: ",
     "Keresés receptek között": "Search recipes",
     "Kert nap": "Garden Day",
@@ -442,45 +358,26 @@ const arbTranslations = <String, Map<String, String>>{
     "Kész súly": "Cooked weight",
     "Készíts lágy rántottát a tojásból.": "Make soft scrambled eggs.",
     "Készítsd elő, ami később könnyít.": "Prep what makes later easier.",
-    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.":
-        "Stir in the protein powder, then let it thicken for a few minutes.",
-    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.":
-        "Stir in the bulgur and tomato paste, then cook together.",
-    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.":
-        "Stir in the maple syrup, then let it thicken for a few minutes.",
-    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.":
-        "Stir in the tomato paste and cook for 3-4 minutes into a thick stew.",
-    "Keverd hozzá a zabot, kakaót és juharszirupot.":
-        "Mix in the oats, cocoa, and maple syrup.",
-    "Keverd hozzá a zabot, kakaót és mogyoróvajat.":
-        "Mix in the oats, cocoa, and peanut butter.",
-    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.":
-        "Mix the potatoes with the tzatziki, then serve with cucumber and turkey ham.",
-    "Keverd össze a joghurtot a fehérjeporral.":
-        "Mix the yogurt with the protein powder.",
-    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.":
-        "Mix with the cooked pasta and portion with grated cheese.",
-    "Keverd össze a lencsével és morzsolt fetával.":
-        "Mix with lentils and crumbled feta.",
-    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.":
-        "Mix the tuna with the beans, potatoes, and yogurt dressing.",
-    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.":
-        "Mix the oats, yogurt, liquid, and cinnamon.",
-    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.":
-        "Mix the oats, milk or plant drink, chia seeds, and cocoa powder.",
-    "Keverd össze spenóttal és paradicsommal.":
-        "Mix with spinach and tomatoes.",
-    "Keverd össze tonhallal, kukoricával és joghurttal.":
-        "Mix with tuna, corn, and yogurt.",
+    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.": "Stir in the protein powder, then let it thicken for a few minutes.",
+    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.": "Stir in the bulgur and tomato paste, then cook together.",
+    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.": "Stir in the maple syrup, then let it thicken for a few minutes.",
+    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.": "Stir in the tomato paste and cook for 3-4 minutes into a thick stew.",
+    "Keverd hozzá a zabot, kakaót és juharszirupot.": "Mix in the oats, cocoa, and maple syrup.",
+    "Keverd hozzá a zabot, kakaót és mogyoróvajat.": "Mix in the oats, cocoa, and peanut butter.",
+    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.": "Mix the potatoes with the tzatziki, then serve with cucumber and turkey ham.",
+    "Keverd össze a joghurtot a fehérjeporral.": "Mix the yogurt with the protein powder.",
+    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.": "Mix with the cooked pasta and portion with grated cheese.",
+    "Keverd össze a lencsével és morzsolt fetával.": "Mix with lentils and crumbled feta.",
+    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.": "Mix the tuna with the beans, potatoes, and yogurt dressing.",
+    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.": "Mix the oats, yogurt, liquid, and cinnamon.",
+    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.": "Mix the oats, milk or plant drink, chia seeds, and cocoa powder.",
+    "Keverd össze spenóttal és paradicsommal.": "Mix with spinach and tomatoes.",
+    "Keverd össze tonhallal, kukoricával és joghurttal.": "Mix with tuna, corn, and yogurt.",
     "Keverd simára a hozzávalókat.": "Mix the ingredients until smooth.",
-    "Keverd simára a joghurtot fehérjeporral és kakaóval.":
-        "Mix the yogurt with protein powder and cocoa until smooth.",
-    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.":
-        "Mix mustard into the yogurt dressing, then drizzle it over the couscous salad.",
-    "Kevés citromlével frissítsd, majd azonnal tálald.":
-        "Freshen with a little lemon juice and serve immediately.",
-    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.":
-        "Soften them in a little oil, then pour over the beaten eggs.",
+    "Keverd simára a joghurtot fehérjeporral és kakaóval.": "Mix the yogurt with protein powder and cocoa until smooth.",
+    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.": "Mix mustard into the yogurt dressing, then drizzle it over the couscous salad.",
+    "Kevés citromlével frissítsd, majd azonnal tálald.": "Freshen with a little lemon juice and serve immediately.",
+    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.": "Soften them in a little oil, then pour over the beaten eggs.",
     "Kevesebb mutatása": "Show less",
     "Kezdés ingyenesen": "Start free",
     "Kezdj egyszerűen, maradj következetes.": "Start simple, stay steady.",
@@ -513,12 +410,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Közepesen aktív (heti 3–5x)": "Moderately active (3-5x/week)",
     "Krémsajt": "Cream cheese",
     "Kukorica": "Corn",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealr still calculates the raw equivalent.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.": "It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealr still calculates the raw equivalent.",
     "Kuszkusz": "Couscous",
     "Lassíts, egyél jól, pihenj könnyen.": "Slow down, eat well, rest easy.",
-    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.":
-        "Cook on low heat until the center sets.",
+    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.": "Cook on low heat until the center sets.",
     "Laza mentes nap": "Easy Free-From Day",
     "Lazacfilé": "Salmon fillet",
     "Lazacos burgonyás ebéd": "Salmon potato lunch",
@@ -527,8 +422,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Lazacos uborkás falatok": "Salmon cucumber bites",
     "Lazacos zöldbabos vacsora": "Salmon green bean dinner",
     "Legalacsonyabb": "Lowest",
-    "Legyen a délután könnyű és hasznos.":
-        "Keep the afternoon light and useful.",
+    "Legyen a délután könnyű és hasznos.": "Keep the afternoon light and useful.",
     "Legyen az első döntés könnyű.": "Make the first choice an easy one.",
     "Legyen egyszerű a következő étkezés.": "Make the next meal easy.",
     "Lejár: ": "Expires: ",
@@ -538,12 +432,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Lilahagyma": "Red onion",
     "Lista": "List",
     "Lista neve": "List name",
-    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.":
-        "Drizzle with a little honey, then sprinkle with walnuts or almonds.",
-    "Locsold meg kevés mézzel, majd szórd meg mandulával.":
-        "Drizzle with a little honey, then sprinkle with almonds.",
-    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.":
-        "Drizzle with olive oil and serve chilled or fresh.",
+    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.": "Drizzle with a little honey, then sprinkle with walnuts or almonds.",
+    "Locsold meg kevés mézzel, majd szórd meg mandulával.": "Drizzle with a little honey, then sprinkle with almonds.",
+    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.": "Drizzle with olive oil and serve chilled or fresh.",
     "Ma": "Today",
     "Magas fehérje": "High protein",
     "Magasság": "Height",
@@ -564,10 +455,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Mealr Pro": "Mealr Pro",
     "Mediterrán pulykás bulgur": "Mediterranean turkey bulgur",
     "Medium": "Medium",
-    "Még nincs elmentett bevásárlólistád.":
-        "Shopping lists you create will appear here.",
-    "Még nincs elmentett meal prep terved.":
-        "Saved Meal Prep plans will appear here.",
+    "Még nincs elmentett bevásárlólistád.": "Shopping lists you create will appear here.",
+    "Még nincs elmentett meal prep terved.": "Saved Meal Prep plans will appear here.",
     "Még nincs főétel hozzáadva.": "Your main dishes will appear here.",
     "Még nincs köret hozzáadva.": "Your sides will appear here.",
     "Megjegyzés": "Note",
@@ -578,35 +467,28 @@ const arbTranslations = <String, Map<String, String>>{
     "Mégse": "Cancel",
     "Meleg banános zabfalatok": "Warm banana oat bites",
     "Meleg lencsés feta tányér": "Warm lentil feta plate",
-    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.":
-        "Warm the tortilla, then add the ham, cheese, and vegetables.",
+    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.": "Warm the tortilla, then add the ham, cheese, and vegetables.",
     "Mentés": "Save",
     "Mentes lendület nap": "Free-From Momentum Day",
-    "Mentés profilba · a Kalória cél frissítése":
-        "Save to profile · update calorie goal",
+    "Mentés profilba · a Kalória cél frissítése": "Save to profile · update calorie goal",
     "Mentés új listaként": "Save as new list",
     "Mentett étel": "Saved food",
     "Mentve": "Saved",
-    "Mentve a profilba · legközelebb automatikusan kitöltve":
-        "Saved to profile · prefilled next time",
+    "Mentve a profilba · legközelebb automatikusan kitöltve": "Saved to profile · prefilled next time",
     "Mentve a profilba.": "Saved to profile.",
-    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.":
-        "weigh the ingredients before cooking, for example chicken + rice + vegetables totaling 950 g.",
+    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.": "weigh the ingredients before cooking, for example chicken + rice + vegetables totaling 950 g.",
     "Méz": "Honey",
     "MI A PROBLÉMA?": "WHAT IS THE PROBLEM?",
     "MIÉRT HASZNOS?": "WHY IS IT USEFUL?",
     "Mind": "All",
     "MINDEN EGYBEN": "ALL IN ONE",
-    "Minden hozzávalót tegyél turmixgépbe.":
-        "Put all ingredients into a blender.",
+    "Minden hozzávalót tegyél turmixgépbe.": "Put all ingredients into a blender.",
     "Mini burgonyás tzatziki doboz": "Mini potato tzatziki box",
     "Mini csirkés wrap": "Mini chicken wrap",
     "Mini tortilla": "Mini tortilla",
     "Mogyoróvaj": "Peanut butter",
-    "Morzsold rá a fetát, és frissen tálald.":
-        "Crumble the feta on top and serve fresh.",
-    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.":
-        "Crumble the feta on top and serve with the vegetable bulgur.",
+    "Morzsold rá a fetát, és frissen tálald.": "Crumble the feta on top and serve fresh.",
+    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.": "Crumble the feta on top and serve with the vegetable bulgur.",
     "mustár": "mustard",
     "Mustár": "Mustard",
     "Mustáros sertésszűz burgonyával": "Mustard pork tenderloin with potatoes",
@@ -618,8 +500,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Nehézség": "Difficulty",
     "Nem": "Gender",
     "nem a kalóriájából.": "not its calories.",
-    "Nem csak mérlegelés: egy app a kajás rutinodhoz.":
-        "Not just weighing: one app for your food routine.",
+    "Nem csak mérlegelés: egy app a kajás rutinodhoz.": "Not just weighing: one app for your food routine.",
     "nem változik a kalóriája.": "does not change its calories.",
     "Nevezd el és add hozzá a tételeket": "Name it and add the items",
     "Névjegy": "About",
@@ -628,8 +509,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Nincs köret": "No side",
     "Nincs mentett étel": "No saved food",
     "Nincs találat.": "No recipes match this search.",
-    "Nincs változás a kezdő súlyhoz képest":
-        "No change compared with starting weight",
+    "Nincs változás a kezdő súlyhoz képest": "No change compared with starting weight",
     "Nő": "Female",
     "Normál": "Normal",
     "Normál receptek": "Normal",
@@ -638,8 +518,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Növényi ritmus nap": "Plant Rhythm Day",
     "Nyelv": "Language",
     "Nyelv, téma, mód és verzió": "Language, theme, mode, and version",
-    "nyers ÷ kész × kimért =\nnyers egyenérték\n":
-        "raw ÷ cooked × served =\nraw equivalent\n",
+    "nyers ÷ kész × kimért =\nnyers egyenérték\n": "raw ÷ cooked × served =\nraw equivalent\n",
     "Nyers adag": "Raw amount",
     "Nyers egyenérték": "Raw equivalent",
     "nyers egyenértéket": "raw equivalent",
@@ -649,8 +528,7 @@ const arbTranslations = <String, Map<String, String>>{
     "nyersen": "raw",
     "Nyisd meg újra a bevezetőt": "Open the intro again",
     "Nyugodt energia nap": "Calm Energy Day",
-    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.":
-        "A calm, practical tool for a more accurate eating routine.",
+    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.": "A calm, practical tool for a more accurate eating routine.",
     "Obezitás": "Obesity",
     "Okos kosár nap": "Smart Basket Day",
     "Okos nap": "Smart Day",
@@ -660,16 +538,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Összes": "Total",
     "Összes kalória": "Total calories",
     "össztömeget": "total weight",
-    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.":
-        "Divide the couscous, chicken, and broccoli into boxes.",
-    "Oszd dobozokra a rizst, csirkét és brokkolit.":
-        "Divide the rice, chicken, and broccoli into boxes.",
+    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.": "Divide the couscous, chicken, and broccoli into boxes.",
+    "Oszd dobozokra a rizst, csirkét és brokkolit.": "Divide the rice, chicken, and broccoli into boxes.",
     "Overnight oats előre bekészítve": "Overnight oats prepped ahead",
     "Paprika": "Pepper",
     "Paradicsom": "Tomato",
     "Paradicsompüré": "Tomato paste",
-    "Paradicsomszósszal és sajttal süsd készre.":
-        "Bake with tomato sauce and cheese until done.",
+    "Paradicsomszósszal és sajttal süsd készre.": "Bake with tomato sauce and cheese until done.",
     "Paradicsomszósz": "Tomato sauce",
     "Pénztárca plusz nap": "Wallet Plus Day",
     "Pénztárcabarát": "Budget-friendly",
@@ -692,8 +567,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Pulykagolyók cukkinispagettivel": "Turkey meatballs with zucchini noodles",
     "Pulykamell sonka": "Turkey breast ham",
     "Pulykás bolognai tészta": "Turkey bolognese pasta",
-    "Pulykás bolognai tészta light adagban":
-        "Turkey bolognese pasta, light portion",
+    "Pulykás bolognai tészta light adagban": "Turkey bolognese pasta, light portion",
     "Pulykás cottage reggeli doboz": "Turkey cottage breakfast box",
     "Pulykás sajtos tekercsek": "Turkey cheese rolls",
     "Pulykás tojásos wrap": "Turkey egg wrap",
@@ -714,8 +588,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Reszeld vagy kockázd bele az almát.": "Grate or dice the apple into it.",
     "Reszelt sajt": "Grated cheese",
     "Részletek": "Details",
-    "Rétegezd rá a granolát és a szeletelt banánt.":
-        "Layer the granola and sliced banana on top.",
+    "Rétegezd rá a granolát és a szeletelt banánt.": "Layer the granola and sliced banana on top.",
     "Rizs": "Rice",
     "Rizsszelet": "Rice cake",
     "Rizsszelet cottage cheese-zel": "Rice cakes with cottage cheese",
@@ -725,8 +598,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Rövid konyha nap": "Short Kitchen Day",
     "Saláta": "Lettuce",
     "Saláta mix": "Salad mix",
-    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.":
-        "Cook in a pan with ham, cheese, and spinach.",
+    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.": "Cook in a pan with ham, cheese, and spinach.",
     "Sertésszűz": "Pork tenderloin",
     "Sertésszűz kuszkusszal": "Pork tenderloin with couscous",
     "Sertésszűz kuszkusz salátával": "Pork tenderloin with couscous salad",
@@ -747,6 +619,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Sovány marhahús": "Lean beef",
     "Spenót": "Spinach",
     "Spenótos kókuszos csicseriborsó": "Spinach coconut chickpeas",
+    "Spinach": "Spinach",
     "Sportos nap": "Sporty Day",
     "Stabil erő nap": "Steady Strength Day",
     "Stagnál": "Stable",
@@ -762,13 +635,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Súlykövetés": "Weight tracking",
     "Súlykövetés diagram": "Weight tracking chart",
     "Súlynapló szerkesztés": "Weight log editing",
-    "Süsd készre, amíg a hal omlós lesz.":
-        "Bake until the fish is tender and flaky.",
-    "Süsd vagy párold készre paradicsomszószban.":
-        "Bake or simmer in tomato sauce until done.",
+    "Süsd készre, amíg a hal omlós lesz.": "Bake until the fish is tender and flaky.",
+    "Süsd vagy párold készre paradicsomszószban.": "Bake or simmer in tomato sauce until done.",
     "Sütőpor": "Baking powder",
-    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.":
-        "Calculate your daily maintenance calories from age, weight, height, and activity.",
+    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.": "Calculate your daily maintenance calories from age, weight, height, and activity.",
     "Személyes adatok": "Personal data",
     "SZEMÉLYES ALAPOK": "PERSONAL BASICS",
     "Szép napot": "Good day",
@@ -777,11 +647,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Szezámmag": "Sesame seeds",
     "szója": "soy",
     "Szójagranulátum": "Soy granules",
-    "Szójaszósszal ízesítsd, majd süsd össze.":
-        "Season with soy sauce, then cook together.",
+    "Szójaszósszal ízesítsd, majd süsd össze.": "Season with soy sauce, then cook together.",
     "Szójaszósz": "Soy sauce",
-    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.":
-        "Sprinkle with pumpkin seeds, then season to taste.",
+    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.": "Sprinkle with pumpkin seeds, then season to taste.",
     "Szükséges kész étel": "Cooked food needed",
     "Szükséges kész főétel": "Cooked main needed",
     "Szükséges kész köret": "Cooked side needed",
@@ -790,32 +658,22 @@ const arbTranslations = <String, Map<String, String>>{
     "Szükséges nyers köret": "Raw side needed",
     "Takarékos nap": "Saver Day",
     "Tálald a curry alapot rizzsel.": "Serve the curry base with rice.",
-    "Tálald bogyós gyümölccsel és chia maggal.":
-        "Serve with berries and chia seeds.",
+    "Tálald bogyós gyümölccsel és chia maggal.": "Serve with berries and chia seeds.",
     "Tálald bogyós gyümölccsel.": "Serve with berries.",
-    "Tálald cottage cheese-zel, abonettel és tökmaggal.":
-        "Serve with cottage cheese, crispbread, and pumpkin seeds.",
+    "Tálald cottage cheese-zel, abonettel és tökmaggal.": "Serve with cottage cheese, crispbread, and pumpkin seeds.",
     "Tálald fetával és tzatzikivel.": "Serve with feta and tzatziki.",
     "Tálald gyümölccsel.": "Serve with fruit.",
-    "Tálald pitával, salátával és joghurtos szósszal.":
-        "Serve with pita, salad, and yogurt sauce.",
-    "Tálald salátával és joghurtos öntettel.":
-        "Serve with salad and yogurt dressing.",
-    "Tálald zöldbabbal és kevés mustáros szósszal.":
-        "Serve with green beans and a little mustard sauce.",
-    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.":
-        "Cook small pancakes in a non-stick pan.",
+    "Tálald pitával, salátával és joghurtos szósszal.": "Serve with pita, salad, and yogurt sauce.",
+    "Tálald salátával és joghurtos öntettel.": "Serve with salad and yogurt dressing.",
+    "Tálald zöldbabbal és kevés mustáros szósszal.": "Serve with green beans and a little mustard sauce.",
+    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.": "Cook small pancakes in a non-stick pan.",
     "Tartsd kézben az étkezéseidet.": "Keep your meals on track.",
-    "Te adod meg, hány gramm kerüljön egy adagba.":
-        "You set how many grams go into each portion.",
+    "Te adod meg, hány gramm kerüljön egy adagba.": "You set how many grams go into each portion.",
     "Tedd dobozba hummusszal együtt.": "Pack them into a box with hummus.",
-    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.":
-        "Refrigerate overnight, then stir and eat in the morning.",
+    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.": "Refrigerate overnight, then stir and eat in the morning.",
     "Tedd rá a csirkét és az öntetet.": "Add the chicken and dressing on top.",
-    "Tedd rá a gyümölcsöt, mézet és diót.":
-        "Top with fruit, honey, and walnuts.",
-    "Tedd rá a paradicsomot és szórd meg tökmaggal.":
-        "Add the tomato and sprinkle with pumpkin seeds.",
+    "Tedd rá a gyümölcsöt, mézet és diót.": "Top with fruit, honey, and walnuts.",
+    "Tedd rá a paradicsomot és szórd meg tökmaggal.": "Add the tomato and sprinkle with pumpkin seeds.",
     "Tedd rá a tojást és frissen tálald.": "Top with the egg and serve fresh.",
     "Tedd rá az epret és a mandulát.": "Top with strawberries and almonds.",
     "Tegnap": "Yesterday",
@@ -837,8 +695,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tempós nap": "Quick Day",
     "Tempós tál nap": "Fast Bowl Day",
     "Terv neve": "Plan name",
-    "Tervezd meg a vacsorát még a rohanás előtt.":
-        "Set up dinner before the rush.",
+    "Tervezd meg a vacsorát még a rohanás előtt.": "Set up dinner before the rush.",
     "Tervezett nap": "Planned Day",
     "Tervezz egy nyugodt, erős napot.": "Plan a calm, strong day.",
     "Tervezz, főzz, kövess okosabban": "Plan, cook, track smarter",
@@ -850,8 +707,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Tiszta energia nap": "Clean Energy Day",
     "Tiszta nap": "Clean Day",
     "Tiszta ritmus nap": "Clean Rhythm Day",
-    "Több mentés, bevásárlólisták, súlykövetés extrák":
-        "Unlimited meals, Shopping+, themes, and tracking",
+    "Toast": "Toast",
+    "Több mentés, bevásárlólisták, súlykövetés extrák": "Unlimited meals, Shopping+, themes, and tracking",
     "Tofu": "Tofu",
     "Tofus csicseriborsó curry": "Tofu chickpea curry",
     "Tofus quinoás vacsoratál": "Tofu quinoa dinner bowl",
@@ -864,14 +721,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Tökmag": "Pumpkin seeds",
     "Töltött paprika light módra": "Light stuffed peppers",
     "Töltsd meg csirkével és salátával.": "Fill with chicken and lettuce.",
-    "Töltsd meg húsos-rizses keverékkel.":
-        "Fill with the meat and rice mixture.",
-    "Töltsd meg pulykás-babos keverékkel.":
-        "Fill with the turkey and bean mixture.",
+    "Töltsd meg húsos-rizses keverékkel.": "Fill with the meat and rice mixture.",
+    "Töltsd meg pulykás-babos keverékkel.": "Fill with the turkey and bean mixture.",
     "Tömegnövelés": "For gaining",
     "Tömegnöveléshez: ": "For gaining: ",
-    "Tomorrow starts with tonight’s prep.":
-        "Tomorrow starts with tonight’s prep.",
+    "Tomorrow starts with tonight’s prep.": "Tomorrow starts with tonight’s prep.",
     "Tonhal": "Tuna",
     "Tonhalas babos burgonyasaláta": "Tuna bean potato salad",
     "Tonhalas kukoricás tésztasaláta": "Tuna corn pasta salad",
@@ -883,13 +737,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Trend": "Trend",
     "Túlsúly": "Overweight",
     "Túlsúlyos": "Overweight",
-    "Turmixold krémesre 30-60 másodperc alatt.":
-        "Blend until creamy for 30-60 seconds.",
+    "Turmixold krémesre 30-60 másodperc alatt.": "Blend until creamy for 30-60 seconds.",
     "Túró": "Curd cheese",
     "Túrós bogyós tál": "Cottage cheese berry bowl",
     "Túrós zabpalacsinta": "Cottage cheese oat pancakes",
-    "Túrós zabpalacsinta előre sütve":
-        "Cottage cheese oat pancakes cooked ahead",
+    "Túrós zabpalacsinta előre sütve": "Cottage cheese oat pancakes cooked ahead",
     "Tzatziki": "Tzatziki",
     "Uborka": "Cucumber",
     "ÜDV A MEALR-BEN": "WELCOME TO MEALR",
@@ -901,15 +753,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Új meal prep terv": "New Meal Prep plan",
     "Ülő életmód": "Sedentary",
     "Vacsora": "Dinner",
-    "Vágd félbe és pirítsd meg a bagelt.":
-        "Cut the bagel in half and toast it.",
-    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.":
-        "Choose a type, then view its daily meal plans.",
-    "Válassz ételt és adagold dobozokra":
-        "Choose a food and split it into boxes",
+    "Vágd félbe és pirítsd meg a bagelt.": "Cut the bagel in half and toast it.",
+    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.": "Choose a type, then view its daily meal plans.",
+    "Válassz ételt és adagold dobozokra": "Choose a food and split it into boxes",
     "Válassz étrend típust": "Choose a meal plan type",
-    "Válassz főételt, köretet és adagold dobozokra":
-        "Choose a main dish, side, and split into boxes",
+    "Válassz főételt, köretet és adagold dobozokra": "Choose a main dish, side, and split into boxes",
     "Vegán": "Vegan",
     "Vegetáriánus": "Vegetarian",
     "Veggie erő nap": "Veggie Strength Day",
@@ -917,8 +765,7 @@ const arbTranslations = <String, Map<String, String>>{
     "veszít a tömegéből": "loses weight",
     "Világos": "Light",
     "Villám nap": "Lightning Day",
-    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n":
-        "subtract 300-500 kcal. A daily 500 kcal deficit is about 0.5 kg loss per week.\n\n",
+    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n": "subtract 300-500 kcal. A daily 500 kcal deficit is about 0.5 kg loss per week.\n\n",
     "Vörösbab": "Red beans",
     "Wok zöldség": "Wok vegetables",
     "Wrap up with something nourishing.": "Wrap up with something nourishing.",
@@ -937,152 +784,97 @@ const arbTranslations = <String, Map<String, String>>{
     "Zsemlemorzsa": "Breadcrumbs",
   },
   'hu': <String, String>{
-    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ":
-        " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ",
+    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ": " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ",
     " – ezt mérd le és írd be.": " – ezt mérd le és írd be.",
     " és írd be ide.": " és írd be ide.",
-    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.":
-        " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.",
+    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.": " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.",
     " Pro extrák lezárva": " Pro extrák lezárva",
     ", de ": ", de ",
     ", de ettől ": ", de ettől ",
     "/év": "/év",
     "/hó": "/hó",
-    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
-        "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)",
+    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)": "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)",
     "= 1.00€/hó · legjobb ár": "= 1.00€/hó · legjobb ár",
     "1500 kcal étrendek": "1500 kcal étrendek",
     "30 nap": "30 nap",
-    "30/60 napos súlydiagram és statisztika":
-        "30/60 napos súlydiagram és statisztika",
+    "30/60 napos súlydiagram és statisztika": "30/60 napos súlydiagram és statisztika",
     "7 nap": "7 nap",
     "A banánt törd össze.": "A banánt törd össze.",
     "A BMI 18.5 alatt sovány tartomány.": "A BMI 18.5 alatt sovány tartomány.",
     "A BMI 25–29.9 között túlsúly.": "A BMI 25–29.9 között túlsúly.",
-    "A BMI 30 felett obezitás tartomány.":
-        "A BMI 30 felett obezitás tartomány.",
-    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.":
-        "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.",
+    "A BMI 30 felett obezitás tartomány.": "A BMI 30 felett obezitás tartomány.",
+    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.": "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.",
     "A brokkolit párold roppanósra.": "A brokkolit párold roppanósra.",
     "A bulgurt főzd meg.": "A bulgurt főzd meg.",
     "A burgonyát főzd vagy süsd puhára.": "A burgonyát főzd vagy süsd puhára.",
     "A cottage cheese-t kanalazd tálba.": "A cottage cheese-t kanalazd tálba.",
-    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.":
-        "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.",
-    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.":
-        "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.",
-    "A csirkemellet süsd készre és szeleteld fel.":
-        "A csirkemellet süsd készre és szeleteld fel.",
-    "A csirkét fűszerezd és süsd készre.":
-        "A csirkét fűszerezd és süsd készre.",
-    "A főtt étel súlya változik, a kalória nem.":
-        "A főtt étel súlya változik, a kalória nem.",
-    "A garnélát kevés olajon pirítsd készre.":
-        "A garnélát kevés olajon pirítsd készre.",
-    "A holnap a ma esti előkészítéssel indul.":
-        "A holnap a ma esti előkészítéssel indul.",
-    "A joghurtból készíts egyszerű öntetet.":
-        "A joghurtból készíts egyszerű öntetet.",
-    "A joghurtot kanalazd pohárba vagy tálba.":
-        "A joghurtot kanalazd pohárba vagy tálba.",
-    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.":
-        "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.",
-    "A konkrét napi étrendeket a következő lépésben töltjük fel.":
-        "A konkrét napi étrendeket a következő lépésben töltjük fel.",
-    "A kuszkuszt forró vízzel párold meg.":
-        "A kuszkuszt forró vízzel párold meg.",
-    "A lazacot sózd, borsozd, majd süsd készre.":
-        "A lazacot sózd, borsozd, majd süsd készre.",
+    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.": "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.",
+    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.": "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.",
+    "A csirkemellet süsd készre és szeleteld fel.": "A csirkemellet süsd készre és szeleteld fel.",
+    "A csirkét fűszerezd és süsd készre.": "A csirkét fűszerezd és süsd készre.",
+    "A főtt étel súlya változik, a kalória nem.": "A főtt étel súlya változik, a kalória nem.",
+    "A garnélát kevés olajon pirítsd készre.": "A garnélát kevés olajon pirítsd készre.",
+    "A holnap a ma esti előkészítéssel indul.": "A holnap a ma esti előkészítéssel indul.",
+    "A joghurtból készíts egyszerű öntetet.": "A joghurtból készíts egyszerű öntetet.",
+    "A joghurtot kanalazd pohárba vagy tálba.": "A joghurtot kanalazd pohárba vagy tálba.",
+    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.": "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.",
+    "A konkrét napi étrendeket a következő lépésben töltjük fel.": "A konkrét napi étrendeket a következő lépésben töltjük fel.",
+    "A kuszkuszt forró vízzel párold meg.": "A kuszkuszt forró vízzel párold meg.",
+    "A lazacot sózd, borsozd, majd süsd készre.": "A lazacot sózd, borsozd, majd süsd készre.",
     "A little prep goes a long way.": "Egy kis előkészület sokat számít.",
-    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
-        "A marhahúst pirítsd le, majd add hozzá a zöldségeket.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.",
-    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
-        "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.",
-    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
-        "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!",
-    "A paprikákat vágd félbe és magozd ki.":
-        "A paprikákat vágd félbe és magozd ki.",
+    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.": "A marhahúst pirítsd le, majd add hozzá a zöldségeket.",
+    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.": "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.",
+    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.": "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.",
+    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.": "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.",
+    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.": "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.",
+    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!": "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!",
+    "A paprikákat vágd félbe és magozd ki.": "A paprikákat vágd félbe és magozd ki.",
     "A pitát kend meg hummusszal.": "A pitát kend meg hummusszal.",
-    "A pulykahúsból tojással és morzsával formázz golyókat.":
-        "A pulykahúsból tojással és morzsával formázz golyókat.",
-    "A pulykahúst kevés olajon pirítsd le.":
-        "A pulykahúst kevés olajon pirítsd le.",
+    "A pulykahúsból tojással és morzsával formázz golyókat.": "A pulykahúsból tojással és morzsával formázz golyókat.",
+    "A pulykahúst kevés olajon pirítsd le.": "A pulykahúst kevés olajon pirítsd le.",
     "A quinoát főzd meg.": "A quinoát főzd meg.",
-    "A rizsszeleteket kend meg cottage cheese-zel.":
-        "A rizsszeleteket kend meg cottage cheese-zel.",
-    "A rizsszeleteket kend meg hummusszal.":
-        "A rizsszeleteket kend meg hummusszal.",
-    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.":
-        "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.",
+    "A rizsszeleteket kend meg cottage cheese-zel.": "A rizsszeleteket kend meg cottage cheese-zel.",
+    "A rizsszeleteket kend meg hummusszal.": "A rizsszeleteket kend meg hummusszal.",
+    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.": "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.",
     "A rizst főzd meg.": "A rizst főzd meg.",
-    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.":
-        "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.",
-    "A sertésszüzet fűszerezd és süsd szeletekre.":
-        "A sertésszüzet fűszerezd és süsd szeletekre.",
-    "A steady plate keeps the day steady.":
-        "Egy kiegyensúlyozott tányér egyensúlyban tartja a napot.",
-    "a száraz, nyers hozzávalók össztömege főzés előtt":
-        "a száraz, nyers hozzávalók össztömege főzés előtt",
-    "A szójagranulátumot áztasd be, majd pirítsd le.":
-        "A szójagranulátumot áztasd be, majd pirítsd le.",
-    "A tésztát főzd meg és hűtsd vissza.":
-        "A tésztát főzd meg és hűtsd vissza.",
-    "A tofut kockázd fel és pirítsd meg.":
-        "A tofut kockázd fel és pirítsd meg.",
+    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.": "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.",
+    "A sertésszüzet fűszerezd és süsd szeletekre.": "A sertésszüzet fűszerezd és süsd szeletekre.",
+    "A steady plate keeps the day steady.": "Egy kiegyensúlyozott tányér egyensúlyban tartja a napot.",
+    "a száraz, nyers hozzávalók össztömege főzés előtt": "a száraz, nyers hozzávalók össztömege főzés előtt",
+    "A szójagranulátumot áztasd be, majd pirítsd le.": "A szójagranulátumot áztasd be, majd pirítsd le.",
+    "A tésztát főzd meg és hűtsd vissza.": "A tésztát főzd meg és hűtsd vissza.",
+    "A tofut kockázd fel és pirítsd meg.": "A tofut kockázd fel és pirítsd meg.",
     "A tojásokat főzd meg.": "A tojásokat főzd meg.",
-    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.":
-        "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.",
+    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.": "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.",
     "A tojásokat verd fel.": "A tojásokat verd fel.",
-    "A tonhalat keverd össze citromlével, sóval és borssal.":
-        "A tonhalat keverd össze citromlével, sóval és borssal.",
-    "A tonhalat keverd össze joghurttal.":
-        "A tonhalat keverd össze joghurttal.",
-    "A tortillát kend meg joghurtos szósszal.":
-        "A tortillát kend meg joghurtos szósszal.",
+    "A tonhalat keverd össze citromlével, sóval és borssal.": "A tonhalat keverd össze citromlével, sóval és borssal.",
+    "A tonhalat keverd össze joghurttal.": "A tonhalat keverd össze joghurttal.",
+    "A tortillát kend meg joghurtos szósszal.": "A tortillát kend meg joghurtos szósszal.",
     "A túrót keverd krémesre.": "A túrót keverd krémesre.",
-    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.":
-        "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.",
+    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.": "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.",
     "A zöldségeket pirítsd át.": "A zöldségeket pirítsd át.",
     "A zöldségeket rendezd tálba.": "A zöldségeket rendezd tálba.",
     "A zöldségeket terítsd tepsibe.": "A zöldségeket terítsd tepsibe.",
     "A zöldségeket vágd fel.": "A zöldségeket vágd fel.",
     "A zöldségeket vágd hasábokra.": "A zöldségeket vágd hasábokra.",
-    "A zöldségeket vágd kisebb darabokra.":
-        "A zöldségeket vágd kisebb darabokra.",
+    "A zöldségeket vágd kisebb darabokra.": "A zöldségeket vágd kisebb darabokra.",
     "A zöldségeket vágd kockára.": "A zöldségeket vágd kockára.",
     "adag": "adag",
     "Adagok": "Adagok",
     "Adagok száma": "Adagok száma",
-    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.":
-        "Add hozzá a babot, kukoricát, paradicsomot és fűszert.",
-    "Add hozzá a babot, paradicsomszószt és fűszert.":
-        "Add hozzá a babot, paradicsomszószt és fűszert.",
-    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.":
-        "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.",
-    "Add hozzá a hagymát, majd adagold dobozokba.":
-        "Add hozzá a hagymát, majd adagold dobozokba.",
-    "Add hozzá a paradicsomszószt, majd főzd össze.":
-        "Add hozzá a paradicsomszószt, majd főzd össze.",
-    "Add hozzá a rizst és a felvert tojást.":
-        "Add hozzá a rizst és a felvert tojást.",
-    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.":
-        "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.",
+    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.": "Add hozzá a babot, kukoricát, paradicsomot és fűszert.",
+    "Add hozzá a babot, paradicsomszószt és fűszert.": "Add hozzá a babot, paradicsomszószt és fűszert.",
+    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.": "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.",
+    "Add hozzá a hagymát, majd adagold dobozokba.": "Add hozzá a hagymát, majd adagold dobozokba.",
+    "Add hozzá a paradicsomszószt, majd főzd össze.": "Add hozzá a paradicsomszószt, majd főzd össze.",
+    "Add hozzá a rizst és a felvert tojást.": "Add hozzá a rizst és a felvert tojást.",
+    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.": "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.",
     "Add meg az alapadataidat.": "Add meg az alapadataidat.",
-    "Add mellé a feldarabolt zöldségeket és a kenyeret.":
-        "Add mellé a feldarabolt zöldségeket és a kenyeret.",
-    "Add össze a száraz, nyers hozzávalókat főzés ":
-        "Add össze a száraz, nyers hozzávalókat főzés ",
-    "adj 150–300 kcal-t a szintentartóhoz.\n\n":
-        "adj 150–300 kcal-t a szintentartóhoz.\n\n",
+    "Add mellé a feldarabolt zöldségeket és a kenyeret.": "Add mellé a feldarabolt zöldségeket és a kenyeret.",
+    "Add össze a száraz, nyers hozzávalókat főzés ": "Add össze a száraz, nyers hozzávalókat főzés ",
+    "adj 150–300 kcal-t a szintentartóhoz.\n\n": "adj 150–300 kcal-t a szintentartóhoz.\n\n",
     "Adj előnyt az estédnek.": "Adj előnyt az estédnek.",
-    "Adj hozzá legalább két súlyt a diagramhoz.":
-        "Adj hozzá legalább két súlyt a diagramhoz.",
+    "Adj hozzá legalább két súlyt a diagramhoz.": "Adj hozzá legalább két súlyt a diagramhoz.",
     "Advanced": "Haladó",
     "Aktív előfizetés · ": "Aktív előfizetés · ",
     "Aktív nap": "Aktív nap",
@@ -1093,24 +885,17 @@ const arbTranslations = <String, Map<String, String>>{
     "Almás fahéjas overnight oats": "Almás fahéjas overnight oats",
     "Almás túrós sült zab": "Almás túrós sült zab",
     "Almaszeletek mogyoróvajjal": "Almaszeletek mogyoróvajjal",
-    "amit a tányérra teszel → megkapod a ":
-        "amit a tányérra teszel → megkapod a ",
+    "amit a tányérra teszel → megkapod a ": "amit a tányérra teszel → megkapod a ",
     "Amit már most használhatsz": "Amit már most használhatsz",
     "Avokádó": "Avokádó",
     "Avokádós tonhalas tojásfalat": "Avokádós tonhalas tojásfalat",
     "Az almát szeleteld fel.": "Az almát szeleteld fel.",
-    "Az app a mentett kész mennyiséget osztja el az adagok között.":
-        "Az app a mentett kész mennyiséget osztja el az adagok között.",
-    "Az avokádót szeleteld mellé, citromlével ízesítsd.":
-        "Az avokádót szeleteld mellé, citromlével ízesítsd.",
-    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.":
-        "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.",
-    "az étel össztömege főzés vagy sütés után":
-        "az étel össztömege főzés vagy sütés után",
-    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.":
-        "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.",
-    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
-        "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható",
+    "Az app a mentett kész mennyiséget osztja el az adagok között.": "Az app a mentett kész mennyiséget osztja el az adagok között.",
+    "Az avokádót szeleteld mellé, citromlével ízesítsd.": "Az avokádót szeleteld mellé, citromlével ízesítsd.",
+    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.": "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.",
+    "az étel össztömege főzés vagy sütés után": "az étel össztömege főzés vagy sütés után",
+    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.": "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.",
+    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható": "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható",
     "Bagel": "Bagel",
     "Banán": "Banán",
     "Banános kakaós falatok": "Banános kakaós falatok",
@@ -1125,18 +910,17 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Bevásárlólista szerkesztése",
     "Bevásárlólista törlése": "Bevásárlólista törlése",
     "Bezárás": "Bezárás",
-    "Biztosan törlöd az összes rögzített súlyt?":
-        "Biztosan törlöd az összes rögzített súlyt?",
-    "Biztosan törlöd ezt a bevásárlólistát?":
-        "Biztosan törlöd ezt a bevásárlólistát?",
+    "Biztosan törlöd az összes rögzített súlyt?": "Biztosan törlöd az összes rögzített súlyt?",
+    "Biztosan törlöd ezt a bevásárlólistát?": "Biztosan törlöd ezt a bevásárlólistát?",
     "BMI": "BMI",
     "BMI\nkalkulátor": "BMI\nkalkulátor",
     "Bogyós gyümölcs": "Bogyós gyümölcs",
     "Brokkoli": "Brokkoli",
-    "Build today one meal at a time.":
-        "Építsd fel a mai napot étkezésről étkezésre.",
+    "Build today one meal at a time.": "Építsd fel a mai napot étkezésről étkezésre.",
     "Bulgur": "Bulgur",
     "Burgonya": "Burgonya",
+    "Burgur": "Bulgur",
+    "Candy": "Cukorka",
     "Chia mag": "Chia mag",
     "Chili fűszer": "Chili fűszer",
     "Chilis pulykával töltött paprika": "Chilis pulykával töltött paprika",
@@ -1144,6 +928,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Close the day with care.": "Zárd a napot tudatosan.",
     "Cottage cheese": "Cottage cheese",
     "Cottage cheese zöldségtál": "Cottage cheese zöldségtál",
+    "Cream": "Krém",
     "Csicseriborsó": "Csicseriborsó",
     "Csicseriborsó curry rizzsel": "Csicseriborsó curry rizzsel",
     "Csicseriborsós ropogós doboz": "Csicseriborsós ropogós doboz",
@@ -1152,8 +937,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Csirkés kuszkuszos doboz": "Csirkés kuszkuszos doboz",
     "Csirkés pita tál": "Csirkés pita tál",
     "Csirkés rizses fit bowl": "Csirkés rizses fit bowl",
-    "Csirkés rizses fit bowl kisebb adagban":
-        "Csirkés rizses fit bowl kisebb adagban",
+    "Csirkés rizses fit bowl kisebb adagban": "Csirkés rizses fit bowl kisebb adagban",
     "Csirkés rizstészta leveses tál": "Csirkés rizstészta leveses tál",
     "csökkenhet vagy növekedhet": "csökkenhet vagy növekedhet",
     "Csökkenő": "Csökkenő",
@@ -1164,6 +948,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Darált dió": "Darált dió",
     "Darált pulykahús": "Darált pulykahús",
     "db": "db",
+    "Dew": "Harmat",
     "Dió vagy mandula": "Dió vagy mandula",
     "diófélék": "diófélék",
     "Dobozok": "Dobozok",
@@ -1175,8 +960,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Eddigi változás": "Eddigi változás",
     "Edzéshez és jobb teltségérzethez": "Edzéshez és jobb teltségérzethez",
     "Egy adag nyers egyenértéke": "Egy adag nyers egyenértéke",
-    "Egy kiegyensúlyozott tányér stabilan tartja a napot.":
-        "Egy kiegyensúlyozott tányér stabilan tartja a napot.",
+    "Egy kiegyensúlyozott tányér stabilan tartja a napot.": "Egy kiegyensúlyozott tányér stabilan tartja a napot.",
     "Egy kis előkészítés sokat számít.": "Egy kis előkészítés sokat számít.",
     "Egyszerű lendület nap": "Egyszerű lendület nap",
     "Egyszerű nap": "Egyszerű nap",
@@ -1184,8 +968,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Egyszerűbb, olcsóbb alapanyagokkal": "Egyszerűbb, olcsóbb alapanyagokkal",
     "Életkor": "Életkor",
     "Elkészítés": "Elkészítés",
-    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.":
-        "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.",
+    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.": "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.",
     "Elmentett listák": "Elmentett listák",
     "Elmentett meal prep tervek": "Elmentett meal prep tervek",
     "Előfizetés": "Előfizetés",
@@ -1193,16 +976,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Előre dobozolható napi menü": "Előre dobozolható napi menü",
     "Előre főzős nap": "Előre főzős nap",
     "Előre haladó nap": "Előre haladó nap",
-    "Először ments el egy ételt a meal prep tervezéshez.":
-        "Először ments el egy ételt, utána építhetsz Meal Prep tervet.",
+    "Először ments el egy ételt a meal prep tervezéshez.": "Először ments el egy ételt, utána építhetsz Meal Prep tervet.",
     "előtt": "előtt",
     "Emelkedő": "Emelkedő",
-    "End the day full, not rushed.":
-        "Zárd a napot jóllakottan, kapkodás nélkül.",
+    "End the day full, not rushed.": "Zárd a napot jóllakottan, kapkodás nélkül.",
     "Enyhén aktív (heti 1–3x)": "Enyhén aktív (heti 1–3x)",
     "Eper": "Eper",
-    "Építsd fel a mai napot étkezésről étkezésre.":
-        "Építsd fel a mai napot étkezésről étkezésre.",
+    "Építsd fel a mai napot étkezésről étkezésre.": "Építsd fel a mai napot étkezésről étkezésre.",
     "Erő plusz nap": "Erő plusz nap",
     "Erős nap": "Erős nap",
     "Erősen aktív (heti 6–7x)": "Erősen aktív (heti 6–7x)",
@@ -1221,15 +1001,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Éves csomag −50% kedvezménnyel": "Éves csomag −50% kedvezménnyel",
     "Éves előfizetés": "Éves előfizetés",
     "Extrém aktív": "Extrém aktív",
-    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.":
-        "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.",
+    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.": "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.",
     "Fahéj": "Fahéj",
     "Fehér halfilé": "Fehér halfilé",
     "Fehérje fókusz nap": "Fehérje fókusz nap",
     "Fehérjepor": "Fehérjepor",
     "Fehérjés puding": "Fehérjés puding",
-    "Fehérjés puding fél adag gyümölccsel":
-        "Fehérjés puding fél adag gyümölccsel",
+    "Fehérjés puding fél adag gyümölccsel": "Fehérjés puding fél adag gyümölccsel",
     "Férfi": "Férfi",
     "Feta sajt": "Feta sajt",
     "Fetás bulgur reggeli tál": "Fetás bulgur reggeli tál",
@@ -1247,18 +1025,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Fogyáshoz": "Fogyáshoz",
     "Fogyáshoz: ": "Fogyáshoz: ",
     "földimogyoró": "földimogyoró",
-    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.":
-        "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.",
-    "Formázz falatokat és hűtsd 20 percig.":
-        "Formázz falatokat és hűtsd 20 percig.",
+    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.": "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.",
+    "Formázz falatokat és hűtsd 20 percig.": "Formázz falatokat és hűtsd 20 percig.",
     "Főtt lencse": "Főtt lencse",
     "Főtt rizs": "Főtt rizs",
     "Főtt tojás avokádóval": "Főtt tojás avokádóval",
     "Főzd össze sűrű raguvá.": "Főzd össze sűrű raguvá.",
     "Főzés során az étel ": "Főzés során az étel ",
     "Főzés során az étel tömege ": "Főzés során az étel tömege ",
-    "főzés után mérd le az egész elkészült ételt, például 760 g.":
-        "főzés után mérd le az egész elkészült ételt, például 760 g.",
+    "főzés után mérd le az egész elkészült ételt, például 760 g.": "főzés után mérd le az egész elkészült ételt, például 760 g.",
     "Friss mentes nap": "Friss mentes nap",
     "Friss nap": "Friss nap",
     "Friss zöld nap": "Friss zöld nap",
@@ -1275,8 +1050,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Give your evening a head start.": "Készítsd elő könnyebbre az estédet.",
     "glutén": "glutén",
     "Gluténmentes": "Gluténmentes",
-    "Glutént tartalmazó alapanyagok nélkül":
-        "Glutént tartalmazó alapanyagok nélkül",
+    "Glutént tartalmazó alapanyagok nélkül": "Glutént tartalmazó alapanyagok nélkül",
     "Good afternoon": "Jó délutánt",
     "Good day": "Szép napot",
     "Good evening": "Jó estét",
@@ -1284,31 +1058,23 @@ const arbTranslations = <String, Map<String, String>>{
     "Görög csirkés tányér": "Görög csirkés tányér",
     "Görög joghurt": "Görög joghurt",
     "Görög joghurtos granola pohár": "Görög joghurtos granola pohár",
-    "Görög joghurtos granola pohár gluténmentes granolával":
-        "Görög joghurtos granola pohár gluténmentes granolával",
+    "Görög joghurtos granola pohár gluténmentes granolával": "Görög joghurtos granola pohár gluténmentes granolával",
     "Görög lazacos quinoa tál": "Görög lazacos quinoa tál",
     "Granola": "Granola",
     "Gyors": "Gyors",
     "Gyors fókusz nap": "Gyors fókusz nap",
     "Gyors rutin nap": "Gyors rutin nap",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.",
-    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
-        "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.",
-    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
-        "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ",
-    "Ha megfőzted vagy megsütötted az ételt, mérd le az ":
-        "Ha megfőzted vagy megsütötted az ételt, mérd le az ",
-    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.":
-        "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.",
-    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.":
-        "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.",
+    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.": "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.",
+    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.": "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.",
+    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ": "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ",
+    "Ha megfőzted vagy megsütötted az ételt, mérd le az ": "Ha megfőzted vagy megsütötted az ételt, mérd le az ",
+    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.": "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.",
+    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.": "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.",
     "Hajtsd félbe és frissen tálald.": "Hajtsd félbe és frissen tálald.",
     "hal": "hal",
     "Hamarosan": "Hamarosan",
     "Havi előfizetés": "Havi előfizetés",
-    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.":
-        "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.",
+    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.": "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.",
     "hét": "hét",
     "Heti átlag": "Heti átlag",
     "Heti doboz nap": "Heti doboz nap",
@@ -1328,18 +1094,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Húsmentes lendület nap": "Húsmentes lendület nap",
     "Húsmentes napi étrend": "Húsmentes napi étrend",
     "Ideális testsúly": "Ideális testsúly",
-    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
-        "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.",
+    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.": "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.",
     "Indítsd tudatosan a reggelt.": "Indítsd tudatosan a reggelt.",
     "Indulhat": "Kezdés",
     "Ingyenes": "Ingyenes",
     "Ingyenes alapok": "Ingyenes alapok",
-    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
-        "Az ingyenes csomag 1 mentett Meal Prep tervet tartalmaz. Több tervhez válts Pro-ra.",
-    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.":
-        "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.",
-    "Írj receptet, tippet vagy emlékeztetőt...":
-        "Írj receptet, tippet vagy emlékeztetőt...",
+    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.": "Az ingyenes csomag 1 mentett Meal Prep tervet tartalmaz. Több tervhez válts Pro-ra.",
+    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.": "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.",
+    "Írj receptet, tippet vagy emlékeztetőt...": "Írj receptet, tippet vagy emlékeztetőt...",
     "Ízlés szerint sózd, borsozd.": "Ízlés szerint sózd, borsozd.",
     "Izmos nap": "Izmos nap",
     "Jegyzet": "Jegyzet",
@@ -1359,19 +1121,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Kalória\nkalkulátor": "Kalória\nkalkulátor",
     "Kalória cél": "Kalória cél",
     "Kalória kalkulátor": "Kalória kalkulátor",
-    "Kanalazd kekszekre, uborkával tálald.":
-        "Kanalazd kekszekre, uborkával tálald.",
-    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.":
-        "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.",
+    "Kanalazd kekszekre, uborkával tálald.": "Kanalazd kekszekre, uborkával tálald.",
+    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.": "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.",
     "kcal / nap": "kcal / nap",
     "Kedvencek": "Kedvencek",
-    "Keep the afternoon light and useful.":
-        "Legyen könnyű és hasznos a délutánod.",
+    "Keep the afternoon light and useful.": "Legyen könnyű és hasznos a délutánod.",
     "Keep your meals on track.": "Tartsd kézben az étkezéseidet.",
-    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.":
-        "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.",
-    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.":
-        "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.",
+    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.": "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.",
+    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.": "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.",
     "Képlet: ": "Képlet: ",
     "Keresés receptek között": "Keresés receptek között",
     "Kert nap": "Kert nap",
@@ -1382,49 +1139,29 @@ const arbTranslations = <String, Map<String, String>>{
     "Kész súly": "Kész súly",
     "Készíts lágy rántottát a tojásból.": "Készíts lágy rántottát a tojásból.",
     "Készítsd elő, ami később könnyít.": "Készítsd elő, ami később könnyít.",
-    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.":
-        "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.",
-    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.":
-        "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.",
-    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.":
-        "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.",
-    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.":
-        "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.",
-    "Keverd hozzá a zabot, kakaót és juharszirupot.":
-        "Keverd hozzá a zabot, kakaót és juharszirupot.",
-    "Keverd hozzá a zabot, kakaót és mogyoróvajat.":
-        "Keverd hozzá a zabot, kakaót és mogyoróvajat.",
-    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.":
-        "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.",
-    "Keverd össze a joghurtot a fehérjeporral.":
-        "Keverd össze a joghurtot a fehérjeporral.",
-    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.":
-        "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.",
-    "Keverd össze a lencsével és morzsolt fetával.":
-        "Keverd össze a lencsével és morzsolt fetával.",
-    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.":
-        "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.",
-    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.":
-        "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.",
-    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.":
-        "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.",
-    "Keverd össze spenóttal és paradicsommal.":
-        "Keverd össze spenóttal és paradicsommal.",
-    "Keverd össze tonhallal, kukoricával és joghurttal.":
-        "Keverd össze tonhallal, kukoricával és joghurttal.",
+    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.": "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.",
+    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.": "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.",
+    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.": "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.",
+    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.": "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.",
+    "Keverd hozzá a zabot, kakaót és juharszirupot.": "Keverd hozzá a zabot, kakaót és juharszirupot.",
+    "Keverd hozzá a zabot, kakaót és mogyoróvajat.": "Keverd hozzá a zabot, kakaót és mogyoróvajat.",
+    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.": "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.",
+    "Keverd össze a joghurtot a fehérjeporral.": "Keverd össze a joghurtot a fehérjeporral.",
+    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.": "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.",
+    "Keverd össze a lencsével és morzsolt fetával.": "Keverd össze a lencsével és morzsolt fetával.",
+    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.": "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.",
+    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.": "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.",
+    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.": "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.",
+    "Keverd össze spenóttal és paradicsommal.": "Keverd össze spenóttal és paradicsommal.",
+    "Keverd össze tonhallal, kukoricával és joghurttal.": "Keverd össze tonhallal, kukoricával és joghurttal.",
     "Keverd simára a hozzávalókat.": "Keverd simára a hozzávalókat.",
-    "Keverd simára a joghurtot fehérjeporral és kakaóval.":
-        "Keverd simára a joghurtot fehérjeporral és kakaóval.",
-    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.":
-        "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.",
-    "Kevés citromlével frissítsd, majd azonnal tálald.":
-        "Kevés citromlével frissítsd, majd azonnal tálald.",
-    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.":
-        "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.",
+    "Keverd simára a joghurtot fehérjeporral és kakaóval.": "Keverd simára a joghurtot fehérjeporral és kakaóval.",
+    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.": "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.",
+    "Kevés citromlével frissítsd, majd azonnal tálald.": "Kevés citromlével frissítsd, majd azonnal tálald.",
+    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.": "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.",
     "Kevesebb mutatása": "Kevesebb mutatása",
     "Kezdés ingyenesen": "Kezdés ingyenesen",
-    "Kezdj egyszerűen, maradj következetes.":
-        "Kezdj egyszerűen, maradj következetes.",
+    "Kezdj egyszerűen, maradj következetes.": "Kezdj egyszerűen, maradj következetes.",
     "Kezdjük egyszerűen.": "Kezdjük egyszerűen.",
     "Kiadós alap nap": "Kiadós alap nap",
     "Kihagyás": "Kihagyás",
@@ -1454,13 +1191,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Közepesen aktív (heti 3–5x)": "Közepesen aktív (heti 3–5x)",
     "Krémsajt": "Krémsajt",
     "Kukorica": "Kukorica",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.": "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.",
     "Kuszkusz": "Kuszkusz",
-    "Lassíts, egyél jól, pihenj könnyen.":
-        "Lassíts, egyél jól, pihenj könnyen.",
-    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.":
-        "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.",
+    "Lassíts, egyél jól, pihenj könnyen.": "Lassíts, egyél jól, pihenj könnyen.",
+    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.": "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.",
     "Laza mentes nap": "Laza mentes nap",
     "Lazacfilé": "Lazacfilé",
     "Lazacos burgonyás ebéd": "Lazacos burgonyás ebéd",
@@ -1469,11 +1203,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Lazacos uborkás falatok": "Lazacos uborkás falatok",
     "Lazacos zöldbabos vacsora": "Lazacos zöldbabos vacsora",
     "Legalacsonyabb": "Legalacsonyabb",
-    "Legyen a délután könnyű és hasznos.":
-        "Legyen a délután könnyű és hasznos.",
+    "Legyen a délután könnyű és hasznos.": "Legyen a délután könnyű és hasznos.",
     "Legyen az első döntés könnyű.": "Legyen az első döntés könnyű.",
-    "Legyen egyszerű a következő étkezés.":
-        "Legyen egyszerű a következő étkezés.",
+    "Legyen egyszerű a következő étkezés.": "Legyen egyszerű a következő étkezés.",
     "Lejár: ": "Lejár: ",
     "Lencsés feta saláta": "Lencsés feta saláta",
     "Lencsés zöldséges rizses egytál": "Lencsés zöldséges rizses egytál",
@@ -1481,12 +1213,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Lilahagyma": "Lilahagyma",
     "Lista": "Lista",
     "Lista neve": "Lista neve",
-    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.":
-        "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.",
-    "Locsold meg kevés mézzel, majd szórd meg mandulával.":
-        "Locsold meg kevés mézzel, majd szórd meg mandulával.",
-    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.":
-        "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.",
+    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.": "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.",
+    "Locsold meg kevés mézzel, majd szórd meg mandulával.": "Locsold meg kevés mézzel, majd szórd meg mandulával.",
+    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.": "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.",
     "Ma": "Ma",
     "Magas fehérje": "Magas fehérje",
     "Magasság": "Magasság",
@@ -1507,10 +1236,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Mealr Pro": "Mealr Pro",
     "Mediterrán pulykás bulgur": "Mediterrán pulykás bulgur",
     "Medium": "Közepes",
-    "Még nincs elmentett bevásárlólistád.":
-        "Az elkészített bevásárlólistáid itt jelennek meg.",
-    "Még nincs elmentett meal prep terved.":
-        "A mentett Meal Prep terveid itt jelennek meg.",
+    "Még nincs elmentett bevásárlólistád.": "Az elkészített bevásárlólistáid itt jelennek meg.",
+    "Még nincs elmentett meal prep terved.": "A mentett Meal Prep terveid itt jelennek meg.",
     "Még nincs főétel hozzáadva.": "A főételeid itt fognak megjelenni.",
     "Még nincs köret hozzáadva.": "A köreteid itt fognak megjelenni.",
     "Megjegyzés": "Megjegyzés",
@@ -1521,35 +1248,28 @@ const arbTranslations = <String, Map<String, String>>{
     "Mégse": "Mégse",
     "Meleg banános zabfalatok": "Meleg banános zabfalatok",
     "Meleg lencsés feta tányér": "Meleg lencsés feta tányér",
-    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.":
-        "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.",
+    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.": "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.",
     "Mentés": "Mentés",
     "Mentes lendület nap": "Mentes lendület nap",
-    "Mentés profilba · a Kalória cél frissítése":
-        "Mentés profilba · a Kalória cél frissítése",
+    "Mentés profilba · a Kalória cél frissítése": "Mentés profilba · a Kalória cél frissítése",
     "Mentés új listaként": "Mentés új listaként",
     "Mentett étel": "Mentett étel",
     "Mentve": "Mentve",
-    "Mentve a profilba · legközelebb automatikusan kitöltve":
-        "Mentve a profilba · legközelebb automatikusan kitöltve",
+    "Mentve a profilba · legközelebb automatikusan kitöltve": "Mentve a profilba · legközelebb automatikusan kitöltve",
     "Mentve a profilba.": "Mentve a profilba.",
-    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.":
-        "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.",
+    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.": "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.",
     "Méz": "Méz",
     "MI A PROBLÉMA?": "MI A PROBLÉMA?",
     "MIÉRT HASZNOS?": "MIÉRT HASZNOS?",
     "Mind": "Mind",
     "MINDEN EGYBEN": "MINDEN EGYBEN",
-    "Minden hozzávalót tegyél turmixgépbe.":
-        "Minden hozzávalót tegyél turmixgépbe.",
+    "Minden hozzávalót tegyél turmixgépbe.": "Minden hozzávalót tegyél turmixgépbe.",
     "Mini burgonyás tzatziki doboz": "Mini burgonyás tzatziki doboz",
     "Mini csirkés wrap": "Mini csirkés wrap",
     "Mini tortilla": "Mini tortilla",
     "Mogyoróvaj": "Mogyoróvaj",
-    "Morzsold rá a fetát, és frissen tálald.":
-        "Morzsold rá a fetát, és frissen tálald.",
-    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.":
-        "Morzsold rá a fetát, és tálald a zöldséges bulgurral.",
+    "Morzsold rá a fetát, és frissen tálald.": "Morzsold rá a fetát, és frissen tálald.",
+    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.": "Morzsold rá a fetát, és tálald a zöldséges bulgurral.",
     "mustár": "mustár",
     "Mustár": "Mustár",
     "Mustáros sertésszűz burgonyával": "Mustáros sertésszűz burgonyával",
@@ -1561,8 +1281,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Nehézség": "Nehézség",
     "Nem": "Nem",
     "nem a kalóriájából.": "nem a kalóriájából.",
-    "Nem csak mérlegelés: egy app a kajás rutinodhoz.":
-        "Nem csak mérlegelés: egy app a kajás rutinodhoz.",
+    "Nem csak mérlegelés: egy app a kajás rutinodhoz.": "Nem csak mérlegelés: egy app a kajás rutinodhoz.",
     "nem változik a kalóriája.": "nem változik a kalóriája.",
     "Nevezd el és add hozzá a tételeket": "Nevezd el és add hozzá a tételeket",
     "Névjegy": "Névjegy",
@@ -1571,8 +1290,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Nincs köret": "Nincs köret",
     "Nincs mentett étel": "Nincs mentett étel",
     "Nincs találat.": "Nincs recept ehhez a kereséshez.",
-    "Nincs változás a kezdő súlyhoz képest":
-        "Nincs változás a kezdő súlyhoz képest",
+    "Nincs változás a kezdő súlyhoz képest": "Nincs változás a kezdő súlyhoz képest",
     "Nő": "Nő",
     "Normál": "Normál",
     "Normál receptek": "Normál receptek",
@@ -1581,8 +1299,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Növényi ritmus nap": "Növényi ritmus nap",
     "Nyelv": "Nyelv",
     "Nyelv, téma, mód és verzió": "Nyelv, téma, mód és verzió",
-    "nyers ÷ kész × kimért =\nnyers egyenérték\n":
-        "nyers ÷ kész × kimért =\nnyers egyenérték\n",
+    "nyers ÷ kész × kimért =\nnyers egyenérték\n": "nyers ÷ kész × kimért =\nnyers egyenérték\n",
     "Nyers adag": "Nyers adag",
     "Nyers egyenérték": "Nyers egyenérték",
     "nyers egyenértéket": "nyers egyenértéket",
@@ -1592,8 +1309,7 @@ const arbTranslations = <String, Map<String, String>>{
     "nyersen": "nyersen",
     "Nyisd meg újra a bevezetőt": "Nyisd meg újra a bevezetőt",
     "Nyugodt energia nap": "Nyugodt energia nap",
-    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.":
-        "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.",
+    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.": "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.",
     "Obezitás": "Obezitás",
     "Okos kosár nap": "Okos kosár nap",
     "Okos nap": "Okos nap",
@@ -1603,16 +1319,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Összes": "Összes",
     "Összes kalória": "Összes kalória",
     "össztömeget": "össztömeget",
-    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.":
-        "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.",
-    "Oszd dobozokra a rizst, csirkét és brokkolit.":
-        "Oszd dobozokra a rizst, csirkét és brokkolit.",
+    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.": "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.",
+    "Oszd dobozokra a rizst, csirkét és brokkolit.": "Oszd dobozokra a rizst, csirkét és brokkolit.",
     "Overnight oats előre bekészítve": "Overnight oats előre bekészítve",
     "Paprika": "Paprika",
     "Paradicsom": "Paradicsom",
     "Paradicsompüré": "Paradicsompüré",
-    "Paradicsomszósszal és sajttal süsd készre.":
-        "Paradicsomszósszal és sajttal süsd készre.",
+    "Paradicsomszósszal és sajttal süsd készre.": "Paradicsomszósszal és sajttal süsd készre.",
     "Paradicsomszósz": "Paradicsomszósz",
     "Pénztárca plusz nap": "Pénztárca plusz nap",
     "Pénztárcabarát": "Pénztárcabarát",
@@ -1622,8 +1335,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Plan a calm, strong day.": "Tervezz nyugodt, erős napot.",
     "Pörgős nap": "Pörgős nap",
     "Praktikus nap": "Praktikus nap",
-    "Prep what makes later easier.":
-        "Készítsd elő, ami később megkönnyíti a dolgod.",
+    "Prep what makes later easier.": "Készítsd elő, ami később megkönnyíti a dolgod.",
     "Pro": "Pro",
     "Pro mód teszt": "Pro mód teszt",
     "Pro statisztika": "Pro statisztika",
@@ -1636,8 +1348,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Pulykagolyók cukkinispagettivel": "Pulykagolyók cukkinispagettivel",
     "Pulykamell sonka": "Pulykamell sonka",
     "Pulykás bolognai tészta": "Pulykás bolognai tészta",
-    "Pulykás bolognai tészta light adagban":
-        "Pulykás bolognai tészta light adagban",
+    "Pulykás bolognai tészta light adagban": "Pulykás bolognai tészta light adagban",
     "Pulykás cottage reggeli doboz": "Pulykás cottage reggeli doboz",
     "Pulykás sajtos tekercsek": "Pulykás sajtos tekercsek",
     "Pulykás tojásos wrap": "Pulykás tojásos wrap",
@@ -1655,12 +1366,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Rendszer": "Rendszer",
     "Rendszeres használathoz": "Rendszeres használathoz",
     "Répa": "Répa",
-    "Reszeld vagy kockázd bele az almát.":
-        "Reszeld vagy kockázd bele az almát.",
+    "Reszeld vagy kockázd bele az almát.": "Reszeld vagy kockázd bele az almát.",
     "Reszelt sajt": "Reszelt sajt",
     "Részletek": "Részletek",
-    "Rétegezd rá a granolát és a szeletelt banánt.":
-        "Rétegezd rá a granolát és a szeletelt banánt.",
+    "Rétegezd rá a granolát és a szeletelt banánt.": "Rétegezd rá a granolát és a szeletelt banánt.",
     "Rizs": "Rizs",
     "Rizsszelet": "Rizsszelet",
     "Rizsszelet cottage cheese-zel": "Rizsszelet cottage cheese-zel",
@@ -1670,13 +1379,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Rövid konyha nap": "Rövid konyha nap",
     "Saláta": "Saláta",
     "Saláta mix": "Saláta mix",
-    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.":
-        "Serpenyőben süsd össze sonkával, sajttal és spenóttal.",
+    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.": "Serpenyőben süsd össze sonkával, sajttal és spenóttal.",
     "Sertésszűz": "Sertésszűz",
     "Sertésszűz kuszkusszal": "Sertésszűz kuszkusszal",
     "Sertésszűz kuszkusz salátával": "Sertésszűz kuszkusz salátával",
-    "Set up dinner before the rush.":
-        "Készítsd elő a vacsorát a rohanás előtt.",
+    "Set up dinner before the rush.": "Készítsd elő a vacsorát a rohanás előtt.",
     "Shakshuka reggeli tál": "Shakshuka reggeli tál",
     "Sietős lendület nap": "Sietős lendület nap",
     "Sietős nap": "Sietős nap",
@@ -1693,6 +1400,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Sovány marhahús": "Sovány marhahús",
     "Spenót": "Spenót",
     "Spenótos kókuszos csicseriborsó": "Spenótos kókuszos csicseriborsó",
+    "Spinach": "Spenót",
     "Sportos nap": "Sportos nap",
     "Stabil erő nap": "Stabil erő nap",
     "Stagnál": "Stagnál",
@@ -1708,13 +1416,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Súlykövetés": "Súlykövetés",
     "Súlykövetés diagram": "Súlykövetés diagram",
     "Súlynapló szerkesztés": "Súlynapló szerkesztés",
-    "Süsd készre, amíg a hal omlós lesz.":
-        "Süsd készre, amíg a hal omlós lesz.",
-    "Süsd vagy párold készre paradicsomszószban.":
-        "Süsd vagy párold készre paradicsomszószban.",
+    "Süsd készre, amíg a hal omlós lesz.": "Süsd készre, amíg a hal omlós lesz.",
+    "Süsd vagy párold készre paradicsomszószban.": "Süsd vagy párold készre paradicsomszószban.",
     "Sütőpor": "Sütőpor",
-    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.":
-        "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.",
+    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.": "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.",
     "Személyes adatok": "Személyes adatok",
     "SZEMÉLYES ALAPOK": "SZEMÉLYES ALAPOK",
     "Szép napot": "Szép napot",
@@ -1723,11 +1428,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Szezámmag": "Szezámmag",
     "szója": "szója",
     "Szójagranulátum": "Szójagranulátum",
-    "Szójaszósszal ízesítsd, majd süsd össze.":
-        "Szójaszósszal ízesítsd, majd süsd össze.",
+    "Szójaszósszal ízesítsd, majd süsd össze.": "Szójaszósszal ízesítsd, majd süsd össze.",
     "Szójaszósz": "Szójaszósz",
-    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.":
-        "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.",
+    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.": "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.",
     "Szükséges kész étel": "Szükséges kész étel",
     "Szükséges kész főétel": "Szükséges kész főétel",
     "Szükséges kész köret": "Szükséges kész köret",
@@ -1736,34 +1439,23 @@ const arbTranslations = <String, Map<String, String>>{
     "Szükséges nyers köret": "Szükséges nyers köret",
     "Takarékos nap": "Takarékos nap",
     "Tálald a curry alapot rizzsel.": "Tálald a curry alapot rizzsel.",
-    "Tálald bogyós gyümölccsel és chia maggal.":
-        "Tálald bogyós gyümölccsel és chia maggal.",
+    "Tálald bogyós gyümölccsel és chia maggal.": "Tálald bogyós gyümölccsel és chia maggal.",
     "Tálald bogyós gyümölccsel.": "Tálald bogyós gyümölccsel.",
-    "Tálald cottage cheese-zel, abonettel és tökmaggal.":
-        "Tálald cottage cheese-zel, abonettel és tökmaggal.",
+    "Tálald cottage cheese-zel, abonettel és tökmaggal.": "Tálald cottage cheese-zel, abonettel és tökmaggal.",
     "Tálald fetával és tzatzikivel.": "Tálald fetával és tzatzikivel.",
     "Tálald gyümölccsel.": "Tálald gyümölccsel.",
-    "Tálald pitával, salátával és joghurtos szósszal.":
-        "Tálald pitával, salátával és joghurtos szósszal.",
-    "Tálald salátával és joghurtos öntettel.":
-        "Tálald salátával és joghurtos öntettel.",
-    "Tálald zöldbabbal és kevés mustáros szósszal.":
-        "Tálald zöldbabbal és kevés mustáros szósszal.",
-    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.":
-        "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.",
+    "Tálald pitával, salátával és joghurtos szósszal.": "Tálald pitával, salátával és joghurtos szósszal.",
+    "Tálald salátával és joghurtos öntettel.": "Tálald salátával és joghurtos öntettel.",
+    "Tálald zöldbabbal és kevés mustáros szósszal.": "Tálald zöldbabbal és kevés mustáros szósszal.",
+    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.": "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.",
     "Tartsd kézben az étkezéseidet.": "Tartsd kézben az étkezéseidet.",
-    "Te adod meg, hány gramm kerüljön egy adagba.":
-        "Te adod meg, hány gramm kerüljön egy adagba.",
+    "Te adod meg, hány gramm kerüljön egy adagba.": "Te adod meg, hány gramm kerüljön egy adagba.",
     "Tedd dobozba hummusszal együtt.": "Tedd dobozba hummusszal együtt.",
-    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.":
-        "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.",
+    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.": "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.",
     "Tedd rá a csirkét és az öntetet.": "Tedd rá a csirkét és az öntetet.",
-    "Tedd rá a gyümölcsöt, mézet és diót.":
-        "Tedd rá a gyümölcsöt, mézet és diót.",
-    "Tedd rá a paradicsomot és szórd meg tökmaggal.":
-        "Tedd rá a paradicsomot és szórd meg tökmaggal.",
-    "Tedd rá a tojást és frissen tálald.":
-        "Tedd rá a tojást és frissen tálald.",
+    "Tedd rá a gyümölcsöt, mézet és diót.": "Tedd rá a gyümölcsöt, mézet és diót.",
+    "Tedd rá a paradicsomot és szórd meg tökmaggal.": "Tedd rá a paradicsomot és szórd meg tökmaggal.",
+    "Tedd rá a tojást és frissen tálald.": "Tedd rá a tojást és frissen tálald.",
     "Tedd rá az epret és a mandulát.": "Tedd rá az epret és a mandulát.",
     "Tegnap": "Tegnap",
     "Tej": "Tej",
@@ -1784,8 +1476,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tempós nap": "Tempós nap",
     "Tempós tál nap": "Tempós tál nap",
     "Terv neve": "Terv neve",
-    "Tervezd meg a vacsorát még a rohanás előtt.":
-        "Tervezd meg a vacsorát még a rohanás előtt.",
+    "Tervezd meg a vacsorát még a rohanás előtt.": "Tervezd meg a vacsorát még a rohanás előtt.",
     "Tervezett nap": "Tervezett nap",
     "Tervezz egy nyugodt, erős napot.": "Tervezz egy nyugodt, erős napot.",
     "Tervezz, főzz, kövess okosabban": "Tervezz, főzz, kövess okosabban",
@@ -1797,8 +1488,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Tiszta energia nap": "Tiszta energia nap",
     "Tiszta nap": "Tiszta nap",
     "Tiszta ritmus nap": "Tiszta ritmus nap",
-    "Több mentés, bevásárlólisták, súlykövetés extrák":
-        "Több mentés, bevásárlólisták, súlykövetés extrák",
+    "Toast": "Pirítós",
+    "Több mentés, bevásárlólisták, súlykövetés extrák": "Több mentés, bevásárlólisták, súlykövetés extrák",
     "Tofu": "Tofu",
     "Tofus csicseriborsó curry": "Tofus csicseriborsó curry",
     "Tofus quinoás vacsoratál": "Tofus quinoás vacsoratál",
@@ -1811,14 +1502,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Tökmag": "Tökmag",
     "Töltött paprika light módra": "Töltött paprika light módra",
     "Töltsd meg csirkével és salátával.": "Töltsd meg csirkével és salátával.",
-    "Töltsd meg húsos-rizses keverékkel.":
-        "Töltsd meg húsos-rizses keverékkel.",
-    "Töltsd meg pulykás-babos keverékkel.":
-        "Töltsd meg pulykás-babos keverékkel.",
+    "Töltsd meg húsos-rizses keverékkel.": "Töltsd meg húsos-rizses keverékkel.",
+    "Töltsd meg pulykás-babos keverékkel.": "Töltsd meg pulykás-babos keverékkel.",
     "Tömegnövelés": "Tömegnövelés",
     "Tömegnöveléshez: ": "Tömegnöveléshez: ",
-    "Tomorrow starts with tonight’s prep.":
-        "A holnap a ma esti előkészülettel kezdődik.",
+    "Tomorrow starts with tonight’s prep.": "A holnap a ma esti előkészülettel kezdődik.",
     "Tonhal": "Tonhal",
     "Tonhalas babos burgonyasaláta": "Tonhalas babos burgonyasaláta",
     "Tonhalas kukoricás tésztasaláta": "Tonhalas kukoricás tésztasaláta",
@@ -1830,8 +1518,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Trend": "Trend",
     "Túlsúly": "Túlsúly",
     "Túlsúlyos": "Túlsúlyos",
-    "Turmixold krémesre 30-60 másodperc alatt.":
-        "Turmixold krémesre 30-60 másodperc alatt.",
+    "Turmixold krémesre 30-60 másodperc alatt.": "Turmixold krémesre 30-60 másodperc alatt.",
     "Túró": "Túró",
     "Túrós bogyós tál": "Túrós bogyós tál",
     "Túrós zabpalacsinta": "Túrós zabpalacsinta",
@@ -1847,14 +1534,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Új meal prep terv": "Új meal prep terv",
     "Ülő életmód": "Ülő életmód",
     "Vacsora": "Vacsora",
-    "Vágd félbe és pirítsd meg a bagelt.":
-        "Vágd félbe és pirítsd meg a bagelt.",
-    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.":
-        "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.",
+    "Vágd félbe és pirítsd meg a bagelt.": "Vágd félbe és pirítsd meg a bagelt.",
+    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.": "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.",
     "Válassz ételt és adagold dobozokra": "Válassz ételt és adagold dobozokra",
     "Válassz étrend típust": "Válassz étrend típust",
-    "Válassz főételt, köretet és adagold dobozokra":
-        "Válassz főételt, köretet és adagold dobozokra",
+    "Válassz főételt, köretet és adagold dobozokra": "Válassz főételt, köretet és adagold dobozokra",
     "Vegán": "Vegán",
     "Vegetáriánus": "Vegetáriánus",
     "Veggie erő nap": "Veggie erő nap",
@@ -1862,15 +1546,13 @@ const arbTranslations = <String, Map<String, String>>{
     "veszít a tömegéből": "veszít a tömegéből",
     "Világos": "Világos",
     "Villám nap": "Villám nap",
-    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n":
-        "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n",
+    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n": "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n",
     "Vörösbab": "Vörösbab",
     "Wok zöldség": "Wok zöldség",
     "Wrap up with something nourishing.": "Zárd a napot valami táplálóval.",
     "Zabpehely": "Zabpehely",
     "Zabpehelyliszt": "Zabpehelyliszt",
-    "Zárd a napot jóllakottan, nem rohanva.":
-        "Zárd a napot jóllakottan, nem rohanva.",
+    "Zárd a napot jóllakottan, nem rohanva.": "Zárd a napot jóllakottan, nem rohanva.",
     "Zárd a napot valami táplálóval.": "Zárd a napot valami táplálóval.",
     "Zárd gondoskodással a napot.": "Zárd gondoskodással a napot.",
     "Zöld fókusz nap": "Zöld fókusz nap",
@@ -1883,153 +1565,97 @@ const arbTranslations = <String, Map<String, String>>{
     "Zsemlemorzsa": "Zsemlemorzsa",
   },
   'de': <String, String>{
-    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ":
-        " - aber nicht an Kalorien. Wenn du das gekochte Gewicht einträgst, ",
+    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ": " - aber nicht an Kalorien. Wenn du das gekochte Gewicht einträgst, ",
     " – ezt mérd le és írd be.": " - wiege sie und trage sie ein.",
     " és írd be ide.": " und trägst es hier ein.",
-    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.":
-        " Wenn du das gekochte Gewicht einträgst, erhältst du einen falschen Wert.",
+    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.": " Wenn du das gekochte Gewicht einträgst, erhältst du einen falschen Wert.",
     " Pro extrák lezárva": " · Pro-Extras gesperrt",
     ", de ": ", aber ",
     ", de ettől ": ", aber dadurch ",
     "/év": "/Jahr",
     "/hó": "/Monat",
-    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
-        "→ Trage diese Zahl in deinen Kalorienzähler ein\n(z. B. MyFitnessPal, Cronometer usw.)",
+    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)": "→ Trage diese Zahl in deinen Kalorienzähler ein\n(z. B. MyFitnessPal, Cronometer usw.)",
     "= 1.00€/hó · legjobb ár": "= 1,00€/Monat · bester Preis",
     "1500 kcal étrendek": "1500-kcal-Ernährungspläne",
     "30 nap": "30 Tage",
-    "30/60 napos súlydiagram és statisztika":
-        "30/60-Tage-Gewichtsdiagramm und Statistik",
+    "30/60 napos súlydiagram és statisztika": "30/60-Tage-Gewichtsdiagramm und Statistik",
     "7 nap": "7 Tage",
     "A banánt törd össze.": "Zerdrücke die Banane.",
     "A BMI 18.5 alatt sovány tartomány.": "BMI unter 18,5 ist Untergewicht.",
     "A BMI 25–29.9 között túlsúly.": "BMI zwischen 25-29,9 ist Übergewicht.",
     "A BMI 30 felett obezitás tartomány.": "BMI über 30 ist Adipositas.",
-    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.":
-        "Der BMI dient nur zur Orientierung. Er berücksichtigt keine Muskelmasse und ist keine medizinische Diagnose.",
+    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.": "Der BMI dient nur zur Orientierung. Er berücksichtigt keine Muskelmasse und ist keine medizinische Diagnose.",
     "A brokkolit párold roppanósra.": "Dämpfe den Brokkoli bissfest.",
     "A bulgurt főzd meg.": "Koche den Bulgur.",
-    "A burgonyát főzd vagy süsd puhára.":
-        "Koche oder backe die Kartoffeln, bis sie weich sind.",
-    "A cottage cheese-t kanalazd tálba.":
-        "Gib den Cottage Cheese in eine Schüssel.",
-    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.":
-        "Kichererbsen mit der Gewürzmischung vermengen und 6-8 Minuten rösten oder anbraten.",
-    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.":
-        "Koche die Kichererbsen mit Tomaten, Kokosmilch und Curry zusammen.",
-    "A csirkemellet süsd készre és szeleteld fel.":
-        "Brate die Hähnchenbrust gar und schneide sie in Scheiben.",
-    "A csirkét fűszerezd és süsd készre.":
-        "Würze das Hähnchen und brate es gar.",
-    "A főtt étel súlya változik, a kalória nem.":
-        "Das Gewicht gekochter Speisen ändert sich, die Kalorien nicht.",
-    "A garnélát kevés olajon pirítsd készre.":
-        "Brate die Garnelen in wenig Öl gar.",
-    "A holnap a ma esti előkészítéssel indul.":
-        "Morgen beginnt mit der Vorbereitung heute Abend.",
-    "A joghurtból készíts egyszerű öntetet.":
-        "Bereite aus dem Joghurt ein einfaches Dressing zu.",
-    "A joghurtot kanalazd pohárba vagy tálba.":
-        "Gib den Joghurt in ein Glas oder eine Schüssel.",
-    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.":
-        "Die eingegebenen Daten werden direkt im BMI-Rechner, im Kalorienmenü und in deinem Profil gespeichert, damit du sie später nicht erneut eingeben musst.",
-    "A konkrét napi étrendeket a következő lépésben töltjük fel.":
-        "Die konkreten Tagespläne fügen wir im nächsten Schritt hinzu.",
-    "A kuszkuszt forró vízzel párold meg.":
-        "Quell den Couscous mit heißem Wasser auf.",
-    "A lazacot sózd, borsozd, majd süsd készre.":
-        "Salze und pfeffere den Lachs und brate ihn gar.",
+    "A burgonyát főzd vagy süsd puhára.": "Koche oder backe die Kartoffeln, bis sie weich sind.",
+    "A cottage cheese-t kanalazd tálba.": "Gib den Cottage Cheese in eine Schüssel.",
+    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.": "Kichererbsen mit der Gewürzmischung vermengen und 6-8 Minuten rösten oder anbraten.",
+    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.": "Koche die Kichererbsen mit Tomaten, Kokosmilch und Curry zusammen.",
+    "A csirkemellet süsd készre és szeleteld fel.": "Brate die Hähnchenbrust gar und schneide sie in Scheiben.",
+    "A csirkét fűszerezd és süsd készre.": "Würze das Hähnchen und brate es gar.",
+    "A főtt étel súlya változik, a kalória nem.": "Das Gewicht gekochter Speisen ändert sich, die Kalorien nicht.",
+    "A garnélát kevés olajon pirítsd készre.": "Brate die Garnelen in wenig Öl gar.",
+    "A holnap a ma esti előkészítéssel indul.": "Morgen beginnt mit der Vorbereitung heute Abend.",
+    "A joghurtból készíts egyszerű öntetet.": "Bereite aus dem Joghurt ein einfaches Dressing zu.",
+    "A joghurtot kanalazd pohárba vagy tálba.": "Gib den Joghurt in ein Glas oder eine Schüssel.",
+    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.": "Die eingegebenen Daten werden direkt im BMI-Rechner, im Kalorienmenü und in deinem Profil gespeichert, damit du sie später nicht erneut eingeben musst.",
+    "A konkrét napi étrendeket a következő lépésben töltjük fel.": "Die konkreten Tagespläne fügen wir im nächsten Schritt hinzu.",
+    "A kuszkuszt forró vízzel párold meg.": "Quell den Couscous mit heißem Wasser auf.",
+    "A lazacot sózd, borsozd, majd süsd készre.": "Salze und pfeffere den Lachs und brate ihn gar.",
     "A little prep goes a long way.": "Ein wenig Vorbereitung hilft viel.",
-    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
-        "Brate das Rindfleisch an und gib dann das Gemüse dazu.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "Mealr hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "Mealr erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "Mealr bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.",
-    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
-        "Du kannst jederzeit zu gespeicherten Essen zurückkehren - täglich änderst du nur die Portion.",
-    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
-        "Der normale BMI-Bereich liegt bei 18,5-24,9. Du bist im gesunden Bereich!",
-    "A paprikákat vágd félbe és magozd ki.":
-        "Halbiere die Paprika und entferne die Kerne.",
+    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.": "Brate das Rindfleisch an und gib dann das Gemüse dazu.",
+    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.": "Mealr hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.",
+    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.": "Mealr erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.",
+    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.": "Mealr bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.",
+    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.": "Du kannst jederzeit zu gespeicherten Essen zurückkehren - täglich änderst du nur die Portion.",
+    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!": "Der normale BMI-Bereich liegt bei 18,5-24,9. Du bist im gesunden Bereich!",
+    "A paprikákat vágd félbe és magozd ki.": "Halbiere die Paprika und entferne die Kerne.",
     "A pitát kend meg hummusszal.": "Die Pita mit Hummus bestreichen.",
-    "A pulykahúsból tojással és morzsával formázz golyókat.":
-        "Forme aus Putenfleisch, Ei und Bröseln kleine Bällchen.",
-    "A pulykahúst kevés olajon pirítsd le.":
-        "Brate das Putenfleisch in wenig Öl an.",
+    "A pulykahúsból tojással és morzsával formázz golyókat.": "Forme aus Putenfleisch, Ei und Bröseln kleine Bällchen.",
+    "A pulykahúst kevés olajon pirítsd le.": "Brate das Putenfleisch in wenig Öl an.",
     "A quinoát főzd meg.": "Koche die Quinoa.",
-    "A rizsszeleteket kend meg cottage cheese-zel.":
-        "Bestreiche die Reiswaffeln mit Cottage Cheese.",
-    "A rizsszeleteket kend meg hummusszal.":
-        "Die Reiswaffeln mit Hummus bestreichen.",
-    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.":
-        "Koche den Reis, würze die Hähnchenbrust und brate sie gar.",
+    "A rizsszeleteket kend meg cottage cheese-zel.": "Bestreiche die Reiswaffeln mit Cottage Cheese.",
+    "A rizsszeleteket kend meg hummusszal.": "Die Reiswaffeln mit Hummus bestreichen.",
+    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.": "Koche den Reis, würze die Hähnchenbrust und brate sie gar.",
     "A rizst főzd meg.": "Koche den Reis.",
-    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.":
-        "Weiche die Reisnudeln ein oder koche sie nach Packungsangabe.",
-    "A sertésszüzet fűszerezd és süsd szeletekre.":
-        "Würze das Schweinefilet und brate es in Scheiben.",
-    "A steady plate keeps the day steady.":
-        "Ein ausgewogener Teller hält den Tag stabil.",
-    "a száraz, nyers hozzávalók össztömege főzés előtt":
-        "das Gesamtgewicht der trockenen, rohen Zutaten vor dem Kochen",
-    "A szójagranulátumot áztasd be, majd pirítsd le.":
-        "Weiche das Sojagranulat ein und brate es anschließend an.",
-    "A tésztát főzd meg és hűtsd vissza.":
-        "Koche die Pasta und lass sie abkühlen.",
+    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.": "Weiche die Reisnudeln ein oder koche sie nach Packungsangabe.",
+    "A sertésszüzet fűszerezd és süsd szeletekre.": "Würze das Schweinefilet und brate es in Scheiben.",
+    "A steady plate keeps the day steady.": "Ein ausgewogener Teller hält den Tag stabil.",
+    "a száraz, nyers hozzávalók össztömege főzés előtt": "das Gesamtgewicht der trockenen, rohen Zutaten vor dem Kochen",
+    "A szójagranulátumot áztasd be, majd pirítsd le.": "Weiche das Sojagranulat ein und brate es anschließend an.",
+    "A tésztát főzd meg és hűtsd vissza.": "Koche die Pasta und lass sie abkühlen.",
     "A tofut kockázd fel és pirítsd meg.": "Würfle den Tofu und brate ihn an.",
     "A tojásokat főzd meg.": "Koche die Eier.",
-    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.":
-        "Bereite die Eier gekocht, als Spiegelei oder als Rührei zu.",
+    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.": "Bereite die Eier gekocht, als Spiegelei oder als Rührei zu.",
     "A tojásokat verd fel.": "Verquirle die Eier.",
-    "A tonhalat keverd össze citromlével, sóval és borssal.":
-        "Thunfisch mit Zitronensaft, Salz und Pfeffer mischen.",
-    "A tonhalat keverd össze joghurttal.":
-        "Vermische den Thunfisch mit Joghurt.",
-    "A tortillát kend meg joghurtos szósszal.":
-        "Bestreiche die Tortilla mit Joghurtsauce.",
+    "A tonhalat keverd össze citromlével, sóval és borssal.": "Thunfisch mit Zitronensaft, Salz und Pfeffer mischen.",
+    "A tonhalat keverd össze joghurttal.": "Vermische den Thunfisch mit Joghurt.",
+    "A tortillát kend meg joghurtos szósszal.": "Bestreiche die Tortilla mit Joghurtsauce.",
     "A túrót keverd krémesre.": "Rühre den Quark cremig.",
-    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.":
-        "Erwärme die Haferflocken mit Milch oder Pflanzendrink.",
+    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.": "Erwärme die Haferflocken mit Milch oder Pflanzendrink.",
     "A zöldségeket pirítsd át.": "Brate das Gemüse kurz an.",
     "A zöldségeket rendezd tálba.": "Richte das Gemüse in einer Schüssel an.",
-    "A zöldségeket terítsd tepsibe.":
-        "Verteile das Gemüse auf einem Backblech.",
+    "A zöldségeket terítsd tepsibe.": "Verteile das Gemüse auf einem Backblech.",
     "A zöldségeket vágd fel.": "Schneide das Gemüse.",
     "A zöldségeket vágd hasábokra.": "Schneide das Gemüse in Stifte.",
-    "A zöldségeket vágd kisebb darabokra.":
-        "Schneide das Gemüse in kleinere Stücke.",
+    "A zöldségeket vágd kisebb darabokra.": "Schneide das Gemüse in kleinere Stücke.",
     "A zöldségeket vágd kockára.": "Schneide das Gemüse in Würfel.",
     "adag": "Portion",
     "Adagok": "Portionen",
     "Adagok száma": "Anzahl Portionen",
-    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.":
-        "Gib Bohnen, Mais, Tomaten und Gewürze dazu.",
-    "Add hozzá a babot, paradicsomszószt és fűszert.":
-        "Bohnen, Tomatensauce und Gewürze zugeben.",
-    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.":
-        "Den gekochten Reis zugeben und wenden, bis alles warm ist.",
-    "Add hozzá a hagymát, majd adagold dobozokba.":
-        "Gib die Zwiebel dazu und teile alles in Boxen auf.",
-    "Add hozzá a paradicsomszószt, majd főzd össze.":
-        "Gib die Tomatensauce dazu und koche alles zusammen.",
-    "Add hozzá a rizst és a felvert tojást.":
-        "Gib den Reis und die verquirlten Eier dazu.",
-    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.":
-        "Gib das Ei dazu, rolle alles auf und serviere es halbiert.",
+    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.": "Gib Bohnen, Mais, Tomaten und Gewürze dazu.",
+    "Add hozzá a babot, paradicsomszószt és fűszert.": "Bohnen, Tomatensauce und Gewürze zugeben.",
+    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.": "Den gekochten Reis zugeben und wenden, bis alles warm ist.",
+    "Add hozzá a hagymát, majd adagold dobozokba.": "Gib die Zwiebel dazu und teile alles in Boxen auf.",
+    "Add hozzá a paradicsomszószt, majd főzd össze.": "Gib die Tomatensauce dazu und koche alles zusammen.",
+    "Add hozzá a rizst és a felvert tojást.": "Gib den Reis und die verquirlten Eier dazu.",
+    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.": "Gib das Ei dazu, rolle alles auf und serviere es halbiert.",
     "Add meg az alapadataidat.": "Gib deine Basisdaten ein.",
-    "Add mellé a feldarabolt zöldségeket és a kenyeret.":
-        "Serviere das geschnittene Gemüse und das Brot dazu.",
-    "Add össze a száraz, nyers hozzávalókat főzés ":
-        "Addiere die trockenen, rohen Zutaten ",
-    "adj 150–300 kcal-t a szintentartóhoz.\n\n":
-        "füge 150-300 kcal zum Erhalt hinzu.\n\n",
+    "Add mellé a feldarabolt zöldségeket és a kenyeret.": "Serviere das geschnittene Gemüse und das Brot dazu.",
+    "Add össze a száraz, nyers hozzávalókat főzés ": "Addiere die trockenen, rohen Zutaten ",
+    "adj 150–300 kcal-t a szintentartóhoz.\n\n": "füge 150-300 kcal zum Erhalt hinzu.\n\n",
     "Adj előnyt az estédnek.": "Gib deinem Abend einen Vorsprung.",
-    "Adj hozzá legalább két súlyt a diagramhoz.":
-        "Füge mindestens zwei Gewichtswerte hinzu, um das Diagramm zu sehen.",
+    "Adj hozzá legalább két súlyt a diagramhoz.": "Füge mindestens zwei Gewichtswerte hinzu, um das Diagramm zu sehen.",
     "Advanced": "Fortgeschritten",
     "Aktív előfizetés · ": "Aktives Abo · ",
     "Aktív nap": "Aktiver Tag",
@@ -2040,24 +1666,17 @@ const arbTranslations = <String, Map<String, String>>{
     "Almás fahéjas overnight oats": "Apfel-Zimt-Overnight-Oats",
     "Almás túrós sült zab": "Gebackene Apfel-Quark-Haferflocken",
     "Almaszeletek mogyoróvajjal": "Apfelscheiben mit Erdnussbutter",
-    "amit a tányérra teszel → megkapod a ":
-        "was du auf den Teller legst → du bekommst das ",
+    "amit a tányérra teszel → megkapod a ": "was du auf den Teller legst → du bekommst das ",
     "Amit már most használhatsz": "Was du sofort nutzen kannst",
     "Avokádó": "Avocado",
     "Avokádós tonhalas tojásfalat": "Avocado-Thunfisch-Ei-Happen",
     "Az almát szeleteld fel.": "Schneide den Apfel in Scheiben.",
-    "Az app a mentett kész mennyiséget osztja el az adagok között.":
-        "Die App teilt die gespeicherte gekochte Menge auf die Portionen auf.",
-    "Az avokádót szeleteld mellé, citromlével ízesítsd.":
-        "Schneide die Avocado dazu und würze sie mit Zitronensaft.",
-    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.":
-        "Zerdrücke die Avocado mit Zitronensaft, Salz und Pfeffer und streiche sie auf den Toast.",
-    "az étel össztömege főzés vagy sütés után":
-        "das Gesamtgewicht nach dem Kochen oder Backen",
-    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.":
-        "Die Ernährungspläne dienen als allgemeine Orientierung und ersetzen keinen individuell von einem Ernährungsberater oder Arzt erstellten Plan. Bei Erkrankungen, Allergien, Schwangerschaft oder speziellen Zielen solltest du fachliche Hilfe einholen und sie eigenverantwortlich nutzen.",
-    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
-        "Abrechnung erst nach dem 7. Tag · Jederzeit kündbar",
+    "Az app a mentett kész mennyiséget osztja el az adagok között.": "Die App teilt die gespeicherte gekochte Menge auf die Portionen auf.",
+    "Az avokádót szeleteld mellé, citromlével ízesítsd.": "Schneide die Avocado dazu und würze sie mit Zitronensaft.",
+    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.": "Zerdrücke die Avocado mit Zitronensaft, Salz und Pfeffer und streiche sie auf den Toast.",
+    "az étel össztömege főzés vagy sütés után": "das Gesamtgewicht nach dem Kochen oder Backen",
+    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.": "Die Ernährungspläne dienen als allgemeine Orientierung und ersetzen keinen individuell von einem Ernährungsberater oder Arzt erstellten Plan. Bei Erkrankungen, Allergien, Schwangerschaft oder speziellen Zielen solltest du fachliche Hilfe einholen und sie eigenverantwortlich nutzen.",
+    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható": "Abrechnung erst nach dem 7. Tag · Jederzeit kündbar",
     "Bagel": "Bagel",
     "Banán": "Banane",
     "Banános kakaós falatok": "Bananen-Kakao-Bites",
@@ -2072,18 +1691,17 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Einkaufsliste bearbeiten",
     "Bevásárlólista törlése": "Einkaufsliste löschen",
     "Bezárás": "Schließen",
-    "Biztosan törlöd az összes rögzített súlyt?":
-        "Möchtest du wirklich alle gespeicherten Gewichtswerte löschen?",
-    "Biztosan törlöd ezt a bevásárlólistát?":
-        "Möchtest du diese Einkaufsliste wirklich löschen?",
+    "Biztosan törlöd az összes rögzített súlyt?": "Möchtest du wirklich alle gespeicherten Gewichtswerte löschen?",
+    "Biztosan törlöd ezt a bevásárlólistát?": "Möchtest du diese Einkaufsliste wirklich löschen?",
     "BMI": "BMI",
     "BMI\nkalkulátor": "BMI-\nRechner",
     "Bogyós gyümölcs": "Beeren",
     "Brokkoli": "Brokkoli",
-    "Build today one meal at a time.":
-        "Gestalte den Tag Mahlzeit für Mahlzeit.",
+    "Build today one meal at a time.": "Gestalte den Tag Mahlzeit für Mahlzeit.",
     "Bulgur": "Bulgur",
     "Burgonya": "Kartoffel",
+    "Burgur": "Bulgur",
+    "Candy": "Bonbon",
     "Chia mag": "Chiasamen",
     "Chili fűszer": "Chiligewürz",
     "Chilis pulykával töltött paprika": "Mit Chili-Pute gefüllte Paprika",
@@ -2091,6 +1709,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Close the day with care.": "Beende den Tag mit Achtsamkeit.",
     "Cottage cheese": "Cottage Cheese",
     "Cottage cheese zöldségtál": "Cottage-Cheese-Gemüseteller",
+    "Cream": "Creme",
     "Csicseriborsó": "Kichererbsen",
     "Csicseriborsó curry rizzsel": "Kichererbsencurry mit Reis",
     "Csicseriborsós ropogós doboz": "Knusprige Kichererbsen-Box",
@@ -2099,8 +1718,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Csirkés kuszkuszos doboz": "Hähnchen-Couscous-Box",
     "Csirkés pita tál": "Hähnchen-Pita-Bowl",
     "Csirkés rizses fit bowl": "Hähnchen-Reis-Fit-Bowl",
-    "Csirkés rizses fit bowl kisebb adagban":
-        "Hähnchen-Reis-Fit-Bowl, kleinere Portion",
+    "Csirkés rizses fit bowl kisebb adagban": "Hähnchen-Reis-Fit-Bowl, kleinere Portion",
     "Csirkés rizstészta leveses tál": "Hähnchen-Reisnudel-Suppenbowl",
     "csökkenhet vagy növekedhet": "sinken oder steigen",
     "Csökkenő": "Fallend",
@@ -2111,6 +1729,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Darált dió": "Gemahlene Walnüsse",
     "Darált pulykahús": "Putenhackfleisch",
     "db": "Stk.",
+    "Dew": "Tau",
     "Dió vagy mandula": "Walnüsse oder Mandeln",
     "diófélék": "Schalenfrüchte",
     "Dobozok": "Boxen",
@@ -2122,18 +1741,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Eddigi változás": "Bisherige Veränderung",
     "Edzéshez és jobb teltségérzethez": "Für Training und bessere Sättigung",
     "Egy adag nyers egyenértéke": "Rohäquivalent pro Portion",
-    "Egy kiegyensúlyozott tányér stabilan tartja a napot.":
-        "Ein ausgewogener Teller hält den Tag stabil.",
+    "Egy kiegyensúlyozott tányér stabilan tartja a napot.": "Ein ausgewogener Teller hält den Tag stabil.",
     "Egy kis előkészítés sokat számít.": "Ein wenig Vorbereitung hilft viel.",
     "Egyszerű lendület nap": "Einfacher-Schwung-Tag",
     "Egyszerű nap": "Einfacher Tag",
     "Egyszerű tempó nap": "Einfaches-Tempo-Tag",
-    "Egyszerűbb, olcsóbb alapanyagokkal":
-        "Mit einfacheren, günstigeren Zutaten",
+    "Egyszerűbb, olcsóbb alapanyagokkal": "Mit einfacheren, günstigeren Zutaten",
     "Életkor": "Alter",
     "Elkészítés": "Zubereitung",
-    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.":
-        "Prüfe dein Idealgewicht und verfolge Änderungen. Im Profil gespeichert.",
+    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.": "Prüfe dein Idealgewicht und verfolge Änderungen. Im Profil gespeichert.",
     "Elmentett listák": "Gespeicherte Listen",
     "Elmentett meal prep tervek": "Gespeicherte Meal-Prep-Pläne",
     "Előfizetés": "Abo",
@@ -2141,15 +1757,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Előre dobozolható napi menü": "Tagesmenü zum Vorbereiten",
     "Előre főzős nap": "Vorkoch-Tag",
     "Előre haladó nap": "Vorausplan-Tag",
-    "Először ments el egy ételt a meal prep tervezéshez.":
-        "Speichere zuerst ein Essen, dann kannst du einen Meal-Prep-Plan erstellen.",
+    "Először ments el egy ételt a meal prep tervezéshez.": "Speichere zuerst ein Essen, dann kannst du einen Meal-Prep-Plan erstellen.",
     "előtt": "vor dem Kochen",
     "Emelkedő": "Steigend",
     "End the day full, not rushed.": "Beende den Tag satt, nicht gehetzt.",
     "Enyhén aktív (heti 1–3x)": "Leicht aktiv (1-3x/Woche)",
     "Eper": "Erdbeeren",
-    "Építsd fel a mai napot étkezésről étkezésre.":
-        "Gestalte den Tag Mahlzeit für Mahlzeit.",
+    "Építsd fel a mai napot étkezésről étkezésre.": "Gestalte den Tag Mahlzeit für Mahlzeit.",
     "Erő plusz nap": "Kraft-Plus-Tag",
     "Erős nap": "Starker Tag",
     "Erősen aktív (heti 6–7x)": "Sehr aktiv (6-7x/Woche)",
@@ -2168,8 +1782,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Éves csomag −50% kedvezménnyel": "Jahrespaket mit −50% Rabatt",
     "Éves előfizetés": "Jahresabo",
     "Extrém aktív": "Extrem aktiv",
-    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.":
-        "Daraus berechnet die App deinen BMI, dein tägliches Kalorienziel und die Basisdaten im Profil.",
+    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.": "Daraus berechnet die App deinen BMI, dein tägliches Kalorienziel und die Basisdaten im Profil.",
     "Fahéj": "Zimt",
     "Fehér halfilé": "Weißfischfilet",
     "Fehérje fókusz nap": "Protein-Fokus-Tag",
@@ -2193,18 +1806,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Fogyáshoz": "Zum Abnehmen",
     "Fogyáshoz: ": "Zum Abnehmen: ",
     "földimogyoró": "Erdnuss",
-    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.":
-        "Vermenge alles mit Gemüse, Nudeln und Sojasauce.",
-    "Formázz falatokat és hűtsd 20 percig.":
-        "Forme kleine Happen und kühle sie 20 Minuten.",
+    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.": "Vermenge alles mit Gemüse, Nudeln und Sojasauce.",
+    "Formázz falatokat és hűtsd 20 percig.": "Forme kleine Happen und kühle sie 20 Minuten.",
     "Főtt lencse": "Gekochte Linsen",
     "Főtt rizs": "Gekochter Reis",
     "Főtt tojás avokádóval": "Gekochte Eier mit Avocado",
     "Főzd össze sűrű raguvá.": "Koche alles zu einem dicken Ragout ein.",
     "Főzés során az étel ": "Beim Kochen verliert Essen ",
     "Főzés során az étel tömege ": "Beim Kochen kann das Gewicht des Essens ",
-    "főzés után mérd le az egész elkészült ételt, például 760 g.":
-        "wiege nach dem Kochen das fertige Gericht, zum Beispiel 760 g.",
+    "főzés után mérd le az egész elkészült ételt, például 760 g.": "wiege nach dem Kochen das fertige Gericht, zum Beispiel 760 g.",
     "Friss mentes nap": "Frischer Free-From-Tag",
     "Friss nap": "Frischer Tag",
     "Friss zöld nap": "Frischer-Grüner-Tag",
@@ -2229,32 +1839,23 @@ const arbTranslations = <String, Map<String, String>>{
     "Görög csirkés tányér": "Griechischer Hähnchenteller",
     "Görög joghurt": "Griechischer Joghurt",
     "Görög joghurtos granola pohár": "Griechischer Joghurt-Granola-Becher",
-    "Görög joghurtos granola pohár gluténmentes granolával":
-        "Griechischer Joghurt-Granola-Becher mit glutenfreiem Granola",
+    "Görög joghurtos granola pohár gluténmentes granolával": "Griechischer Joghurt-Granola-Becher mit glutenfreiem Granola",
     "Görög lazacos quinoa tál": "Griechische Lachs-Quinoa-Bowl",
     "Granola": "Granola",
     "Gyors": "Schnell",
     "Gyors fókusz nap": "Schneller-Fokus-Tag",
     "Gyors rutin nap": "Schnelle-Routine-Tag",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "wenn 250 g in deine Box kommen, berechnet Mealr, dass das etwa 313 g rohen Zutaten entspricht.",
-    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
-        "Wenn du nur Reis, Bulgur oder Pasta als Beilage kochst, funktioniert es genauso: roher Reis 300 g, gekochter Reis 820 g, Portion 180 g. Die App gibt das Rohreis-Äquivalent aus.",
-    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
-        "Wenn du essen möchtest, wiege die Portion auf deinem Teller und trage sie ein - du bekommst das ",
-    "Ha megfőzted vagy megsütötted az ételt, mérd le az ":
-        "Nach dem Kochen oder Backen wiegst du das ",
-    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.":
-        "Für eine dickere Konsistenz gib Eis dazu oder verwende weniger Flüssigkeit.",
-    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.":
-        "Lass es 5 Minuten stehen, damit die Haferflocken Feuchtigkeit aufnehmen.",
-    "Hajtsd félbe és frissen tálald.":
-        "Klappe es zusammen und serviere es frisch.",
+    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.": "wenn 250 g in deine Box kommen, berechnet Mealr, dass das etwa 313 g rohen Zutaten entspricht.",
+    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.": "Wenn du nur Reis, Bulgur oder Pasta als Beilage kochst, funktioniert es genauso: roher Reis 300 g, gekochter Reis 820 g, Portion 180 g. Die App gibt das Rohreis-Äquivalent aus.",
+    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ": "Wenn du essen möchtest, wiege die Portion auf deinem Teller und trage sie ein - du bekommst das ",
+    "Ha megfőzted vagy megsütötted az ételt, mérd le az ": "Nach dem Kochen oder Backen wiegst du das ",
+    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.": "Für eine dickere Konsistenz gib Eis dazu oder verwende weniger Flüssigkeit.",
+    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.": "Lass es 5 Minuten stehen, damit die Haferflocken Feuchtigkeit aufnehmen.",
+    "Hajtsd félbe és frissen tálald.": "Klappe es zusammen und serviere es frisch.",
     "hal": "Fisch",
     "Hamarosan": "Bald",
     "Havi előfizetés": "Monatsabo",
-    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.":
-        "Lege das Fischfilet darauf, würze es und beträufle es mit Öl.",
+    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.": "Lege das Fischfilet darauf, würze es und beträufle es mit Öl.",
     "hét": "Woche",
     "Heti átlag": "Wochendurchschnitt",
     "Heti doboz nap": "Wochenbox-Tag",
@@ -2274,18 +1875,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Húsmentes lendület nap": "Fleischloser-Schwung-Tag",
     "Húsmentes napi étrend": "Fleischfreier Tagesplan",
     "Ideális testsúly": "Idealgewicht",
-    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
-        "So trackst du Kalorien genauer, und Meal-Prep-Portionen sind kein Ratespiel mehr.",
+    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.": "So trackst du Kalorien genauer, und Meal-Prep-Portionen sind kein Ratespiel mehr.",
     "Indítsd tudatosan a reggelt.": "Starte bewusst in den Morgen.",
     "Indulhat": "Start",
     "Ingyenes": "Kostenlos",
     "Ingyenes alapok": "Kostenlose Grundlagen",
-    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
-        "Free enthält 1 gespeicherten Meal-Prep-Plan. Für mehr Pläne brauchst du Pro.",
-    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.":
-        "Als Richtwert 2-4 Wochen verfolgen und dann nach tatsächlicher Veränderung anpassen.",
-    "Írj receptet, tippet vagy emlékeztetőt...":
-        "Schreibe ein Rezept, einen Tipp oder eine Erinnerung...",
+    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.": "Free enthält 1 gespeicherten Meal-Prep-Plan. Für mehr Pläne brauchst du Pro.",
+    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.": "Als Richtwert 2-4 Wochen verfolgen und dann nach tatsächlicher Veränderung anpassen.",
+    "Írj receptet, tippet vagy emlékeztetőt...": "Schreibe ein Rezept, einen Tipp oder eine Erinnerung...",
     "Ízlés szerint sózd, borsozd.": "Nach Geschmack salzen und pfeffern.",
     "Izmos nap": "Muskel-Tag",
     "Jegyzet": "Notiz",
@@ -2305,19 +1902,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Kalória\nkalkulátor": "Kalorien-\nrechner",
     "Kalória cél": "Kalorienziel",
     "Kalória kalkulátor": "Kalorienrechner",
-    "Kanalazd kekszekre, uborkával tálald.":
-        "Auf Cracker geben und mit Gurke servieren.",
-    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.":
-        "Tzatziki daneben geben und mit der Quinoa-Gemüse-Basis servieren.",
+    "Kanalazd kekszekre, uborkával tálald.": "Auf Cracker geben und mit Gurke servieren.",
+    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.": "Tzatziki daneben geben und mit der Quinoa-Gemüse-Basis servieren.",
     "kcal / nap": "kcal / Tag",
     "Kedvencek": "Favoriten",
-    "Keep the afternoon light and useful.":
-        "Halte den Nachmittag leicht und sinnvoll.",
+    "Keep the afternoon light and useful.": "Halte den Nachmittag leicht und sinnvoll.",
     "Keep your meals on track.": "Behalte deine Mahlzeiten im Blick.",
-    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.":
-        "Mit Frischkäse bestreichen, dann Lachs und Gurke darauflegen.",
-    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.":
-        "Dünn mit Erdnussbutter bestreichen und mit Zimt bestreuen.",
+    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.": "Mit Frischkäse bestreichen, dann Lachs und Gurke darauflegen.",
+    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.": "Dünn mit Erdnussbutter bestreichen und mit Zimt bestreuen.",
     "Képlet: ": "Formel: ",
     "Keresés receptek között": "Rezepte suchen",
     "Kert nap": "Garten-Tag",
@@ -2326,52 +1918,31 @@ const arbTranslations = <String, Map<String, String>>{
     "Kész étel súlya": "Gewicht nach dem Kochen",
     "Kész g": "Gekocht g",
     "Kész súly": "Gekochtes Gewicht",
-    "Készíts lágy rántottát a tojásból.":
-        "Bereite aus den Eiern ein weiches Rührei zu.",
+    "Készíts lágy rántottát a tojásból.": "Bereite aus den Eiern ein weiches Rührei zu.",
     "Készítsd elő, ami később könnyít.": "Bereite vor, was später hilft.",
-    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.":
-        "Rühre das Proteinpulver ein und lass es ein paar Minuten andicken.",
-    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.":
-        "Bulgur und Tomatenmark einrühren und zusammen kochen.",
-    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.":
-        "Ahornsirup einrühren und einige Minuten andicken lassen.",
-    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.":
-        "Tomatenmark einrühren und 3-4 Minuten zu einem dicken Ragout kochen.",
-    "Keverd hozzá a zabot, kakaót és juharszirupot.":
-        "Haferflocken, Kakao und Ahornsirup einrühren.",
-    "Keverd hozzá a zabot, kakaót és mogyoróvajat.":
-        "Haferflocken, Kakao und Erdnussbutter einrühren.",
-    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.":
-        "Kartoffeln mit Tzatziki mischen und mit Gurke und Putenschinken servieren.",
-    "Keverd össze a joghurtot a fehérjeporral.":
-        "Vermische den Joghurt mit dem Proteinpulver.",
-    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.":
-        "Mit der gekochten Pasta vermengen und mit Käse bestreut portionieren.",
-    "Keverd össze a lencsével és morzsolt fetával.":
-        "Mit Linsen und zerbröseltem Feta vermengen.",
-    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.":
-        "Thunfisch mit Bohnen, Kartoffeln und Joghurt-Dressing mischen.",
-    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.":
-        "Haferflocken, Joghurt, Flüssigkeit und Zimt vermischen.",
-    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.":
-        "Haferflocken, Milch oder Pflanzendrink, Chiasamen und Kakaopulver mischen.",
-    "Keverd össze spenóttal és paradicsommal.":
-        "Mit Spinat und Tomaten vermengen.",
-    "Keverd össze tonhallal, kukoricával és joghurttal.":
-        "Mit Thunfisch, Mais und Joghurt vermengen.",
+    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.": "Rühre das Proteinpulver ein und lass es ein paar Minuten andicken.",
+    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.": "Bulgur und Tomatenmark einrühren und zusammen kochen.",
+    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.": "Ahornsirup einrühren und einige Minuten andicken lassen.",
+    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.": "Tomatenmark einrühren und 3-4 Minuten zu einem dicken Ragout kochen.",
+    "Keverd hozzá a zabot, kakaót és juharszirupot.": "Haferflocken, Kakao und Ahornsirup einrühren.",
+    "Keverd hozzá a zabot, kakaót és mogyoróvajat.": "Haferflocken, Kakao und Erdnussbutter einrühren.",
+    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.": "Kartoffeln mit Tzatziki mischen und mit Gurke und Putenschinken servieren.",
+    "Keverd össze a joghurtot a fehérjeporral.": "Vermische den Joghurt mit dem Proteinpulver.",
+    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.": "Mit der gekochten Pasta vermengen und mit Käse bestreut portionieren.",
+    "Keverd össze a lencsével és morzsolt fetával.": "Mit Linsen und zerbröseltem Feta vermengen.",
+    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.": "Thunfisch mit Bohnen, Kartoffeln und Joghurt-Dressing mischen.",
+    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.": "Haferflocken, Joghurt, Flüssigkeit und Zimt vermischen.",
+    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.": "Haferflocken, Milch oder Pflanzendrink, Chiasamen und Kakaopulver mischen.",
+    "Keverd össze spenóttal és paradicsommal.": "Mit Spinat und Tomaten vermengen.",
+    "Keverd össze tonhallal, kukoricával és joghurttal.": "Mit Thunfisch, Mais und Joghurt vermengen.",
     "Keverd simára a hozzávalókat.": "Rühre die Zutaten glatt.",
-    "Keverd simára a joghurtot fehérjeporral és kakaóval.":
-        "Rühre den Joghurt mit Proteinpulver und Kakao glatt.",
-    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.":
-        "Senf in das Joghurt-Dressing rühren und über den Couscous-Salat geben.",
-    "Kevés citromlével frissítsd, majd azonnal tálald.":
-        "Mit etwas Zitronensaft auffrischen und sofort servieren.",
-    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.":
-        "Dünste sie in wenig Öl an und gieße dann die verquirlten Eier darüber.",
+    "Keverd simára a joghurtot fehérjeporral és kakaóval.": "Rühre den Joghurt mit Proteinpulver und Kakao glatt.",
+    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.": "Senf in das Joghurt-Dressing rühren und über den Couscous-Salat geben.",
+    "Kevés citromlével frissítsd, majd azonnal tálald.": "Mit etwas Zitronensaft auffrischen und sofort servieren.",
+    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.": "Dünste sie in wenig Öl an und gieße dann die verquirlten Eier darüber.",
     "Kevesebb mutatása": "Weniger anzeigen",
     "Kezdés ingyenesen": "Kostenlos starten",
-    "Kezdj egyszerűen, maradj következetes.":
-        "Einfach starten, beständig bleiben.",
+    "Kezdj egyszerűen, maradj következetes.": "Einfach starten, beständig bleiben.",
     "Kezdjük egyszerűen.": "Fangen wir einfach an.",
     "Kiadós alap nap": "Sättigender-Basis-Tag",
     "Kihagyás": "Überspringen",
@@ -2396,19 +1967,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Köret recept szorzó": "Beilagen-Rezeptfaktor",
     "Köretek": "Beilagen",
     "Korlátlan": "Unbegrenzt",
-    "Korlátlan étel és meal prep mentés":
-        "Unbegrenztes Speichern von Essen und Meal Prep",
+    "Korlátlan étel és meal prep mentés": "Unbegrenztes Speichern von Essen und Meal Prep",
     "Korlátlan mentés és extra funkciók": "Unbegrenztes Speichern und Extras",
     "Közepesen aktív (heti 3–5x)": "Mäßig aktiv (3-5x/Woche)",
     "Krémsajt": "Frischkäse",
     "Kukorica": "Mais",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealr berechnet trotzdem das Rohäquivalent.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.": "Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealr berechnet trotzdem das Rohäquivalent.",
     "Kuszkusz": "Couscous",
-    "Lassíts, egyél jól, pihenj könnyen.":
-        "Werde langsamer, iss gut, ruh dich aus.",
-    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.":
-        "Bei niedriger Hitze garen, bis auch die Mitte fest ist.",
+    "Lassíts, egyél jól, pihenj könnyen.": "Werde langsamer, iss gut, ruh dich aus.",
+    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.": "Bei niedriger Hitze garen, bis auch die Mitte fest ist.",
     "Laza mentes nap": "Leichter Free-From-Tag",
     "Lazacfilé": "Lachsfilet",
     "Lazacos burgonyás ebéd": "Lachs-Kartoffel-Mittagessen",
@@ -2417,11 +1984,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Lazacos uborkás falatok": "Lachs-Gurken-Happen",
     "Lazacos zöldbabos vacsora": "Lachs-Abendessen mit grünen Bohnen",
     "Legalacsonyabb": "Niedrigstes",
-    "Legyen a délután könnyű és hasznos.":
-        "Halte den Nachmittag leicht und sinnvoll.",
+    "Legyen a délután könnyű és hasznos.": "Halte den Nachmittag leicht und sinnvoll.",
     "Legyen az első döntés könnyű.": "Mach die erste Entscheidung einfach.",
-    "Legyen egyszerű a következő étkezés.":
-        "Mach die nächste Mahlzeit einfach.",
+    "Legyen egyszerű a következő étkezés.": "Mach die nächste Mahlzeit einfach.",
     "Lejár: ": "Läuft ab: ",
     "Lencsés feta saláta": "Linsen-Feta-Salat",
     "Lencsés zöldséges rizses egytál": "Linsen-Gemüse-Reis-Topf",
@@ -2429,18 +1994,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Lilahagyma": "Rote Zwiebel",
     "Lista": "Liste",
     "Lista neve": "Listenname",
-    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.":
-        "Mit etwas Honig beträufeln und mit Walnüssen oder Mandeln bestreuen.",
-    "Locsold meg kevés mézzel, majd szórd meg mandulával.":
-        "Mit etwas Honig beträufeln und mit Mandeln bestreuen.",
-    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.":
-        "Mit Olivenöl beträufeln und gekühlt oder frisch servieren.",
+    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.": "Mit etwas Honig beträufeln und mit Walnüssen oder Mandeln bestreuen.",
+    "Locsold meg kevés mézzel, majd szórd meg mandulával.": "Mit etwas Honig beträufeln und mit Mandeln bestreuen.",
+    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.": "Mit Olivenöl beträufeln und gekühlt oder frisch servieren.",
     "Ma": "Heute",
     "Magas fehérje": "Proteinreich",
     "Magasság": "Größe",
     "Magasság (cm)": "Größe (cm)",
-    "Make the first choice an easy one.":
-        "Mach die erste Entscheidung einfach.",
+    "Make the first choice an easy one.": "Mach die erste Entscheidung einfach.",
     "Make the next meal easy.": "Mach die nächste Mahlzeit einfach.",
     "Makrók megoszlása": "Makroverteilung",
     "Mandula": "Mandeln",
@@ -2456,10 +2017,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Mealr Pro": "Mealr Pro",
     "Mediterrán pulykás bulgur": "Mediterraner Puten-Bulgur",
     "Medium": "Mittel",
-    "Még nincs elmentett bevásárlólistád.":
-        "Deine Einkaufslisten erscheinen hier.",
-    "Még nincs elmentett meal prep terved.":
-        "Gespeicherte Meal-Prep-Pläne erscheinen hier.",
+    "Még nincs elmentett bevásárlólistád.": "Deine Einkaufslisten erscheinen hier.",
+    "Még nincs elmentett meal prep terved.": "Gespeicherte Meal-Prep-Pläne erscheinen hier.",
     "Még nincs főétel hozzáadva.": "Deine Hauptgerichte erscheinen hier.",
     "Még nincs köret hozzáadva.": "Deine Beilagen erscheinen hier.",
     "Megjegyzés": "Notiz",
@@ -2470,20 +2029,16 @@ const arbTranslations = <String, Map<String, String>>{
     "Mégse": "Abbrechen",
     "Meleg banános zabfalatok": "Warme Bananen-Hafer-Happen",
     "Meleg lencsés feta tányér": "Warmer Linsen-Feta-Teller",
-    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.":
-        "Erwärme die Tortilla und belege sie mit Schinken, Käse und Gemüse.",
+    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.": "Erwärme die Tortilla und belege sie mit Schinken, Käse und Gemüse.",
     "Mentés": "Speichern",
     "Mentes lendület nap": "Free-From-Schwung-Tag",
-    "Mentés profilba · a Kalória cél frissítése":
-        "Im Profil speichern · Kalorienziel aktualisieren",
+    "Mentés profilba · a Kalória cél frissítése": "Im Profil speichern · Kalorienziel aktualisieren",
     "Mentés új listaként": "Als neue Liste speichern",
     "Mentett étel": "Gespeichertes Essen",
     "Mentve": "Gespeichert",
-    "Mentve a profilba · legközelebb automatikusan kitöltve":
-        "Im Profil gespeichert · nächstes Mal automatisch ausgefüllt",
+    "Mentve a profilba · legközelebb automatikusan kitöltve": "Im Profil gespeichert · nächstes Mal automatisch ausgefüllt",
     "Mentve a profilba.": "Im Profil gespeichert.",
-    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.":
-        "wiege die Zutaten vor dem Kochen, zum Beispiel Hähnchen + Reis + Gemüse zusammen 950 g.",
+    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.": "wiege die Zutaten vor dem Kochen, zum Beispiel Hähnchen + Reis + Gemüse zusammen 950 g.",
     "Méz": "Honig",
     "MI A PROBLÉMA?": "WAS IST DAS PROBLEM?",
     "MIÉRT HASZNOS?": "WARUM IST ES NÜTZLICH?",
@@ -2494,10 +2049,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Mini csirkés wrap": "Mini-Hähnchen-Wrap",
     "Mini tortilla": "Mini-Tortilla",
     "Mogyoróvaj": "Erdnussbutter",
-    "Morzsold rá a fetát, és frissen tálald.":
-        "Den Feta darüberbröseln und frisch servieren.",
-    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.":
-        "Den Feta darüberbröseln und mit dem Gemüse-Bulgur servieren.",
+    "Morzsold rá a fetát, és frissen tálald.": "Den Feta darüberbröseln und frisch servieren.",
+    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.": "Den Feta darüberbröseln und mit dem Gemüse-Bulgur servieren.",
     "mustár": "Senf",
     "Mustár": "Senf",
     "Mustáros sertésszűz burgonyával": "Schweinefilet mit Senf und Kartoffeln",
@@ -2509,19 +2062,16 @@ const arbTranslations = <String, Map<String, String>>{
     "Nehézség": "Schwierigkeit",
     "Nem": "Geschlecht",
     "nem a kalóriájából.": "nicht an Kalorien.",
-    "Nem csak mérlegelés: egy app a kajás rutinodhoz.":
-        "Nicht nur Wiegen: eine App für deine Essensroutine.",
+    "Nem csak mérlegelés: egy app a kajás rutinodhoz.": "Nicht nur Wiegen: eine App für deine Essensroutine.",
     "nem változik a kalóriája.": "ändern sich die Kalorien nicht.",
-    "Nevezd el és add hozzá a tételeket":
-        "Benenne sie und füge die Artikel hinzu",
+    "Nevezd el és add hozzá a tételeket": "Benenne sie und füge die Artikel hinzu",
     "Névjegy": "Info",
     "Nincs aktív előfizetés": "Kein aktives Abo",
     "nincs kiemelt allergén": "kein hervorgehobenes Allergen",
     "Nincs köret": "Keine Beilage",
     "Nincs mentett étel": "Kein gespeichertes Essen",
     "Nincs találat.": "Keine Rezepte passen zu dieser Suche.",
-    "Nincs változás a kezdő súlyhoz képest":
-        "Keine Veränderung im Vergleich zum Startgewicht",
+    "Nincs változás a kezdő súlyhoz képest": "Keine Veränderung im Vergleich zum Startgewicht",
     "Nő": "Weiblich",
     "Normál": "Normal",
     "Normál receptek": "Normale Rezepte",
@@ -2530,8 +2080,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Növényi ritmus nap": "Pflanzen-Rhythmus-Tag",
     "Nyelv": "Sprache",
     "Nyelv, téma, mód és verzió": "Sprache, Theme, Modus und Version",
-    "nyers ÷ kész × kimért =\nnyers egyenérték\n":
-        "roh ÷ gekocht × Portion =\nRohäquivalent\n",
+    "nyers ÷ kész × kimért =\nnyers egyenérték\n": "roh ÷ gekocht × Portion =\nRohäquivalent\n",
     "Nyers adag": "Rohe Menge",
     "Nyers egyenérték": "Rohäquivalent",
     "nyers egyenértéket": "Rohäquivalent",
@@ -2541,8 +2090,7 @@ const arbTranslations = <String, Map<String, String>>{
     "nyersen": "roh",
     "Nyisd meg újra a bevezetőt": "Einführung erneut öffnen",
     "Nyugodt energia nap": "Ruhige-Energie-Tag",
-    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.":
-        "Ein ruhiges, praktisches Tool für eine genauere Ernährungsroutine.",
+    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.": "Ein ruhiges, praktisches Tool für eine genauere Ernährungsroutine.",
     "Obezitás": "Adipositas",
     "Okos kosár nap": "Smarte-Einkaufskorb-Tag",
     "Okos nap": "Cleverer Tag",
@@ -2552,16 +2100,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Összes": "Gesamt",
     "Összes kalória": "Kalorien gesamt",
     "össztömeget": "Gesamtgewicht",
-    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.":
-        "Couscous, Hähnchen und Brokkoli auf Boxen verteilen.",
-    "Oszd dobozokra a rizst, csirkét és brokkolit.":
-        "Teile Reis, Hähnchen und Brokkoli in Boxen auf.",
+    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.": "Couscous, Hähnchen und Brokkoli auf Boxen verteilen.",
+    "Oszd dobozokra a rizst, csirkét és brokkolit.": "Teile Reis, Hähnchen und Brokkoli in Boxen auf.",
     "Overnight oats előre bekészítve": "Vorbereitete Overnight Oats",
     "Paprika": "Paprika",
     "Paradicsom": "Tomate",
     "Paradicsompüré": "Tomatenmark",
-    "Paradicsomszósszal és sajttal süsd készre.":
-        "Mit Tomatensauce und Käse fertig backen.",
+    "Paradicsomszósszal és sajttal süsd készre.": "Mit Tomatensauce und Käse fertig backen.",
     "Paradicsomszósz": "Tomatensauce",
     "Pénztárca plusz nap": "Geldbeutel-Plus-Tag",
     "Pénztárcabarát": "Budgetfreundlich",
@@ -2584,8 +2129,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Pulykagolyók cukkinispagettivel": "Putenbällchen mit Zucchini-Spaghetti",
     "Pulykamell sonka": "Putenbrustschinken",
     "Pulykás bolognai tészta": "Puten-Bolognese-Pasta",
-    "Pulykás bolognai tészta light adagban":
-        "Puten-Bolognese-Pasta, leichte Portion",
+    "Pulykás bolognai tészta light adagban": "Puten-Bolognese-Pasta, leichte Portion",
     "Pulykás cottage reggeli doboz": "Puten-Cottage-Frühstücksbox",
     "Pulykás sajtos tekercsek": "Puten-Käse-Röllchen",
     "Pulykás tojásos wrap": "Puten-Ei-Wrap",
@@ -2603,12 +2147,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Rendszer": "System",
     "Rendszeres használathoz": "Für regelmäßige Nutzung",
     "Répa": "Karotte",
-    "Reszeld vagy kockázd bele az almát.":
-        "Reibe oder würfle den Apfel hinein.",
+    "Reszeld vagy kockázd bele az almát.": "Reibe oder würfle den Apfel hinein.",
     "Reszelt sajt": "Geriebener Käse",
     "Részletek": "Details",
-    "Rétegezd rá a granolát és a szeletelt banánt.":
-        "Schichte Granola und Bananenscheiben darauf.",
+    "Rétegezd rá a granolát és a szeletelt banánt.": "Schichte Granola und Bananenscheiben darauf.",
     "Rizs": "Reis",
     "Rizsszelet": "Reiswaffel",
     "Rizsszelet cottage cheese-zel": "Reiswaffeln mit Cottage Cheese",
@@ -2618,8 +2160,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Rövid konyha nap": "Kurze-Küche-Tag",
     "Saláta": "Salat",
     "Saláta mix": "Salatmischung",
-    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.":
-        "In der Pfanne mit Schinken, Käse und Spinat garen.",
+    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.": "In der Pfanne mit Schinken, Käse und Spinat garen.",
     "Sertésszűz": "Schweinefilet",
     "Sertésszűz kuszkusszal": "Schweinefilet mit Couscous",
     "Sertésszűz kuszkusz salátával": "Schweinefilet mit Couscous-Salat",
@@ -2628,8 +2169,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Sietős lendület nap": "Eiliger-Schwung-Tag",
     "Sietős nap": "Eiliger Tag",
     "Skyr vagy görög joghurt": "Skyr oder griechischer Joghurt",
-    "Slow down, eat well, rest easy.":
-        "Werde langsamer, iss gut, ruh dich aus.",
+    "Slow down, eat well, rest easy.": "Werde langsamer, iss gut, ruh dich aus.",
     "Small choices, solid momentum.": "Kleine Entscheidungen, starke Richtung.",
     "Só, bors": "Salz, Pfeffer",
     "Sonkás sajtos omlett": "Schinken-Käse-Omelett",
@@ -2641,6 +2181,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Sovány marhahús": "Mageres Rindfleisch",
     "Spenót": "Spinat",
     "Spenótos kókuszos csicseriborsó": "Spinat-Kokos-Kichererbsen",
+    "Spinach": "Spinat",
     "Sportos nap": "Sportlicher Tag",
     "Stabil erő nap": "Stabile-Kraft-Tag",
     "Stagnál": "Stabil",
@@ -2656,13 +2197,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Súlykövetés": "Gewichtstracking",
     "Súlykövetés diagram": "Gewichtstracking-Diagramm",
     "Súlynapló szerkesztés": "Gewichtslog bearbeiten",
-    "Süsd készre, amíg a hal omlós lesz.":
-        "Backe es fertig, bis der Fisch zart ist.",
-    "Süsd vagy párold készre paradicsomszószban.":
-        "In Tomatensauce backen oder schmoren, bis alles gar ist.",
+    "Süsd készre, amíg a hal omlós lesz.": "Backe es fertig, bis der Fisch zart ist.",
+    "Süsd vagy párold készre paradicsomszószban.": "In Tomatensauce backen oder schmoren, bis alles gar ist.",
     "Sütőpor": "Backpulver",
-    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.":
-        "Berechne deine Erhaltungskalorien nach Alter, Gewicht, Größe und Aktivität.",
+    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.": "Berechne deine Erhaltungskalorien nach Alter, Gewicht, Größe und Aktivität.",
     "Személyes adatok": "Persönliche Daten",
     "SZEMÉLYES ALAPOK": "PERSÖNLICHE GRUNDLAGEN",
     "Szép napot": "Guten Tag",
@@ -2671,11 +2209,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Szezámmag": "Sesam",
     "szója": "Soja",
     "Szójagranulátum": "Sojagranulat",
-    "Szójaszósszal ízesítsd, majd süsd össze.":
-        "Mit Sojasauce würzen und zusammen anbraten.",
+    "Szójaszósszal ízesítsd, majd süsd össze.": "Mit Sojasauce würzen und zusammen anbraten.",
     "Szójaszósz": "Sojasauce",
-    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.":
-        "Mit Kürbiskernen bestreuen und nach Geschmack salzen und pfeffern.",
+    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.": "Mit Kürbiskernen bestreuen und nach Geschmack salzen und pfeffern.",
     "Szükséges kész étel": "Benötigtes gekochtes Essen",
     "Szükséges kész főétel": "Benötigtes gekochtes Hauptgericht",
     "Szükséges kész köret": "Benötigte gekochte Beilage",
@@ -2684,34 +2220,23 @@ const arbTranslations = <String, Map<String, String>>{
     "Szükséges nyers köret": "Benötigte rohe Beilage",
     "Takarékos nap": "Spar-Tag",
     "Tálald a curry alapot rizzsel.": "Serviere die Currybasis mit Reis.",
-    "Tálald bogyós gyümölccsel és chia maggal.":
-        "Mit Beeren und Chiasamen servieren.",
+    "Tálald bogyós gyümölccsel és chia maggal.": "Mit Beeren und Chiasamen servieren.",
     "Tálald bogyós gyümölccsel.": "Mit Beeren servieren.",
-    "Tálald cottage cheese-zel, abonettel és tökmaggal.":
-        "Mit Cottage Cheese, Knäckebrot und Kürbiskernen servieren.",
+    "Tálald cottage cheese-zel, abonettel és tökmaggal.": "Mit Cottage Cheese, Knäckebrot und Kürbiskernen servieren.",
     "Tálald fetával és tzatzikivel.": "Mit Feta und Tzatziki servieren.",
     "Tálald gyümölccsel.": "Mit Obst servieren.",
-    "Tálald pitával, salátával és joghurtos szósszal.":
-        "Mit Pita, Salat und Joghurtsauce servieren.",
-    "Tálald salátával és joghurtos öntettel.":
-        "Mit Salat und Joghurtdressing servieren.",
-    "Tálald zöldbabbal és kevés mustáros szósszal.":
-        "Mit grünen Bohnen und etwas Senfsauce servieren.",
-    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.":
-        "In einer beschichteten Pfanne zu kleinen Pfannkuchen ausbacken.",
+    "Tálald pitával, salátával és joghurtos szósszal.": "Mit Pita, Salat und Joghurtsauce servieren.",
+    "Tálald salátával és joghurtos öntettel.": "Mit Salat und Joghurtdressing servieren.",
+    "Tálald zöldbabbal és kevés mustáros szósszal.": "Mit grünen Bohnen und etwas Senfsauce servieren.",
+    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.": "In einer beschichteten Pfanne zu kleinen Pfannkuchen ausbacken.",
     "Tartsd kézben az étkezéseidet.": "Behalte deine Mahlzeiten im Blick.",
-    "Te adod meg, hány gramm kerüljön egy adagba.":
-        "Du legst fest, wie viele Gramm in eine Portion kommen.",
+    "Te adod meg, hány gramm kerüljön egy adagba.": "Du legst fest, wie viele Gramm in eine Portion kommen.",
     "Tedd dobozba hummusszal együtt.": "Zusammen mit Hummus in eine Box geben.",
-    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.":
-        "Über Nacht in den Kühlschrank stellen, morgens umrühren und essen.",
+    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.": "Über Nacht in den Kühlschrank stellen, morgens umrühren und essen.",
     "Tedd rá a csirkét és az öntetet.": "Hähnchen und Dressing daraufgeben.",
-    "Tedd rá a gyümölcsöt, mézet és diót.":
-        "Obst, Honig und Nüsse daraufgeben.",
-    "Tedd rá a paradicsomot és szórd meg tökmaggal.":
-        "Tomaten daraufgeben und mit Kürbiskernen bestreuen.",
-    "Tedd rá a tojást és frissen tálald.":
-        "Ei darauflegen und frisch servieren.",
+    "Tedd rá a gyümölcsöt, mézet és diót.": "Obst, Honig und Nüsse daraufgeben.",
+    "Tedd rá a paradicsomot és szórd meg tökmaggal.": "Tomaten daraufgeben und mit Kürbiskernen bestreuen.",
+    "Tedd rá a tojást és frissen tálald.": "Ei darauflegen und frisch servieren.",
     "Tedd rá az epret és a mandulát.": "Erdbeeren und Mandeln daraufgeben.",
     "Tegnap": "Gestern",
     "Tej": "Milch",
@@ -2732,8 +2257,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tempós nap": "Schneller Tag",
     "Tempós tál nap": "Schnelle-Bowl-Tag",
     "Terv neve": "Planname",
-    "Tervezd meg a vacsorát még a rohanás előtt.":
-        "Plane das Abendessen vor dem Trubel.",
+    "Tervezd meg a vacsorát még a rohanás előtt.": "Plane das Abendessen vor dem Trubel.",
     "Tervezett nap": "Geplanter Tag",
     "Tervezz egy nyugodt, erős napot.": "Plane einen ruhigen, starken Tag.",
     "Tervezz, főzz, kövess okosabban": "Plane, koche, tracke smarter",
@@ -2745,8 +2269,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Tiszta energia nap": "Saubere-Energie-Tag",
     "Tiszta nap": "Clean Day",
     "Tiszta ritmus nap": "Klarer-Rhythmus-Tag",
-    "Több mentés, bevásárlólisták, súlykövetés extrák":
-        "Mehr Speicherplätze, Einkaufslisten, Gewichtstracking-Extras",
+    "Toast": "Toast",
+    "Több mentés, bevásárlólisták, súlykövetés extrák": "Mehr Speicherplätze, Einkaufslisten, Gewichtstracking-Extras",
     "Tofu": "Tofu",
     "Tofus csicseriborsó curry": "Tofu-Kichererbsen-Curry",
     "Tofus quinoás vacsoratál": "Tofu-Quinoa-Abendbowl",
@@ -2759,14 +2283,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Tökmag": "Kürbiskerne",
     "Töltött paprika light módra": "Leichte gefüllte Paprika",
     "Töltsd meg csirkével és salátával.": "Mit Hähnchen und Salat füllen.",
-    "Töltsd meg húsos-rizses keverékkel.":
-        "Mit der Fleisch-Reis-Mischung füllen.",
-    "Töltsd meg pulykás-babos keverékkel.":
-        "Mit der Puten-Bohnen-Mischung füllen.",
+    "Töltsd meg húsos-rizses keverékkel.": "Mit der Fleisch-Reis-Mischung füllen.",
+    "Töltsd meg pulykás-babos keverékkel.": "Mit der Puten-Bohnen-Mischung füllen.",
     "Tömegnövelés": "Zum Zunehmen",
     "Tömegnöveléshez: ": "Zum Zunehmen: ",
-    "Tomorrow starts with tonight’s prep.":
-        "Morgen beginnt mit der Vorbereitung heute Abend.",
+    "Tomorrow starts with tonight’s prep.": "Morgen beginnt mit der Vorbereitung heute Abend.",
     "Tonhal": "Thunfisch",
     "Tonhalas babos burgonyasaláta": "Thunfisch-Bohnen-Kartoffelsalat",
     "Tonhalas kukoricás tésztasaláta": "Thunfisch-Mais-Nudelsalat",
@@ -2778,8 +2299,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Trend": "Trend",
     "Túlsúly": "Übergewicht",
     "Túlsúlyos": "Übergewicht",
-    "Turmixold krémesre 30-60 másodperc alatt.":
-        "30 bis 60 Sekunden cremig mixen.",
+    "Turmixold krémesre 30-60 másodperc alatt.": "30 bis 60 Sekunden cremig mixen.",
     "Túró": "Quark",
     "Túrós bogyós tál": "Quark-Beeren-Bowl",
     "Túrós zabpalacsinta": "Quark-Hafer-Pancakes",
@@ -2796,13 +2316,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Ülő életmód": "Sitzend",
     "Vacsora": "Abendessen",
     "Vágd félbe és pirítsd meg a bagelt.": "Halbiere und toaste den Bagel.",
-    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.":
-        "Wähle einen Typ und sieh dir die passenden Tagespläne an.",
-    "Válassz ételt és adagold dobozokra":
-        "Wähle ein Essen und teile es in Boxen auf",
+    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.": "Wähle einen Typ und sieh dir die passenden Tagespläne an.",
+    "Válassz ételt és adagold dobozokra": "Wähle ein Essen und teile es in Boxen auf",
     "Válassz étrend típust": "Wähle einen Ernährungsplantyp",
-    "Válassz főételt, köretet és adagold dobozokra":
-        "Wähle Hauptgericht, Beilage und teile alles in Boxen auf",
+    "Válassz főételt, köretet és adagold dobozokra": "Wähle Hauptgericht, Beilage und teile alles in Boxen auf",
     "Vegán": "Vegan",
     "Vegetáriánus": "Vegetarisch",
     "Veggie erő nap": "Veggie-Kraft-Tag",
@@ -2810,18 +2327,14 @@ const arbTranslations = <String, Map<String, String>>{
     "veszít a tömegéből": "an Gewicht",
     "Világos": "Hell",
     "Villám nap": "Blitz-Tag",
-    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n":
-        "ziehe 300-500 kcal ab. Ein tägliches Defizit von 500 kcal entspricht ca. 0,5 kg pro Woche.\n\n",
+    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n": "ziehe 300-500 kcal ab. Ein tägliches Defizit von 500 kcal entspricht ca. 0,5 kg pro Woche.\n\n",
     "Vörösbab": "Rote Bohnen",
     "Wok zöldség": "Wok-Gemüse",
-    "Wrap up with something nourishing.":
-        "Schließe den Tag mit etwas Nährendem ab.",
+    "Wrap up with something nourishing.": "Schließe den Tag mit etwas Nährendem ab.",
     "Zabpehely": "Haferflocken",
     "Zabpehelyliszt": "Hafermehl",
-    "Zárd a napot jóllakottan, nem rohanva.":
-        "Beende den Tag satt, nicht gehetzt.",
-    "Zárd a napot valami táplálóval.":
-        "Schließe den Tag mit etwas Nährendem ab.",
+    "Zárd a napot jóllakottan, nem rohanva.": "Beende den Tag satt, nicht gehetzt.",
+    "Zárd a napot valami táplálóval.": "Schließe den Tag mit etwas Nährendem ab.",
     "Zárd gondoskodással a napot.": "Beende den Tag mit Achtsamkeit.",
     "Zöld fókusz nap": "Grüner-Fokus-Tag",
     "Zöld lendület nap": "Grüner-Schwung-Tag",
@@ -2833,152 +2346,97 @@ const arbTranslations = <String, Map<String, String>>{
     "Zsemlemorzsa": "Paniermehl",
   },
   'es': <String, String>{
-    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ":
-        ", pero no calorías. Si introduces el peso cocido en tu contador, ",
+    " – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba, ": ", pero no calorías. Si introduces el peso cocido en tu contador, ",
     " – ezt mérd le és írd be.": "; pésalo e introdúcelo.",
     " és írd be ide.": " e introdúcelo aquí.",
-    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.":
-        " Si introduces el peso cocido en tu contador, obtendrás un valor incorrecto.",
+    " Ha a kész súlyt írod be a kalóriaszámlálóba, téves értéket kapsz.": " Si introduces el peso cocido en tu contador, obtendrás un valor incorrecto.",
     " Pro extrák lezárva": " · Extras Pro bloqueados",
     ", de ": ", pero ",
     ", de ettől ": ", pero eso ",
     "/év": "/año",
     "/hó": "/mes",
-    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
-        "→ Introduce este número en tu contador de calorías\n(p. ej. MyFitnessPal, Cronometer, etc.)",
+    "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)": "→ Introduce este número en tu contador de calorías\n(p. ej. MyFitnessPal, Cronometer, etc.)",
     "= 1.00€/hó · legjobb ár": "= 1,00€/mes · mejor precio",
     "1500 kcal étrendek": "Planes de 1500 kcal",
     "30 nap": "30 días",
-    "30/60 napos súlydiagram és statisztika":
-        "Gráfico de peso de 30/60 días y estadísticas",
+    "30/60 napos súlydiagram és statisztika": "Gráfico de peso de 30/60 días y estadísticas",
     "7 nap": "7 días",
     "A banánt törd össze.": "Machaca el plátano.",
-    "A BMI 18.5 alatt sovány tartomány.":
-        "BMI por debajo de 18,5 indica bajo peso.",
+    "A BMI 18.5 alatt sovány tartomány.": "BMI por debajo de 18,5 indica bajo peso.",
     "A BMI 25–29.9 között túlsúly.": "BMI entre 25-29,9 indica sobrepeso.",
     "A BMI 30 felett obezitás tartomány.": "BMI superior a 30 indica obesidad.",
-    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.":
-        "El BMI es solo orientativo. No considera la masa muscular y no es un diagnóstico médico.",
-    "A brokkolit párold roppanósra.":
-        "Cocina el brócoli al vapor hasta que quede crujiente.",
+    "A BMI csak tájékoztató. Nem veszi figyelembe az izomtömeget. Orvosi diagnózisra nem alkalmas.": "El BMI es solo orientativo. No considera la masa muscular y no es un diagnóstico médico.",
+    "A brokkolit párold roppanósra.": "Cocina el brócoli al vapor hasta que quede crujiente.",
     "A bulgurt főzd meg.": "Cocina el bulgur.",
-    "A burgonyát főzd vagy süsd puhára.":
-        "Hierve u hornea las patatas hasta que estén tiernas.",
+    "A burgonyát főzd vagy süsd puhára.": "Hierve u hornea las patatas hasta que estén tiernas.",
     "A cottage cheese-t kanalazd tálba.": "Pon el cottage cheese en un bol.",
-    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.":
-        "Mezcla los garbanzos con las especias y tuéstalos o saltéalos 6-8 minutos.",
-    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.":
-        "Cocina los garbanzos con tomate, leche de coco y curry.",
-    "A csirkemellet süsd készre és szeleteld fel.":
-        "Cocina la pechuga de pollo y córtala en láminas.",
-    "A csirkét fűszerezd és süsd készre.":
-        "Sazona el pollo y cocínalo hasta que esté hecho.",
-    "A főtt étel súlya változik, a kalória nem.":
-        "El peso de la comida cocida cambia, las calorías no.",
-    "A garnélát kevés olajon pirítsd készre.":
-        "Saltea las gambas con un poco de aceite hasta que estén hechas.",
-    "A holnap a ma esti előkészítéssel indul.":
-        "Mañana empieza con la preparación de esta noche.",
-    "A joghurtból készíts egyszerű öntetet.":
-        "Prepara un aliño sencillo con el yogur.",
-    "A joghurtot kanalazd pohárba vagy tálba.":
-        "Pon el yogur en un vaso o bol.",
-    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.":
-        "Los datos que introduces se guardan directamente en la calculadora BMI, el menú de calorías y tu perfil, para que no tengas que volver a introducirlos después.",
-    "A konkrét napi étrendeket a következő lépésben töltjük fel.":
-        "Añadiremos los planes diarios concretos en el siguiente paso.",
-    "A kuszkuszt forró vízzel párold meg.":
-        "Hidrata el cuscús con agua caliente.",
-    "A lazacot sózd, borsozd, majd süsd készre.":
-        "Salpimienta el salmón y cocínalo hasta que esté hecho.",
+    "A csicseriborsót forgasd össze a fűszerkeverékkel, majd pirítsd át 6-8 perc alatt.": "Mezcla los garbanzos con las especias y tuéstalos o saltéalos 6-8 minutos.",
+    "A csicseriborsót főzd össze paradicsommal, kókusztejjel és curryvel.": "Cocina los garbanzos con tomate, leche de coco y curry.",
+    "A csirkemellet süsd készre és szeleteld fel.": "Cocina la pechuga de pollo y córtala en láminas.",
+    "A csirkét fűszerezd és süsd készre.": "Sazona el pollo y cocínalo hasta que esté hecho.",
+    "A főtt étel súlya változik, a kalória nem.": "El peso de la comida cocida cambia, las calorías no.",
+    "A garnélát kevés olajon pirítsd készre.": "Saltea las gambas con un poco de aceite hasta que estén hechas.",
+    "A holnap a ma esti előkészítéssel indul.": "Mañana empieza con la preparación de esta noche.",
+    "A joghurtból készíts egyszerű öntetet.": "Prepara un aliño sencillo con el yogur.",
+    "A joghurtot kanalazd pohárba vagy tálba.": "Pon el yogur en un vaso o bol.",
+    "A kitöltött adatok azonnal bekerülnek a BMI kalkulátorba, a Kalória menübe és a Profilba is, így nem kell később újra megadnod őket.": "Los datos que introduces se guardan directamente en la calculadora BMI, el menú de calorías y tu perfil, para que no tengas que volver a introducirlos después.",
+    "A konkrét napi étrendeket a következő lépésben töltjük fel.": "Añadiremos los planes diarios concretos en el siguiente paso.",
+    "A kuszkuszt forró vízzel párold meg.": "Hidrata el cuscús con agua caliente.",
+    "A lazacot sózd, borsozd, majd süsd készre.": "Salpimienta el salmón y cocínalo hasta que esté hecho.",
     "A little prep goes a long way.": "Un poco de preparación ayuda mucho.",
-    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
-        "Dora la ternera y añade las verduras.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "Mealr te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "Mealr evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "Mealr reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.",
-    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
-        "Puedes volver a los alimentos guardados cuando quieras; cada día solo ajustas la porción medida.",
-    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
-        "El rango normal de BMI es 18,5-24,9. Estás en un rango saludable.",
-    "A paprikákat vágd félbe és magozd ki.":
-        "Corta los pimientos por la mitad y quítales las semillas.",
+    "A marhahúst pirítsd le, majd add hozzá a zöldségeket.": "Dora la ternera y añade las verduras.",
+    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.": "Mealr te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.",
+    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.": "Mealr evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.",
+    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.": "Mealr reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.",
+    "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.": "Puedes volver a los alimentos guardados cuando quieras; cada día solo ajustas la porción medida.",
+    "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!": "El rango normal de BMI es 18,5-24,9. Estás en un rango saludable.",
+    "A paprikákat vágd félbe és magozd ki.": "Corta los pimientos por la mitad y quítales las semillas.",
     "A pitát kend meg hummusszal.": "Unta la pita con hummus.",
-    "A pulykahúsból tojással és morzsával formázz golyókat.":
-        "Forma albóndigas con la carne de pavo, huevo y pan rallado.",
-    "A pulykahúst kevés olajon pirítsd le.":
-        "Dora la carne de pavo con un poco de aceite.",
+    "A pulykahúsból tojással és morzsával formázz golyókat.": "Forma albóndigas con la carne de pavo, huevo y pan rallado.",
+    "A pulykahúst kevés olajon pirítsd le.": "Dora la carne de pavo con un poco de aceite.",
     "A quinoát főzd meg.": "Cocina la quinoa.",
-    "A rizsszeleteket kend meg cottage cheese-zel.":
-        "Unta las tortitas de arroz con cottage cheese.",
-    "A rizsszeleteket kend meg hummusszal.":
-        "Unta las tortitas de arroz con hummus.",
-    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.":
-        "Cocina el arroz, sazona la pechuga de pollo y cocínala.",
+    "A rizsszeleteket kend meg cottage cheese-zel.": "Unta las tortitas de arroz con cottage cheese.",
+    "A rizsszeleteket kend meg hummusszal.": "Unta las tortitas de arroz con hummus.",
+    "A rizst főzd meg, a csirkemellet fűszerezd és süsd készre.": "Cocina el arroz, sazona la pechuga de pollo y cocínala.",
     "A rizst főzd meg.": "Cocina el arroz.",
-    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.":
-        "Remoja o cocina los fideos de arroz según el paquete.",
-    "A sertésszüzet fűszerezd és süsd szeletekre.":
-        "Sazona el solomillo de cerdo y cocínalo en rodajas.",
-    "A steady plate keeps the day steady.":
-        "Un plato equilibrado mantiene el día estable.",
-    "a száraz, nyers hozzávalók össztömege főzés előtt":
-        "el peso total de ingredientes secos y crudos antes de cocinar",
-    "A szójagranulátumot áztasd be, majd pirítsd le.":
-        "Remoja la soja texturizada y luego saltéala.",
-    "A tésztát főzd meg és hűtsd vissza.":
-        "Cocina la pasta y deja que se enfríe.",
+    "A rizstésztát áztasd vagy főzd meg a csomagolás szerint.": "Remoja o cocina los fideos de arroz según el paquete.",
+    "A sertésszüzet fűszerezd és süsd szeletekre.": "Sazona el solomillo de cerdo y cocínalo en rodajas.",
+    "A steady plate keeps the day steady.": "Un plato equilibrado mantiene el día estable.",
+    "a száraz, nyers hozzávalók össztömege főzés előtt": "el peso total de ingredientes secos y crudos antes de cocinar",
+    "A szójagranulátumot áztasd be, majd pirítsd le.": "Remoja la soja texturizada y luego saltéala.",
+    "A tésztát főzd meg és hűtsd vissza.": "Cocina la pasta y deja que se enfríe.",
     "A tofut kockázd fel és pirítsd meg.": "Corta el tofu en dados y dóralo.",
     "A tojásokat főzd meg.": "Cuece los huevos.",
-    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.":
-        "Prepara los huevos cocidos, fritos o revueltos.",
+    "A tojásokat készítsd el főzve, tükörtojásként vagy rántottaként.": "Prepara los huevos cocidos, fritos o revueltos.",
     "A tojásokat verd fel.": "Bate los huevos.",
-    "A tonhalat keverd össze citromlével, sóval és borssal.":
-        "Mezcla el atún con zumo de limón, sal y pimienta.",
+    "A tonhalat keverd össze citromlével, sóval és borssal.": "Mezcla el atún con zumo de limón, sal y pimienta.",
     "A tonhalat keverd össze joghurttal.": "Mezcla el atún con yogur.",
-    "A tortillát kend meg joghurtos szósszal.":
-        "Unta la tortilla con salsa de yogur.",
+    "A tortillát kend meg joghurtos szósszal.": "Unta la tortilla con salsa de yogur.",
     "A túrót keverd krémesre.": "Remueve el requesón hasta que quede cremoso.",
-    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.":
-        "Calienta la avena con leche o bebida vegetal.",
+    "A zabpelyhet melegítsd össze a tejjel vagy növényi itallal.": "Calienta la avena con leche o bebida vegetal.",
     "A zöldségeket pirítsd át.": "Saltea las verduras.",
     "A zöldségeket rendezd tálba.": "Coloca las verduras en un bol.",
     "A zöldségeket terítsd tepsibe.": "Extiende las verduras en una bandeja.",
     "A zöldségeket vágd fel.": "Corta las verduras.",
     "A zöldségeket vágd hasábokra.": "Corta las verduras en bastones.",
-    "A zöldségeket vágd kisebb darabokra.":
-        "Corta las verduras en trozos pequeños.",
+    "A zöldségeket vágd kisebb darabokra.": "Corta las verduras en trozos pequeños.",
     "A zöldségeket vágd kockára.": "Corta las verduras en dados.",
     "adag": "porción",
     "Adagok": "Porciones",
     "Adagok száma": "Número de porciones",
-    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.":
-        "Añade las alubias, el maíz, el tomate y las especias.",
-    "Add hozzá a babot, paradicsomszószt és fűszert.":
-        "Añade las alubias, la salsa de tomate y las especias.",
-    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.":
-        "Añade el arroz cocido y mezcla hasta que se caliente.",
-    "Add hozzá a hagymát, majd adagold dobozokba.":
-        "Añade la cebolla y reparte en recipientes.",
-    "Add hozzá a paradicsomszószt, majd főzd össze.":
-        "Añade la salsa de tomate y cocina todo junto.",
-    "Add hozzá a rizst és a felvert tojást.":
-        "Añade el arroz y los huevos batidos.",
-    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.":
-        "Añade el huevo, enrolla y sirve cortado por la mitad.",
+    "Add hozzá a babot, kukoricát, paradicsomot és fűszert.": "Añade las alubias, el maíz, el tomate y las especias.",
+    "Add hozzá a babot, paradicsomszószt és fűszert.": "Añade las alubias, la salsa de tomate y las especias.",
+    "Add hozzá a főtt rizst, majd forgasd össze, amíg átmelegszik.": "Añade el arroz cocido y mezcla hasta que se caliente.",
+    "Add hozzá a hagymát, majd adagold dobozokba.": "Añade la cebolla y reparte en recipientes.",
+    "Add hozzá a paradicsomszószt, majd főzd össze.": "Añade la salsa de tomate y cocina todo junto.",
+    "Add hozzá a rizst és a felvert tojást.": "Añade el arroz y los huevos batidos.",
+    "Add hozzá a tojást, tekerd fel, majd félbevágva tálald.": "Añade el huevo, enrolla y sirve cortado por la mitad.",
     "Add meg az alapadataidat.": "Añade tus datos básicos.",
-    "Add mellé a feldarabolt zöldségeket és a kenyeret.":
-        "Añade las verduras cortadas y el pan.",
-    "Add össze a száraz, nyers hozzávalókat főzés ":
-        "Suma los ingredientes secos y crudos ",
-    "adj 150–300 kcal-t a szintentartóhoz.\n\n":
-        "añade 150-300 kcal al mantenimiento.\n\n",
+    "Add mellé a feldarabolt zöldségeket és a kenyeret.": "Añade las verduras cortadas y el pan.",
+    "Add össze a száraz, nyers hozzávalókat főzés ": "Suma los ingredientes secos y crudos ",
+    "adj 150–300 kcal-t a szintentartóhoz.\n\n": "añade 150-300 kcal al mantenimiento.\n\n",
     "Adj előnyt az estédnek.": "Dale ventaja a tu noche.",
-    "Adj hozzá legalább két súlyt a diagramhoz.":
-        "Añade al menos dos pesos para mostrar el gráfico.",
+    "Adj hozzá legalább két súlyt a diagramhoz.": "Añade al menos dos pesos para mostrar el gráfico.",
     "Advanced": "Avanzada",
     "Aktív előfizetés · ": "Suscripción activa · ",
     "Aktív nap": "Día activo",
@@ -2989,24 +2447,17 @@ const arbTranslations = <String, Map<String, String>>{
     "Almás fahéjas overnight oats": "Overnight oats de manzana y canela",
     "Almás túrós sült zab": "Avena horneada con manzana y requesón",
     "Almaszeletek mogyoróvajjal": "Rodajas de manzana con mantequilla de maní",
-    "amit a tányérra teszel → megkapod a ":
-        "lo que pones en el plato → obtienes el ",
+    "amit a tányérra teszel → megkapod a ": "lo que pones en el plato → obtienes el ",
     "Amit már most használhatsz": "Lo que puedes usar ahora",
     "Avokádó": "Aguacate",
     "Avokádós tonhalas tojásfalat": "Bocado de aguacate, atún y huevo",
     "Az almát szeleteld fel.": "Corta la manzana en láminas.",
-    "Az app a mentett kész mennyiséget osztja el az adagok között.":
-        "La app divide la cantidad cocida guardada entre las porciones.",
-    "Az avokádót szeleteld mellé, citromlével ízesítsd.":
-        "Añade el aguacate en láminas y sazona con zumo de limón.",
-    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.":
-        "Machaca el aguacate con zumo de limón, sal y pimienta y úntalo sobre la tostada.",
-    "az étel össztömege főzés vagy sütés után":
-        "el peso total después de cocinar u hornear",
-    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.":
-        "Los planes sirven como orientación general y no sustituyen un plan personalizado creado por un dietista o médico. Si tienes una condición médica, alergias, embarazo o un objetivo específico, consulta a un profesional y úsalos bajo tu propia responsabilidad.",
-    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
-        "Se cobra solo después del día 7 · Cancela cuando quieras",
+    "Az app a mentett kész mennyiséget osztja el az adagok között.": "La app divide la cantidad cocida guardada entre las porciones.",
+    "Az avokádót szeleteld mellé, citromlével ízesítsd.": "Añade el aguacate en láminas y sazona con zumo de limón.",
+    "Az avokádót törd össze citromlével, sóval és borssal, majd kend a pirítósra.": "Machaca el aguacate con zumo de limón, sal y pimienta y úntalo sobre la tostada.",
+    "az étel össztömege főzés vagy sütés után": "el peso total después de cocinar u hornear",
+    "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.": "Los planes sirven como orientación general y no sustituyen un plan personalizado creado por un dietista o médico. Si tienes una condición médica, alergias, embarazo o un objetivo específico, consulta a un profesional y úsalos bajo tu propia responsabilidad.",
+    "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható": "Se cobra solo después del día 7 · Cancela cuando quieras",
     "Bagel": "Bagel",
     "Banán": "Plátano",
     "Banános kakaós falatok": "Bocados de banana y cacao",
@@ -3021,10 +2472,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Editar lista de compra",
     "Bevásárlólista törlése": "Eliminar lista de compra",
     "Bezárás": "Cerrar",
-    "Biztosan törlöd az összes rögzített súlyt?":
-        "¿Seguro que quieres eliminar todos los pesos registrados?",
-    "Biztosan törlöd ezt a bevásárlólistát?":
-        "¿Seguro que quieres eliminar esta lista de compra?",
+    "Biztosan törlöd az összes rögzített súlyt?": "¿Seguro que quieres eliminar todos los pesos registrados?",
+    "Biztosan törlöd ezt a bevásárlólistát?": "¿Seguro que quieres eliminar esta lista de compra?",
     "BMI": "BMI",
     "BMI\nkalkulátor": "Calculadora\nBMI",
     "Bogyós gyümölcs": "Frutos rojos",
@@ -3032,6 +2481,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Build today one meal at a time.": "Construye el día comida a comida.",
     "Bulgur": "Bulgur",
     "Burgonya": "Patata",
+    "Burgur": "Bulgur",
+    "Candy": "Caramelo",
     "Chia mag": "Semillas de chía",
     "Chili fűszer": "Especia de chile",
     "Chilis pulykával töltött paprika": "Pimientos rellenos de pavo con chile",
@@ -3039,6 +2490,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Close the day with care.": "Cierra el día con cuidado.",
     "Cottage cheese": "Cottage cheese",
     "Cottage cheese zöldségtál": "Plato de cottage cheese con verduras",
+    "Cream": "Crema",
     "Csicseriborsó": "Garbanzos",
     "Csicseriborsó curry rizzsel": "Curry de garbanzos con arroz",
     "Csicseriborsós ropogós doboz": "Caja crujiente de garbanzos",
@@ -3047,10 +2499,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Csirkés kuszkuszos doboz": "Caja de pollo con cuscús",
     "Csirkés pita tál": "Bowl de pita con pollo",
     "Csirkés rizses fit bowl": "Fit bowl de pollo con arroz",
-    "Csirkés rizses fit bowl kisebb adagban":
-        "Fit bowl de pollo con arroz, porción pequeña",
-    "Csirkés rizstészta leveses tál":
-        "Bowl caldoso de pollo con fideos de arroz",
+    "Csirkés rizses fit bowl kisebb adagban": "Fit bowl de pollo con arroz, porción pequeña",
+    "Csirkés rizstészta leveses tál": "Bowl caldoso de pollo con fideos de arroz",
     "csökkenhet vagy növekedhet": "puede disminuir o aumentar",
     "Csökkenő": "Bajando",
     "Cukkini": "Calabacín",
@@ -3060,6 +2510,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Darált dió": "Nueces molidas",
     "Darált pulykahús": "Pavo molido",
     "db": "uds.",
+    "Dew": "Rocío",
     "Dió vagy mandula": "Nueces o almendras",
     "diófélék": "frutos secos",
     "Dobozok": "Recipientes",
@@ -3071,18 +2522,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Eddigi változás": "Cambio total hasta ahora",
     "Edzéshez és jobb teltségérzethez": "Para entrenar y sentir más saciedad",
     "Egy adag nyers egyenértéke": "Equivalente crudo por porción",
-    "Egy kiegyensúlyozott tányér stabilan tartja a napot.":
-        "Un plato equilibrado mantiene el día estable.",
+    "Egy kiegyensúlyozott tányér stabilan tartja a napot.": "Un plato equilibrado mantiene el día estable.",
     "Egy kis előkészítés sokat számít.": "Un poco de preparación ayuda mucho.",
     "Egyszerű lendület nap": "Día impulso simple",
     "Egyszerű nap": "Día sencillo",
     "Egyszerű tempó nap": "Día ritmo simple",
-    "Egyszerűbb, olcsóbb alapanyagokkal":
-        "Con ingredientes más simples y baratos",
+    "Egyszerűbb, olcsóbb alapanyagokkal": "Con ingredientes más simples y baratos",
     "Életkor": "Edad",
     "Elkészítés": "Preparación",
-    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.":
-        "Comprueba tu peso ideal y sigue los cambios. Guardado en tu perfil.",
+    "Ellenőrizd az ideális testsúlyod és kövesd nyomon a változásokat. Mentve a profilodba.": "Comprueba tu peso ideal y sigue los cambios. Guardado en tu perfil.",
     "Elmentett listák": "Listas guardadas",
     "Elmentett meal prep tervek": "Planes de meal prep guardados",
     "Előfizetés": "Suscripción",
@@ -3090,15 +2538,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Előre dobozolható napi menü": "Menú diario para preparar por adelantado",
     "Előre főzős nap": "Día para cocinar por adelantado",
     "Előre haladó nap": "Día preparado por adelantado",
-    "Először ments el egy ételt a meal prep tervezéshez.":
-        "Guarda primero una comida y luego podrás crear un plan de meal prep.",
+    "Először ments el egy ételt a meal prep tervezéshez.": "Guarda primero una comida y luego podrás crear un plan de meal prep.",
     "előtt": "antes de cocinar",
     "Emelkedő": "Subiendo",
     "End the day full, not rushed.": "Termina el día satisfecho, sin prisas.",
     "Enyhén aktív (heti 1–3x)": "Ligeramente activo (1-3x/semana)",
     "Eper": "Fresas",
-    "Építsd fel a mai napot étkezésről étkezésre.":
-        "Construye el día comida a comida.",
+    "Építsd fel a mai napot étkezésről étkezésre.": "Construye el día comida a comida.",
     "Erő plusz nap": "Día fuerza plus",
     "Erős nap": "Día fuerte",
     "Erősen aktív (heti 6–7x)": "Muy activo (6-7x/semana)",
@@ -3117,8 +2563,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Éves csomag −50% kedvezménnyel": "Plan anual con −50% de descuento",
     "Éves előfizetés": "Suscripción anual",
     "Extrém aktív": "Extremadamente activo",
-    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.":
-        "La app usa estos datos para calcular tu BMI, tu objetivo diario de calorías y los datos básicos del perfil.",
+    "Ezekből számolja az app a BMI értéket, a napi kalória célt és a profil alapadatait.": "La app usa estos datos para calcular tu BMI, tu objetivo diario de calorías y los datos básicos del perfil.",
     "Fahéj": "Canela",
     "Fehér halfilé": "Filete de pescado blanco",
     "Fehérje fókusz nap": "Día foco proteína",
@@ -3142,18 +2587,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Fogyáshoz": "Para perder grasa",
     "Fogyáshoz: ": "Para perder grasa: ",
     "földimogyoró": "cacahuete",
-    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.":
-        "Mezcla con las verduras, los fideos y la salsa de soja.",
-    "Formázz falatokat és hűtsd 20 percig.":
-        "Forma bocados y enfría durante 20 minutos.",
+    "Forgasd össze a zöldségekkel, tésztával és szójaszósszal.": "Mezcla con las verduras, los fideos y la salsa de soja.",
+    "Formázz falatokat és hűtsd 20 percig.": "Forma bocados y enfría durante 20 minutos.",
     "Főtt lencse": "Lentejas cocidas",
     "Főtt rizs": "Arroz cocido",
     "Főtt tojás avokádóval": "Huevos cocidos con aguacate",
     "Főzd össze sűrű raguvá.": "Cocina hasta obtener un ragú espeso.",
     "Főzés során az étel ": "Al cocinar, la comida ",
     "Főzés során az étel tömege ": "Al cocinar, el peso de la comida ",
-    "főzés után mérd le az egész elkészült ételt, például 760 g.":
-        "después de cocinar, pesa todo el plato terminado, por ejemplo 760 g.",
+    "főzés után mérd le az egész elkészült ételt, például 760 g.": "después de cocinar, pesa todo el plato terminado, por ejemplo 760 g.",
     "Friss mentes nap": "Día fresco sin gluten",
     "Friss nap": "Día fresco",
     "Friss zöld nap": "Día verde fresco",
@@ -3170,8 +2612,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Give your evening a head start.": "Dale ventaja a tu noche.",
     "glutén": "gluten",
     "Gluténmentes": "Sin gluten",
-    "Glutént tartalmazó alapanyagok nélkül":
-        "Sin ingredientes que contengan gluten",
+    "Glutént tartalmazó alapanyagok nélkül": "Sin ingredientes que contengan gluten",
     "Good afternoon": "Buenas tardes",
     "Good day": "Buen día",
     "Good evening": "Buenas noches",
@@ -3179,31 +2620,23 @@ const arbTranslations = <String, Map<String, String>>{
     "Görög csirkés tányér": "Plato griego de pollo",
     "Görög joghurt": "Yogur griego",
     "Görög joghurtos granola pohár": "Vaso de yogur griego con granola",
-    "Görög joghurtos granola pohár gluténmentes granolával":
-        "Vaso de yogur griego con granola sin gluten",
+    "Görög joghurtos granola pohár gluténmentes granolával": "Vaso de yogur griego con granola sin gluten",
     "Görög lazacos quinoa tál": "Bowl griego de salmón y quinoa",
     "Granola": "Granola",
     "Gyors": "Rápido",
     "Gyors fókusz nap": "Día foco rápido",
     "Gyors rutin nap": "Día rutina rápida",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "si pones 250 g en tu recipiente, Mealr calcula que equivale a unos 313 g de ingredientes crudos.",
-    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
-        "Si cocinas solo arroz, bulgur o pasta como guarnición, funciona igual: arroz crudo 300 g, arroz cocido 820 g, porción 180 g. La app da el equivalente de arroz crudo.",
-    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
-        "Cuando quieras comer, pesa la porción del plato e introdúcela; obtendrás el ",
-    "Ha megfőzted vagy megsütötted az ételt, mérd le az ":
-        "Después de cocinar u hornear, mide el ",
-    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.":
-        "Para una textura más espesa, añade hielo o usa menos líquido.",
-    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.":
-        "Deja reposar 5 minutos para que la avena absorba la humedad.",
+    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.": "si pones 250 g en tu recipiente, Mealr calcula que equivale a unos 313 g de ingredientes crudos.",
+    "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.": "Si cocinas solo arroz, bulgur o pasta como guarnición, funciona igual: arroz crudo 300 g, arroz cocido 820 g, porción 180 g. La app da el equivalente de arroz crudo.",
+    "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ": "Cuando quieras comer, pesa la porción del plato e introdúcela; obtendrás el ",
+    "Ha megfőzted vagy megsütötted az ételt, mérd le az ": "Después de cocinar u hornear, mide el ",
+    "Ha sűrűbb állagot szeretnél, adj hozzá jeget vagy kevesebb folyadékot.": "Para una textura más espesa, añade hielo o usa menos líquido.",
+    "Hagyd állni 5 percig, hogy a zab felvegye a nedvességet.": "Deja reposar 5 minutos para que la avena absorba la humedad.",
     "Hajtsd félbe és frissen tálald.": "Dobla por la mitad y sirve fresco.",
     "hal": "pescado",
     "Hamarosan": "Pronto",
     "Havi előfizetés": "Suscripción mensual",
-    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.":
-        "Coloca el filete de pescado encima, sazona y rocía con aceite.",
+    "Helyezd rá a halfilét, fűszerezd és locsold meg olajjal.": "Coloca el filete de pescado encima, sazona y rocía con aceite.",
     "hét": "semana",
     "Heti átlag": "Media semanal",
     "Heti doboz nap": "Día de cajas semanales",
@@ -3223,18 +2656,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Húsmentes lendület nap": "Día impulso sin carne",
     "Húsmentes napi étrend": "Plan diario sin carne",
     "Ideális testsúly": "Peso ideal",
-    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.":
-        "Así registras calorías con más precisión y las porciones de meal prep dejan de ser una suposición.",
+    "Így pontosabban tudod vezetni a kalóriákat, és a meal prep adagolás sem lesz találgatás.": "Así registras calorías con más precisión y las porciones de meal prep dejan de ser una suposición.",
     "Indítsd tudatosan a reggelt.": "Empieza la mañana con intención.",
     "Indulhat": "Empezar",
     "Ingyenes": "Gratis",
     "Ingyenes alapok": "Funciones gratis",
-    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.":
-        "El plan gratis incluye 1 plan de meal prep guardado. Mejora a Pro para guardar más.",
-    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.":
-        "Úsalo como guía durante 2-4 semanas y ajusta según el cambio real.",
-    "Írj receptet, tippet vagy emlékeztetőt...":
-        "Escribe una receta, consejo o recordatorio...",
+    "Ingyenes módban 1 meal prep tervet menthetsz. A további tervekhez Pro szükséges.": "El plan gratis incluye 1 plan de meal prep guardado. Mejora a Pro para guardar más.",
+    "Iránymutató – 2–4 hétig kövesd, majd a tényleges változás alapján igazítsd.": "Úsalo como guía durante 2-4 semanas y ajusta según el cambio real.",
+    "Írj receptet, tippet vagy emlékeztetőt...": "Escribe una receta, consejo o recordatorio...",
     "Ízlés szerint sózd, borsozd.": "Salpimienta al gusto.",
     "Izmos nap": "Día muscular",
     "Jegyzet": "Nota",
@@ -3254,18 +2683,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Kalória\nkalkulátor": "Calculadora\nde calorías",
     "Kalória cél": "Objetivo de calorías",
     "Kalória kalkulátor": "Calculadora de calorías",
-    "Kanalazd kekszekre, uborkával tálald.":
-        "Ponlo sobre crackers y sirve con pepino.",
-    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.":
-        "Añade el tzatziki al lado y sirve con la base de quinoa y verduras.",
+    "Kanalazd kekszekre, uborkával tálald.": "Ponlo sobre crackers y sirve con pepino.",
+    "Kanalazd mellé a tzatzikit, és tálald a quinoa-zöldség alappal.": "Añade el tzatziki al lado y sirve con la base de quinoa y verduras.",
     "kcal / nap": "kcal / día",
     "Kedvencek": "Favoritos",
     "Keep the afternoon light and useful.": "Mantén la tarde ligera y útil.",
     "Keep your meals on track.": "Mantén tus comidas en orden.",
-    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.":
-        "Unta con queso crema y añade salmón y pepino.",
-    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.":
-        "Unta una capa fina de crema de cacahuete y espolvorea canela.",
+    "Kend meg krémsajttal, majd tedd rá a lazacot és uborkát.": "Unta con queso crema y añade salmón y pepino.",
+    "Kend meg vékonyan mogyoróvajjal és szórd meg fahéjjal.": "Unta una capa fina de crema de cacahuete y espolvorea canela.",
     "Képlet: ": "Fórmula: ",
     "Keresés receptek között": "Buscar recetas",
     "Kert nap": "Día jardín",
@@ -3275,52 +2700,30 @@ const arbTranslations = <String, Map<String, String>>{
     "Kész g": "Cocido g",
     "Kész súly": "Peso cocido",
     "Készíts lágy rántottát a tojásból.": "Prepara huevos revueltos suaves.",
-    "Készítsd elő, ami később könnyít.":
-        "Prepara lo que hará más fácil después.",
-    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.":
-        "Incorpora la proteína en polvo y deja espesar unos minutos.",
-    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.":
-        "Añade el bulgur y el concentrado de tomate y cocina todo junto.",
-    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.":
-        "Añade el sirope de arce y deja espesar unos minutos.",
-    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.":
-        "Añade el concentrado de tomate y cocina 3-4 minutos hasta obtener un guiso espeso.",
-    "Keverd hozzá a zabot, kakaót és juharszirupot.":
-        "Añade la avena, el cacao y el sirope de arce.",
-    "Keverd hozzá a zabot, kakaót és mogyoróvajat.":
-        "Añade la avena, el cacao y la mantequilla de cacahuete.",
-    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.":
-        "Mezcla la patata con el tzatziki y sirve con pepino y jamón de pavo.",
-    "Keverd össze a joghurtot a fehérjeporral.":
-        "Mezcla el yogur con la proteína en polvo.",
-    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.":
-        "Mezcla con la pasta cocida y reparte con queso por encima.",
-    "Keverd össze a lencsével és morzsolt fetával.":
-        "Mezcla con las lentejas y feta desmenuzado.",
-    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.":
-        "Mezcla el atún con las alubias, las patatas y el aderezo de yogur.",
-    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.":
-        "Mezcla la avena, el yogur, el líquido y la canela.",
-    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.":
-        "Mezcla la avena, la leche o bebida vegetal, las semillas de chía y el cacao.",
-    "Keverd össze spenóttal és paradicsommal.":
-        "Mezcla con espinacas y tomate.",
-    "Keverd össze tonhallal, kukoricával és joghurttal.":
-        "Mezcla con atún, maíz y yogur.",
-    "Keverd simára a hozzávalókat.":
-        "Mezcla los ingredientes hasta que queden suaves.",
-    "Keverd simára a joghurtot fehérjeporral és kakaóval.":
-        "Mezcla el yogur con proteína en polvo y cacao hasta que quede suave.",
-    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.":
-        "Mezcla mostaza con el aderezo de yogur y viértelo sobre la ensalada de cuscús.",
-    "Kevés citromlével frissítsd, majd azonnal tálald.":
-        "Añade un poco de zumo de limón y sirve enseguida.",
-    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.":
-        "Saltéalas con un poco de aceite y vierte los huevos batidos encima.",
+    "Készítsd elő, ami később könnyít.": "Prepara lo que hará más fácil después.",
+    "Keverd bele a fehérjeport, majd hagyd pár percig sűrűsödni.": "Incorpora la proteína en polvo y deja espesar unos minutos.",
+    "Keverd hozzá a bulgurt és a paradicsompürét, majd főzd össze.": "Añade el bulgur y el concentrado de tomate y cocina todo junto.",
+    "Keverd hozzá a juharszirupot, majd hagyd pár percig sűrűsödni.": "Añade el sirope de arce y deja espesar unos minutos.",
+    "Keverd hozzá a paradicsompürét, és főzd 3-4 percig sűrű raguvá.": "Añade el concentrado de tomate y cocina 3-4 minutos hasta obtener un guiso espeso.",
+    "Keverd hozzá a zabot, kakaót és juharszirupot.": "Añade la avena, el cacao y el sirope de arce.",
+    "Keverd hozzá a zabot, kakaót és mogyoróvajat.": "Añade la avena, el cacao y la mantequilla de cacahuete.",
+    "Keverd össze a burgonyát a tzatzikivel, majd tálald uborkával és pulykasonkával.": "Mezcla la patata con el tzatziki y sirve con pepino y jamón de pavo.",
+    "Keverd össze a joghurtot a fehérjeporral.": "Mezcla el yogur con la proteína en polvo.",
+    "Keverd össze a kifőtt tésztával, és adagold sajttal megszórva.": "Mezcla con la pasta cocida y reparte con queso por encima.",
+    "Keverd össze a lencsével és morzsolt fetával.": "Mezcla con las lentejas y feta desmenuzado.",
+    "Keverd össze a tonhalat a babbal, burgonyával és joghurtos öntettel.": "Mezcla el atún con las alubias, las patatas y el aderezo de yogur.",
+    "Keverd össze a zabot, joghurtot, folyadékot és fahéjat.": "Mezcla la avena, el yogur, el líquido y la canela.",
+    "Keverd össze a zabot, tejet vagy növényi italt, chia magot és kakaóport.": "Mezcla la avena, la leche o bebida vegetal, las semillas de chía y el cacao.",
+    "Keverd össze spenóttal és paradicsommal.": "Mezcla con espinacas y tomate.",
+    "Keverd össze tonhallal, kukoricával és joghurttal.": "Mezcla con atún, maíz y yogur.",
+    "Keverd simára a hozzávalókat.": "Mezcla los ingredientes hasta que queden suaves.",
+    "Keverd simára a joghurtot fehérjeporral és kakaóval.": "Mezcla el yogur con proteína en polvo y cacao hasta que quede suave.",
+    "Keverj mustárt a joghurtos öntetbe, majd locsold a kuszkuszos salátára.": "Mezcla mostaza con el aderezo de yogur y viértelo sobre la ensalada de cuscús.",
+    "Kevés citromlével frissítsd, majd azonnal tálald.": "Añade un poco de zumo de limón y sirve enseguida.",
+    "Kevés olajon párold át őket, majd öntsd rá a felvert tojást.": "Saltéalas con un poco de aceite y vierte los huevos batidos encima.",
     "Kevesebb mutatása": "Mostrar menos",
     "Kezdés ingyenesen": "Empezar gratis",
-    "Kezdj egyszerűen, maradj következetes.":
-        "Empieza simple y mantén el ritmo.",
+    "Kezdj egyszerűen, maradj következetes.": "Empieza simple y mantén el ritmo.",
     "Kezdjük egyszerűen.": "Empecemos fácil.",
     "Kiadós alap nap": "Día base saciante",
     "Kihagyás": "Omitir",
@@ -3345,20 +2748,15 @@ const arbTranslations = <String, Map<String, String>>{
     "Köret recept szorzó": "Multiplicador de guarnición",
     "Köretek": "Guarniciones",
     "Korlátlan": "Ilimitado",
-    "Korlátlan étel és meal prep mentés":
-        "Guardado ilimitado de comidas y meal prep",
-    "Korlátlan mentés és extra funkciók":
-        "Guardado ilimitado y funciones extra",
+    "Korlátlan étel és meal prep mentés": "Guardado ilimitado de comidas y meal prep",
+    "Korlátlan mentés és extra funkciók": "Guardado ilimitado y funciones extra",
     "Közepesen aktív (heti 3–5x)": "Moderadamente activo (3-5x/semana)",
     "Krémsajt": "Queso crema",
     "Kukorica": "Maíz",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealr sigue calculando el equivalente crudo.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.": "Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealr sigue calculando el equivalente crudo.",
     "Kuszkusz": "Cuscús",
-    "Lassíts, egyél jól, pihenj könnyen.":
-        "Baja el ritmo, come bien y descansa.",
-    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.":
-        "Cocina a fuego lento hasta que el centro también cuaje.",
+    "Lassíts, egyél jól, pihenj könnyen.": "Baja el ritmo, come bien y descansa.",
+    "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.": "Cocina a fuego lento hasta que el centro también cuaje.",
     "Laza mentes nap": "Día fácil sin gluten",
     "Lazacfilé": "Filete de salmón",
     "Lazacos burgonyás ebéd": "Almuerzo de salmón con patatas",
@@ -3369,8 +2767,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Legalacsonyabb": "Más bajo",
     "Legyen a délután könnyű és hasznos.": "Mantén la tarde ligera y útil.",
     "Legyen az első döntés könnyű.": "Haz que la primera elección sea fácil.",
-    "Legyen egyszerű a következő étkezés.":
-        "Haz que la próxima comida sea fácil.",
+    "Legyen egyszerű a következő étkezés.": "Haz que la próxima comida sea fácil.",
     "Lejár: ": "Expira: ",
     "Lencsés feta saláta": "Ensalada de lentejas con feta",
     "Lencsés zöldséges rizses egytál": "Guiso de arroz, lentejas y verduras",
@@ -3378,18 +2775,14 @@ const arbTranslations = <String, Map<String, String>>{
     "Lilahagyma": "Cebolla morada",
     "Lista": "Lista",
     "Lista neve": "Nombre de la lista",
-    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.":
-        "Rocía con un poco de miel y espolvorea nueces o almendras.",
-    "Locsold meg kevés mézzel, majd szórd meg mandulával.":
-        "Rocía con un poco de miel y espolvorea almendras.",
-    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.":
-        "Rocía con aceite de oliva y sirve frío o fresco.",
+    "Locsold meg kevés mézzel, majd szórd meg dióval vagy mandulával.": "Rocía con un poco de miel y espolvorea nueces o almendras.",
+    "Locsold meg kevés mézzel, majd szórd meg mandulával.": "Rocía con un poco de miel y espolvorea almendras.",
+    "Locsold meg olívaolajjal, majd hűtve vagy frissen tálald.": "Rocía con aceite de oliva y sirve frío o fresco.",
     "Ma": "Hoy",
     "Magas fehérje": "Alto en proteína",
     "Magasság": "Altura",
     "Magasság (cm)": "Altura (cm)",
-    "Make the first choice an easy one.":
-        "Haz que la primera elección sea fácil.",
+    "Make the first choice an easy one.": "Haz que la primera elección sea fácil.",
     "Make the next meal easy.": "Haz que la próxima comida sea fácil.",
     "Makrók megoszlása": "Distribución de macros",
     "Mandula": "Almendras",
@@ -3405,10 +2798,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Mealr Pro": "Mealr Pro",
     "Mediterrán pulykás bulgur": "Bulgur mediterráneo con pavo",
     "Medium": "Media",
-    "Még nincs elmentett bevásárlólistád.":
-        "Las listas de compra que crees aparecerán aquí.",
-    "Még nincs elmentett meal prep terved.":
-        "Tus planes de meal prep guardados aparecerán aquí.",
+    "Még nincs elmentett bevásárlólistád.": "Las listas de compra que crees aparecerán aquí.",
+    "Még nincs elmentett meal prep terved.": "Tus planes de meal prep guardados aparecerán aquí.",
     "Még nincs főétel hozzáadva.": "Tus platos principales aparecerán aquí.",
     "Még nincs köret hozzáadva.": "Tus guarniciones aparecerán aquí.",
     "Megjegyzés": "Nota",
@@ -3419,39 +2810,31 @@ const arbTranslations = <String, Map<String, String>>{
     "Mégse": "Cancelar",
     "Meleg banános zabfalatok": "Bocados tibios de plátano y avena",
     "Meleg lencsés feta tányér": "Plato templado de lentejas y feta",
-    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.":
-        "Calienta la tortilla y añade jamón, queso y verduras.",
+    "Melegítsd át a tortillát, majd tedd rá a sonkát, sajtot és zöldséget.": "Calienta la tortilla y añade jamón, queso y verduras.",
     "Mentés": "Guardar",
     "Mentes lendület nap": "Día impulso sin gluten",
-    "Mentés profilba · a Kalória cél frissítése":
-        "Guardar en perfil · actualizar objetivo de calorías",
+    "Mentés profilba · a Kalória cél frissítése": "Guardar en perfil · actualizar objetivo de calorías",
     "Mentés új listaként": "Guardar como nueva lista",
     "Mentett étel": "Comida guardada",
     "Mentve": "Guardado",
-    "Mentve a profilba · legközelebb automatikusan kitöltve":
-        "Guardado en el perfil · se rellena automáticamente la próxima vez",
+    "Mentve a profilba · legközelebb automatikusan kitöltve": "Guardado en el perfil · se rellena automáticamente la próxima vez",
     "Mentve a profilba.": "Guardado en el perfil.",
-    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.":
-        "pesa los ingredientes antes de cocinar, por ejemplo pollo + arroz + verduras con un total de 950 g.",
+    "mérd le főzés előtt az alapanyagokat, például csirke + rizs + zöldség összesen 950 g.": "pesa los ingredientes antes de cocinar, por ejemplo pollo + arroz + verduras con un total de 950 g.",
     "Méz": "Miel",
     "MI A PROBLÉMA?": "¿CUÁL ES EL PROBLEMA?",
     "MIÉRT HASZNOS?": "¿POR QUÉ ES ÚTIL?",
     "Mind": "Todo",
     "MINDEN EGYBEN": "TODO EN UNO",
-    "Minden hozzávalót tegyél turmixgépbe.":
-        "Pon todos los ingredientes en una batidora.",
+    "Minden hozzávalót tegyél turmixgépbe.": "Pon todos los ingredientes en una batidora.",
     "Mini burgonyás tzatziki doboz": "Caja mini de patata con tzatziki",
     "Mini csirkés wrap": "Mini wrap de pollo",
     "Mini tortilla": "Mini tortilla",
     "Mogyoróvaj": "Crema de cacahuete",
-    "Morzsold rá a fetát, és frissen tálald.":
-        "Desmenuza el feta por encima y sirve fresco.",
-    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.":
-        "Desmenuza el feta encima y sirve con el bulgur de verduras.",
+    "Morzsold rá a fetát, és frissen tálald.": "Desmenuza el feta por encima y sirve fresco.",
+    "Morzsold rá a fetát, és tálald a zöldséges bulgurral.": "Desmenuza el feta encima y sirve con el bulgur de verduras.",
     "mustár": "mostaza",
     "Mustár": "Mostaza",
-    "Mustáros sertésszűz burgonyával":
-        "Solomillo de cerdo con mostaza y patatas",
+    "Mustáros sertésszűz burgonyával": "Solomillo de cerdo con mostaza y patatas",
     "nap": "días",
     "Napi aktivitás": "Actividad diaria",
     "Napi bontás": "Desglose diario",
@@ -3460,8 +2843,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Nehézség": "Dificultad",
     "Nem": "Género",
     "nem a kalóriájából.": "no calorías.",
-    "Nem csak mérlegelés: egy app a kajás rutinodhoz.":
-        "No solo pesar: una app para tu rutina de comida.",
+    "Nem csak mérlegelés: egy app a kajás rutinodhoz.": "No solo pesar: una app para tu rutina de comida.",
     "nem változik a kalóriája.": "no cambia sus calorías.",
     "Nevezd el és add hozzá a tételeket": "Ponle nombre y añade artículos",
     "Névjegy": "Acerca de",
@@ -3470,8 +2852,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Nincs köret": "Sin guarnición",
     "Nincs mentett étel": "Sin comida guardada",
     "Nincs találat.": "No hay recetas para esta búsqueda.",
-    "Nincs változás a kezdő súlyhoz képest":
-        "Sin cambios respecto al peso inicial",
+    "Nincs változás a kezdő súlyhoz képest": "Sin cambios respecto al peso inicial",
     "Nő": "Mujer",
     "Normál": "Normal",
     "Normál receptek": "Recetas normales",
@@ -3480,8 +2861,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Növényi ritmus nap": "Día ritmo vegetal",
     "Nyelv": "Idioma",
     "Nyelv, téma, mód és verzió": "Idioma, tema, modo y versión",
-    "nyers ÷ kész × kimért =\nnyers egyenérték\n":
-        "crudo ÷ cocido × porción =\nequivalente crudo\n",
+    "nyers ÷ kész × kimért =\nnyers egyenérték\n": "crudo ÷ cocido × porción =\nequivalente crudo\n",
     "Nyers adag": "Cantidad cruda",
     "Nyers egyenérték": "Equivalente crudo",
     "nyers egyenértéket": "equivalente crudo",
@@ -3491,8 +2871,7 @@ const arbTranslations = <String, Map<String, String>>{
     "nyersen": "crudo",
     "Nyisd meg újra a bevezetőt": "Volver a abrir la introducción",
     "Nyugodt energia nap": "Día energía tranquila",
-    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.":
-        "Una herramienta tranquila y práctica para una rutina de comida más precisa.",
+    "Nyugodt, praktikus eszköz a pontosabb étkezési rutinhoz.": "Una herramienta tranquila y práctica para una rutina de comida más precisa.",
     "Obezitás": "Obesidad",
     "Okos kosár nap": "Día cesta inteligente",
     "Okos nap": "Día inteligente",
@@ -3502,17 +2881,13 @@ const arbTranslations = <String, Map<String, String>>{
     "Összes": "Total",
     "Összes kalória": "Calorías totales",
     "össztömeget": "peso total",
-    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.":
-        "Reparte el cuscús, el pollo y el brócoli en recipientes.",
-    "Oszd dobozokra a rizst, csirkét és brokkolit.":
-        "Reparte el arroz, el pollo y el brócoli en recipientes.",
-    "Overnight oats előre bekészítve":
-        "Overnight oats preparado con antelación",
+    "Oszd dobozokra a kuszkuszt, csirkét és brokkolit.": "Reparte el cuscús, el pollo y el brócoli en recipientes.",
+    "Oszd dobozokra a rizst, csirkét és brokkolit.": "Reparte el arroz, el pollo y el brócoli en recipientes.",
+    "Overnight oats előre bekészítve": "Overnight oats preparado con antelación",
     "Paprika": "Pimiento",
     "Paradicsom": "Tomate",
     "Paradicsompüré": "Concentrado de tomate",
-    "Paradicsomszósszal és sajttal süsd készre.":
-        "Hornea con salsa de tomate y queso hasta que esté listo.",
+    "Paradicsomszósszal és sajttal süsd készre.": "Hornea con salsa de tomate y queso hasta que esté listo.",
     "Paradicsomszósz": "Salsa de tomate",
     "Pénztárca plusz nap": "Día bolsillo plus",
     "Pénztárcabarát": "Económico",
@@ -3532,12 +2907,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Progresszió törlése": "Eliminar progreso",
     "Protein joghurt pohár": "Vaso de yogur proteico",
     "Protein zabkása bogyós gyümölccsel": "Avena proteica con frutos rojos",
-    "Pulykagolyók cukkinispagettivel":
-        "Albóndigas de pavo con espagueti de calabacín",
+    "Pulykagolyók cukkinispagettivel": "Albóndigas de pavo con espagueti de calabacín",
     "Pulykamell sonka": "Jamón de pechuga de pavo",
     "Pulykás bolognai tészta": "Pasta boloñesa de pavo",
-    "Pulykás bolognai tészta light adagban":
-        "Pasta boloñesa de pavo, porción ligera",
+    "Pulykás bolognai tészta light adagban": "Pasta boloñesa de pavo, porción ligera",
     "Pulykás cottage reggeli doboz": "Caja de desayuno con pavo y cottage",
     "Pulykás sajtos tekercsek": "Rollitos de pavo y queso",
     "Pulykás tojásos wrap": "Wrap de pavo y huevo",
@@ -3555,12 +2928,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Rendszer": "Sistema",
     "Rendszeres használathoz": "Para uso regular",
     "Répa": "Zanahoria",
-    "Reszeld vagy kockázd bele az almát.":
-        "Ralla o corta la manzana en dados y añádela.",
+    "Reszeld vagy kockázd bele az almát.": "Ralla o corta la manzana en dados y añádela.",
     "Reszelt sajt": "Queso rallado",
     "Részletek": "Detalles",
-    "Rétegezd rá a granolát és a szeletelt banánt.":
-        "Añade capas de granola y plátano en rodajas.",
+    "Rétegezd rá a granolát és a szeletelt banánt.": "Añade capas de granola y plátano en rodajas.",
     "Rizs": "Arroz",
     "Rizsszelet": "Torta de arroz",
     "Rizsszelet cottage cheese-zel": "Tortitas de arroz con cottage cheese",
@@ -3570,12 +2941,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Rövid konyha nap": "Día cocina corta",
     "Saláta": "Lechuga",
     "Saláta mix": "Mezcla de ensalada",
-    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.":
-        "Cocina en sartén con jamón, queso y espinacas.",
+    "Serpenyőben süsd össze sonkával, sajttal és spenóttal.": "Cocina en sartén con jamón, queso y espinacas.",
     "Sertésszűz": "Solomillo de cerdo",
     "Sertésszűz kuszkusszal": "Solomillo de cerdo con cuscús",
-    "Sertésszűz kuszkusz salátával":
-        "Solomillo de cerdo con ensalada de cuscús",
+    "Sertésszűz kuszkusz salátával": "Solomillo de cerdo con ensalada de cuscús",
     "Set up dinner before the rush.": "Organiza la cena antes de las prisas.",
     "Shakshuka reggeli tál": "Bowl de shakshuka para desayuno",
     "Sietős lendület nap": "Día impulso con prisa",
@@ -3593,6 +2962,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Sovány marhahús": "Ternera magra",
     "Spenót": "Espinaca",
     "Spenótos kókuszos csicseriborsó": "Garbanzos con coco y espinaca",
+    "Spinach": "Espinaca",
     "Sportos nap": "Día deportivo",
     "Stabil erő nap": "Día fuerza estable",
     "Stagnál": "Estable",
@@ -3608,13 +2978,10 @@ const arbTranslations = <String, Map<String, String>>{
     "Súlykövetés": "Seguimiento de peso",
     "Súlykövetés diagram": "Gráfico de seguimiento de peso",
     "Súlynapló szerkesztés": "Editar registro de peso",
-    "Süsd készre, amíg a hal omlós lesz.":
-        "Hornea hasta que el pescado quede tierno.",
-    "Süsd vagy párold készre paradicsomszószban.":
-        "Hornea o guisa en salsa de tomate hasta que esté listo.",
+    "Süsd készre, amíg a hal omlós lesz.": "Hornea hasta que el pescado quede tierno.",
+    "Süsd vagy párold készre paradicsomszószban.": "Hornea o guisa en salsa de tomate hasta que esté listo.",
     "Sütőpor": "Levadura química",
-    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.":
-        "Calcula tus calorías de mantenimiento según edad, peso, altura y actividad.",
+    "Számold ki a napi szintentartó kalóriádat életkor, súly, magasság és aktivitás alapján.": "Calcula tus calorías de mantenimiento según edad, peso, altura y actividad.",
     "Személyes adatok": "Datos personales",
     "SZEMÉLYES ALAPOK": "DATOS BÁSICOS",
     "Szép napot": "Buen día",
@@ -3623,11 +2990,9 @@ const arbTranslations = <String, Map<String, String>>{
     "Szezámmag": "Semillas de sésamo",
     "szója": "soja",
     "Szójagranulátum": "Soja texturizada",
-    "Szójaszósszal ízesítsd, majd süsd össze.":
-        "Sazona con salsa de soja y saltea todo junto.",
+    "Szójaszósszal ízesítsd, majd süsd össze.": "Sazona con salsa de soja y saltea todo junto.",
     "Szójaszósz": "Salsa de soja",
-    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.":
-        "Espolvorea semillas de calabaza y salpimienta al gusto.",
+    "Szórd meg tökmaggal, majd ízlés szerint sózd, borsozd.": "Espolvorea semillas de calabaza y salpimienta al gusto.",
     "Szükséges kész étel": "Comida cocida necesaria",
     "Szükséges kész főétel": "Principal cocido necesario",
     "Szükséges kész köret": "Guarnición cocida necesaria",
@@ -3636,37 +3001,24 @@ const arbTranslations = <String, Map<String, String>>{
     "Szükséges nyers köret": "Guarnición cruda necesaria",
     "Takarékos nap": "Día económico",
     "Tálald a curry alapot rizzsel.": "Sirve la base de curry con arroz.",
-    "Tálald bogyós gyümölccsel és chia maggal.":
-        "Sirve con frutos rojos y semillas de chía.",
+    "Tálald bogyós gyümölccsel és chia maggal.": "Sirve con frutos rojos y semillas de chía.",
     "Tálald bogyós gyümölccsel.": "Sirve con frutos rojos.",
-    "Tálald cottage cheese-zel, abonettel és tökmaggal.":
-        "Sirve con cottage cheese, pan crujiente y semillas de calabaza.",
+    "Tálald cottage cheese-zel, abonettel és tökmaggal.": "Sirve con cottage cheese, pan crujiente y semillas de calabaza.",
     "Tálald fetával és tzatzikivel.": "Sirve con feta y tzatziki.",
     "Tálald gyümölccsel.": "Sirve con fruta.",
-    "Tálald pitával, salátával és joghurtos szósszal.":
-        "Sirve con pita, ensalada y salsa de yogur.",
-    "Tálald salátával és joghurtos öntettel.":
-        "Sirve con ensalada y aliño de yogur.",
-    "Tálald zöldbabbal és kevés mustáros szósszal.":
-        "Sirve con judías verdes y un poco de salsa de mostaza.",
-    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.":
-        "Cocina pequeñas tortitas en una sartén antiadherente.",
+    "Tálald pitával, salátával és joghurtos szósszal.": "Sirve con pita, ensalada y salsa de yogur.",
+    "Tálald salátával és joghurtos öntettel.": "Sirve con ensalada y aliño de yogur.",
+    "Tálald zöldbabbal és kevés mustáros szósszal.": "Sirve con judías verdes y un poco de salsa de mostaza.",
+    "Tapadásmentes serpenyőben süsd ki kisebb palacsintáknak.": "Cocina pequeñas tortitas en una sartén antiadherente.",
     "Tartsd kézben az étkezéseidet.": "Mantén tus comidas en orden.",
-    "Te adod meg, hány gramm kerüljön egy adagba.":
-        "Tú defines cuántos gramos van en cada porción.",
-    "Tedd dobozba hummusszal együtt.":
-        "Ponlo en un recipiente junto con el hummus.",
-    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.":
-        "Deja en la nevera toda la noche, remueve por la mañana y come.",
+    "Te adod meg, hány gramm kerüljön egy adagba.": "Tú defines cuántos gramos van en cada porción.",
+    "Tedd dobozba hummusszal együtt.": "Ponlo en un recipiente junto con el hummus.",
+    "Tedd hűtőbe éjszakára, reggel keverd át és fogyaszd.": "Deja en la nevera toda la noche, remueve por la mañana y come.",
     "Tedd rá a csirkét és az öntetet.": "Añade el pollo y el aliño encima.",
-    "Tedd rá a gyümölcsöt, mézet és diót.":
-        "Añade la fruta, la miel y las nueces encima.",
-    "Tedd rá a paradicsomot és szórd meg tökmaggal.":
-        "Añade el tomate y espolvorea semillas de calabaza.",
-    "Tedd rá a tojást és frissen tálald.":
-        "Añade el huevo encima y sirve fresco.",
-    "Tedd rá az epret és a mandulát.":
-        "Añade las fresas y las almendras encima.",
+    "Tedd rá a gyümölcsöt, mézet és diót.": "Añade la fruta, la miel y las nueces encima.",
+    "Tedd rá a paradicsomot és szórd meg tökmaggal.": "Añade el tomate y espolvorea semillas de calabaza.",
+    "Tedd rá a tojást és frissen tálald.": "Añade el huevo encima y sirve fresco.",
+    "Tedd rá az epret és a mandulát.": "Añade las fresas y las almendras encima.",
     "Tegnap": "Ayer",
     "Tej": "Leche",
     "Tej vagy növényi ital": "Leche o bebida vegetal",
@@ -3686,8 +3038,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Tempós nap": "Día rápido",
     "Tempós tál nap": "Día bowl rápido",
     "Terv neve": "Nombre del plan",
-    "Tervezd meg a vacsorát még a rohanás előtt.":
-        "Organiza la cena antes de las prisas.",
+    "Tervezd meg a vacsorát még a rohanás előtt.": "Organiza la cena antes de las prisas.",
     "Tervezett nap": "Día planificado",
     "Tervezz egy nyugodt, erős napot.": "Planifica un día tranquilo y fuerte.",
     "Tervezz, főzz, kövess okosabban": "Planifica, cocina y controla mejor",
@@ -3699,8 +3050,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Tiszta energia nap": "Día de energía limpia",
     "Tiszta nap": "Día limpio",
     "Tiszta ritmus nap": "Día ritmo limpio",
-    "Több mentés, bevásárlólisták, súlykövetés extrák":
-        "Más guardados, listas de compra y extras de peso",
+    "Toast": "Tostada",
+    "Több mentés, bevásárlólisták, súlykövetés extrák": "Más guardados, listas de compra y extras de peso",
     "Tofu": "Tofu",
     "Tofus csicseriborsó curry": "Curry de tofu y garbanzos",
     "Tofus quinoás vacsoratál": "Bowl de cena con tofu y quinoa",
@@ -3713,14 +3064,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Tökmag": "Semillas de calabaza",
     "Töltött paprika light módra": "Pimientos rellenos ligeros",
     "Töltsd meg csirkével és salátával.": "Rellena con pollo y ensalada.",
-    "Töltsd meg húsos-rizses keverékkel.":
-        "Rellena con la mezcla de carne y arroz.",
-    "Töltsd meg pulykás-babos keverékkel.":
-        "Rellena con la mezcla de pavo y alubias.",
+    "Töltsd meg húsos-rizses keverékkel.": "Rellena con la mezcla de carne y arroz.",
+    "Töltsd meg pulykás-babos keverékkel.": "Rellena con la mezcla de pavo y alubias.",
     "Tömegnövelés": "Para ganar masa",
     "Tömegnöveléshez: ": "Para ganar masa: ",
-    "Tomorrow starts with tonight’s prep.":
-        "Mañana empieza con la preparación de esta noche.",
+    "Tomorrow starts with tonight’s prep.": "Mañana empieza con la preparación de esta noche.",
     "Tonhal": "Atún",
     "Tonhalas babos burgonyasaláta": "Ensalada de patata, alubias y atún",
     "Tonhalas kukoricás tésztasaláta": "Ensalada de pasta con atún y maíz",
@@ -3732,13 +3080,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Trend": "Tendencia",
     "Túlsúly": "Sobrepeso",
     "Túlsúlyos": "Sobrepeso",
-    "Turmixold krémesre 30-60 másodperc alatt.":
-        "Tritura 30-60 segundos hasta que quede cremoso.",
+    "Turmixold krémesre 30-60 másodperc alatt.": "Tritura 30-60 segundos hasta que quede cremoso.",
     "Túró": "Requesón",
     "Túrós bogyós tál": "Bowl de requesón con frutos rojos",
     "Túrós zabpalacsinta": "Pancakes de avena con requesón",
-    "Túrós zabpalacsinta előre sütve":
-        "Pancakes de avena con requesón preparados",
+    "Túrós zabpalacsinta előre sütve": "Pancakes de avena con requesón preparados",
     "Tzatziki": "Tzatziki",
     "Uborka": "Pepino",
     "ÜDV A MEALR-BEN": "BIENVENIDO A MEALR",
@@ -3750,15 +3096,11 @@ const arbTranslations = <String, Map<String, String>>{
     "Új meal prep terv": "Nuevo plan de meal prep",
     "Ülő életmód": "Sedentario",
     "Vacsora": "Cena",
-    "Vágd félbe és pirítsd meg a bagelt.":
-        "Corta el bagel por la mitad y tuéstalo.",
-    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.":
-        "Elige un tipo y mira sus planes diarios.",
-    "Válassz ételt és adagold dobozokra":
-        "Elige una comida y divídela en recipientes",
+    "Vágd félbe és pirítsd meg a bagelt.": "Corta el bagel por la mitad y tuéstalo.",
+    "Válassz egy típust, majd nézd meg a hozzá tartozó napi étrendeket.": "Elige un tipo y mira sus planes diarios.",
+    "Válassz ételt és adagold dobozokra": "Elige una comida y divídela en recipientes",
     "Válassz étrend típust": "Elige un tipo de plan",
-    "Válassz főételt, köretet és adagold dobozokra":
-        "Elige plato principal, guarnición y divídelos en recipientes",
+    "Válassz főételt, köretet és adagold dobozokra": "Elige plato principal, guarnición y divídelos en recipientes",
     "Vegán": "Vegano",
     "Vegetáriánus": "Vegetariano",
     "Veggie erő nap": "Día fuerza veggie",
@@ -3766,15 +3108,13 @@ const arbTranslations = <String, Map<String, String>>{
     "veszít a tömegéből": "pierde peso",
     "Világos": "Claro",
     "Villám nap": "Día relámpago",
-    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n":
-        "resta 300-500 kcal. Un déficit diario de 500 kcal equivale a unos 0,5 kg por semana.\n\n",
+    "vonj le 300–500 kcal-t. Napi 500 kcal deficit ≈ heti 0,5 kg fogyás.\n\n": "resta 300-500 kcal. Un déficit diario de 500 kcal equivale a unos 0,5 kg por semana.\n\n",
     "Vörösbab": "Alubias rojas",
     "Wok zöldség": "Verduras para wok",
     "Wrap up with something nourishing.": "Cierra el día con algo nutritivo.",
     "Zabpehely": "Copos de avena",
     "Zabpehelyliszt": "Harina de avena",
-    "Zárd a napot jóllakottan, nem rohanva.":
-        "Termina el día satisfecho, sin prisas.",
+    "Zárd a napot jóllakottan, nem rohanva.": "Termina el día satisfecho, sin prisas.",
     "Zárd a napot valami táplálóval.": "Cierra el día con algo nutritivo.",
     "Zárd gondoskodással a napot.": "Cierra el día con cuidado.",
     "Zöld fókusz nap": "Día foco verde",

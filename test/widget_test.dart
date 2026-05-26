@@ -37,6 +37,14 @@ void main() {
       expect(arbTranslations['en']!['csipet'], 'pinch');
       expect(arbTranslations['de']!['csipet'], 'Prise');
       expect(arbTranslations['es']!['csipet'], 'pizca');
+      expect(hungarian['Toast'], 'Pirítós');
+      expect(hungarian['Cream'], 'Krém');
+      expect(hungarian['Burgur'], 'Bulgur');
+      expect(hungarian['Candy'], 'Cukorka');
+      expect(hungarian['Spinach'], 'Spenót');
+      expect(hungarian['Dew'], 'Harmat');
+      expect(arbTranslations['de']!['Spinach'], 'Spinat');
+      expect(arbTranslations['es']!['Dew'], 'Rocío');
     },
   );
 }
