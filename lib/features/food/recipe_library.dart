@@ -958,6 +958,7 @@ const dinnerRecipes = [
     category: RecipeCategory.dinner,
     name: 'Könnyű csirkés saláta',
     emoji: '🥗',
+    imageAsset: 'assets/recipes/light_chicken_salad.jpg',
     baseServings: 1,
     caloriesPerServing: 410,
     prepTimeMinutes: 18,
