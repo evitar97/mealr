@@ -442,6 +442,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get m0136 => 'Patata';
 
   @override
+<<<<<<< HEAD
   String get m0137 => 'Bulgur';
 
   @override
@@ -2437,4 +2438,1974 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get m0789 => 'Pan rallado';
+=======
+  String get m0136 => 'Bulgur';
+
+  @override
+  String get m0137 => 'Caramelo';
+
+  @override
+  String get m0138 => 'Semillas de chía';
+
+  @override
+  String get m0139 => 'Especia de chile';
+
+  @override
+  String get m0140 => 'Pimientos rellenos de pavo con chile';
+
+  @override
+  String get m0141 => 'Zumo de limón';
+
+  @override
+  String get m0142 => 'Cierra el día con cuidado.';
+
+  @override
+  String get m0143 => 'Cottage cheese';
+
+  @override
+  String get m0144 => 'Plato de cottage cheese con verduras';
+
+  @override
+  String get m0145 => 'Crema';
+
+  @override
+  String get m0146 => 'Garbanzos';
+
+  @override
+  String get m0147 => 'Curry de garbanzos con arroz';
+
+  @override
+  String get m0148 => 'Caja crujiente de garbanzos';
+
+  @override
+  String get m0149 => 'pizca';
+
+  @override
+  String get m0150 => 'Pechuga de pollo';
+
+  @override
+  String get m0151 => 'Caja de pollo con cuscús';
+
+  @override
+  String get m0152 => 'Bowl de pita con pollo';
+
+  @override
+  String get m0153 => 'Fit bowl de pollo con arroz';
+
+  @override
+  String get m0154 => 'Fit bowl de pollo con arroz, porción pequeña';
+
+  @override
+  String get m0155 => 'Bowl caldoso de pollo con fideos de arroz';
+
+  @override
+  String get m0156 => 'puede disminuir o aumentar';
+
+  @override
+  String get m0157 => 'Bajando';
+
+  @override
+  String get m0158 => 'Calabacín';
+
+  @override
+  String get m0159 => 'Sirve con espaguetis de calabacín.';
+
+  @override
+  String get m0160 => 'Especia de curry';
+
+  @override
+  String get m0161 => 'Pechuga de pollo molida';
+
+  @override
+  String get m0162 => 'Nueces molidas';
+
+  @override
+  String get m0163 => 'Pavo molido';
+
+  @override
+  String get m0164 => 'uds.';
+
+  @override
+  String get m0165 => 'Rocío';
+
+  @override
+  String get m0166 => 'Nueces o almendras';
+
+  @override
+  String get m0167 => 'frutos secos';
+
+  @override
+  String get m0168 => 'Recipientes';
+
+  @override
+  String get m0169 => 'Día de meal prep';
+
+  @override
+  String get m0170 => 'Día impulso en caja';
+
+  @override
+  String get m0171 => 'Fácil';
+
+  @override
+  String get m0172 => 'Almuerzo';
+
+  @override
+  String get m0173 => 'Peso perdido hasta ahora';
+
+  @override
+  String get m0174 => 'Cambio total hasta ahora';
+
+  @override
+  String get m0175 => 'Para entrenar y sentir más saciedad';
+
+  @override
+  String get m0176 => 'Equivalente crudo por porción';
+
+  @override
+  String get m0177 => 'Un plato equilibrado mantiene el día estable.';
+
+  @override
+  String get m0178 => 'Un poco de preparación ayuda mucho.';
+
+  @override
+  String get m0179 => 'Día impulso simple';
+
+  @override
+  String get m0180 => 'Día sencillo';
+
+  @override
+  String get m0181 => 'Día ritmo simple';
+
+  @override
+  String get m0182 => 'Con ingredientes más simples y baratos';
+
+  @override
+  String get m0183 => 'Edad';
+
+  @override
+  String get m0184 => 'Preparación';
+
+  @override
+  String get m0185 =>
+      'Comprueba tu peso ideal y sigue los cambios. Guardado en tu perfil.';
+
+  @override
+  String get m0186 => 'Listas guardadas';
+
+  @override
+  String get m0187 => 'Planes de meal prep guardados';
+
+  @override
+  String get m0188 => 'Suscripción';
+
+  @override
+  String get m0189 => 'Día preparado';
+
+  @override
+  String get m0190 => 'Menú diario para preparar por adelantado';
+
+  @override
+  String get m0191 => 'Día para cocinar por adelantado';
+
+  @override
+  String get m0192 => 'Día preparado por adelantado';
+
+  @override
+  String get m0193 =>
+      'Guarda primero una comida y luego podrás crear un plan de meal prep.';
+
+  @override
+  String get m0194 => 'antes de cocinar';
+
+  @override
+  String get m0195 => 'Subiendo';
+
+  @override
+  String get m0196 => 'Termina el día satisfecho, sin prisas.';
+
+  @override
+  String get m0197 => 'Ligeramente activo (1-3x/semana)';
+
+  @override
+  String get m0198 => 'Fresas';
+
+  @override
+  String get m0199 => 'Construye el día comida a comida.';
+
+  @override
+  String get m0200 => 'Día fuerza plus';
+
+  @override
+  String get m0201 => 'Día fuerte';
+
+  @override
+  String get m0202 => 'Muy activo (6-7x/semana)';
+
+  @override
+  String get m0203 => 'Entendido, empecemos →';
+
+  @override
+  String get m0204 => 'Compartir alimento';
+
+  @override
+  String get m0205 => 'Nombre del alimento';
+
+  @override
+  String get m0206 => 'Editar comida';
+
+  @override
+  String get m0207 => 'Comidas';
+
+  @override
+  String get m0208 => 'comidas';
+
+  @override
+  String get m0209 => 'Plan diario';
+
+  @override
+  String get m0210 => 'Tipo de dieta';
+
+  @override
+  String get m0211 => 'Tipos de plan';
+
+  @override
+  String get m0212 => 'planes';
+
+  @override
+  String get m0213 => 'Planes diarios';
+
+  @override
+  String get m0214 => 'años';
+
+  @override
+  String get m0215 => 'Plan anual con −50% de descuento';
+
+  @override
+  String get m0216 => 'Suscripción anual';
+
+  @override
+  String get m0217 => 'Extremadamente activo';
+
+  @override
+  String get m0218 =>
+      'La app usa estos datos para calcular tu BMI, tu objetivo diario de calorías y los datos básicos del perfil.';
+
+  @override
+  String get m0219 => 'Canela';
+
+  @override
+  String get m0220 => 'Filete de pescado blanco';
+
+  @override
+  String get m0221 => 'Día foco proteína';
+
+  @override
+  String get m0222 => 'Proteína en polvo';
+
+  @override
+  String get m0223 => 'Pudin proteico';
+
+  @override
+  String get m0224 => 'Medio pudin proteico con fruta';
+
+  @override
+  String get m0225 => 'Hombre';
+
+  @override
+  String get m0226 => 'Queso feta';
+
+  @override
+  String get m0227 => 'Bowl de bulgur con feta para desayuno';
+
+  @override
+  String get m0228 => 'Pan crujiente con feta y tomate';
+
+  @override
+  String get m0229 => 'Día impulso fit';
+
+  @override
+  String get m0230 => 'Día fit';
+
+  @override
+  String get m0231 => 'Tamaño fijo de porción';
+
+  @override
+  String get m0232 => 'Plato principal';
+
+  @override
+  String get m0233 => 'Principal / recipiente';
+
+  @override
+  String get m0234 => 'Principal g / porción';
+
+  @override
+  String get m0235 => 'Guardar plato principal';
+
+  @override
+  String get m0236 => 'Multiplicador del principal';
+
+  @override
+  String get m0237 => 'Platos principales';
+
+  @override
+  String get m0238 => 'Estadísticas de pérdida de peso';
+
+  @override
+  String get m0239 => 'Para perder grasa';
+
+  @override
+  String get m0240 => 'Para perder grasa: ';
+
+  @override
+  String get m0241 => 'cacahuete';
+
+  @override
+  String get m0242 => 'Mezcla con las verduras, los fideos y la salsa de soja.';
+
+  @override
+  String get m0243 => 'Forma bocados y enfría durante 20 minutos.';
+
+  @override
+  String get m0244 => 'Lentejas cocidas';
+
+  @override
+  String get m0245 => 'Arroz cocido';
+
+  @override
+  String get m0246 => 'Huevos cocidos con aguacate';
+
+  @override
+  String get m0247 => 'Cocina hasta obtener un ragú espeso.';
+
+  @override
+  String get m0248 => 'Al cocinar, la comida ';
+
+  @override
+  String get m0249 => 'Al cocinar, el peso de la comida ';
+
+  @override
+  String get m0250 =>
+      'después de cocinar, pesa todo el plato terminado, por ejemplo 760 g.';
+
+  @override
+  String get m0251 => 'Día fresco sin gluten';
+
+  @override
+  String get m0252 => 'Día fresco';
+
+  @override
+  String get m0253 => 'Día verde fresco';
+
+  @override
+  String get m0254 => 'Verduras frescas';
+
+  @override
+  String get m0255 => 'Empieza la mañana con intención.';
+
+  @override
+  String get m0256 => 'FUNCIÓN';
+
+  @override
+  String get m0257 => 'Salmón ahumado';
+
+  @override
+  String get m0258 => 'Mezcla de especias';
+
+  @override
+  String get m0259 => 'g / porción';
+
+  @override
+  String get m0260 => 'Gamba';
+
+  @override
+  String get m0261 => 'Ensalada de gambas y cottage';
+
+  @override
+  String get m0262 => 'Bowl de quinoa con gambas';
+
+  @override
+  String get m0263 => 'Wok de fideos de arroz con gambas';
+
+  @override
+  String get m0264 => 'Dale ventaja a tu noche.';
+
+  @override
+  String get m0265 => 'gluten';
+
+  @override
+  String get m0266 => 'Sin gluten';
+
+  @override
+  String get m0267 => 'Sin ingredientes que contengan gluten';
+
+  @override
+  String get m0268 => 'Buenas tardes';
+
+  @override
+  String get m0269 => 'Buen día';
+
+  @override
+  String get m0270 => 'Buenas noches';
+
+  @override
+  String get m0271 => 'Buenos días';
+
+  @override
+  String get m0272 => 'Plato griego de pollo';
+
+  @override
+  String get m0273 => 'Yogur griego';
+
+  @override
+  String get m0274 => 'Vaso de yogur griego con granola';
+
+  @override
+  String get m0275 => 'Vaso de yogur griego con granola sin gluten';
+
+  @override
+  String get m0276 => 'Bowl griego de salmón y quinoa';
+
+  @override
+  String get m0277 => 'Granola';
+
+  @override
+  String get m0278 => 'Rápido';
+
+  @override
+  String get m0279 => 'Día foco rápido';
+
+  @override
+  String get m0280 => 'Día rutina rápida';
+
+  @override
+  String get m0281 =>
+      'si pones 250 g en tu recipiente, Mealr calcula que equivale a unos 313 g de ingredientes crudos.';
+
+  @override
+  String get m0282 =>
+      'Si cocinas solo arroz, bulgur o pasta como guarnición, funciona igual: arroz crudo 300 g, arroz cocido 820 g, porción 180 g. La app da el equivalente de arroz crudo.';
+
+  @override
+  String get m0283 =>
+      'Cuando quieras comer, pesa la porción del plato e introdúcela; obtendrás el ';
+
+  @override
+  String get m0284 => 'Después de cocinar u hornear, mide el ';
+
+  @override
+  String get m0285 =>
+      'Para una textura más espesa, añade hielo o usa menos líquido.';
+
+  @override
+  String get m0286 =>
+      'Deja reposar 5 minutos para que la avena absorba la humedad.';
+
+  @override
+  String get m0287 => 'Dobla por la mitad y sirve fresco.';
+
+  @override
+  String get m0288 => 'pescado';
+
+  @override
+  String get m0289 => 'Pronto';
+
+  @override
+  String get m0290 => 'Suscripción mensual';
+
+  @override
+  String get m0291 =>
+      'Coloca el filete de pescado encima, sazona y rocía con aceite.';
+
+  @override
+  String get m0292 => 'semana';
+
+  @override
+  String get m0293 => 'Media semanal';
+
+  @override
+  String get m0294 => 'Día de cajas semanales';
+
+  @override
+  String get m0295 => 'Día ritmo semanal';
+
+  @override
+  String get m0296 => 'Resumen nutricional semanal';
+
+  @override
+  String get m0297 => '¿CÓMO USARLO?';
+
+  @override
+  String get m0298 => '¿Cómo funciona?';
+
+  @override
+  String get m0299 => '¿CÓMO AYUDA MEALR?';
+
+  @override
+  String get m0300 => 'Añadir';
+
+  @override
+  String get m0301 => 'Añadido';
+
+  @override
+  String get m0302 => 'Ingrediente';
+
+  @override
+  String get m0303 => 'Ingredientes';
+
+  @override
+  String get m0304 => 'Hummus';
+
+  @override
+  String get m0305 => 'Torre de tortas de arroz con hummus';
+
+  @override
+  String get m0306 => 'Pita de hummus y huevo';
+
+  @override
+  String get m0307 => 'Caja de verduras con hummus';
+
+  @override
+  String get m0308 => 'Día impulso sin carne';
+
+  @override
+  String get m0309 => 'Plan diario sin carne';
+
+  @override
+  String get m0310 => 'Peso ideal';
+
+  @override
+  String get m0311 =>
+      'Así registras calorías con más precisión y las porciones de meal prep dejan de ser una suposición.';
+
+  @override
+  String get m0312 => 'Empieza la mañana con intención.';
+
+  @override
+  String get m0313 => 'Empezar';
+
+  @override
+  String get m0314 => 'Gratis';
+
+  @override
+  String get m0315 => 'Funciones gratis';
+
+  @override
+  String get m0316 =>
+      'El plan gratis incluye 1 plan de meal prep guardado. Mejora a Pro para guardar más.';
+
+  @override
+  String get m0317 =>
+      'Úsalo como guía durante 2-4 semanas y ajusta según el cambio real.';
+
+  @override
+  String get m0318 => 'Escribe una receta, consejo o recordatorio...';
+
+  @override
+  String get m0319 => 'Salpimienta al gusto.';
+
+  @override
+  String get m0320 => 'Día muscular';
+
+  @override
+  String get m0321 => 'Nota';
+
+  @override
+  String get m0322 => 'Buenas tardes';
+
+  @override
+  String get m0323 => 'Buenas noches';
+
+  @override
+  String get m0324 => 'Buenos días';
+
+  @override
+  String get m0325 => 'Yogur';
+
+  @override
+  String get m0326 => 'Aderezo de yogur';
+
+  @override
+  String get m0327 => 'Salsa de yogur';
+
+  @override
+  String get m0328 => 'Sirope de arce';
+
+  @override
+  String get m0329 => 'Cacao en polvo';
+
+  @override
+  String get m0330 => 'Vaso de avena con cacao y chía';
+
+  @override
+  String get m0331 => 'Skyr de cacao con crujiente';
+
+  @override
+  String get m0332 => 'Pimiento morrón';
+
+  @override
+  String get m0333 => 'Configurado desde calculadora';
+
+  @override
+  String get m0334 => 'Calorías';
+
+  @override
+  String get m0335 => 'Calculadora\nde calorías';
+
+  @override
+  String get m0336 => 'Objetivo de calorías';
+
+  @override
+  String get m0337 => 'Calculadora de calorías';
+
+  @override
+  String get m0338 => 'Ponlo sobre crackers y sirve con pepino.';
+
+  @override
+  String get m0339 =>
+      'Añade el tzatziki al lado y sirve con la base de quinoa y verduras.';
+
+  @override
+  String get m0340 => 'kcal / día';
+
+  @override
+  String get m0341 => 'Favoritos';
+
+  @override
+  String get m0342 => 'Mantén la tarde ligera y útil.';
+
+  @override
+  String get m0343 => 'Mantén tus comidas en orden.';
+
+  @override
+  String get m0344 => 'Unta con queso crema y añade salmón y pepino.';
+
+  @override
+  String get m0345 =>
+      'Unta una capa fina de crema de cacahuete y espolvorea canela.';
+
+  @override
+  String get m0346 => 'Fórmula: ';
+
+  @override
+  String get m0347 => 'Buscar recetas';
+
+  @override
+  String get m0348 => 'Día jardín';
+
+  @override
+  String get m0349 => 'Día caja lista';
+
+  @override
+  String get m0350 => 'Comida cocida';
+
+  @override
+  String get m0351 => 'Peso de comida cocida';
+
+  @override
+  String get m0352 => 'Cocido g';
+
+  @override
+  String get m0353 => 'Peso cocido';
+
+  @override
+  String get m0354 => 'Prepara huevos revueltos suaves.';
+
+  @override
+  String get m0355 => 'Prepara lo que hará más fácil después.';
+
+  @override
+  String get m0356 =>
+      'Incorpora la proteína en polvo y deja espesar unos minutos.';
+
+  @override
+  String get m0357 =>
+      'Añade el bulgur y el concentrado de tomate y cocina todo junto.';
+
+  @override
+  String get m0358 => 'Añade el sirope de arce y deja espesar unos minutos.';
+
+  @override
+  String get m0359 =>
+      'Añade el concentrado de tomate y cocina 3-4 minutos hasta obtener un guiso espeso.';
+
+  @override
+  String get m0360 => 'Añade la avena, el cacao y el sirope de arce.';
+
+  @override
+  String get m0361 => 'Añade la avena, el cacao y la mantequilla de cacahuete.';
+
+  @override
+  String get m0362 =>
+      'Mezcla la patata con el tzatziki y sirve con pepino y jamón de pavo.';
+
+  @override
+  String get m0363 => 'Mezcla el yogur con la proteína en polvo.';
+
+  @override
+  String get m0364 =>
+      'Mezcla con la pasta cocida y reparte con queso por encima.';
+
+  @override
+  String get m0365 => 'Mezcla con las lentejas y feta desmenuzado.';
+
+  @override
+  String get m0366 =>
+      'Mezcla el atún con las alubias, las patatas y el aderezo de yogur.';
+
+  @override
+  String get m0367 => 'Mezcla la avena, el yogur, el líquido y la canela.';
+
+  @override
+  String get m0368 =>
+      'Mezcla la avena, la leche o bebida vegetal, las semillas de chía y el cacao.';
+
+  @override
+  String get m0369 => 'Mezcla con espinacas y tomate.';
+
+  @override
+  String get m0370 => 'Mezcla con atún, maíz y yogur.';
+
+  @override
+  String get m0371 => 'Mezcla los ingredientes hasta que queden suaves.';
+
+  @override
+  String get m0372 =>
+      'Mezcla el yogur con proteína en polvo y cacao hasta que quede suave.';
+
+  @override
+  String get m0373 =>
+      'Mezcla mostaza con el aderezo de yogur y viértelo sobre la ensalada de cuscús.';
+
+  @override
+  String get m0374 => 'Añade un poco de zumo de limón y sirve enseguida.';
+
+  @override
+  String get m0375 =>
+      'Saltéalas con un poco de aceite y vierte los huevos batidos encima.';
+
+  @override
+  String get m0376 => 'Mostrar menos';
+
+  @override
+  String get m0377 => 'Empezar gratis';
+
+  @override
+  String get m0378 => 'Empieza simple y mantén el ritmo.';
+
+  @override
+  String get m0379 => 'Empecemos fácil.';
+
+  @override
+  String get m0380 => 'Día base saciante';
+
+  @override
+  String get m0381 => 'Omitir';
+
+  @override
+  String get m0382 => 'Día suave';
+
+  @override
+  String get m0383 => 'Porción medida';
+
+  @override
+  String get m0384 => 'Porción g';
+
+  @override
+  String get m0385 => 'Borrar artículos marcados';
+
+  @override
+  String get m0386 => 'Pequeñas decisiones, buen impulso.';
+
+  @override
+  String get m0387 => 'Tomates cherry';
+
+  @override
+  String get m0388 => 'Leche de coco';
+
+  @override
+  String get m0389 => 'Día ligero';
+
+  @override
+  String get m0390 => 'Chili ligero de frijoles';
+
+  @override
+  String get m0391 => 'Ensalada ligera de pollo';
+
+  @override
+  String get m0392 => 'Día ligero';
+
+  @override
+  String get m0393 => 'Guarnición';
+
+  @override
+  String get m0394 => 'Guarnición / recipiente';
+
+  @override
+  String get m0395 => 'Guarnición g / porción';
+
+  @override
+  String get m0396 => 'Añadir guarnición';
+
+  @override
+  String get m0397 => 'Guarniciones por separado';
+
+  @override
+  String get m0398 => 'Guardar guarnición';
+
+  @override
+  String get m0399 => 'Equivalente crudo de guarnición';
+
+  @override
+  String get m0400 => 'Multiplicador de guarnición';
+
+  @override
+  String get m0401 => 'Guarniciones';
+
+  @override
+  String get m0402 => 'Ilimitado';
+
+  @override
+  String get m0403 => 'Guardado ilimitado de comidas y meal prep';
+
+  @override
+  String get m0404 => 'Guardado ilimitado y funciones extra';
+
+  @override
+  String get m0405 => 'Moderadamente activo (3-5x/semana)';
+
+  @override
+  String get m0406 => 'Queso crema';
+
+  @override
+  String get m0407 => 'Maíz';
+
+  @override
+  String get m0408 =>
+      'Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealr sigue calculando el equivalente crudo.';
+
+  @override
+  String get m0409 => 'Cuscús';
+
+  @override
+  String get m0410 => 'Baja el ritmo, come bien y descansa.';
+
+  @override
+  String get m0411 => 'Cocina a fuego lento hasta que el centro también cuaje.';
+
+  @override
+  String get m0412 => 'Día fácil sin gluten';
+
+  @override
+  String get m0413 => 'Filete de salmón';
+
+  @override
+  String get m0414 => 'Almuerzo de salmón con patatas';
+
+  @override
+  String get m0415 => 'Bagel de salmón con queso crema';
+
+  @override
+  String get m0416 => 'Plato de omelette con salmón y espinaca';
+
+  @override
+  String get m0417 => 'Bocados de salmón y pepino';
+
+  @override
+  String get m0418 => 'Cena de salmón con judías verdes';
+
+  @override
+  String get m0419 => 'Más bajo';
+
+  @override
+  String get m0420 => 'Mantén la tarde ligera y útil.';
+
+  @override
+  String get m0421 => 'Haz que la primera elección sea fácil.';
+
+  @override
+  String get m0422 => 'Haz que la próxima comida sea fácil.';
+
+  @override
+  String get m0423 => 'Expira: ';
+
+  @override
+  String get m0424 => 'Ensalada de lentejas con feta';
+
+  @override
+  String get m0425 => 'Guiso de arroz, lentejas y verduras';
+
+  @override
+  String get m0426 => 'Queso light';
+
+  @override
+  String get m0427 => 'Cebolla morada';
+
+  @override
+  String get m0428 => 'Lista';
+
+  @override
+  String get m0429 => 'Nombre de la lista';
+
+  @override
+  String get m0430 =>
+      'Rocía con un poco de miel y espolvorea nueces o almendras.';
+
+  @override
+  String get m0431 => 'Rocía con un poco de miel y espolvorea almendras.';
+
+  @override
+  String get m0432 => 'Rocía con aceite de oliva y sirve frío o fresco.';
+
+  @override
+  String get m0433 => 'Hoy';
+
+  @override
+  String get m0434 => 'Alto en proteína';
+
+  @override
+  String get m0435 => 'Altura';
+
+  @override
+  String get m0436 => 'Altura (cm)';
+
+  @override
+  String get m0437 => 'Haz que la primera elección sea fácil.';
+
+  @override
+  String get m0438 => 'Haz que la próxima comida sea fácil.';
+
+  @override
+  String get m0439 => 'Distribución de macros';
+
+  @override
+  String get m0440 => 'Almendras';
+
+  @override
+  String get m0441 => 'Mantente con energía y enfoque.';
+
+  @override
+  String get m0442 => 'Sartén de ternera con bulgur';
+
+  @override
+  String get m0443 => 'Almuerzo de pita con ternera';
+
+  @override
+  String get m0444 => 'Arroz con ternera y calabacín';
+
+  @override
+  String get m0445 => 'Basado en meal prep';
+
+  @override
+  String get m0446 => 'Editar plan de meal prep';
+
+  @override
+  String get m0447 => 'Planificador Meal Prep';
+
+  @override
+  String get m0448 => 'Meal Prep+';
+
+  @override
+  String get m0449 => 'Meal prep';
+
+  @override
+  String get m0450 => 'Mealr Pro';
+
+  @override
+  String get m0451 => 'Bulgur mediterráneo con pavo';
+
+  @override
+  String get m0452 => 'Media';
+
+  @override
+  String get m0453 => 'Las listas de compra que crees aparecerán aquí.';
+
+  @override
+  String get m0454 => 'Tus planes de meal prep guardados aparecerán aquí.';
+
+  @override
+  String get m0455 => 'Tus platos principales aparecerán aquí.';
+
+  @override
+  String get m0456 => 'Tus guarniciones aparecerán aquí.';
+
+  @override
+  String get m0457 => 'Nota';
+
+  @override
+  String get m0458 => 'Apariencia';
+
+  @override
+  String get m0459 => 'Modo de apariencia';
+
+  @override
+  String get m0460 => 'Añadir a lista existente';
+
+  @override
+  String get m0461 => 'Compartir';
+
+  @override
+  String get m0462 => 'Cancelar';
+
+  @override
+  String get m0463 => 'Bocados tibios de plátano y avena';
+
+  @override
+  String get m0464 => 'Plato templado de lentejas y feta';
+
+  @override
+  String get m0465 => 'Calienta la tortilla y añade jamón, queso y verduras.';
+
+  @override
+  String get m0466 => 'Guardar';
+
+  @override
+  String get m0467 => 'Día impulso sin gluten';
+
+  @override
+  String get m0468 => 'Guardar en perfil · actualizar objetivo de calorías';
+
+  @override
+  String get m0469 => 'Guardar como nueva lista';
+
+  @override
+  String get m0470 => 'Comida guardada';
+
+  @override
+  String get m0471 => 'Guardado';
+
+  @override
+  String get m0472 =>
+      'Guardado en el perfil · se rellena automáticamente la próxima vez';
+
+  @override
+  String get m0473 => 'Guardado en el perfil.';
+
+  @override
+  String get m0474 =>
+      'pesa los ingredientes antes de cocinar, por ejemplo pollo + arroz + verduras con un total de 950 g.';
+
+  @override
+  String get m0475 => 'Miel';
+
+  @override
+  String get m0476 => '¿CUÁL ES EL PROBLEMA?';
+
+  @override
+  String get m0477 => '¿POR QUÉ ES ÚTIL?';
+
+  @override
+  String get m0478 => 'Todo';
+
+  @override
+  String get m0479 => 'TODO EN UNO';
+
+  @override
+  String get m0480 => 'Pon todos los ingredientes en una batidora.';
+
+  @override
+  String get m0481 => 'Caja mini de patata con tzatziki';
+
+  @override
+  String get m0482 => 'Mini wrap de pollo';
+
+  @override
+  String get m0483 => 'Mini tortilla';
+
+  @override
+  String get m0484 => 'Crema de cacahuete';
+
+  @override
+  String get m0485 => 'Desmenuza el feta por encima y sirve fresco.';
+
+  @override
+  String get m0486 =>
+      'Desmenuza el feta encima y sirve con el bulgur de verduras.';
+
+  @override
+  String get m0487 => 'mostaza';
+
+  @override
+  String get m0488 => 'Mostaza';
+
+  @override
+  String get m0489 => 'Solomillo de cerdo con mostaza y patatas';
+
+  @override
+  String get m0490 => 'días';
+
+  @override
+  String get m0491 => 'Actividad diaria';
+
+  @override
+  String get m0492 => 'Desglose diario';
+
+  @override
+  String get m0493 => 'CALORÍAS DIARIAS DE MANTENIMIENTO';
+
+  @override
+  String get m0494 => 'Snack';
+
+  @override
+  String get m0495 => 'Dificultad';
+
+  @override
+  String get m0496 => 'Género';
+
+  @override
+  String get m0497 => 'no calorías.';
+
+  @override
+  String get m0498 => 'No solo pesar: una app para tu rutina de comida.';
+
+  @override
+  String get m0499 => 'no cambia sus calorías.';
+
+  @override
+  String get m0500 => 'Ponle nombre y añade artículos';
+
+  @override
+  String get m0501 => 'Acerca de';
+
+  @override
+  String get m0502 => 'Sin suscripción activa';
+
+  @override
+  String get m0503 => 'sin alérgenos destacados';
+
+  @override
+  String get m0504 => 'Sin guarnición';
+
+  @override
+  String get m0505 => 'Sin comida guardada';
+
+  @override
+  String get m0506 => 'No hay recetas para esta búsqueda.';
+
+  @override
+  String get m0507 => 'Sin cambios respecto al peso inicial';
+
+  @override
+  String get m0508 => 'Mujer';
+
+  @override
+  String get m0509 => 'Normal';
+
+  @override
+  String get m0510 => 'Recetas normales';
+
+  @override
+  String get m0511 => 'Peso normal';
+
+  @override
+  String get m0512 => 'Día vegetal';
+
+  @override
+  String get m0513 => 'Día ritmo vegetal';
+
+  @override
+  String get m0514 => 'Idioma';
+
+  @override
+  String get m0515 => 'Idioma, tema, modo y versión';
+
+  @override
+  String get m0516 => 'crudo ÷ cocido × porción =\nequivalente crudo\n';
+
+  @override
+  String get m0517 => 'Cantidad cruda';
+
+  @override
+  String get m0518 => 'Equivalente crudo';
+
+  @override
+  String get m0519 => 'equivalente crudo';
+
+  @override
+  String get m0520 => 'equivalente crudo.';
+
+  @override
+  String get m0521 => 'Crudo g';
+
+  @override
+  String get m0522 => 'Calculadora de peso crudo';
+
+  @override
+  String get m0523 => 'crudo';
+
+  @override
+  String get m0524 => 'Volver a abrir la introducción';
+
+  @override
+  String get m0525 => 'Día energía tranquila';
+
+  @override
+  String get m0526 =>
+      'Una herramienta tranquila y práctica para una rutina de comida más precisa.';
+
+  @override
+  String get m0527 => 'Obesidad';
+
+  @override
+  String get m0528 => 'Día cesta inteligente';
+
+  @override
+  String get m0529 => 'Día inteligente';
+
+  @override
+  String get m0530 => 'Día económico inteligente';
+
+  @override
+  String get m0531 => 'Aceite de oliva';
+
+  @override
+  String get m0532 => 'Reiniciar onboarding';
+
+  @override
+  String get m0533 => 'Total';
+
+  @override
+  String get m0534 => 'Calorías totales';
+
+  @override
+  String get m0535 => 'peso total';
+
+  @override
+  String get m0536 =>
+      'Reparte el cuscús, el pollo y el brócoli en recipientes.';
+
+  @override
+  String get m0537 => 'Reparte el arroz, el pollo y el brócoli en recipientes.';
+
+  @override
+  String get m0538 => 'Overnight oats preparado con antelación';
+
+  @override
+  String get m0539 => 'Pimiento';
+
+  @override
+  String get m0540 => 'Tomate';
+
+  @override
+  String get m0541 => 'Concentrado de tomate';
+
+  @override
+  String get m0542 =>
+      'Hornea con salsa de tomate y queso hasta que esté listo.';
+
+  @override
+  String get m0543 => 'Salsa de tomate';
+
+  @override
+  String get m0544 => 'Día bolsillo plus';
+
+  @override
+  String get m0545 => 'Económico';
+
+  @override
+  String get m0546 => 'min';
+
+  @override
+  String get m0547 => 'Tuesta el pan.';
+
+  @override
+  String get m0548 => 'P. ej. cocina del fin de semana';
+
+  @override
+  String get m0549 => 'Planifica un día tranquilo y fuerte.';
+
+  @override
+  String get m0550 => 'Día movido';
+
+  @override
+  String get m0551 => 'Día práctico';
+
+  @override
+  String get m0552 => 'Prepara lo que hará más fácil después.';
+
+  @override
+  String get m0553 => 'Pro';
+
+  @override
+  String get m0554 => 'Prueba modo Pro';
+
+  @override
+  String get m0555 => 'Estadísticas Pro';
+
+  @override
+  String get m0556 => 'Extras desbloqueados con Pro';
+
+  @override
+  String get m0557 => 'Pruébalo gratis 7 días';
+
+  @override
+  String get m0558 => 'Perfil';
+
+  @override
+  String get m0559 => 'Eliminar progreso';
+
+  @override
+  String get m0560 => 'Vaso de yogur proteico';
+
+  @override
+  String get m0561 => 'Avena proteica con frutos rojos';
+
+  @override
+  String get m0562 => 'Albóndigas de pavo con espagueti de calabacín';
+
+  @override
+  String get m0563 => 'Jamón de pechuga de pavo';
+
+  @override
+  String get m0564 => 'Pasta boloñesa de pavo';
+
+  @override
+  String get m0565 => 'Pasta boloñesa de pavo, porción ligera';
+
+  @override
+  String get m0566 => 'Caja de desayuno con pavo y cottage';
+
+  @override
+  String get m0567 => 'Rollitos de pavo y queso';
+
+  @override
+  String get m0568 => 'Wrap de pavo y huevo';
+
+  @override
+  String get m0569 => 'Jamón de pavo';
+
+  @override
+  String get m0570 => 'Calabacín relleno de pavo';
+
+  @override
+  String get m0571 => 'Quinoa';
+
+  @override
+  String get m0572 => 'Vaso snack de quinoa y frutos rojos';
+
+  @override
+  String get m0573 => 'Desayuno de quinoa con yogur';
+
+  @override
+  String get m0574 => 'crustáceos';
+
+  @override
+  String get m0575 => 'Receta';
+
+  @override
+  String get m0576 => 'Multiplicador de receta';
+
+  @override
+  String get m0577 => 'Recetas';
+
+  @override
+  String get m0578 => 'Desayuno';
+
+  @override
+  String get m0579 => 'Día caja organizada';
+
+  @override
+  String get m0580 => 'Sistema';
+
+  @override
+  String get m0581 => 'Para uso regular';
+
+  @override
+  String get m0582 => 'Zanahoria';
+
+  @override
+  String get m0583 => 'Ralla o corta la manzana en dados y añádela.';
+
+  @override
+  String get m0584 => 'Queso rallado';
+
+  @override
+  String get m0585 => 'Detalles';
+
+  @override
+  String get m0586 => 'Añade capas de granola y plátano en rodajas.';
+
+  @override
+  String get m0587 => 'Arroz';
+
+  @override
+  String get m0588 => 'Torta de arroz';
+
+  @override
+  String get m0589 => 'Tortitas de arroz con cottage cheese';
+
+  @override
+  String get m0590 => 'Fideos de arroz';
+
+  @override
+  String get m0591 => 'Pesos registrados';
+
+  @override
+  String get m0592 => 'Con comidas rápidas de preparar';
+
+  @override
+  String get m0593 => 'Día cocina corta';
+
+  @override
+  String get m0594 => 'Lechuga';
+
+  @override
+  String get m0595 => 'Mezcla de ensalada';
+
+  @override
+  String get m0596 => 'Cocina en sartén con jamón, queso y espinacas.';
+
+  @override
+  String get m0597 => 'Solomillo de cerdo';
+
+  @override
+  String get m0598 => 'Solomillo de cerdo con cuscús';
+
+  @override
+  String get m0599 => 'Solomillo de cerdo con ensalada de cuscús';
+
+  @override
+  String get m0600 => 'Organiza la cena antes de las prisas.';
+
+  @override
+  String get m0601 => 'Bowl de shakshuka para desayuno';
+
+  @override
+  String get m0602 => 'Día impulso con prisa';
+
+  @override
+  String get m0603 => 'Día exprés';
+
+  @override
+  String get m0604 => 'Skyr o yogur griego';
+
+  @override
+  String get m0605 => 'Baja el ritmo, come bien y descansa.';
+
+  @override
+  String get m0606 => 'Pequeñas decisiones, buen impulso.';
+
+  @override
+  String get m0607 => 'Sal, pimienta';
+
+  @override
+  String get m0608 => 'Tortilla de jamón y queso';
+
+  @override
+  String get m0609 => 'Plato de huevo, jamón y pan crujiente';
+
+  @override
+  String get m0610 => 'Bowl salado de cottage cheese';
+
+  @override
+  String get m0611 => 'Oscuro';
+
+  @override
+  String get m0612 => 'Modo oscuro';
+
+  @override
+  String get m0613 => 'Bajo peso';
+
+  @override
+  String get m0614 => 'Ternera magra';
+
+  @override
+  String get m0615 => 'Espinaca';
+
+  @override
+  String get m0616 => 'Garbanzos con coco y espinaca';
+
+  @override
+  String get m0617 => 'Espinaca';
+
+  @override
+  String get m0618 => 'Día deportivo';
+
+  @override
+  String get m0619 => 'Día fuerza estable';
+
+  @override
+  String get m0620 => 'Estable';
+
+  @override
+  String get m0621 => 'Empieza simple y mantén el ritmo.';
+
+  @override
+  String get m0622 => 'Mantente con energía y enfoque.';
+
+  @override
+  String get m0623 => 'Pechuga de pollo asada';
+
+  @override
+  String get m0624 => 'Pescado al horno sobre verduras';
+
+  @override
+  String get m0625 => 'Peso';
+
+  @override
+  String get m0626 => 'Peso (kg)';
+
+  @override
+  String get m0627 => 'Seguimiento de peso';
+
+  @override
+  String get m0628 => 'Progreso de peso';
+
+  @override
+  String get m0629 => 'Editar peso';
+
+  @override
+  String get m0630 => 'Seguimiento de peso';
+
+  @override
+  String get m0631 => 'Gráfico de seguimiento de peso';
+
+  @override
+  String get m0632 => 'Editar registro de peso';
+
+  @override
+  String get m0633 => 'Hornea hasta que el pescado quede tierno.';
+
+  @override
+  String get m0634 => 'Hornea o guisa en salsa de tomate hasta que esté listo.';
+
+  @override
+  String get m0635 => 'Levadura química';
+
+  @override
+  String get m0636 =>
+      'Calcula tus calorías de mantenimiento según edad, peso, altura y actividad.';
+
+  @override
+  String get m0637 => 'Datos personales';
+
+  @override
+  String get m0638 => 'DATOS BÁSICOS';
+
+  @override
+  String get m0639 => 'Buen día';
+
+  @override
+  String get m0640 => 'Editar';
+
+  @override
+  String get m0641 => 'sésamo';
+
+  @override
+  String get m0642 => 'Semillas de sésamo';
+
+  @override
+  String get m0643 => 'soja';
+
+  @override
+  String get m0644 => 'Soja texturizada';
+
+  @override
+  String get m0645 => 'Sazona con salsa de soja y saltea todo junto.';
+
+  @override
+  String get m0646 => 'Salsa de soja';
+
+  @override
+  String get m0647 => 'Espolvorea semillas de calabaza y salpimienta al gusto.';
+
+  @override
+  String get m0648 => 'Comida cocida necesaria';
+
+  @override
+  String get m0649 => 'Principal cocido necesario';
+
+  @override
+  String get m0650 => 'Guarnición cocida necesaria';
+
+  @override
+  String get m0651 => 'Ingredientes crudos necesarios';
+
+  @override
+  String get m0652 => 'Principal crudo necesario';
+
+  @override
+  String get m0653 => 'Guarnición cruda necesaria';
+
+  @override
+  String get m0654 => 'Día económico';
+
+  @override
+  String get m0655 => 'Sirve la base de curry con arroz.';
+
+  @override
+  String get m0656 => 'Sirve con frutos rojos y semillas de chía.';
+
+  @override
+  String get m0657 => 'Sirve con frutos rojos.';
+
+  @override
+  String get m0658 =>
+      'Sirve con cottage cheese, pan crujiente y semillas de calabaza.';
+
+  @override
+  String get m0659 => 'Sirve con feta y tzatziki.';
+
+  @override
+  String get m0660 => 'Sirve con fruta.';
+
+  @override
+  String get m0661 => 'Sirve con pita, ensalada y salsa de yogur.';
+
+  @override
+  String get m0662 => 'Sirve con ensalada y aliño de yogur.';
+
+  @override
+  String get m0663 => 'Sirve con judías verdes y un poco de salsa de mostaza.';
+
+  @override
+  String get m0664 => 'Cocina pequeñas tortitas en una sartén antiadherente.';
+
+  @override
+  String get m0665 => 'Mantén tus comidas en orden.';
+
+  @override
+  String get m0666 => 'Tú defines cuántos gramos van en cada porción.';
+
+  @override
+  String get m0667 => 'Ponlo en un recipiente junto con el hummus.';
+
+  @override
+  String get m0668 =>
+      'Deja en la nevera toda la noche, remueve por la mañana y come.';
+
+  @override
+  String get m0669 => 'Añade el pollo y el aliño encima.';
+
+  @override
+  String get m0670 => 'Añade la fruta, la miel y las nueces encima.';
+
+  @override
+  String get m0671 => 'Añade el tomate y espolvorea semillas de calabaza.';
+
+  @override
+  String get m0672 => 'Añade el huevo encima y sirve fresco.';
+
+  @override
+  String get m0673 => 'Añade las fresas y las almendras encima.';
+
+  @override
+  String get m0674 => 'Ayer';
+
+  @override
+  String get m0675 => 'Leche';
+
+  @override
+  String get m0676 => 'Leche o bebida vegetal';
+
+  @override
+  String get m0677 => 'proteína de leche';
+
+  @override
+  String get m0678 => 'Enrolla y corta por la mitad.';
+
+  @override
+  String get m0679 => 'Pan crujiente integral';
+
+  @override
+  String get m0680 => 'Galletas integrales';
+
+  @override
+  String get m0681 => 'Pan integral';
+
+  @override
+  String get m0682 => 'Pita integral';
+
+  @override
+  String get m0683 => 'Pasta integral';
+
+  @override
+  String get m0684 => 'Tortilla integral';
+
+  @override
+  String get m0685 => 'Dividir cantidad total';
+
+  @override
+  String get m0686 => 'Día rendimiento';
+
+  @override
+  String get m0687 => 'Tema';
+
+  @override
+  String get m0688 => 'Elegir tema';
+
+  @override
+  String get m0689 => 'Temas (6)';
+
+  @override
+  String get m0690 => 'Día rápido';
+
+  @override
+  String get m0691 => 'Día bowl rápido';
+
+  @override
+  String get m0692 => 'Nombre del plan';
+
+  @override
+  String get m0693 => 'Organiza la cena antes de las prisas.';
+
+  @override
+  String get m0694 => 'Día planificado';
+
+  @override
+  String get m0695 => 'Planifica un día tranquilo y fuerte.';
+
+  @override
+  String get m0696 => 'Planifica, cocina y controla mejor';
+
+  @override
+  String get m0697 => 'ÍNDICE DE MASA CORPORAL (BMI)';
+
+  @override
+  String get m0698 => 'Pasta';
+
+  @override
+  String get m0699 => 'artículos';
+
+  @override
+  String get m0700 => 'Añadir artículo';
+
+  @override
+  String get m0701 => 'obtendrás un valor incorrecto.';
+
+  @override
+  String get m0702 => 'Día de energía limpia';
+
+  @override
+  String get m0703 => 'Día limpio';
+
+  @override
+  String get m0704 => 'Día ritmo limpio';
+
+  @override
+  String get m0705 => 'Tostada';
+
+  @override
+  String get m0706 => 'Más guardados, listas de compra y extras de peso';
+
+  @override
+  String get m0707 => 'Tofu';
+
+  @override
+  String get m0708 => 'Curry de tofu y garbanzos';
+
+  @override
+  String get m0709 => 'Bowl de cena con tofu y quinoa';
+
+  @override
+  String get m0710 => 'Noodle box de tofu y verduras';
+
+  @override
+  String get m0711 => 'huevo';
+
+  @override
+  String get m0712 => 'Huevo';
+
+  @override
+  String get m0713 => 'Tostada de huevo y aguacate';
+
+  @override
+  String get m0714 => 'Sartén de arroz y huevo para desayuno';
+
+  @override
+  String get m0715 => 'Arroz con huevo y verduras';
+
+  @override
+  String get m0716 => 'Semillas de calabaza';
+
+  @override
+  String get m0717 => 'Pimientos rellenos ligeros';
+
+  @override
+  String get m0718 => 'Rellena con pollo y ensalada.';
+
+  @override
+  String get m0719 => 'Rellena con la mezcla de carne y arroz.';
+
+  @override
+  String get m0720 => 'Rellena con la mezcla de pavo y alubias.';
+
+  @override
+  String get m0721 => 'Para ganar masa';
+
+  @override
+  String get m0722 => 'Para ganar masa: ';
+
+  @override
+  String get m0723 => 'Mañana empieza con la preparación de esta noche.';
+
+  @override
+  String get m0724 => 'Atún';
+
+  @override
+  String get m0725 => 'Ensalada de patata, alubias y atún';
+
+  @override
+  String get m0726 => 'Ensalada de pasta con atún y maíz';
+
+  @override
+  String get m0727 => 'Tostada de desayuno con atún';
+
+  @override
+  String get m0728 => 'Bocados crujientes de atún';
+
+  @override
+  String get m0729 => 'Eliminar';
+
+  @override
+  String get m0730 => 'Siguiente';
+
+  @override
+  String get m0731 => 'Mostrar más registros';
+
+  @override
+  String get m0732 => 'Tendencia';
+
+  @override
+  String get m0733 => 'Sobrepeso';
+
+  @override
+  String get m0734 => 'Sobrepeso';
+
+  @override
+  String get m0735 => 'Tritura 30-60 segundos hasta que quede cremoso.';
+
+  @override
+  String get m0736 => 'Requesón';
+
+  @override
+  String get m0737 => 'Bowl de requesón con frutos rojos';
+
+  @override
+  String get m0738 => 'Pancakes de avena con requesón';
+
+  @override
+  String get m0739 => 'Pancakes de avena con requesón preparados';
+
+  @override
+  String get m0740 => 'Tzatziki';
+
+  @override
+  String get m0741 => 'Pepino';
+
+  @override
+  String get m0742 => 'BIENVENIDO A MEALR';
+
+  @override
+  String get m0743 => 'Nuevo';
+
+  @override
+  String get m0744 => 'Nueva lista de compra';
+
+  @override
+  String get m0745 => 'Nuevo alimento';
+
+  @override
+  String get m0746 => 'Añadir nuevo alimento';
+
+  @override
+  String get m0747 => 'Nombre de la nueva lista';
+
+  @override
+  String get m0748 => 'Nuevo plan de meal prep';
+
+  @override
+  String get m0749 => 'Sedentario';
+
+  @override
+  String get m0750 => 'Cena';
+
+  @override
+  String get m0751 => 'Corta el bagel por la mitad y tuéstalo.';
+
+  @override
+  String get m0752 => 'Elige un tipo y mira sus planes diarios.';
+
+  @override
+  String get m0753 => 'Elige una comida y divídela en recipientes';
+
+  @override
+  String get m0754 => 'Elige un tipo de plan';
+
+  @override
+  String get m0755 =>
+      'Elige plato principal, guarnición y divídelos en recipientes';
+
+  @override
+  String get m0756 => 'Vegano';
+
+  @override
+  String get m0757 => 'Vegetariano';
+
+  @override
+  String get m0758 => 'Día fuerza veggie';
+
+  @override
+  String get m0759 => 'Versión 1.0.0';
+
+  @override
+  String get m0760 => 'pierde peso';
+
+  @override
+  String get m0761 => 'Claro';
+
+  @override
+  String get m0762 => 'Día relámpago';
+
+  @override
+  String get m0763 =>
+      'resta 300-500 kcal. Un déficit diario de 500 kcal equivale a unos 0,5 kg por semana.\n\n';
+
+  @override
+  String get m0764 => 'Alubias rojas';
+
+  @override
+  String get m0765 => 'Verduras para wok';
+
+  @override
+  String get m0766 => 'Cierra el día con algo nutritivo.';
+
+  @override
+  String get m0767 => 'Copos de avena';
+
+  @override
+  String get m0768 => 'Harina de avena';
+
+  @override
+  String get m0769 => 'Termina el día satisfecho, sin prisas.';
+
+  @override
+  String get m0770 => 'Cierra el día con algo nutritivo.';
+
+  @override
+  String get m0771 => 'Cierra el día con cuidado.';
+
+  @override
+  String get m0772 => 'Día foco verde';
+
+  @override
+  String get m0773 => 'Día verde activo';
+
+  @override
+  String get m0774 => 'Día verde';
+
+  @override
+  String get m0775 => 'Judías verdes';
+
+  @override
+  String get m0776 => 'Guisantes';
+
+  @override
+  String get m0777 => 'Ensalada verde';
+
+  @override
+  String get m0778 => 'Tortilla de verduras';
+
+  @override
+  String get m0779 => 'Pan rallado';
+>>>>>>> 7ea53f7 (mehet55)
 }
