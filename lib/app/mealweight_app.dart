@@ -54,7 +54,7 @@ class _MealWeightAppState extends State<MealWeightApp>
           final p = state.palette;
           return CupertinoApp(
             debugShowCheckedModeBanner: false,
-            title: 'Mealr',
+            title: 'Mealful',
             locale: state.localeOverride,
             supportedLocales: AppLocalizations.supportedLocales,
             localizationsDelegates: const [

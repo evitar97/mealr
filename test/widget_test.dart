@@ -4,12 +4,12 @@ import 'package:mealweight_flutter/app/arb_translations.dart';
 import 'package:mealweight_flutter/app/mealweight_app.dart';
 
 void main() {
-  testWidgets('Mealr app renders the shell', (WidgetTester tester) async {
+  testWidgets('Mealful app renders the shell', (WidgetTester tester) async {
     await tester.pumpWidget(const MealWeightApp());
     await tester.pump(const Duration(milliseconds: 700));
     await tester.pump();
 
-    expect(find.text('Mealr'), findsWidgets);
+    expect(find.text('Mealful'), findsWidgets);
     expect(find.text('Start'), findsOneWidget);
   });
 
@@ -57,5 +57,15 @@ void main() {
     expect(hungarian['Dew'], 'Harmat');
     expect(arbTranslations['de']!['Spinach'], 'Spinat');
     expect(arbTranslations['es']!['Dew'], 'Rocío');
+    expect(hungarian['ÜDV A MEALFUL-BEN'], 'ÜDV A MEALFUL-BEN');
+    expect(arbTranslations['en']!['ÜDV A MEALFUL-BEN'], 'WELCOME TO MEALFUL');
+    expect(
+      arbTranslations['de']!['HOGYAN SEGÍT A MEALFUL?'],
+      'WIE HILFT MEALFUL?',
+    );
+    expect(
+      arbTranslations['es']!['HOGYAN SEGÍT A MEALFUL?'],
+      '¿CÓMO AYUDA MEALFUL?',
+    );
   });
 }

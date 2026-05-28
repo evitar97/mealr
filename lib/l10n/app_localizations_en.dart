@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Mealr';
+  String get appTitle => 'Mealful';
 
   @override
   String get m0001 =>
@@ -142,15 +142,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get m0041 =>
-      'Mealr helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.';
+      'Mealful helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.';
 
   @override
   String get m0042 =>
-      'Mealr saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.';
+      'Mealful saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.';
 
   @override
   String get m0043 =>
-      'Mealr brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.';
+      'Mealful brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.';
 
   @override
   String get m0044 =>
@@ -884,7 +884,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get m0284 =>
-      'if 250 g goes into your container, Mealr calculates that it equals about 313 g of raw ingredients.';
+      'if 250 g goes into your container, Mealful calculates that it equals about 313 g of raw ingredients.';
 
   @override
   String get m0285 =>
@@ -942,7 +942,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get m0301 => 'How does it work?';
 
   @override
-  String get m0302 => 'HOW DOES MEALR HELP?';
+  String get m0302 => 'HOW DOES MEALFUL HELP?';
 
   @override
   String get m0303 => 'Add';
@@ -1293,7 +1293,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get m0413 =>
-      'It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealr still calculates the raw equivalent.';
+      'It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealful still calculates the raw equivalent.';
 
   @override
   String get m0414 => 'Couscous';
@@ -1421,7 +1421,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get m0454 => 'Meal Prepping';
 
   @override
-  String get m0455 => 'Mealr Pro';
+  String get m0455 => 'Mealful Pro';
 
   @override
   String get m0456 => 'Mediterranean turkey bulgur';
@@ -2316,7 +2316,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get m0750 => 'Cucumber';
 
   @override
-  String get m0751 => 'WELCOME TO MEALR';
+  String get m0751 => 'WELCOME TO MEALFUL';
 
   @override
   String get m0752 => 'New';

@@ -1,6 +1,6 @@
 {
   "@@locale": "de",
-  "appTitle": "Mealr",
+  "appTitle": "Mealful",
   "@appTitle": {
     "description": "Application title"
   },
@@ -164,17 +164,17 @@
   "@m0040": {
     "description": "Source text: A marhahúst pirítsd le, majd add hozzá a zöldségeket."
   },
-  "m0041": "Mealr hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.",
+  "m0041": "Mealful hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.",
   "@m0041": {
-    "description": "Source text: A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet."
+    "description": "Source text: A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet."
   },
-  "m0042": "Mealr erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.",
+  "m0042": "Mealful erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.",
   "@m0042": {
-    "description": "Source text: A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag."
+    "description": "Source text: A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag."
   },
-  "m0043": "Mealr bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.",
+  "m0043": "Mealful bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.",
   "@m0043": {
-    "description": "Source text: A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod."
+    "description": "Source text: A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod."
   },
   "m0044": "Du kannst jederzeit zu gespeicherten Essen zurückkehren - täglich änderst du nur die Portion.",
   "@m0044": {
@@ -1136,9 +1136,9 @@
   "@m0283": {
     "description": "Source text: Gyors rutin nap"
   },
-  "m0284": "wenn 250 g in deine Box kommen, berechnet Mealr, dass das etwa 313 g rohen Zutaten entspricht.",
+  "m0284": "wenn 250 g in deine Box kommen, berechnet Mealful, dass das etwa 313 g rohen Zutaten entspricht.",
   "@m0284": {
-    "description": "Source text: ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg."
+    "description": "Source text: ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg."
   },
   "m0285": "Wenn du nur Reis, Bulgur oder Pasta als Beilage kochst, funktioniert es genauso: roher Reis 300 g, gekochter Reis 820 g, Portion 180 g. Die App gibt das Rohreis-Äquivalent aus.",
   "@m0285": {
@@ -1208,9 +1208,9 @@
   "@m0301": {
     "description": "Source text: Hogyan működik?"
   },
-  "m0302": "WIE HILFT MEALR?",
+  "m0302": "WIE HILFT MEALFUL?",
   "@m0302": {
-    "description": "Source text: HOGYAN SEGÍT A MEALR?"
+    "description": "Source text: HOGYAN SEGÍT A MEALFUL?"
   },
   "m0303": "Hinzufügen",
   "@m0303": {
@@ -1652,9 +1652,9 @@
   "@m0412": {
     "description": "Source text: Kukorica"
   },
-  "m0413": "Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealr berechnet trotzdem das Rohäquivalent.",
+  "m0413": "Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealful berechnet trotzdem das Rohäquivalent.",
   "@m0413": {
-    "description": "Source text: Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki."
+    "description": "Source text: Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki."
   },
   "m0414": "Couscous",
   "@m0414": {
@@ -1820,9 +1820,9 @@
   "@m0454": {
     "description": "Source text: Meal preppelés"
   },
-  "m0455": "Mealr Pro",
+  "m0455": "Mealful Pro",
   "@m0455": {
-    "description": "Source text: Mealr Pro"
+    "description": "Source text: Mealful Pro"
   },
   "m0456": "Mediterraner Puten-Bulgur",
   "@m0456": {
@@ -3004,9 +3004,9 @@
   "@m0750": {
     "description": "Source text: Uborka"
   },
-  "m0751": "WILLKOMMEN BEI MEALR",
+  "m0751": "WILLKOMMEN BEI MEALFUL",
   "@m0751": {
-    "description": "Source text: ÜDV A MEALR-BEN"
+    "description": "Source text: ÜDV A MEALFUL-BEN"
   },
   "m0752": "Neu",
   "@m0752": {

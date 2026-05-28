@@ -40,7 +40,7 @@ for (const locale of locales) {
   fallbackReport[locale] = [];
   const arb = {
     '@@locale': locale,
-    appTitle: 'Mealr',
+    appTitle: 'Mealful',
     '@appTitle': { description: 'Application title' },
   };
   sources.forEach((source, index) => {

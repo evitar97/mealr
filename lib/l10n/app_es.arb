@@ -1,6 +1,6 @@
 {
   "@@locale": "es",
-  "appTitle": "Mealr",
+  "appTitle": "Mealful",
   "@appTitle": {
     "description": "Application title"
   },
@@ -164,17 +164,17 @@
   "@m0040": {
     "description": "Source text: A marhahúst pirítsd le, majd add hozzá a zöldségeket."
   },
-  "m0041": "Mealr te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.",
+  "m0041": "Mealful te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.",
   "@m0041": {
-    "description": "Source text: A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet."
+    "description": "Source text: A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet."
   },
-  "m0042": "Mealr evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.",
+  "m0042": "Mealful evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.",
   "@m0042": {
-    "description": "Source text: A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag."
+    "description": "Source text: A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag."
   },
-  "m0043": "Mealr reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.",
+  "m0043": "Mealful reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.",
   "@m0043": {
-    "description": "Source text: A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod."
+    "description": "Source text: A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod."
   },
   "m0044": "Puedes volver a los alimentos guardados cuando quieras; cada día solo ajustas la porción medida.",
   "@m0044": {
@@ -1136,9 +1136,9 @@
   "@m0283": {
     "description": "Source text: Gyors rutin nap"
   },
-  "m0284": "si pones 250 g en tu recipiente, Mealr calcula que equivale a unos 313 g de ingredientes crudos.",
+  "m0284": "si pones 250 g en tu recipiente, Mealful calcula que equivale a unos 313 g de ingredientes crudos.",
   "@m0284": {
-    "description": "Source text: ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg."
+    "description": "Source text: ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg."
   },
   "m0285": "Si cocinas solo arroz, bulgur o pasta como guarnición, funciona igual: arroz crudo 300 g, arroz cocido 820 g, porción 180 g. La app da el equivalente de arroz crudo.",
   "@m0285": {
@@ -1208,9 +1208,9 @@
   "@m0301": {
     "description": "Source text: Hogyan működik?"
   },
-  "m0302": "¿CÓMO AYUDA MEALR?",
+  "m0302": "¿CÓMO AYUDA MEALFUL?",
   "@m0302": {
-    "description": "Source text: HOGYAN SEGÍT A MEALR?"
+    "description": "Source text: HOGYAN SEGÍT A MEALFUL?"
   },
   "m0303": "Añadir",
   "@m0303": {
@@ -1652,9 +1652,9 @@
   "@m0412": {
     "description": "Source text: Kukorica"
   },
-  "m0413": "Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealr sigue calculando el equivalente crudo.",
+  "m0413": "Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealful sigue calculando el equivalente crudo.",
   "@m0413": {
-    "description": "Source text: Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki."
+    "description": "Source text: Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki."
   },
   "m0414": "Cuscús",
   "@m0414": {
@@ -1820,9 +1820,9 @@
   "@m0454": {
     "description": "Source text: Meal preppelés"
   },
-  "m0455": "Mealr Pro",
+  "m0455": "Mealful Pro",
   "@m0455": {
-    "description": "Source text: Mealr Pro"
+    "description": "Source text: Mealful Pro"
   },
   "m0456": "Bulgur mediterráneo con pavo",
   "@m0456": {
@@ -3004,9 +3004,9 @@
   "@m0750": {
     "description": "Source text: Uborka"
   },
-  "m0751": "BIENVENIDO A MEALR",
+  "m0751": "BIENVENIDO A MEALFUL",
   "@m0751": {
-    "description": "Source text: ÜDV A MEALR-BEN"
+    "description": "Source text: ÜDV A MEALFUL-BEN"
   },
   "m0752": "Nuevo",
   "@m0752": {

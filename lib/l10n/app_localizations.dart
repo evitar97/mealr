@@ -105,7 +105,7 @@ abstract class AppLocalizations {
   /// Application title
   ///
   /// In en, this message translates to:
-  /// **'Mealr'**
+  /// **'Mealful'**
   String get appTitle;
 
   /// Source text:  – de nem a kalóriájából. Ha a kész súlyt írod be a kalóriaszámlálóba,
@@ -349,22 +349,22 @@ abstract class AppLocalizations {
   /// **'Brown the beef, then add the vegetables.'**
   String get m0040;
 
-  /// Source text: A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.
+  /// Source text: A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.
   ///
   /// In en, this message translates to:
-  /// **'Mealr helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.'**
+  /// **'Mealful helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.'**
   String get m0041;
 
-  /// Source text: A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.
+  /// Source text: A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.
   ///
   /// In en, this message translates to:
-  /// **'Mealr saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.'**
+  /// **'Mealful saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.'**
   String get m0042;
 
-  /// Source text: A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.
+  /// Source text: A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.
   ///
   /// In en, this message translates to:
-  /// **'Mealr brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.'**
+  /// **'Mealful brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.'**
   String get m0043;
 
   /// Source text: A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.
@@ -1810,10 +1810,10 @@ abstract class AppLocalizations {
   /// **'Quick Routine Day'**
   String get m0283;
 
-  /// Source text: ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.
+  /// Source text: ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.
   ///
   /// In en, this message translates to:
-  /// **'if 250 g goes into your container, Mealr calculates that it equals about 313 g of raw ingredients.'**
+  /// **'if 250 g goes into your container, Mealful calculates that it equals about 313 g of raw ingredients.'**
   String get m0284;
 
   /// Source text: Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.
@@ -1918,10 +1918,10 @@ abstract class AppLocalizations {
   /// **'How does it work?'**
   String get m0301;
 
-  /// Source text: HOGYAN SEGÍT A MEALR?
+  /// Source text: HOGYAN SEGÍT A MEALFUL?
   ///
   /// In en, this message translates to:
-  /// **'HOW DOES MEALR HELP?'**
+  /// **'HOW DOES MEALFUL HELP?'**
   String get m0302;
 
   /// Source text: Hozzáadás
@@ -2585,10 +2585,10 @@ abstract class AppLocalizations {
   /// **'Corn'**
   String get m0412;
 
-  /// Source text: Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.
+  /// Source text: Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.
   ///
   /// In en, this message translates to:
-  /// **'It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealr still calculates the raw equivalent.'**
+  /// **'It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealful still calculates the raw equivalent.'**
   String get m0413;
 
   /// Source text: Kuszkusz
@@ -2837,10 +2837,10 @@ abstract class AppLocalizations {
   /// **'Meal Prepping'**
   String get m0454;
 
-  /// Source text: Mealr Pro
+  /// Source text: Mealful Pro
   ///
   /// In en, this message translates to:
-  /// **'Mealr Pro'**
+  /// **'Mealful Pro'**
   String get m0455;
 
   /// Source text: Mediterrán pulykás bulgur
@@ -4615,10 +4615,10 @@ abstract class AppLocalizations {
   /// **'Cucumber'**
   String get m0750;
 
-  /// Source text: ÜDV A MEALR-BEN
+  /// Source text: ÜDV A MEALFUL-BEN
   ///
   /// In en, this message translates to:
-  /// **'WELCOME TO MEALR'**
+  /// **'WELCOME TO MEALFUL'**
   String get m0751;
 
   /// Source text: Új

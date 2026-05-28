@@ -9,7 +9,7 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get appTitle => 'Mealr';
+  String get appTitle => 'Mealful';
 
   @override
   String get m0001 =>
@@ -143,15 +143,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get m0041 =>
-      'Mealr hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.';
+      'Mealful hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.';
 
   @override
   String get m0042 =>
-      'Mealr erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.';
+      'Mealful erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.';
 
   @override
   String get m0043 =>
-      'Mealr bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.';
+      'Mealful bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.';
 
   @override
   String get m0044 =>
@@ -895,7 +895,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get m0284 =>
-      'wenn 250 g in deine Box kommen, berechnet Mealr, dass das etwa 313 g rohen Zutaten entspricht.';
+      'wenn 250 g in deine Box kommen, berechnet Mealful, dass das etwa 313 g rohen Zutaten entspricht.';
 
   @override
   String get m0285 =>
@@ -954,7 +954,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get m0301 => 'Wie funktioniert es?';
 
   @override
-  String get m0302 => 'WIE HILFT MEALR?';
+  String get m0302 => 'WIE HILFT MEALFUL?';
 
   @override
   String get m0303 => 'Hinzufügen';
@@ -1304,7 +1304,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get m0413 =>
-      'Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealr berechnet trotzdem das Rohäquivalent.';
+      'Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealful berechnet trotzdem das Rohäquivalent.';
 
   @override
   String get m0414 => 'Couscous';
@@ -1432,7 +1432,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get m0454 => 'Meal Prep';
 
   @override
-  String get m0455 => 'Mealr Pro';
+  String get m0455 => 'Mealful Pro';
 
   @override
   String get m0456 => 'Mediterraner Puten-Bulgur';
@@ -2333,7 +2333,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get m0750 => 'Gurke';
 
   @override
-  String get m0751 => 'WILLKOMMEN BEI MEALR';
+  String get m0751 => 'WILLKOMMEN BEI MEALFUL';
 
   @override
   String get m0752 => 'Neu';

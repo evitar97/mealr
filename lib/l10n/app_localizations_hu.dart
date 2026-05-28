@@ -9,7 +9,7 @@ class AppLocalizationsHu extends AppLocalizations {
   AppLocalizationsHu([String locale = 'hu']) : super(locale);
 
   @override
-  String get appTitle => 'Mealr';
+  String get appTitle => 'Mealful';
 
   @override
   String get m0001 =>
@@ -141,15 +141,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get m0041 =>
-      'A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.';
+      'A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.';
 
   @override
   String get m0042 =>
-      'A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.';
+      'A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.';
 
   @override
   String get m0043 =>
-      'A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.';
+      'A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.';
 
   @override
   String get m0044 =>
@@ -890,7 +890,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get m0284 =>
-      'ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.';
+      'ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.';
 
   @override
   String get m0285 =>
@@ -949,7 +949,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get m0301 => 'Hogyan működik?';
 
   @override
-  String get m0302 => 'HOGYAN SEGÍT A MEALR?';
+  String get m0302 => 'HOGYAN SEGÍT A MEALFUL?';
 
   @override
   String get m0303 => 'Hozzáadás';
@@ -1298,7 +1298,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get m0413 =>
-      'Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.';
+      'Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.';
 
   @override
   String get m0414 => 'Kuszkusz';
@@ -1426,7 +1426,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get m0454 => 'Meal preppelés';
 
   @override
-  String get m0455 => 'Mealr Pro';
+  String get m0455 => 'Mealful Pro';
 
   @override
   String get m0456 => 'Mediterrán pulykás bulgur';
@@ -2319,7 +2319,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get m0750 => 'Uborka';
 
   @override
-  String get m0751 => 'ÜDV A MEALR-BEN';
+  String get m0751 => 'ÜDV A MEALFUL-BEN';
 
   @override
   String get m0752 => 'Új';

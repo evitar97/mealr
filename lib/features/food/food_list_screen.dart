@@ -7092,7 +7092,7 @@ class ProUpsellCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        tx(context, 'Mealr Pro'),
+                        tx(context, 'Mealful Pro'),
                         style: TextStyle(
                           color: p.text,
                           fontSize: 18,

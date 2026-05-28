@@ -20,7 +20,7 @@ class AppLogo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Mealr',
+              'Mealful',
               style: MealText.largeTitle(
                 p.text,
               ).copyWith(height: 1, letterSpacing: 0),

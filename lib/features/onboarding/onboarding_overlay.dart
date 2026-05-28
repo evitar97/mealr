@@ -136,7 +136,7 @@ class _OnboardingEntryGate extends StatelessWidget {
                     const MealWeightMark(size: 112, radius: 30),
                     const SizedBox(height: 18),
                     Text(
-                      'Mealr',
+                      'Mealful',
                       style: MealText.largeTitle(
                         p.text,
                       ).copyWith(fontSize: 34, fontWeight: FontWeight.w700),
@@ -257,7 +257,7 @@ class _Header extends StatelessWidget {
         const MealWeightMark(size: 64, radius: 20),
         const SizedBox(height: 14),
         Text(
-          'Mealr',
+          'Mealful',
           style: MealText.largeTitle(
             p.text,
           ).copyWith(fontWeight: FontWeight.w600),
@@ -280,11 +280,11 @@ class _WelcomePage extends StatelessWidget {
     return _OnboardPage(
       children: [
         _HeroCard(
-          eyebrow: tx(context, 'ÜDV A MEALR-BEN'),
+          eyebrow: tx(context, 'ÜDV A MEALFUL-BEN'),
           title: tx(context, 'Kezdjük egyszerűen.'),
           text: tx(
             context,
-            'A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.',
+            'A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.',
           ),
           icon: CupertinoIcons.sparkles,
         ),
@@ -313,7 +313,7 @@ class _IntroPage extends StatelessWidget {
           title: tx(context, 'A főtt étel súlya változik, a kalória nem.'),
           text: tx(
             context,
-            'A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.',
+            'A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.',
           ),
           icon: CupertinoIcons.chart_bar_fill,
         ),
@@ -364,7 +364,7 @@ class _ProcessPage extends StatelessWidget {
                 title: tx(context, 'Kimért adag'),
                 text: tx(
                   context,
-                  'ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.',
+                  'ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.',
                 ),
               ),
             ],
@@ -375,7 +375,7 @@ class _ProcessPage extends StatelessWidget {
           title: tx(context, 'Köret külön vezetve'),
           text: tx(
             context,
-            'Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.',
+            'Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.',
           ),
         ),
       ],

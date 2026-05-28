@@ -207,7 +207,8 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  String get subscriptionPlanLabel => isPro ? 'Mealr Pro' : _localizedFreePlan;
+  String get subscriptionPlanLabel =>
+      isPro ? 'Mealful Pro' : _localizedFreePlan;
 
   String get subscriptionExpiryLabel {
     if (!isPro || proExpiresAt == null) return _localizedNoSubscription;

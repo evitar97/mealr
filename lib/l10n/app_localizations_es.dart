@@ -9,7 +9,7 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get appTitle => 'Mealr';
+  String get appTitle => 'Mealful';
 
   @override
   String get m0001 =>
@@ -141,15 +141,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get m0041 =>
-      'Mealr te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.';
+      'Mealful te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.';
 
   @override
   String get m0042 =>
-      'Mealr evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.';
+      'Mealful evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.';
 
   @override
   String get m0043 =>
-      'Mealr reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.';
+      'Mealful reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.';
 
   @override
   String get m0044 =>
@@ -888,7 +888,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get m0284 =>
-      'si pones 250 g en tu recipiente, Mealr calcula que equivale a unos 313 g de ingredientes crudos.';
+      'si pones 250 g en tu recipiente, Mealful calcula que equivale a unos 313 g de ingredientes crudos.';
 
   @override
   String get m0285 =>
@@ -947,7 +947,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get m0301 => '¿Cómo funciona?';
 
   @override
-  String get m0302 => '¿CÓMO AYUDA MEALR?';
+  String get m0302 => '¿CÓMO AYUDA MEALFUL?';
 
   @override
   String get m0303 => 'Añadir';
@@ -1296,7 +1296,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get m0413 =>
-      'Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealr sigue calculando el equivalente crudo.';
+      'Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealful sigue calculando el equivalente crudo.';
 
   @override
   String get m0414 => 'Cuscús';
@@ -1423,7 +1423,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get m0454 => 'Meal prep';
 
   @override
-  String get m0455 => 'Mealr Pro';
+  String get m0455 => 'Mealful Pro';
 
   @override
   String get m0456 => 'Bulgur mediterráneo con pavo';
@@ -2320,7 +2320,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get m0750 => 'Pepino';
 
   @override
-  String get m0751 => 'BIENVENIDO A MEALR';
+  String get m0751 => 'BIENVENIDO A MEALFUL';
 
   @override
   String get m0752 => 'Nuevo';

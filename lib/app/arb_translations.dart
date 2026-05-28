@@ -64,12 +64,12 @@ const arbTranslations = <String, Map<String, String>>{
     "A little prep goes a long way.": "A little prep goes a long way.",
     "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
         "Brown the beef, then add the vegetables.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "Mealr helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "Mealr saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "Mealr brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.",
+    "A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
+        "Mealful helps you avoid mental math while cooking, portioning, and meal prepping. In a few short steps, we’ll show you how to get the most out of it.",
+    "A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
+        "Mealful saves you from mental math when food weighs less or more after cooking. Enter raw, cooked, and served weight, and the app tells you the raw ingredient equivalent of your portion.",
+    "A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
+        "Mealful brings cooking, portioning, and goal-tracking tools into one place so you do not have to jump between apps.",
     "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
         "You can return to saved foods anytime - daily you only adjust the served amount.",
     "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
@@ -358,8 +358,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Gyors": "Quick",
     "Gyors fókusz nap": "Quick Focus Day",
     "Gyors rutin nap": "Quick Routine Day",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "if 250 g goes into your container, Mealr calculates that it equals about 313 g of raw ingredients.",
+    "ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
+        "if 250 g goes into your container, Mealful calculates that it equals about 313 g of raw ingredients.",
     "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
         "If you cook only rice, bulgur, or pasta as a side, it works the same way: raw rice 300 g, cooked rice 820 g, served portion 180 g. The app gives the raw rice equivalent.",
     "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
@@ -383,7 +383,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Heti táplálkozási pillanatkép": "Weekly nutrition snapshot",
     "HOGYAN HASZNÁLD?": "HOW TO USE IT?",
     "Hogyan működik?": "How does it work?",
-    "HOGYAN SEGÍT A MEALR?": "HOW DOES MEALR HELP?",
+    "HOGYAN SEGÍT A MEALFUL?": "HOW DOES MEALFUL HELP?",
     "Hozzáadás": "Add",
     "Hozzáadva": "Added",
     "Hozzávaló": "Ingredient",
@@ -522,8 +522,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Közepesen aktív (heti 3–5x)": "Moderately active (3-5x/week)",
     "Krémsajt": "Cream cheese",
     "Kukorica": "Corn",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealr still calculates the raw equivalent.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.":
+        "It works the same for separate sides: if a raw ingredient absorbs water while cooking, the cooked weight can be higher, but that does not add calories. Mealful still calculates the raw equivalent.",
     "Kuszkusz": "Couscous",
     "Lassíts, egyél jól, pihenj könnyen.": "Slow down, eat well, rest easy.",
     "Lassú tűzön süsd készre, amíg a közepe is megszilárdul.":
@@ -570,7 +570,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Meal Prep tervező": "Meal Prep planner",
     "Meal Prep+": "Meal Prep+",
     "Meal preppelés": "Meal Prepping",
-    "Mealr Pro": "Mealr Pro",
+    "Mealful Pro": "Mealful Pro",
     "Mediterrán pulykás bulgur": "Mediterranean turkey bulgur",
     "Medium": "Medium",
     "Még nincs elmentett bevásárlólistád.":
@@ -908,7 +908,7 @@ const arbTranslations = <String, Map<String, String>>{
         "Cottage cheese oat pancakes cooked ahead",
     "Tzatziki": "Tzatziki",
     "Uborka": "Cucumber",
-    "ÜDV A MEALR-BEN": "WELCOME TO MEALR",
+    "ÜDV A MEALFUL-BEN": "WELCOME TO MEALFUL",
     "Új": "New",
     "Új bevásárlólista": "New shopping list",
     "Új étel": "New food",
@@ -1014,12 +1014,12 @@ const arbTranslations = <String, Map<String, String>>{
     "A little prep goes a long way.": "Egy kis előkészület sokat számít.",
     "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
         "A marhahúst pirítsd le, majd add hozzá a zöldségeket.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.",
+    "A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
+        "A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.",
+    "A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
+        "A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.",
+    "A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
+        "A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.",
     "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
         "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.",
     "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
@@ -1315,8 +1315,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Gyors": "Gyors",
     "Gyors fókusz nap": "Gyors fókusz nap",
     "Gyors rutin nap": "Gyors rutin nap",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.",
+    "ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
+        "ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.",
     "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
         "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.",
     "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
@@ -1340,7 +1340,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Heti táplálkozási pillanatkép": "Heti táplálkozási pillanatkép",
     "HOGYAN HASZNÁLD?": "HOGYAN HASZNÁLD?",
     "Hogyan működik?": "Hogyan működik?",
-    "HOGYAN SEGÍT A MEALR?": "HOGYAN SEGÍT A MEALR?",
+    "HOGYAN SEGÍT A MEALFUL?": "HOGYAN SEGÍT A MEALFUL?",
     "Hozzáadás": "Hozzáadás",
     "Hozzáadva": "Hozzáadva",
     "Hozzávaló": "Hozzávaló",
@@ -1480,8 +1480,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Közepesen aktív (heti 3–5x)": "Közepesen aktív (heti 3–5x)",
     "Krémsajt": "Krémsajt",
     "Kukorica": "Kukorica",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.":
+        "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.",
     "Kuszkusz": "Kuszkusz",
     "Lassíts, egyél jól, pihenj könnyen.":
         "Lassíts, egyél jól, pihenj könnyen.",
@@ -1530,7 +1530,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Meal Prep tervező": "Meal Prep tervező",
     "Meal Prep+": "Meal Prep+",
     "Meal preppelés": "Meal preppelés",
-    "Mealr Pro": "Mealr Pro",
+    "Mealful Pro": "Mealful Pro",
     "Mediterrán pulykás bulgur": "Mediterrán pulykás bulgur",
     "Medium": "Közepes",
     "Még nincs elmentett bevásárlólistád.":
@@ -1871,7 +1871,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Túrós zabpalacsinta előre sütve": "Túrós zabpalacsinta előre sütve",
     "Tzatziki": "Tzatziki",
     "Uborka": "Uborka",
-    "ÜDV A MEALR-BEN": "ÜDV A MEALR-BEN",
+    "ÜDV A MEALFUL-BEN": "ÜDV A MEALFUL-BEN",
     "Új": "Új",
     "Új bevásárlólista": "Új bevásárlólista",
     "Új étel": "Új étel",
@@ -1978,12 +1978,12 @@ const arbTranslations = <String, Map<String, String>>{
     "A little prep goes a long way.": "Ein wenig Vorbereitung hilft viel.",
     "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
         "Brate das Rindfleisch an und gib dann das Gemüse dazu.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "Mealr hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "Mealr erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "Mealr bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.",
+    "A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
+        "Mealful hilft dir, beim Kochen, Portionieren und Meal Prep nicht im Kopf rechnen zu müssen. In ein paar kurzen Schritten zeigen wir dir, wie du es optimal nutzt.",
+    "A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
+        "Mealful erspart Kopfrechnen, wenn Essen nach dem Kochen weniger oder mehr wiegt. Gib Rohgewicht, gekochtes Gewicht und Portion ein, und die App zeigt das Rohäquivalent deiner Portion.",
+    "A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
+        "Mealful bündelt Tools fürs Kochen, Portionieren und Zieltracking an einem Ort, damit du nicht zwischen mehreren Apps wechseln musst.",
     "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
         "Du kannst jederzeit zu gespeicherten Essen zurückkehren - täglich änderst du nur die Portion.",
     "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
@@ -2277,8 +2277,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Gyors": "Schnell",
     "Gyors fókusz nap": "Schneller-Fokus-Tag",
     "Gyors rutin nap": "Schnelle-Routine-Tag",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "wenn 250 g in deine Box kommen, berechnet Mealr, dass das etwa 313 g rohen Zutaten entspricht.",
+    "ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
+        "wenn 250 g in deine Box kommen, berechnet Mealful, dass das etwa 313 g rohen Zutaten entspricht.",
     "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
         "Wenn du nur Reis, Bulgur oder Pasta als Beilage kochst, funktioniert es genauso: roher Reis 300 g, gekochter Reis 820 g, Portion 180 g. Die App gibt das Rohreis-Äquivalent aus.",
     "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
@@ -2303,7 +2303,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Heti táplálkozási pillanatkép": "Wöchentlicher Ernährungsschnappschuss",
     "HOGYAN HASZNÁLD?": "WIE VERWENDEST DU ES?",
     "Hogyan működik?": "Wie funktioniert es?",
-    "HOGYAN SEGÍT A MEALR?": "WIE HILFT MEALR?",
+    "HOGYAN SEGÍT A MEALFUL?": "WIE HILFT MEALFUL?",
     "Hozzáadás": "Hinzufügen",
     "Hozzáadva": "Hinzugefügt",
     "Hozzávaló": "Zutat",
@@ -2445,8 +2445,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Közepesen aktív (heti 3–5x)": "Mäßig aktiv (3-5x/Woche)",
     "Krémsajt": "Frischkäse",
     "Kukorica": "Mais",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealr berechnet trotzdem das Rohäquivalent.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.":
+        "Bei separaten Beilagen funktioniert es genauso: Wenn eine rohe Zutat beim Kochen Wasser aufnimmt, kann das fertige Gewicht höher sein, aber dadurch entstehen keine zusätzlichen Kalorien. Mealful berechnet trotzdem das Rohäquivalent.",
     "Kuszkusz": "Couscous",
     "Lassíts, egyél jól, pihenj könnyen.":
         "Werde langsamer, iss gut, ruh dich aus.",
@@ -2496,7 +2496,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Meal Prep tervező": "Meal-Prep-Planer",
     "Meal Prep+": "Meal Prep+",
     "Meal preppelés": "Meal Prep",
-    "Mealr Pro": "Mealr Pro",
+    "Mealful Pro": "Mealful Pro",
     "Mediterrán pulykás bulgur": "Mediterraner Puten-Bulgur",
     "Medium": "Mittel",
     "Még nincs elmentett bevásárlólistád.":
@@ -2836,7 +2836,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Túrós zabpalacsinta előre sütve": "Vorgebackene Quark-Hafer-Pancakes",
     "Tzatziki": "Tzatziki",
     "Uborka": "Gurke",
-    "ÜDV A MEALR-BEN": "WILLKOMMEN BEI MEALR",
+    "ÜDV A MEALFUL-BEN": "WILLKOMMEN BEI MEALFUL",
     "Új": "Neu",
     "Új bevásárlólista": "Neue Einkaufsliste",
     "Új étel": "Neues Essen",
@@ -2946,12 +2946,12 @@ const arbTranslations = <String, Map<String, String>>{
     "A little prep goes a long way.": "Un poco de preparación ayuda mucho.",
     "A marhahúst pirítsd le, majd add hozzá a zöldségeket.":
         "Dora la ternera y añade las verduras.",
-    "A Mealr abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
-        "Mealr te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.",
-    "A Mealr azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
-        "Mealr evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.",
-    "A Mealr egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
-        "Mealr reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.",
+    "A Mealful abban segít, hogy főzés, adagolás és meal prep közben ne kelljen fejben számolgatnod. Pár rövid lépésben megmutatjuk, hogyan hozd ki belőle a legtöbbet.":
+        "Mealful te ayuda a evitar cálculos mentales al cocinar, dividir porciones y preparar meal prep. En unos pasos breves te mostramos cómo aprovecharlo mejor.",
+    "A Mealful azért kell, hogy ne kelljen fejben számolgatnod, amikor főzés után kevesebb vagy több lesz az étel tömege. Beírod a nyers, kész és kimért súlyt, az app pedig megmondja, mennyi nyers alapanyagnak felel meg az adag.":
+        "Mealful evita cálculos mentales cuando la comida pesa menos o más después de cocinar. Introduce peso crudo, cocido y porción, y la app te dice el equivalente crudo de tu ración.",
+    "A Mealful egy helyre gyűjti a főzéshez, adagoláshoz és célkövetéshez hasznos eszközöket, hogy ne több app között kelljen ugrálnod.":
+        "Mealful reúne herramientas para cocinar, porcionar y seguir objetivos en un solo lugar, para no saltar entre varias apps.",
     "A mentett ételekhez bármikor visszatérhetsz – naponta csak a kimért adagot kell módosítani.":
         "Puedes volver a los alimentos guardados cuando quieras; cada día solo ajustas la porción medida.",
     "A normál BMI tartomány 18.5–24.9. Egészséges testsúlyon vagy!":
@@ -3246,8 +3246,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Gyors": "Rápido",
     "Gyors fókusz nap": "Día foco rápido",
     "Gyors rutin nap": "Día rutina rápida",
-    "ha a dobozodba 250 g kerül, a Mealr kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
-        "si pones 250 g en tu recipiente, Mealr calcula que equivale a unos 313 g de ingredientes crudos.",
+    "ha a dobozodba 250 g kerül, a Mealful kiszámolja, hogy ez kb. 313 g nyers alapanyagnak felel meg.":
+        "si pones 250 g en tu recipiente, Mealful calcula que equivale a unos 313 g de ingredientes crudos.",
     "Ha csak rizst, bulgurt vagy tésztát főzöl köretnek, ugyanígy működik: nyers rizs 300 g, kész rizs 820 g, kimért adag 180 g. Az app megadja a nyers rizs egyenértékét.":
         "Si cocinas solo arroz, bulgur o pasta como guarnición, funciona igual: arroz crudo 300 g, arroz cocido 820 g, porción 180 g. La app da el equivalente de arroz crudo.",
     "Ha enni szeretnél, mérd le a tányérodra kerülő adagot és írd be – megkapod a ":
@@ -3271,7 +3271,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Heti táplálkozási pillanatkép": "Resumen nutricional semanal",
     "HOGYAN HASZNÁLD?": "¿CÓMO USARLO?",
     "Hogyan működik?": "¿Cómo funciona?",
-    "HOGYAN SEGÍT A MEALR?": "¿CÓMO AYUDA MEALR?",
+    "HOGYAN SEGÍT A MEALFUL?": "¿CÓMO AYUDA MEALFUL?",
     "Hozzáadás": "Añadir",
     "Hozzáadva": "Añadido",
     "Hozzávaló": "Ingrediente",
@@ -3414,8 +3414,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Közepesen aktív (heti 3–5x)": "Moderadamente activo (3-5x/semana)",
     "Krémsajt": "Queso crema",
     "Kukorica": "Maíz",
-    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealr ilyenkor is a nyers egyenértéket számolja ki.":
-        "Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealr sigue calculando el equivalente crudo.",
+    "Külön köretnél is ugyanígy működik: ha a nyers alapanyag főzés közben vizet vesz fel, a kész tömeg több lehet, de ettől nem lesz több benne a kalória. A Mealful ilyenkor is a nyers egyenértéket számolja ki.":
+        "Con guarniciones separadas funciona igual: si un ingrediente crudo absorbe agua al cocinarse, el peso cocido puede ser mayor, pero eso no añade calorías. Mealful sigue calculando el equivalente crudo.",
     "Kuszkusz": "Cuscús",
     "Lassíts, egyél jól, pihenj könnyen.":
         "Baja el ritmo, come bien y descansa.",
@@ -3464,7 +3464,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Meal Prep tervező": "Planificador Meal Prep",
     "Meal Prep+": "Meal Prep+",
     "Meal preppelés": "Meal prep",
-    "Mealr Pro": "Mealr Pro",
+    "Mealful Pro": "Mealful Pro",
     "Mediterrán pulykás bulgur": "Bulgur mediterráneo con pavo",
     "Medium": "Media",
     "Még nincs elmentett bevásárlólistád.":
@@ -3810,7 +3810,7 @@ const arbTranslations = <String, Map<String, String>>{
         "Pancakes de avena con requesón preparados",
     "Tzatziki": "Tzatziki",
     "Uborka": "Pepino",
-    "ÜDV A MEALR-BEN": "BIENVENIDO A MEALR",
+    "ÜDV A MEALFUL-BEN": "BIENVENIDO A MEALFUL",
     "Új": "Nuevo",
     "Új bevásárlólista": "Nueva lista de compra",
     "Új étel": "Nuevo alimento",

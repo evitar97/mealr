@@ -77,7 +77,9 @@ class ProfileScreen extends StatelessWidget {
             children: [
               _SubscriptionStatus(
                 isPro: state.isPro,
-                planLabel: state.isPro ? 'Mealr Pro' : tx(context, 'Ingyenes'),
+                planLabel: state.isPro
+                    ? 'Mealful Pro'
+                    : tx(context, 'Ingyenes'),
                 expiryLabel: _subscriptionExpiryLabel(context, state),
               ),
               const SizedBox(height: 10),
