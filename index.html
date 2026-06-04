@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Mealful is a calm meal planning app for food lists, calorie targets, BMI reference, recipes, shopping lists, and weight progress.">
-  <meta name="theme-color" content="#286840">
+  <meta name="theme-color" content="#eff7f1">
   <meta name="apple-mobile-web-app-title" content="Mealful">
   <link rel="apple-touch-icon" href="web/icons/Icon-192.png">
   <link rel="icon" type="image/png" href="web/favicon.png">
@@ -12,16 +12,22 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f3faf5;
-      --bg-soft: #eff7f1;
+      --bg: #eff7f1;
+      --bg-2: #f6faf6;
+      --paper: #fbfdfb;
       --card: #ffffff;
-      --text: #0b2011;
-      --muted: #4e765a;
-      --accent: #286840;
-      --accent-dark: #1f5a35;
-      --border: #c9e1d0;
-      --note: #f4faf8;
-      --shadow: 0 18px 44px rgba(20, 74, 39, .12);
+      --text: #08150d;
+      --muted: #557461;
+      --muted-2: #7d9787;
+      --spinach: #287342;
+      --spinach-dark: #0f3a23;
+      --spinach-soft: #dfeee5;
+      --mint: #edf7f1;
+      --cream: #fffaf0;
+      --gold: #c8a33b;
+      --clay: #ce7042;
+      --border: rgba(24, 74, 43, .13);
+      --shadow: 0 28px 70px rgba(17, 71, 38, .13);
       --radius: 8px;
     }
 
@@ -36,34 +42,39 @@
     body {
       margin: 0;
       min-width: 320px;
-      font-family: "Nunito Sans", ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Nunito Sans", Inter, ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        linear-gradient(180deg, #eff7f1 0%, #f4faf6 34%, #f3faf5 72%, #f3faf5 100%);
+        radial-gradient(circle at 18% 8%, rgba(216, 237, 224, .95), rgba(216, 237, 224, 0) 32rem),
+        linear-gradient(180deg, #eff7f1 0%, #f8fbf8 42%, #edf6f0 100%);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
       color: inherit;
     }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(243, 250, 245, .88);
-      border-bottom: 1px solid rgba(201, 225, 208, .78);
-      backdrop-filter: blur(16px);
-    }
-
-    .nav,
     .wrap {
-      width: min(1080px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
     }
 
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(239, 247, 241, .84);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+
     .nav {
-      min-height: 68px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -73,42 +84,64 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 1.05rem;
-      font-weight: 900;
+      gap: 11px;
+      color: var(--spinach-dark);
+      font-size: 1.03rem;
+      font-weight: 950;
       text-decoration: none;
     }
 
     .brand img {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      box-shadow: 0 10px 24px rgba(40, 104, 64, .18);
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      box-shadow: 0 12px 28px rgba(40, 115, 66, .2);
     }
 
     .nav-links {
       display: flex;
-      gap: clamp(14px, 3vw, 30px);
+      align-items: center;
+      gap: clamp(14px, 3vw, 32px);
       color: var(--muted);
       font-size: .94rem;
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .nav-links a {
       text-decoration: none;
     }
 
-    .hero {
-      min-height: 78svh;
-      display: grid;
+    .button {
+      display: inline-flex;
       align-items: center;
-      padding: 74px 0 56px;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--spinach);
+      border-radius: var(--radius);
+      background: var(--spinach);
+      color: #fff;
+      font-weight: 950;
+      text-decoration: none;
+      box-shadow: 0 14px 34px rgba(40, 115, 66, .16);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, .72);
+      color: var(--spinach);
+      border-color: var(--border);
+      box-shadow: none;
+    }
+
+    .hero {
+      overflow: hidden;
+      padding: clamp(54px, 8vw, 108px) 0 42px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: clamp(28px, 6vw, 72px);
+      grid-template-columns: minmax(0, .96fr) minmax(420px, 1.04fr);
+      gap: clamp(30px, 7vw, 82px);
       align-items: center;
     }
 
@@ -116,30 +149,37 @@
       display: inline-flex;
       align-items: center;
       min-height: 34px;
-      padding: 0 12px;
-      border: 1px solid rgba(144, 189, 177, .78);
+      padding: 0 13px;
+      border: 1px solid rgba(40, 115, 66, .18);
       border-radius: 999px;
-      background: rgba(255, 255, 255, .72);
-      color: var(--accent);
-      font-size: .82rem;
-      font-weight: 900;
+      background: rgba(255, 255, 255, .62);
+      color: var(--spinach);
+      font-size: .78rem;
+      font-weight: 950;
       text-transform: uppercase;
     }
 
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
     h1 {
-      margin: 18px 0 16px;
+      margin-bottom: 20px;
       max-width: 760px;
-      font-size: clamp(3.2rem, 9vw, 6.7rem);
-      line-height: .95;
+      font-size: clamp(3.25rem, 9vw, 7.2rem);
+      line-height: .92;
       letter-spacing: 0;
     }
 
     .lede {
-      max-width: 710px;
-      margin: 0;
+      max-width: 660px;
+      margin-bottom: 0;
       color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.35rem);
-      font-weight: 750;
+      font-size: clamp(1.08rem, 2vw, 1.34rem);
+      font-weight: 760;
     }
 
     .actions {
@@ -149,176 +189,319 @@
       margin-top: 30px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border: 1px solid var(--accent);
-      border-radius: var(--radius);
-      background: var(--accent);
-      color: white;
-      font-weight: 900;
-      text-decoration: none;
+    .hero-notes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 38px;
+      max-width: 680px;
     }
 
-    .button.secondary {
-      background: white;
-      color: var(--accent);
-      border-color: var(--border);
-    }
-
-    .summary-panel {
-      padding: 24px;
+    .note {
+      min-height: 92px;
+      padding: 15px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, .76);
-      box-shadow: var(--shadow);
+      background: rgba(255, 255, 255, .58);
     }
 
-    .summary-panel img {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
-      box-shadow: 0 16px 34px rgba(40, 104, 64, .2);
-    }
-
-    .summary-panel h2 {
-      margin: 18px 0 10px;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.02;
-    }
-
-    .summary-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .summary-list span {
+    .note strong {
       display: block;
-      padding: 11px 12px;
-      border: 1px solid rgba(201, 225, 208, .78);
-      border-radius: var(--radius);
-      background: var(--note);
-      color: var(--muted);
-      font-weight: 800;
+      color: var(--spinach-dark);
+      font-size: 1.02rem;
+      line-height: 1.12;
     }
 
-    main section {
-      border-top: 1px solid rgba(201, 225, 208, .82);
+    .note span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 760;
+    }
+
+    .showcase {
+      position: relative;
+      min-height: 790px;
+    }
+
+    .screen {
+      position: absolute;
+      width: min(46vw, 345px);
+      border-radius: 28px;
+      background: #e5ebe7;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .screen img {
+      width: 100%;
+      height: auto;
+    }
+
+    .screen.primary {
+      z-index: 3;
+      left: 22%;
+      top: 0;
+      transform: rotate(1.5deg);
+    }
+
+    .screen.left {
+      z-index: 2;
+      left: 0;
+      top: 112px;
+      transform: rotate(-5deg) scale(.86);
+      opacity: .96;
+    }
+
+    .screen.right {
+      z-index: 1;
+      right: 0;
+      top: 142px;
+      transform: rotate(5deg) scale(.82);
+      opacity: .92;
+    }
+
+    .section {
+      border-top: 1px solid var(--border);
     }
 
     .section-inner {
-      padding: 72px 0;
+      padding: clamp(64px, 9vw, 112px) 0;
     }
 
     .section-kicker {
-      margin: 0 0 8px;
-      color: var(--accent);
-      font-size: .82rem;
-      font-weight: 900;
+      margin-bottom: 10px;
+      color: var(--spinach);
+      font-size: .78rem;
+      font-weight: 950;
       text-transform: uppercase;
     }
 
     h2 {
-      margin: 0 0 24px;
-      max-width: 760px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.03;
+      max-width: 850px;
+      margin-bottom: 28px;
+      font-size: clamp(2.25rem, 5vw, 4.7rem);
+      line-height: .98;
+      letter-spacing: 0;
     }
 
-    .grid {
+    .shot-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(230px, 300px);
+      gap: 18px;
+      overflow-x: auto;
+      padding: 8px 0 20px;
+      scrollbar-color: rgba(40, 115, 66, .42) transparent;
+    }
+
+    .shot-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .62);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .shot-card img {
+      width: 100%;
+    }
+
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
-    .feature,
-    .copy,
-    .policy {
+    .feature {
+      min-height: 216px;
+      padding: 24px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, .78);
+      background: rgba(255, 255, 255, .72);
       box-shadow: var(--shadow);
     }
 
-    .feature {
-      min-height: 174px;
-      padding: 22px;
+    .feature-mark {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--spinach);
+    }
+
+    .feature:nth-child(2) .feature-mark {
+      background: var(--gold);
+    }
+
+    .feature:nth-child(3) .feature-mark {
+      background: var(--clay);
     }
 
     .feature strong {
       display: block;
-      margin-bottom: 8px;
-      font-size: 1.12rem;
-      line-height: 1.2;
+      margin-bottom: 9px;
+      color: var(--spinach-dark);
+      font-size: 1.18rem;
+      line-height: 1.16;
     }
 
     .feature p,
     .copy p,
     .policy p,
     .policy li {
-      margin: 0;
+      margin-bottom: 0;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 720;
     }
 
-    .feature p + p,
-    .copy p + p,
-    .policy p + p {
-      margin-top: 12px;
+    .story {
+      display: grid;
+      grid-template-columns: .94fr 1.06fr;
+      gap: clamp(24px, 6vw, 72px);
+      align-items: center;
+    }
+
+    .story.flip {
+      grid-template-columns: 1.06fr .94fr;
+    }
+
+    .story-copy {
+      max-width: 520px;
+    }
+
+    .story-copy h2 {
+      margin-bottom: 18px;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      font-weight: 760;
+    }
+
+    .story-shot {
+      width: min(100%, 390px);
+      margin: 0 auto;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .band {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .38), rgba(255, 255, 255, 0)),
+        var(--mint);
     }
 
     .split {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
+      grid-template-columns: .92fr 1.08fr;
+      gap: clamp(20px, 5vw, 58px);
       align-items: start;
     }
 
     .copy,
     .policy {
-      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .75);
+      box-shadow: var(--shadow);
+    }
+
+    .copy {
+      padding: 26px;
     }
 
     .copy h3,
     .policy h3 {
-      margin: 0 0 10px;
-      font-size: 1.24rem;
-      line-height: 1.2;
+      margin-bottom: 10px;
+      color: var(--spinach-dark);
+      font-size: 1.2rem;
+      line-height: 1.18;
     }
 
-    .policy h3:not(:first-child) {
-      margin-top: 24px;
+    .copy p + p,
+    .policy p + p {
+      margin-top: 12px;
+    }
+
+    .policy {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .policy-item {
+      min-height: 180px;
+      padding: 24px;
+      background: rgba(255, 255, 255, .82);
     }
 
     .fine-print {
       margin-top: 18px;
-      color: var(--muted);
+      color: var(--muted-2);
       font-size: .92rem;
-      font-weight: 700;
+      font-weight: 760;
     }
 
     .site-footer {
-      border-top: 1px solid rgba(201, 225, 208, .82);
+      border-top: 1px solid var(--border);
       color: var(--muted);
     }
 
     .footer-inner {
-      padding: 30px 0;
+      padding: 34px 0;
       display: flex;
       justify-content: space-between;
       gap: 14px;
-      font-weight: 800;
+      font-weight: 850;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 980px) {
+      .hero-grid,
+      .story,
+      .story.flip,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase {
+        min-height: 690px;
+      }
+
+      .screen {
+        width: min(68vw, 305px);
+      }
+
+      .screen.primary {
+        left: 27%;
+      }
+
+      .feature-grid,
+      .hero-notes,
+      .policy {
+        grid-template-columns: 1fr;
+      }
+
+      .story.flip .story-shot {
+        order: 2;
+      }
+
+      .story.flip .story-copy {
+        order: 1;
+      }
+    }
+
+    @media (max-width: 680px) {
       .nav {
+        min-height: auto;
+        padding: 14px 0;
         align-items: flex-start;
         flex-direction: column;
-        padding: 14px 0;
       }
 
       .nav-links {
@@ -326,18 +509,33 @@
         justify-content: space-between;
       }
 
-      .hero-grid,
-      .grid,
-      .split {
-        grid-template-columns: 1fr;
-      }
-
       .hero {
-        min-height: auto;
+        padding-top: 42px;
       }
 
-      .feature {
-        min-height: auto;
+      .showcase {
+        min-height: 540px;
+      }
+
+      .screen {
+        width: min(72vw, 240px);
+        border-radius: 20px;
+      }
+
+      .screen.primary {
+        left: 20%;
+      }
+
+      .screen.left {
+        top: 86px;
+      }
+
+      .screen.right {
+        top: 100px;
+      }
+
+      .shot-rail {
+        grid-auto-columns: minmax(210px, 76vw);
       }
 
       .footer-inner {
@@ -348,12 +546,13 @@
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
+    <nav class="wrap nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Mealful home">
         <img src="web/icons/Icon-192.png" alt="">
         <span>Mealful</span>
       </a>
       <div class="nav-links">
+        <a href="#screens">Screens</a>
         <a href="#features">Features</a>
         <a href="#support">Support</a>
         <a href="#privacy">Privacy</a>
@@ -366,62 +565,135 @@
       <div class="wrap hero-grid">
         <div>
           <span class="eyebrow">Meal planning, made calmer</span>
-          <h1>Mealful</h1>
+          <h1>Plan meals without the noise.</h1>
           <p class="lede">
-            A practical meal planning app for food lists, calorie targets, BMI reference, recipes, shopping lists, and weight progress.
+            Mealful brings meal planning, calorie targets, BMI reference, recipes, shopping lists, and weight progress into one quiet place.
           </p>
           <div class="actions">
-            <a class="button" href="#features">View features</a>
+            <a class="button" href="#screens">See the app</a>
             <a class="button secondary" href="#privacy">Privacy policy</a>
           </div>
-        </div>
-        <aside class="summary-panel" aria-label="Mealful summary">
-          <img src="web/icons/Icon-192.png" alt="">
-          <h2>Built for everyday food decisions.</h2>
-          <p class="lede">Keep the planning tools close without turning meals into a dashboard.</p>
-          <div class="summary-list">
-            <span>Food lists and meal prep</span>
-            <span>Calorie and BMI references</span>
-            <span>Recipes, shopping, and progress</span>
+          <div class="hero-notes" aria-label="Mealful highlights">
+            <div class="note">
+              <strong>Recipes that fit</strong>
+              <span>Browse meals by style, calories, and nutrition.</span>
+            </div>
+            <div class="note">
+              <strong>Simple targets</strong>
+              <span>Estimate calories and BMI without clutter.</span>
+            </div>
+            <div class="note">
+              <strong>Real progress</strong>
+              <span>Record weight and see the trend clearly.</span>
+            </div>
           </div>
-        </aside>
+        </div>
+
+        <div class="showcase" aria-label="Mealful app screenshots">
+          <figure class="screen left">
+            <img src="web/screenshots/iphone/find-meals.jpg" alt="Mealful recipe browsing screen">
+          </figure>
+          <figure class="screen primary">
+            <img src="web/screenshots/iphone/plan-day.jpg" alt="Mealful daily meal planning screen">
+          </figure>
+          <figure class="screen right">
+            <img src="web/screenshots/iphone/track-progress.jpg" alt="Mealful weight progress screen">
+          </figure>
+        </div>
       </div>
     </section>
 
-    <section id="features">
+    <section class="section band" id="screens">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Inside Mealful</p>
+        <h2>The actual app, from onboarding to planning.</h2>
+        <div class="shot-rail" aria-label="Mealful iPhone screenshots">
+          <article class="shot-card">
+            <img src="web/screenshots/iphone/start-goals.jpg" alt="Mealful onboarding screenshot" loading="lazy">
+          </article>
+          <article class="shot-card">
+            <img src="web/screenshots/iphone/find-meals.jpg" alt="Mealful recipe list screenshot" loading="lazy">
+          </article>
+          <article class="shot-card">
+            <img src="web/screenshots/iphone/recipe-detail.jpg" alt="Mealful recipe detail screenshot" loading="lazy">
+          </article>
+          <article class="shot-card">
+            <img src="web/screenshots/iphone/plan-day.jpg" alt="Mealful meal planning screenshot" loading="lazy">
+          </article>
+          <article class="shot-card">
+            <img src="web/screenshots/iphone/meal-plans.jpg" alt="Mealful meal plan list screenshot" loading="lazy">
+          </article>
+          <article class="shot-card">
+            <img src="web/screenshots/iphone/track-progress.jpg" alt="Mealful weight tracking screenshot" loading="lazy">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
       <div class="wrap section-inner">
         <p class="section-kicker">Features</p>
-        <h2>A focused toolkit for planning meals and tracking progress.</h2>
-        <div class="grid">
+        <h2>A focused toolkit for everyday food decisions.</h2>
+        <div class="feature-grid">
           <article class="feature">
-            <strong>Food list</strong>
-            <p>Save foods with calories, macros, serving weight, and notes so repeat meals are easier to plan.</p>
+            <div class="feature-mark" aria-hidden="true"></div>
+            <strong>Plan the day</strong>
+            <p>Keep meals organized by category, add foods quickly, and turn selected recipes into meal-prep or shopping flow.</p>
           </article>
           <article class="feature">
-            <strong>Calorie target</strong>
-            <p>Estimate daily calorie needs from profile details and activity level, then keep the target visible while planning.</p>
+            <div class="feature-mark" aria-hidden="true"></div>
+            <strong>Pick meals that match</strong>
+            <p>Browse structured recipes and meal plans with calories, macros, diet style, preparation time, and ingredients.</p>
           </article>
           <article class="feature">
-            <strong>BMI reference</strong>
-            <p>Check body mass index and ideal-weight ranges as a simple reference, with profile values shared across the app.</p>
-          </article>
-          <article class="feature">
-            <strong>Recipe library</strong>
-            <p>Browse structured meal ideas with ingredients, steps, nutrition context, and dietary tags.</p>
-          </article>
-          <article class="feature">
-            <strong>Meal prep</strong>
-            <p>Build meal-prep plans by calorie level and turn selected recipes into a more organized week.</p>
-          </article>
-          <article class="feature">
-            <strong>Shopping lists</strong>
-            <p>Collect ingredients into list-ready groups so grocery planning is easier to scan and act on.</p>
+            <div class="feature-mark" aria-hidden="true"></div>
+            <strong>Track the basics</strong>
+            <p>Estimate calorie targets, check BMI ranges, and record weight progress with a simple trend view.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="support">
+    <section class="section band">
+      <div class="wrap section-inner story">
+        <div class="story-copy">
+          <p class="section-kicker">Recipes</p>
+          <h2>Cook with nutrition in mind.</h2>
+          <p>Mealful keeps recipe details practical: servings, total calories, macro split, difficulty, diet type, and ingredient amounts are all close at hand.</p>
+        </div>
+        <figure class="story-shot">
+          <img src="web/screenshots/iphone/recipe-detail.jpg" alt="Protein oatmeal recipe details in Mealful" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap section-inner story flip">
+        <figure class="story-shot">
+          <img src="web/screenshots/iphone/calorie-target.jpg" alt="Calorie target calculator in Mealful" loading="lazy">
+        </figure>
+        <div class="story-copy">
+          <p class="section-kicker">Targets</p>
+          <h2>Set a calorie target without guesswork.</h2>
+          <p>Use profile details and activity level to estimate maintenance calories, then keep that context available while planning meals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="wrap section-inner story">
+        <div class="story-copy">
+          <p class="section-kicker">Progress</p>
+          <h2>See the direction clearly.</h2>
+          <p>Mealful turns weight entries into a calm progress view with recent measurements and a readable trend line.</p>
+        </div>
+        <figure class="story-shot">
+          <img src="web/screenshots/iphone/track-progress.jpg" alt="Weight progress tracking in Mealful" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="support">
       <div class="wrap section-inner split">
         <div>
           <p class="section-kicker">Support</p>
@@ -435,36 +707,44 @@
       </div>
     </section>
 
-    <section id="privacy">
+    <section class="section" id="privacy">
       <div class="wrap section-inner">
         <p class="section-kicker">Privacy Policy</p>
         <h2>Mealful privacy policy</h2>
         <div class="policy">
-          <h3>Overview</h3>
-          <p>Mealful is a personal meal planning and nutrition reference app. The app is designed to store your planning data on your device.</p>
-
-          <h3>Data you enter</h3>
-          <p>You may enter food items, meal plans, recipe preferences, BMI and calorie calculator values, profile values, shopping lists, theme choices, language choices, and weight entries.</p>
-
-          <h3>Data collection</h3>
-          <p>Mealful does not require an account and does not currently send your personal app data to a developer-operated server.</p>
-
-          <h3>Third parties</h3>
-          <p>Mealful does not currently include third-party advertising or analytics SDKs.</p>
-
-          <h3>Purchases</h3>
-          <p>Mealful Pro subscriptions are processed by Apple through the App Store. Apple may process purchase information according to Apple’s own terms and privacy policy.</p>
-
-          <h3>Device storage</h3>
-          <p>Your app data may remain on your device unless you delete the app, clear app data, or use operating-system backup and restore features controlled by Apple.</p>
-
-          <h3>Health and nutrition note</h3>
-          <p>Mealful provides planning tools and general calculation references. It is not medical advice and should not replace guidance from a qualified health professional.</p>
-
-          <h3>Contact</h3>
-          <p>Questions about this policy can be sent through the App Store support listing for Mealful.</p>
-
-          <p class="fine-print">Last updated: June 4, 2026.</p>
+          <article class="policy-item">
+            <h3>Overview</h3>
+            <p>Mealful is a personal meal planning and nutrition reference app. The app is designed to store your planning data on your device.</p>
+          </article>
+          <article class="policy-item">
+            <h3>Data you enter</h3>
+            <p>You may enter food items, meal plans, recipe preferences, BMI and calorie calculator values, profile values, shopping lists, theme choices, language choices, and weight entries.</p>
+          </article>
+          <article class="policy-item">
+            <h3>Data collection</h3>
+            <p>Mealful does not require an account and does not currently send your personal app data to a developer-operated server.</p>
+          </article>
+          <article class="policy-item">
+            <h3>Third parties</h3>
+            <p>Mealful does not currently include third-party advertising or analytics SDKs.</p>
+          </article>
+          <article class="policy-item">
+            <h3>Purchases</h3>
+            <p>Mealful Pro subscriptions are processed by Apple through the App Store. Apple may process purchase information according to Apple’s own terms and privacy policy.</p>
+          </article>
+          <article class="policy-item">
+            <h3>Device storage</h3>
+            <p>Your app data may remain on your device unless you delete the app, clear app data, or use operating-system backup and restore features controlled by Apple.</p>
+          </article>
+          <article class="policy-item">
+            <h3>Health and nutrition note</h3>
+            <p>Mealful provides planning tools and general calculation references. It is not medical advice and should not replace guidance from a qualified health professional.</p>
+          </article>
+          <article class="policy-item">
+            <h3>Contact</h3>
+            <p>Questions about this policy can be sent through the App Store support listing for Mealful.</p>
+            <p class="fine-print">Last updated: June 4, 2026.</p>
+          </article>
         </div>
       </div>
     </section>
