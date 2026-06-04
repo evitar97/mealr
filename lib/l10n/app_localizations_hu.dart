@@ -45,7 +45,7 @@ class AppLocalizationsHu extends AppLocalizations {
       '→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)';
 
   @override
-  String get m0011 => '= 1.00€/hó · legjobb ár';
+  String get m0011 => '= 1.08€/hó · legjobb ár';
 
   @override
   String get m0012 => '1500 kcal étrendek';

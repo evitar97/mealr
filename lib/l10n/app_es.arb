@@ -44,9 +44,9 @@
   "@m0010": {
     "description": "Source text: → Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)"
   },
-  "m0011": "= 1,00€/mes · mejor precio",
+  "m0011": "= 1,08€/mes · mejor precio",
   "@m0011": {
-    "description": "Source text: = 1.00€/hó · legjobb ár"
+    "description": "Source text: = 1.08€/hó · legjobb ár"
   },
   "m0012": "Planes de 1500 kcal",
   "@m0012": {

@@ -16,7 +16,7 @@ const arbTranslations = <String, Map<String, String>>{
     "/hó": "/mo",
     "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
         "→ Enter this number into your calorie tracker\n(e.g. MyFitnessPal, Cronometer, etc.)",
-    "= 1.00€/hó · legjobb ár": "= 1.00€/mo · best value",
+    "= 1.08€/hó · legjobb ár": "= 1.08€/mo · best value",
     "1500 kcal étrendek": "1500 kcal meal plans",
     "30 nap": "30 days",
     "30/60 napos súlydiagram és statisztika":
@@ -175,6 +175,12 @@ const arbTranslations = <String, Map<String, String>>{
         "The meal plans are general guidance and do not replace a personalized plan created by a dietitian or doctor. If you have a medical condition, allergy, pregnancy, or a specific goal, ask a professional for help and use them at your own responsibility.",
     "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
         "You are charged only after day 7 · Cancel anytime",
+    "Az App Store jelenleg nem érhető el.":
+        "The App Store is currently unavailable.",
+    "Az előfizetések még nem érhetők el.":
+        "Subscriptions are not available yet.",
+    "A vásárlás nem indítható el.": "The purchase could not start.",
+    "A vásárlás nem sikerült.": "The purchase failed.",
     "Bagel": "Bagel",
     "Banán": "Banana",
     "Banános kakaós falatok": "Banana cocoa bites",
@@ -189,6 +195,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Edit shopping list",
     "Bevásárlólista törlése": "Delete shopping list",
     "Bezárás": "Close",
+    "Ez az előfizetés most nem érhető el.":
+        "This subscription is currently unavailable.",
     "Biztosan törlöd az összes rögzített súlyt?":
         "Are you sure you want to delete all recorded weights?",
     "Biztosan törlöd ezt a bevásárlólistát?":
@@ -927,6 +935,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Válassz étrend típust": "Choose a meal plan type",
     "Válassz főételt, köretet és adagold dobozokra":
         "Choose a main dish, side, and split into boxes",
+    "Vásárlás visszaállítása": "Restore purchases",
     "Vegán": "Vegan",
     "Vegetáriánus": "Vegetarian",
     "Veggie erő nap": "Veggie Strength Day",
@@ -967,7 +976,7 @@ const arbTranslations = <String, Map<String, String>>{
     "/hó": "/hó",
     "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
         "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)",
-    "= 1.00€/hó · legjobb ár": "= 1.00€/hó · legjobb ár",
+    "= 1.08€/hó · legjobb ár": "= 1.08€/hó · legjobb ár",
     "1500 kcal étrendek": "1500 kcal étrendek",
     "30 nap": "30 nap",
     "30/60 napos súlydiagram és statisztika":
@@ -1129,6 +1138,12 @@ const arbTranslations = <String, Map<String, String>>{
         "Az étrendek általános iránymutatásként szolgálnak, és nem helyettesítik a dietetikus vagy orvos által összeállított személyre szabott étrendet. Egészségügyi állapot, allergia, várandósság vagy speciális cél esetén kérj szakembertől segítséget, és saját felelősséggel használd őket.",
     "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
         "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható",
+    "Az App Store jelenleg nem érhető el.":
+        "Az App Store jelenleg nem érhető el.",
+    "Az előfizetések még nem érhetők el.":
+        "Az előfizetések még nem érhetők el.",
+    "A vásárlás nem indítható el.": "A vásárlás nem indítható el.",
+    "A vásárlás nem sikerült.": "A vásárlás nem sikerült.",
     "Bagel": "Bagel",
     "Banán": "Banán",
     "Banános kakaós falatok": "Banános kakaós falatok",
@@ -1143,6 +1158,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Bevásárlólista szerkesztése",
     "Bevásárlólista törlése": "Bevásárlólista törlése",
     "Bezárás": "Bezárás",
+    "Ez az előfizetés most nem érhető el.":
+        "Ez az előfizetés most nem érhető el.",
     "Biztosan törlöd az összes rögzített súlyt?":
         "Biztosan törlöd az összes rögzített súlyt?",
     "Biztosan törlöd ezt a bevásárlólistát?":
@@ -1889,6 +1906,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Válassz étrend típust": "Válassz étrend típust",
     "Válassz főételt, köretet és adagold dobozokra":
         "Válassz főételt, köretet és adagold dobozokra",
+    "Vásárlás visszaállítása": "Vásárlás visszaállítása",
     "Vegán": "Vegán",
     "Vegetáriánus": "Vegetáriánus",
     "Veggie erő nap": "Veggie erő nap",
@@ -1930,7 +1948,7 @@ const arbTranslations = <String, Map<String, String>>{
     "/hó": "/Monat",
     "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
         "→ Trage diese Zahl in deinen Kalorienzähler ein\n(z. B. MyFitnessPal, Cronometer usw.)",
-    "= 1.00€/hó · legjobb ár": "= 1,00€/Monat · bester Preis",
+    "= 1.08€/hó · legjobb ár": "= 1,08€/Monat · bester Preis",
     "1500 kcal étrendek": "1500-kcal-Ernährungspläne",
     "30 nap": "30 Tage",
     "30/60 napos súlydiagram és statisztika":
@@ -2093,6 +2111,12 @@ const arbTranslations = <String, Map<String, String>>{
         "Die Ernährungspläne dienen als allgemeine Orientierung und ersetzen keinen individuell von einem Ernährungsberater oder Arzt erstellten Plan. Bei Erkrankungen, Allergien, Schwangerschaft oder speziellen Zielen solltest du fachliche Hilfe einholen und sie eigenverantwortlich nutzen.",
     "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
         "Abrechnung erst nach dem 7. Tag · Jederzeit kündbar",
+    "Az App Store jelenleg nem érhető el.":
+        "Der App Store ist derzeit nicht erreichbar.",
+    "Az előfizetések még nem érhetők el.":
+        "Abonnements sind noch nicht verfügbar.",
+    "A vásárlás nem indítható el.": "Der Kauf konnte nicht gestartet werden.",
+    "A vásárlás nem sikerült.": "Der Kauf ist fehlgeschlagen.",
     "Bagel": "Bagel",
     "Banán": "Banane",
     "Banános kakaós falatok": "Bananen-Kakao-Bites",
@@ -2107,6 +2131,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Einkaufsliste bearbeiten",
     "Bevásárlólista törlése": "Einkaufsliste löschen",
     "Bezárás": "Schließen",
+    "Ez az előfizetés most nem érhető el.":
+        "Dieses Abonnement ist derzeit nicht verfügbar.",
     "Biztosan törlöd az összes rögzített súlyt?":
         "Möchtest du wirklich alle gespeicherten Gewichtswerte löschen?",
     "Biztosan törlöd ezt a bevásárlólistát?":
@@ -2854,6 +2880,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Válassz étrend típust": "Wähle einen Ernährungsplantyp",
     "Válassz főételt, köretet és adagold dobozokra":
         "Wähle Hauptgericht, Beilage und teile alles in Boxen auf",
+    "Vásárlás visszaállítása": "Käufe wiederherstellen",
     "Vegán": "Vegan",
     "Vegetáriánus": "Vegetarisch",
     "Veggie erő nap": "Veggie-Kraft-Tag",
@@ -2897,7 +2924,7 @@ const arbTranslations = <String, Map<String, String>>{
     "/hó": "/mes",
     "→ Ezt a számot írd be a kalóriaszámlálódba\n(pl. MyFitnessPal, Cronometer stb.)":
         "→ Introduce este número en tu contador de calorías\n(p. ej. MyFitnessPal, Cronometer, etc.)",
-    "= 1.00€/hó · legjobb ár": "= 1,00€/mes · mejor precio",
+    "= 1.08€/hó · legjobb ár": "= 1,08€/mes · mejor precio",
     "1500 kcal étrendek": "Planes de 1500 kcal",
     "30 nap": "30 días",
     "30/60 napos súlydiagram és statisztika":
@@ -3059,6 +3086,12 @@ const arbTranslations = <String, Map<String, String>>{
         "Los planes sirven como orientación general y no sustituyen un plan personalizado creado por un dietista o médico. Si tienes una condición médica, alergias, embarazo o un objetivo específico, consulta a un profesional y úsalos bajo tu propia responsabilidad.",
     "Az összeget csak a 7. nap után vonjuk le · Bármikor lemondható":
         "Se cobra solo después del día 7 · Cancela cuando quieras",
+    "Az App Store jelenleg nem érhető el.":
+        "El App Store no está disponible ahora.",
+    "Az előfizetések még nem érhetők el.":
+        "Las suscripciones aún no están disponibles.",
+    "A vásárlás nem indítható el.": "No se pudo iniciar la compra.",
+    "A vásárlás nem sikerült.": "La compra falló.",
     "Bagel": "Bagel",
     "Banán": "Plátano",
     "Banános kakaós falatok": "Bocados de banana y cacao",
@@ -3073,6 +3106,8 @@ const arbTranslations = <String, Map<String, String>>{
     "Bevásárlólista szerkesztése": "Editar lista de compra",
     "Bevásárlólista törlése": "Eliminar lista de compra",
     "Bezárás": "Cerrar",
+    "Ez az előfizetés most nem érhető el.":
+        "Esta suscripción no está disponible ahora.",
     "Biztosan törlöd az összes rögzített súlyt?":
         "¿Seguro que quieres eliminar todos los pesos registrados?",
     "Biztosan törlöd ezt a bevásárlólistát?":
@@ -3829,6 +3864,7 @@ const arbTranslations = <String, Map<String, String>>{
     "Válassz étrend típust": "Elige un tipo de plan",
     "Válassz főételt, köretet és adagold dobozokra":
         "Elige plato principal, guarnición y divídelos en recipientes",
+    "Vásárlás visszaállítása": "Restaurar compras",
     "Vegán": "Vegano",
     "Vegetáriánus": "Vegetariano",
     "Veggie erő nap": "Día fuerza veggie",

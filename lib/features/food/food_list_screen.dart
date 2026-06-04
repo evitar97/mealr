@@ -7,6 +7,7 @@ import '../../models/food_item.dart';
 import '../../models/meal_prep_plan.dart';
 import '../../models/recipe.dart';
 import '../../models/shopping_list.dart';
+import '../../services/iap_service.dart';
 import '../../services/share_service.dart';
 import '../../theme/app_typography.dart';
 import '../../utils/app_haptics.dart';
@@ -4453,7 +4454,7 @@ void showProPaywallSheet(BuildContext context) {
               onTap: () {},
               child: SizedBox(
                 height:
-                    MediaQuery.sizeOf(context).height * (isPro ? 0.62 : 0.82),
+                    MediaQuery.sizeOf(context).height * (isPro ? 0.62 : 0.9),
                 child: const Padding(
                   padding: EdgeInsets.fromLTRB(10, 8, 10, 0),
                   child: ProUpsellCard(),
@@ -4952,7 +4953,9 @@ class _FoodTileState extends State<FoodTile> {
 
 String _addedLabel(BuildContext context, String label) {
   return switch (label.trim().toLowerCase()) {
+    'today' => tx(context, 'Ma'),
     'ma' => tx(context, 'Ma'),
+    'yesterday' => tx(context, 'Tegnap'),
     'tegnap' => tx(context, 'Tegnap'),
     _ => label,
   };
@@ -7060,13 +7063,23 @@ class _Input extends StatelessWidget {
   }
 }
 
-class ProUpsellCard extends StatelessWidget {
+class ProUpsellCard extends StatefulWidget {
   const ProUpsellCard({super.key});
+
+  @override
+  State<ProUpsellCard> createState() => _ProUpsellCardState();
+}
+
+class _ProUpsellCardState extends State<ProUpsellCard> {
+  MealfulProPlan selectedPlan = MealfulProPlan.yearly;
 
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
+    final iap = state.iap;
     final p = state.palette;
+    final monthlyPrice = iap.priceFor(MealfulProPlan.monthly, '1.99€');
+    final yearlyPrice = iap.priceFor(MealfulProPlan.yearly, '12.99€');
     return GlassSurface(
       width: double.infinity,
       padding: EdgeInsets.zero,
@@ -7125,40 +7138,84 @@ class ProUpsellCard extends StatelessWidget {
           ),
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(14, 2, 14, 20),
+              padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
               child: Column(
                 children: [
                   _PaywallFeatureSections(isPro: state.isPro),
                   if (!state.isPro) ...[
-                    const SizedBox(height: 10),
-                    _PricingCard(),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 8),
+                    _PricingCard(
+                      selectedPlan: selectedPlan,
+                      monthlyPrice: monthlyPrice,
+                      yearlyPrice: yearlyPrice,
+                      onSelected: (plan) => setState(() {
+                        selectedPlan = plan;
+                      }),
+                    ),
+                    const SizedBox(height: 9),
                     SizedBox(
                       width: double.infinity,
                       child: CupertinoButton(
                         padding: const EdgeInsets.symmetric(
-                          vertical: 12,
+                          vertical: 10,
                           horizontal: 12,
                         ),
-                        color: state.primaryActionSurface,
+                        color: iap.canPurchase
+                            ? state.primaryActionSurface
+                            : _disabledActionFill(state),
                         borderRadius: BorderRadius.circular(14),
-                        onPressed: () {},
+                        onPressed: iap.canPurchase
+                            ? () => iap.buy(selectedPlan)
+                            : null,
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
-                          child: Text(
-                            tx(context, 'Próbáld ki ingyen 7 napig'),
-                            maxLines: 1,
-                            style: TextStyle(
-                              color: p.buttonText,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: -0.3,
-                            ),
-                          ),
+                          child: iap.purchasePending
+                              ? CupertinoActivityIndicator(color: p.buttonText)
+                              : Text(
+                                  tx(context, 'Próbáld ki ingyen 7 napig'),
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    color: iap.canPurchase
+                                        ? p.buttonText
+                                        : p.muted,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: -0.3,
+                                  ),
+                                ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 7),
+                    CupertinoButton(
+                      minimumSize: const Size(0, 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      onPressed: iap.purchasePending
+                          ? null
+                          : () => iap.restorePurchases(),
+                      child: Text(
+                        tx(context, 'Vásárlás visszaállítása'),
+                        style: TextStyle(
+                          color: p.accent,
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    if (iap.errorMessage != null) ...[
+                      const SizedBox(height: 2),
+                      Text(
+                        _paywallErrorText(context, iap.errorMessage!),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: p.muted,
+                          fontSize: 11,
+                          height: 1.2,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: 4),
                     Text(
                       tx(
                         context,
@@ -7167,8 +7224,8 @@ class ProUpsellCard extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: p.muted,
-                        fontSize: 11.5,
-                        height: 1.35,
+                        fontSize: 11,
+                        height: 1.24,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -7208,16 +7265,8 @@ class _PaywallFeatureSections extends StatelessWidget {
         title: tx(context, 'Heti táplálkozási pillanatkép'),
       ),
       _PaywallFeature(
-        icon: CupertinoIcons.share,
-        title: tx(context, 'Étel megosztás'),
-      ),
-      _PaywallFeature(
         icon: CupertinoIcons.chart_bar_alt_fill,
         title: tx(context, '30/60 napos súlydiagram és statisztika'),
-      ),
-      _PaywallFeature(
-        icon: CupertinoIcons.pencil,
-        title: tx(context, 'Súlynapló szerkesztés'),
       ),
       _PaywallFeature(
         icon: CupertinoIcons.paintbrush,
@@ -7234,47 +7283,11 @@ class _PaywallFeatureSections extends StatelessWidget {
       );
     }
 
-    return Column(
-      children: [
-        _PaywallFeatureGroup(
-          title: tx(context, 'Ingyenes alapok'),
-          subtitle: tx(context, 'Amit már most használhatsz'),
-          accent: false,
-          features: [
-            _PaywallFeature(
-              icon: CupertinoIcons.square_list,
-              title: tx(context, 'Főétel mentés'),
-              limit: '1 ${tx(context, 'db')}',
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.circle_grid_3x3,
-              title: tx(context, 'Köret mentés'),
-              limit: '1 ${tx(context, 'db')}',
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.archivebox,
-              title: tx(context, 'Meal Prep tervező'),
-              limit: '1 ${tx(context, 'db')}',
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.book,
-              title: tx(context, 'Receptek'),
-            ),
-            _PaywallFeature(
-              icon: CupertinoIcons.chart_bar,
-              title: tx(context, 'Súlykövetés diagram'),
-              limit: '7 ${tx(context, 'nap')}',
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        _PaywallFeatureGroup(
-          title: tx(context, 'Pro-val feloldható extrák'),
-          subtitle: tx(context, 'Rendszeres használathoz'),
-          accent: true,
-          features: proFeatures,
-        ),
-      ],
+    return _PaywallFeatureGroup(
+      title: tx(context, 'Pro-val feloldható extrák'),
+      subtitle: tx(context, 'Rendszeres használathoz'),
+      accent: true,
+      features: proFeatures,
     );
   }
 }
@@ -7297,7 +7310,7 @@ class _PaywallFeatureGroup extends StatelessWidget {
     final p = AppScope.of(context).palette;
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(12, 11, 12, 7),
+      padding: const EdgeInsets.fromLTRB(12, 10, 12, 5),
       decoration: BoxDecoration(
         color: p.card,
         borderRadius: BorderRadius.circular(14),
@@ -7319,16 +7332,16 @@ class _PaywallFeatureGroup extends StatelessWidget {
               letterSpacing: -0.2,
             ),
           ),
-          const SizedBox(height: 2),
+          const SizedBox(height: 1),
           Text(
             subtitle,
             style: TextStyle(
               color: p.muted,
-              fontSize: 13,
+              fontSize: 12.5,
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 9),
+          const SizedBox(height: 7),
           for (final feature in features) _PaywallFeatureRow(feature: feature),
         ],
       ),
@@ -7337,11 +7350,10 @@ class _PaywallFeatureGroup extends StatelessWidget {
 }
 
 class _PaywallFeature {
-  const _PaywallFeature({required this.icon, required this.title, this.limit});
+  const _PaywallFeature({required this.icon, required this.title});
 
   final IconData icon;
   final String title;
-  final String? limit;
 }
 
 class _PaywallFeatureRow extends StatelessWidget {
@@ -7353,12 +7365,12 @@ class _PaywallFeatureRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 6),
       child: Row(
         children: [
           Container(
-            width: 25,
-            height: 25,
+            width: 23,
+            height: 23,
             decoration: BoxDecoration(
               color: p.resultBg.withValues(alpha: 0.78),
               borderRadius: BorderRadius.circular(8),
@@ -7366,7 +7378,7 @@ class _PaywallFeatureRow extends StatelessWidget {
             ),
             child: Icon(feature.icon, color: p.accent, size: 14),
           ),
-          const SizedBox(width: 11),
+          const SizedBox(width: 9),
           Expanded(
             child: Text(
               feature.title,
@@ -7374,31 +7386,12 @@ class _PaywallFeatureRow extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: p.text,
-                fontSize: 14,
-                height: 1.22,
+                fontSize: 13.5,
+                height: 1.15,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
-          if (feature.limit != null) ...[
-            const SizedBox(width: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
-              decoration: BoxDecoration(
-                color: p.resultBg.withValues(alpha: 0.84),
-                borderRadius: BorderRadius.circular(999),
-                border: Border.all(color: p.border.withValues(alpha: 0.34)),
-              ),
-              child: Text(
-                feature.limit!,
-                style: TextStyle(
-                  color: p.accent,
-                  fontSize: 12.5,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-          ],
         ],
       ),
     );
@@ -7406,6 +7399,18 @@ class _PaywallFeatureRow extends StatelessWidget {
 }
 
 class _PricingCard extends StatelessWidget {
+  const _PricingCard({
+    required this.selectedPlan,
+    required this.monthlyPrice,
+    required this.yearlyPrice,
+    required this.onSelected,
+  });
+
+  final MealfulProPlan selectedPlan;
+  final String monthlyPrice;
+  final String yearlyPrice;
+  final ValueChanged<MealfulProPlan> onSelected;
+
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
@@ -7421,9 +7426,11 @@ class _PricingCard extends StatelessWidget {
         child: Column(
           children: [
             _PricingRow(
+              selected: selectedPlan == MealfulProPlan.monthly,
+              onTap: () => onSelected(MealfulProPlan.monthly),
               title: tx(context, 'Havi előfizetés'),
               subtitle: tx(context, 'Bármikor lemondható'),
-              price: '1.99€',
+              price: monthlyPrice,
               suffix: tx(context, '/hó'),
             ),
             Padding(
@@ -7434,9 +7441,11 @@ class _PricingCard extends StatelessWidget {
               ),
             ),
             _PricingRow(
+              selected: selectedPlan == MealfulProPlan.yearly,
+              onTap: () => onSelected(MealfulProPlan.yearly),
               title: tx(context, 'Éves előfizetés'),
-              subtitle: tx(context, '= 1.00€/hó · legjobb ár'),
-              price: '11.99€',
+              subtitle: tx(context, '= 1.08€/hó · legjobb ár'),
+              price: yearlyPrice,
               suffix: tx(context, '/év'),
               badge: '−50%',
             ),
@@ -7449,6 +7458,8 @@ class _PricingCard extends StatelessWidget {
 
 class _PricingRow extends StatelessWidget {
   const _PricingRow({
+    required this.selected,
+    required this.onTap,
     required this.title,
     required this.subtitle,
     required this.price,
@@ -7456,6 +7467,8 @@ class _PricingRow extends StatelessWidget {
     this.badge,
   });
 
+  final bool selected;
+  final VoidCallback onTap;
   final String title;
   final String subtitle;
   final String price;
@@ -7465,84 +7478,116 @@ class _PricingRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = AppScope.of(context).palette;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        title,
-                        style: TextStyle(
-                          color: p.text,
-                          fontSize: 15.5,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    if (badge != null) ...[
-                      const SizedBox(width: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 3,
-                        ),
-                        decoration: BoxDecoration(
-                          color: p.noteColor,
-                          borderRadius: BorderRadius.circular(999),
-                        ),
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: onTap,
+      child: Container(
+        color: selected ? p.resultBg.withValues(alpha: 0.68) : p.card,
+        padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
+        child: Row(
+          children: [
+            Icon(
+              selected
+                  ? CupertinoIcons.check_mark_circled_solid
+                  : CupertinoIcons.circle,
+              color: selected ? p.accent : p.border,
+              size: 18,
+            ),
+            const SizedBox(width: 9),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Flexible(
                         child: Text(
-                          badge!,
-                          style: const TextStyle(
-                            color: CupertinoColors.white,
-                            fontSize: 11,
+                          title,
+                          style: TextStyle(
+                            color: p.text,
+                            fontSize: 15.5,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
+                      if (badge != null) ...[
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: p.noteColor,
+                            borderRadius: BorderRadius.circular(999),
+                          ),
+                          child: Text(
+                            badge!,
+                            style: const TextStyle(
+                              color: CupertinoColors.white,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
-                ),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    color: p.muted,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
                   ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 8),
-          RichText(
-            text: TextSpan(
-              style: TextStyle(
-                color: p.muted,
-                fontFamily: MealText.family,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      color: p.muted,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
               ),
-              children: [
-                TextSpan(
-                  text: price,
-                  style: TextStyle(
-                    color: p.accent,
-                    fontSize: 19,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                TextSpan(text: suffix),
-              ],
             ),
-          ),
-        ],
+            const SizedBox(width: 8),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  color: p.muted,
+                  fontFamily: MealText.family,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+                children: [
+                  TextSpan(
+                    text: price,
+                    style: TextStyle(
+                      color: p.accent,
+                      fontSize: 19,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  TextSpan(text: suffix),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
+}
+
+String _paywallErrorText(BuildContext context, String message) {
+  if (message.startsWith('Missing products')) {
+    return tx(context, 'Az előfizetések még nem érhetők el.');
+  }
+  if (message == 'Store unavailable') {
+    return tx(context, 'Az App Store jelenleg nem érhető el.');
+  }
+  if (message == 'Product unavailable') {
+    return tx(context, 'Ez az előfizetés most nem érhető el.');
+  }
+  if (message == 'Purchase could not start') {
+    return tx(context, 'A vásárlás nem indítható el.');
+  }
+  if (message == 'Purchase failed') {
+    return tx(context, 'A vásárlás nem sikerült.');
+  }
+  return message;
 }

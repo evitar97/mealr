@@ -7,6 +7,7 @@ import '../models/meal_prep_plan.dart';
 import '../models/shopping_list.dart';
 import '../models/theme_option.dart';
 import '../models/weight_entry.dart';
+import '../services/iap_service.dart';
 import '../services/preferences_store.dart';
 import '../theme/mealweight_theme.dart';
 import '../utils/calculators.dart';
@@ -59,10 +60,16 @@ class WeightStats {
 }
 
 class AppState extends ChangeNotifier {
-  AppState({PreferencesStore preferences = const PreferencesStore()})
-    : _preferences = preferences;
+  AppState({
+    PreferencesStore preferences = const PreferencesStore(),
+    IapService? iapService,
+  }) : _preferences = preferences,
+       iap = iapService ?? IapService() {
+    iap.addListener(_notifyIapChanged);
+  }
 
   final PreferencesStore _preferences;
+  final IapService iap;
 
   AppTab tab = AppTab.foods;
   AppBrightnessMode brightnessMode = AppBrightnessMode.system;
@@ -115,6 +122,10 @@ class AppState extends ChangeNotifier {
     super.notifyListeners();
   }
 
+  void _notifyIapChanged() {
+    super.notifyListeners();
+  }
+
   Future<void> loadSavedPreferences() async {
     final snapshot = await _preferences.loadAppSnapshot();
     final themeId = await _preferences.loadThemeId();
@@ -148,6 +159,7 @@ class AppState extends ChangeNotifier {
   Future<void> prepareForLaunch() async {
     await Future.wait([
       loadSavedPreferences(),
+      iap.initialize(onProUnlocked: activateProFromPurchase),
       Future<void>.delayed(const Duration(milliseconds: 620)),
     ]);
     startupComplete = true;
@@ -200,9 +212,10 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setProMode(bool value) {
-    isPro = value;
-    proExpiresAt = value ? DateTime.now().add(const Duration(days: 30)) : null;
+  void activateProFromPurchase(String productId) {
+    if (isPro && proExpiresAt == null) return;
+    isPro = true;
+    proExpiresAt = null;
     _saveSnapshot();
     notifyListeners();
   }
@@ -211,7 +224,8 @@ class AppState extends ChangeNotifier {
       isPro ? 'Mealful Pro' : _localizedFreePlan;
 
   String get subscriptionExpiryLabel {
-    if (!isPro || proExpiresAt == null) return _localizedNoSubscription;
+    if (!isPro) return _localizedNoSubscription;
+    if (proExpiresAt == null) return _localizedActiveSubscription;
     return '$_localizedExpiresPrefix${_formatDate(proExpiresAt!)}';
   }
 
@@ -229,6 +243,14 @@ class AppState extends ChangeNotifier {
     AppLanguage.german => 'Kein aktives Abo',
     AppLanguage.spanish => 'Sin suscripción activa',
     AppLanguage.hungarian => 'Nincs aktív előfizetés',
+  };
+
+  String get _localizedActiveSubscription => switch (language) {
+    AppLanguage.system => 'Active subscription',
+    AppLanguage.english => 'Active subscription',
+    AppLanguage.german => 'Aktives Abo',
+    AppLanguage.spanish => 'Suscripción activa',
+    AppLanguage.hungarian => 'Aktív előfizetés',
   };
 
   String get _localizedExpiresPrefix => switch (language) {
@@ -906,6 +928,13 @@ class AppState extends ChangeNotifier {
     } on TypeError {
       return false;
     }
+  }
+
+  @override
+  void dispose() {
+    iap.removeListener(_notifyIapChanged);
+    iap.dispose();
+    super.dispose();
   }
 
   double _oneDecimal(double value) => (value * 10).round() / 10;

@@ -45,7 +45,7 @@ class AppLocalizationsDe extends AppLocalizations {
       '→ Trage diese Zahl in deinen Kalorienzähler ein\n(z. B. MyFitnessPal, Cronometer usw.)';
 
   @override
-  String get m0011 => '= 1,00€/Monat · bester Preis';
+  String get m0011 => '= 1,08€/Monat · bester Preis';
 
   @override
   String get m0012 => '1500-kcal-Ernährungspläne';

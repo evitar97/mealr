@@ -1,4 +1,4 @@
-package com.example.mealweight_flutter
+package com.ati.mealful
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine

@@ -45,7 +45,7 @@ class AppLocalizationsEn extends AppLocalizations {
       '→ Enter this number into your calorie tracker\n(e.g. MyFitnessPal, Cronometer, etc.)';
 
   @override
-  String get m0011 => '= 1.00€/mo · best value';
+  String get m0011 => '= 1.08€/mo · best value';
 
   @override
   String get m0012 => '1500 kcal meal plans';

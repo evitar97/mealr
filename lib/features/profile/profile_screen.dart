@@ -13,7 +13,6 @@ import '../../utils/calculators.dart';
 import '../../widgets/app_card.dart';
 import '../../widgets/app_components.dart';
 import '../../widgets/app_sheet.dart';
-import '../../widgets/mealweight_mark.dart';
 import '../../widgets/theme_picker_sheet.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -70,28 +69,6 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
-        SectionLabel(tx(context, 'Előfizetés')),
-        AppCard(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
-          child: Column(
-            children: [
-              _SubscriptionStatus(
-                isPro: state.isPro,
-                planLabel: state.isPro
-                    ? 'Mealful Pro'
-                    : tx(context, 'Ingyenes'),
-                expiryLabel: _subscriptionExpiryLabel(context, state),
-              ),
-              const SizedBox(height: 10),
-              _ToggleRow(
-                icon: CupertinoIcons.lock_open,
-                title: tx(context, 'Pro mód teszt'),
-                value: state.isPro,
-                onChanged: state.setProMode,
-              ),
-            ],
-          ),
-        ),
       ],
     );
   }
@@ -117,80 +94,6 @@ String _formatEntryDate(DateTime date) {
   final hour = date.hour.toString().padLeft(2, '0');
   final minute = date.minute.toString().padLeft(2, '0');
   return '${date.year}. $month. $day. $hour:$minute';
-}
-
-class _SubscriptionStatus extends StatelessWidget {
-  const _SubscriptionStatus({
-    required this.isPro,
-    required this.planLabel,
-    required this.expiryLabel,
-  });
-
-  final bool isPro;
-  final String planLabel;
-  final String expiryLabel;
-
-  @override
-  Widget build(BuildContext context) {
-    final state = AppScope.of(context);
-    final p = state.palette;
-    final softBorder = p.border.withValues(alpha: state.isDark ? 0.58 : 0.34);
-    return Row(
-      children: [
-        Container(
-          width: 46,
-          height: 46,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: isPro ? p.accent : p.bg,
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(
-              color: isPro ? p.accent.withValues(alpha: 0.72) : softBorder,
-            ),
-          ),
-          child: isPro
-              ? const MealWeightMark(size: 46, radius: 15)
-              : Icon(CupertinoIcons.lock, color: p.muted, size: 20),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(planLabel, style: MealText.cardTitle(p.text)),
-              const SizedBox(height: 2),
-              Text(
-                isPro
-                    ? '${tx(context, 'Aktív előfizetés · ')}$expiryLabel'
-                    : '$expiryLabel${tx(context, ' Pro extrák lezárva')}',
-                style: MealText.callout(
-                  p.muted,
-                ).copyWith(fontWeight: FontWeight.w500),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-          decoration: BoxDecoration(
-            color: isPro ? p.resultBg : p.bg,
-            borderRadius: BorderRadius.circular(999),
-            border: Border.all(
-              color: isPro
-                  ? p.resultBorder.withValues(alpha: 0.58)
-                  : softBorder,
-            ),
-          ),
-          child: Text(
-            isPro ? 'PRO' : 'FREE',
-            style: MealText.captionStrong(
-              isPro ? p.accent : p.muted,
-            ).copyWith(letterSpacing: 0.6),
-          ),
-        ),
-      ],
-    );
-  }
 }
 
 class _WeightTrackerCard extends StatefulWidget {
@@ -1572,16 +1475,6 @@ IconData _brightnessModeIcon(AppBrightnessMode mode) {
   };
 }
 
-String _subscriptionExpiryLabel(BuildContext context, AppState state) {
-  if (!state.isPro || state.proExpiresAt == null) {
-    return tx(context, 'Nincs aktív előfizetés');
-  }
-  final date = state.proExpiresAt!;
-  final month = date.month.toString().padLeft(2, '0');
-  final day = date.day.toString().padLeft(2, '0');
-  return '${tx(context, 'Lejár: ')}${date.year}. $month. $day.';
-}
-
 class _SettingsSheet extends StatelessWidget {
   const _SettingsSheet();
 
@@ -1629,15 +1522,6 @@ class _SettingsSheet extends StatelessWidget {
             padding: EdgeInsets.zero,
             child: Column(
               children: [
-                _ProfileRow(
-                  icon: CupertinoIcons.sparkles,
-                  title: tx(context, 'Onboarding újraindítása'),
-                  subtitle: tx(context, 'Nyisd meg újra a bevezetőt'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    state.restartOnboarding();
-                  },
-                ),
                 _ProfileRow(
                   icon: CupertinoIcons.info,
                   title: tx(context, 'Verzió 1.0.0'),
@@ -1791,63 +1675,6 @@ class _SheetHeader extends StatelessWidget {
           child: Icon(CupertinoIcons.xmark, color: p.muted, size: 17),
         ),
       ],
-    );
-  }
-}
-
-class _ToggleRow extends StatelessWidget {
-  const _ToggleRow({
-    required this.icon,
-    required this.title,
-    required this.value,
-    required this.onChanged,
-  });
-
-  final IconData icon;
-  final String title;
-  final bool value;
-  final ValueChanged<bool> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final state = AppScope.of(context);
-    final p = state.palette;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-      child: Row(
-        children: [
-          Container(
-            width: 34,
-            height: 34,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: state.isDark ? p.bg : p.resultBg,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(
-              icon,
-              color: p.accent.withValues(alpha: state.isDark ? 0.74 : 0.58),
-              size: 18,
-            ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              title,
-              style: TextStyle(
-                color: p.text,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          CupertinoSwitch(
-            value: value,
-            activeTrackColor: p.accent,
-            onChanged: onChanged,
-          ),
-        ],
-      ),
     );
   }
 }

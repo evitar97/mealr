@@ -169,10 +169,10 @@ abstract class AppLocalizations {
   /// **'→ Enter this number into your calorie tracker\n(e.g. MyFitnessPal, Cronometer, etc.)'**
   String get m0010;
 
-  /// Source text: = 1.00€/hó · legjobb ár
+  /// Source text: = 1.08€/hó · legjobb ár
   ///
   /// In en, this message translates to:
-  /// **'= 1.00€/mo · best value'**
+  /// **'= 1.08€/mo · best value'**
   String get m0011;
 
   /// Source text: 1500 kcal étrendek

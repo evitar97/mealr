@@ -45,7 +45,7 @@ class AppLocalizationsEs extends AppLocalizations {
       '→ Introduce este número en tu contador de calorías\n(p. ej. MyFitnessPal, Cronometer, etc.)';
 
   @override
-  String get m0011 => '= 1,00€/mes · mejor precio';
+  String get m0011 => '= 1,08€/mes · mejor precio';
 
   @override
   String get m0012 => 'Planes de 1500 kcal';
