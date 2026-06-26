@@ -12,6 +12,7 @@ import '../../services/share_service.dart';
 import '../../theme/app_typography.dart';
 import '../../utils/app_haptics.dart';
 import '../../utils/calculators.dart';
+import '../../utils/external_links.dart';
 import '../../widgets/app_card.dart';
 import '../../widgets/app_components.dart';
 import '../../widgets/app_sheet.dart';
@@ -7215,6 +7216,8 @@ class _ProUpsellCardState extends State<ProUpsellCard> {
                         ),
                       ),
                     ],
+                    const SizedBox(height: 2),
+                    const _PaywallLegalLinks(),
                     const SizedBox(height: 4),
                     Text(
                       tx(
@@ -7238,6 +7241,84 @@ class _ProUpsellCardState extends State<ProUpsellCard> {
       ),
     );
   }
+}
+
+class _PaywallLegalLinks extends StatelessWidget {
+  const _PaywallLegalLinks();
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return Wrap(
+      alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: 8,
+      runSpacing: 2,
+      children: [
+        _PaywallTextLink(
+          label: _localizedReviewText(
+            context,
+            hu: 'Adatvédelmi szabályzat',
+            en: 'Privacy Policy',
+            de: 'Datenschutz',
+            es: 'Privacidad',
+          ),
+          onPressed: () => openExternalUrl(mealfulPrivacyPolicyUrl),
+        ),
+        Text('·', style: TextStyle(color: p.muted, fontSize: 11)),
+        _PaywallTextLink(
+          label: _localizedReviewText(
+            context,
+            hu: 'Felhasználási feltételek',
+            en: 'Terms of Use',
+            de: 'Nutzungsbedingungen',
+            es: 'Términos de uso',
+          ),
+          onPressed: () => openExternalUrl(appleStandardEulaUrl),
+        ),
+      ],
+    );
+  }
+}
+
+class _PaywallTextLink extends StatelessWidget {
+  const _PaywallTextLink({required this.label, required this.onPressed});
+
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return CupertinoButton(
+      minimumSize: const Size(0, 28),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      onPressed: onPressed,
+      child: Text(
+        label,
+        style: TextStyle(
+          color: p.accent,
+          fontSize: 11.5,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+String _localizedReviewText(
+  BuildContext context, {
+  required String hu,
+  required String en,
+  required String de,
+  required String es,
+}) {
+  return switch (AppScope.of(context).resolvedLanguageCode(context)) {
+    'hu' => hu,
+    'de' => de,
+    'es' => es,
+    _ => en,
+  };
 }
 
 class _PaywallFeatureSections extends StatelessWidget {

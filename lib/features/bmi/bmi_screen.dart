@@ -6,6 +6,7 @@ import '../../app/app_strings.dart';
 import '../../theme/app_typography.dart';
 import '../../utils/app_haptics.dart';
 import '../../utils/calculators.dart';
+import '../../utils/external_links.dart';
 import '../../widgets/app_components.dart';
 import '../../widgets/spring_pressable.dart';
 
@@ -69,9 +70,116 @@ class BmiScreen extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(color: p.muted, fontSize: 11),
         ),
+        const SizedBox(height: 10),
+        const _BmiCitationCard(),
       ],
     );
   }
+}
+
+class _BmiCitationCard extends StatelessWidget {
+  const _BmiCitationCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return _BmiPanel(
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            _bmiCitationText(
+              context,
+              hu: 'BMI források',
+              en: 'BMI sources',
+              de: 'BMI-Quellen',
+              es: 'Fuentes de BMI',
+            ),
+            style: TextStyle(
+              color: p.text,
+              fontSize: 14.5,
+              fontWeight: FontWeight.w600,
+              letterSpacing: -0.1,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            _bmiCitationText(
+              context,
+              hu: 'A BMI tartományok általános tájékoztatásra szolgálnak.',
+              en: 'BMI ranges are provided for general guidance.',
+              de: 'BMI-Bereiche dienen der allgemeinen Orientierung.',
+              es: 'Los rangos de BMI son una orientación general.',
+            ),
+            style: TextStyle(
+              color: p.muted,
+              fontSize: 12,
+              height: 1.25,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 6,
+            children: [
+              _BmiCitationLink(
+                label: 'CDC',
+                onPressed: () => openExternalUrl(cdcAdultBmiCategoriesUrl),
+              ),
+              _BmiCitationLink(
+                label: 'WHO',
+                onPressed: () => openExternalUrl(whoBmiReferenceUrl),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _BmiCitationLink extends StatelessWidget {
+  const _BmiCitationLink({required this.label, required this.onPressed});
+
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = AppScope.of(context).palette;
+    return CupertinoButton(
+      minimumSize: const Size(0, 32),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      color: p.bg.withValues(alpha: 0.72),
+      borderRadius: BorderRadius.circular(999),
+      onPressed: onPressed,
+      child: Text(
+        label,
+        style: TextStyle(
+          color: p.accent,
+          fontSize: 12.5,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+String _bmiCitationText(
+  BuildContext context, {
+  required String hu,
+  required String en,
+  required String de,
+  required String es,
+}) {
+  return switch (AppScope.of(context).resolvedLanguageCode(context)) {
+    'hu' => hu,
+    'de' => de,
+    'es' => es,
+    _ => en,
+  };
 }
 
 class _BmiResultCard extends StatelessWidget {
